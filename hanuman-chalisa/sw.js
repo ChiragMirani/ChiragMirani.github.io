@@ -1,4 +1,4 @@
-const CACHE = "hanuman-chalisa-v1";
+const CACHE = "hanuman-chalisa-v2";
 const SHELL = [
   "./",
   "./index.html",
@@ -6,10 +6,15 @@ const SHELL = [
   "./data.json",
   "./static/styles.css",
   "./manifest.webmanifest",
+  "./manifest-v2.webmanifest",
   "./apple-touch-icon.png",
+  "./hanuman-app-icon-180.png",
+  "./hanuman-app-icon-192.png",
+  "./hanuman-app-icon-512.png",
   "./favicon-192.png",
   "./favicon-512.png",
   "./favicon-32.png",
+  "./hanuman-favicon-32.png",
   "./favicon.ico",
   "./social-preview.png"
 ];
