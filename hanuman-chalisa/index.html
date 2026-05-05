@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Shri Hanuman Chalisa in English</title>
+    <meta name="description" content="Read the complete Hanuman Chalisa in English, one verse at a time, with Devanagari, IAST transliteration, and a clean English meaning. Free, fast, offline-ready, and installable.">
+    <meta name="author" content="Goswami Tulsidas">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <meta name="keywords" content="hanuman chalisa, hanuman chalisa english, hanuman chalisa meaning, hanuman chalisa lyrics, shri hanuman chalisa, tulsidas, awadhi hymn, hindu devotional hymn">
+    <link rel="canonical" href="https://chiragmirani.github.io/hanuman-chalisa/">
+
+    <meta property="og:type" content="book">
+    <meta property="og:title" content="Shri Hanuman Chalisa in English">
+    <meta property="og:description" content="The complete Hanuman Chalisa with Devanagari, transliteration, and English meaning.">
+    <meta property="og:url" content="https://chiragmirani.github.io/hanuman-chalisa/">
+    <meta property="og:site_name" content="Shri Hanuman Chalisa">
+    <meta property="og:image" content="https://chiragmirani.github.io/hanuman-chalisa/social-preview.png">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="640">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Shri Hanuman Chalisa in English">
+    <meta name="twitter:description" content="The complete Hanuman Chalisa with Devanagari, transliteration, and English meaning.">
+    <meta name="twitter:image" content="https://chiragmirani.github.io/hanuman-chalisa/social-preview.png">
+    <meta name="twitter:creator" content="@chirag_mirani1">
+
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+    <meta name="apple-mobile-web-app-title" content="Hanuman Chalisa">
+    <meta name="application-name" content="Hanuman Chalisa">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="stylesheet" href="static/styles.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://chiragmirani.github.io/hanuman-chalisa/#website",
+          "url": "https://chiragmirani.github.io/hanuman-chalisa/",
+          "name": "Shri Hanuman Chalisa in English",
+          "alternateName": "Hanuman Chalisa",
+          "description": "The complete Hanuman Chalisa with Devanagari, transliteration, and English meaning.",
+          "publisher": {"@type": "Person", "name": "Chirag Mirani"}
+        },
+        {
+          "@type": "Book",
+          "name": "Hanuman Chalisa",
+          "alternateName": "Shri Hanuman Chalisa",
+          "inLanguage": ["awa", "hi", "en"],
+          "author": {"@type": "Person", "name": "Goswami Tulsidas"},
+          "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+          "url": "https://chiragmirani.github.io/hanuman-chalisa/"
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <main>
+      <header class="topbar">
+        <a class="brand" href="./">Shri Hanuman Chalisa</a>
+        <nav>
+          <a href="about.html">About</a>
+        </nav>
+      </header>
+
+      <section class="card" id="card">
+        <p class="ref" id="ref">Loading...</p>
+        <p class="quote" id="quote"></p>
+        <details class="extras">
+          <summary>Devanagari and transliteration</summary>
+          <p class="sanskrit" id="original"></p>
+          <p class="translit" id="translit"></p>
+        </details>
+        <p class="cred" id="cred"></p>
+      </section>
+
+      <div class="actions">
+        <button type="button" class="btn back" id="prev">Previous</button>
+        <button type="button" class="btn primary" id="next">Next verse</button>
+      </div>
+      <div class="actions secondary-actions">
+        <button type="button" class="btn back" id="first">Opening</button>
+        <button type="button" class="btn" id="last">Closing</button>
+        <button type="button" class="btn" id="daily">Verse of the day</button>
+        <button type="button" class="btn" id="random">Random</button>
+        <button type="button" class="btn" id="copy">Copy verse</button>
+        <button type="button" class="btn" id="link">Copy link</button>
+      </div>
+
+      <details class="verse-browser">
+        <summary>Browse all 43 verses</summary>
+        <ol class="verse-list" id="verse-list"></ol>
+      </details>
+
+      <footer class="foot">
+        <p>The complete Hanuman Chalisa in English with Devanagari and transliteration. Free to read, share, and reuse. The traditional text is attributed to Goswami Tulsidas.</p>
+        <p class="muted">Built by Chirag Mirani in the same reader style as <a href="https://chiragmirani.github.io/gita-quotes/" target="_blank" rel="noopener">The Bhagavad Gita</a>. Source text checked against <a href="https://wiki.yoga-vidya.de/Hanuman_Chalisa_Text" target="_blank" rel="noopener">YogaWiki</a>.</p>
+      </footer>
+    </main>
+
+    <script>
+      const SITE = "https://chiragmirani.github.io/hanuman-chalisa/";
+      const STORAGE_KEY = "hanumanChalisa.lastVerseId";
+      let verses = [];
+      let currentIndex = 0;
+
+      const elRef = document.getElementById("ref");
+      const elQuote = document.getElementById("quote");
+      const elOriginal = document.getElementById("original");
+      const elTranslit = document.getElementById("translit");
+      const elCred = document.getElementById("cred");
+      const btnPrev = document.getElementById("prev");
+      const btnNext = document.getElementById("next");
+      const btnRandom = document.getElementById("random");
+      const btnCopy = document.getElementById("copy");
+      const btnLink = document.getElementById("link");
+      const btnDaily = document.getElementById("daily");
+      const btnFirst = document.getElementById("first");
+      const btnLast = document.getElementById("last");
+      const elVerseList = document.getElementById("verse-list");
+
+      function labelFor(v) {
+        if (v.type === "Chaupai") return "Chaupai " + v.number + " of 40";
+        return v.type + " " + v.number;
+      }
+
+      function show(index) {
+        if (!verses.length) return;
+        currentIndex = ((index % verses.length) + verses.length) % verses.length;
+        const v = verses[currentIndex];
+        elRef.textContent = labelFor(v) + "  ·  Goswami Tulsidas";
+        elQuote.textContent = v.english;
+        elOriginal.textContent = v.original || "";
+        elTranslit.textContent = v.transliteration || "";
+        elCred.textContent = "Awadhi devotional hymn · Shri Hanuman Chalisa";
+        history.replaceState(null, "", "?v=" + encodeURIComponent(v.id));
+        document.title = labelFor(v) + " | Hanuman Chalisa";
+        try { localStorage.setItem(STORAGE_KEY, v.id); } catch (e) {}
+      }
+
+      function findIndexById(id) {
+        return verses.findIndex((v) => v.id === id);
+      }
+
+      function flashButton(btn, label) {
+        const original = btn.textContent;
+        btn.textContent = label;
+        setTimeout(() => { btn.textContent = original; }, 1400);
+      }
+
+      function dailyVerseIndex() {
+        const today = new Date().toISOString().slice(0, 10);
+        let hash = 0;
+        for (let i = 0; i < today.length; i++) {
+          hash = ((hash << 5) - hash) + today.charCodeAt(i);
+          hash |= 0;
+        }
+        return Math.abs(hash) % verses.length;
+      }
+
+      function writeClipboard(text, btn) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(() => flashButton(btn, "Copied"));
+          return;
+        }
+        const area = document.createElement("textarea");
+        area.value = text;
+        area.setAttribute("readonly", "");
+        area.className = "copy-buffer";
+        document.body.appendChild(area);
+        area.select();
+        document.execCommand("copy");
+        document.body.removeChild(area);
+        flashButton(btn, "Copied");
+      }
+
+      btnNext.addEventListener("click", () => show(currentIndex + 1));
+      btnPrev.addEventListener("click", () => show(currentIndex - 1));
+      btnFirst.addEventListener("click", () => show(0));
+      btnLast.addEventListener("click", () => show(verses.length - 1));
+      btnRandom.addEventListener("click", () => show(Math.floor(Math.random() * verses.length)));
+      btnDaily.addEventListener("click", () => show(dailyVerseIndex()));
+      btnCopy.addEventListener("click", () => {
+        const v = verses[currentIndex];
+        const text = v.english + "\n\n" + v.original + "\n\n" + labelFor(v) + " · Shri Hanuman Chalisa";
+        writeClipboard(text, btnCopy);
+      });
+      btnLink.addEventListener("click", () => {
+        const v = verses[currentIndex];
+        writeClipboard(SITE + "?v=" + encodeURIComponent(v.id), btnLink);
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+        if (e.key === "ArrowRight" || e.key === " ") { e.preventDefault(); show(currentIndex + 1); }
+        if (e.key === "ArrowLeft") { e.preventDefault(); show(currentIndex - 1); }
+        if (e.key === "Home") { e.preventDefault(); show(0); }
+        if (e.key === "End") { e.preventDefault(); show(verses.length - 1); }
+      });
+
+      let touchStartX = null;
+      let touchStartY = null;
+      document.addEventListener("touchstart", (e) => {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+      }, { passive: true });
+      document.addEventListener("touchend", (e) => {
+        if (touchStartX === null) return;
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        const dy = e.changedTouches[0].clientY - touchStartY;
+        if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+          show(currentIndex + (dx < 0 ? 1 : -1));
+        }
+        touchStartX = null;
+        touchStartY = null;
+      }, { passive: true });
+
+      function buildVerseList() {
+        if (!elVerseList) return;
+        elVerseList.innerHTML = "";
+        verses.forEach((v, i) => {
+          const li = document.createElement("li");
+          const a = document.createElement("a");
+          a.href = "?v=" + encodeURIComponent(v.id);
+          a.textContent = labelFor(v);
+          a.addEventListener("click", (ev) => {
+            ev.preventDefault();
+            show(i);
+            const browser = a.closest("details");
+            if (browser) browser.open = false;
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          });
+          li.appendChild(a);
+          elVerseList.appendChild(li);
+        });
+      }
+
+      fetch("data.json")
+        .then((response) => response.json())
+        .then((data) => {
+          verses = data.verses;
+          buildVerseList();
+          const params = new URLSearchParams(window.location.search);
+          const wantUrl = params.get("v");
+          let saved = null;
+          try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+          let idx = 0;
+          if (wantUrl) {
+            const found = findIndexById(wantUrl);
+            if (found >= 0) idx = found;
+          } else if (saved) {
+            const found = findIndexById(saved);
+            if (found >= 0) idx = found;
+          }
+          show(idx);
+        })
+        .catch((err) => {
+          elRef.textContent = "Unable to load";
+          elQuote.textContent = "Could not load the Hanuman Chalisa data: " + err;
+        });
+
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("sw.js").catch(() => {});
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+# Shri Hanuman Chalisa
+
+This is a small static reader for the complete Hanuman Chalisa.
+
+The app includes:
+- Two opening dohas, forty chaupais, and one closing doha.
+- Devanagari text, IAST transliteration, and English meaning.
+- Offline support through a service worker.
+- Home-screen install metadata for iOS and Android.
+
+Canonical URL: https://chiragmirani.github.io/hanuman-chalisa/
+Source text reference: https://wiki.yoga-vidya.de/Hanuman_Chalisa_Text

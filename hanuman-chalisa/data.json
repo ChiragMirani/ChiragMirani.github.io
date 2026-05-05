@@ -1,0 +1,352 @@
+{
+  "title": "Shri Hanuman Chalisa",
+  "author": "Goswami Tulsidas",
+  "language": "Awadhi",
+  "source": "Traditional public-domain text. Devanagari and transliteration checked against YogaWiki.",
+  "verses": [
+    {
+      "id": "doha-1",
+      "type": "Opening Doha",
+      "number": 1,
+      "original": "श्रीगुरु चरन सरोज रज निज मनु मुकुरु सुधारि ।\nबरनउँ रघुबर बिमल जसु जो दायकु फल चारि ॥",
+      "transliteration": "shrīguru charana saroja raja nija manu mukuru sudhāri |\nbaranauṃ raghubara bimala jasu jo dāyaku phala chāri ||",
+      "english": "Having cleansed the mirror of my mind with the dust of the Guru's lotus feet, I describe the pure glory of Rama, the best of the Raghu line, giver of the four fruits of life."
+    },
+    {
+      "id": "doha-2",
+      "type": "Opening Doha",
+      "number": 2,
+      "original": "बुद्धिहीन तनु जानिके सुमिरौं पवन-कुमार ।\nबल बुधि बिद्या देहु मोहिं हरहु कलेस बिकार ॥",
+      "transliteration": "buddhihīna tanu jānike sumirauṃ pavana-kumāra |\nbala buddhi bidyā dehu mohiṃ harahu kalesa bikāra ||",
+      "english": "Knowing my body and mind to be lacking in wisdom, I remember you, son of the Wind. Grant me strength, intelligence, and knowledge, and remove my suffering and faults."
+    },
+    {
+      "id": "chaupai-1",
+      "type": "Chaupai",
+      "number": 1,
+      "original": "जय हनुमान ज्ञान गुन सागर ।\nजय कपीस तिहुँ लोक उजागर ॥१॥",
+      "transliteration": "jaya hanumāna jñāna guna sāgara |\njaya kapīsa tihũ loka ujāgara ||1||",
+      "english": "Victory to Hanuman, ocean of wisdom and virtue. Victory to the lord of the vanaras, whose radiance illumines the three worlds."
+    },
+    {
+      "id": "chaupai-2",
+      "type": "Chaupai",
+      "number": 2,
+      "original": "राम दूत अतुलित बल धामा ।\nअञ्जनि-पुत्र पवनसुत नामा ॥२॥",
+      "transliteration": "rāma dūta atulita bala dhāmā |\nañjani-putra pavanasuta nāmā ||2||",
+      "english": "You are Rama's messenger, the abode of incomparable strength, known as Anjani's son and the son of the Wind."
+    },
+    {
+      "id": "chaupai-3",
+      "type": "Chaupai",
+      "number": 3,
+      "original": "महाबीर बिक्रम बजरङ्गी ।\nकुमति निवार सुमति के सङ्गी ॥३॥",
+      "transliteration": "mahābīra bikrama bajaraṅgī |\nkumati nivāra sumati ke saṅgī ||3||",
+      "english": "Great hero, mighty and thunderbolt-limbed, you dispel wrong understanding and stand with noble wisdom."
+    },
+    {
+      "id": "chaupai-4",
+      "type": "Chaupai",
+      "number": 4,
+      "original": "कञ्चन बरन बिराज सुबेसा ।\nकानन कुण्डल कुञ्चित केसा ॥४॥",
+      "transliteration": "kañchana barana birāja subesā |\nkānana kuṇḍala kuñchita kesā ||4||",
+      "english": "Golden in complexion and splendidly dressed, you shine with earrings and curling hair."
+    },
+    {
+      "id": "chaupai-5",
+      "type": "Chaupai",
+      "number": 5,
+      "original": "हाथ बज्र औ ध्वजा बिराजै ।\nकान्धे मून्ज जनेउ साजै ॥५॥",
+      "transliteration": "hātha bajra au dhvajā birājai |\nkāndhe mūñja janeū sājai ||5||",
+      "english": "In your hand shine the thunderbolt and flag, and across your shoulder rests the sacred thread of munja grass."
+    },
+    {
+      "id": "chaupai-6",
+      "type": "Chaupai",
+      "number": 6,
+      "original": "सङ्कर सुवन केसरीनन्दन ।\nतेज प्रताप महा जग बन्दन ॥६॥",
+      "transliteration": "saṅkara suvana kesarīnandana |\nteja pratāpa mahā jaga bandana ||6||",
+      "english": "Child of Shankara and son of Kesari, your brilliance and majesty are revered by the whole world."
+    },
+    {
+      "id": "chaupai-7",
+      "type": "Chaupai",
+      "number": 7,
+      "original": "बिद्यावान गुनी अति चातुर ।\nराम काज करिबे को आतुर ॥७॥",
+      "transliteration": "bidyāvāna gunī ati chātura |\nrāma kāja karibe ko ātura ||7||",
+      "english": "Learned, virtuous, and deeply wise, you are always eager to carry out Rama's work."
+    },
+    {
+      "id": "chaupai-8",
+      "type": "Chaupai",
+      "number": 8,
+      "original": "प्रभु चरित्र सुनिबे को रसिया ।\nराम लखन सीता मन बसिया ॥८॥",
+      "transliteration": "prabhu charitra sunibe ko rasiyā |\nrāma lakhana sītā mana basiyā ||8||",
+      "english": "You delight in hearing the Lord's deeds, and Rama, Lakshmana, and Sita dwell in your heart."
+    },
+    {
+      "id": "chaupai-9",
+      "type": "Chaupai",
+      "number": 9,
+      "original": "सूक्ष्म रूप धरि सियहिं दिखावा ।\nबिकट रूप धरि लङ्क जरावा ॥९॥",
+      "transliteration": "sūkṣma rūpa dhari siyahiṃ dikhāvā |\nbikaṭa rūpa dhari laṅka jarāvā ||9||",
+      "english": "Taking a subtle form, you appeared before Sita; taking a fearsome form, you burned Lanka."
+    },
+    {
+      "id": "chaupai-10",
+      "type": "Chaupai",
+      "number": 10,
+      "original": "भीम रूप धरि असुर सँहारे ।\nरामचन्द्र के काज सँवारे ॥१०॥",
+      "transliteration": "bhīma rūpa dhari asura saṃhāre |\nrāmachandra ke kāja saṃvāre ||10||",
+      "english": "Taking a terrible form, you destroyed demons and completed the tasks of Ramachandra."
+    },
+    {
+      "id": "chaupai-11",
+      "type": "Chaupai",
+      "number": 11,
+      "original": "लाय सञ्जीवन लखन जियाये ।\nश्रीरघुबीर हरषि उर लाये ॥११॥",
+      "transliteration": "lāya sañjīvana lakhana jiyāye |\nśrīraghubīra haraṣi ura lāye ||11||",
+      "english": "You brought the life-restoring herb and revived Lakshmana; delighted, Shri Raghuvir embraced you."
+    },
+    {
+      "id": "chaupai-12",
+      "type": "Chaupai",
+      "number": 12,
+      "original": "रघुपति कीह्नी बहुत बड़ाई ।\nतुम मम प्रिय भरतहि सम भाई ॥१२॥",
+      "transliteration": "raghupati kīnhī bahuta baḍāī |\ntuma mama priya bharatahi sama bhāī ||12||",
+      "english": "Raghupati praised you greatly and said: You are as dear to me as my brother Bharata."
+    },
+    {
+      "id": "chaupai-13",
+      "type": "Chaupai",
+      "number": 13,
+      "original": "सहस बदन तुह्मारो जस गावैं ।\nअस कहि श्रीपति कण्ठ लगावैं ॥१३॥",
+      "transliteration": "sahasa badana tumhāro jasa gāvaiṃ |\nasa kahi śrīpati kaṇṭha lagāvaiṃ ||13||",
+      "english": "The thousand-mouthed serpent sings your glory, said the Lord, drawing you close to his neck."
+    },
+    {
+      "id": "chaupai-14",
+      "type": "Chaupai",
+      "number": 14,
+      "original": "सनकादिक ब्रह्मादि मुनीसा ।\nनारद सारद सहित अहीसा ॥१४॥",
+      "transliteration": "sanakādika brahmādi munīsā |\nnārada sārada sahita ahīsā ||14||",
+      "english": "Sanaka and the sages, Brahma and the great seers, Narada, Saraswati, and the serpent king all praise you."
+    },
+    {
+      "id": "chaupai-15",
+      "type": "Chaupai",
+      "number": 15,
+      "original": "जम कुबेर दिगपाल जहाँ ते ।\nकबि कोबिद कहि सके कहाँ ते ॥१५॥",
+      "transliteration": "jama kubera digapāla jahāṃ te |\nkabi kobida kahi sake kahāṃ te ||15||",
+      "english": "Yama, Kubera, and the guardians of the directions cannot fully describe you; how then could poets and scholars do so?"
+    },
+    {
+      "id": "chaupai-16",
+      "type": "Chaupai",
+      "number": 16,
+      "original": "तुम उपकार सुग्रीवहिं कीह्ना ।\nराम मिलाय राज पद दीह्ना ॥१६॥",
+      "transliteration": "tuma upakāra sugrīvahiṃ kīhnā |\nrāma milāya rāja pada dīhnā ||16||",
+      "english": "You did Sugriva a great service, joining him with Rama and restoring him to the throne."
+    },
+    {
+      "id": "chaupai-17",
+      "type": "Chaupai",
+      "number": 17,
+      "original": "तुह्मरो मन्त्र बिभीषन माना ।\nलङ्केस्वर भए सब जग जाना ॥१७॥",
+      "transliteration": "tumharo mantra bibhīṣana mānā |\nlaṅkeśvara bhae saba jaga jānā ||17||",
+      "english": "Vibhishana accepted your counsel and became lord of Lanka; the whole world knows this."
+    },
+    {
+      "id": "chaupai-18",
+      "type": "Chaupai",
+      "number": 18,
+      "original": "जुग सहस्र जोजन पर भानु ।\nलील्यो ताहि मधुर फल जानू ॥१८॥",
+      "transliteration": "juga sahasra jojana para bhānu |\nlīlyo tāhi madhura phala jānū ||18||",
+      "english": "Though the sun was thousands of yojanas away, you leapt toward it, thinking it a sweet fruit."
+    },
+    {
+      "id": "chaupai-19",
+      "type": "Chaupai",
+      "number": 19,
+      "original": "प्रभु मुद्रिका मेलि मुख माहीं ।\nजलधि लाँघि गये अचरज नाहीं ॥१९॥",
+      "transliteration": "prabhu mudrikā meli mukha māhīṃ |\njaladhi lāṅghi gaye acharaja nāhīṃ ||19||",
+      "english": "Carrying the Lord's ring in your mouth, you crossed the ocean; no wonder, for such power is yours."
+    },
+    {
+      "id": "chaupai-20",
+      "type": "Chaupai",
+      "number": 20,
+      "original": "दुर्गम काज जगत के जेते ।\nसुगम अनुग्रह तुह्मरे तेते ॥२०॥",
+      "transliteration": "durgama kāja jagata ke jete |\nsugama anugraha tumhare tete ||20||",
+      "english": "All difficult tasks in the world become easy through your grace."
+    },
+    {
+      "id": "chaupai-21",
+      "type": "Chaupai",
+      "number": 21,
+      "original": "राम दुआरे तुम रखवारे ।\nहोत न आज्ञा बिनु पैसारे ॥२१॥",
+      "transliteration": "rāma duāre tuma rakhavāre |\nhota na ājñā binu paisāre ||21||",
+      "english": "You guard Rama's doorway; none may enter without your permission."
+    },
+    {
+      "id": "chaupai-22",
+      "type": "Chaupai",
+      "number": 22,
+      "original": "सब सुख लहै तुह्मारी सरना ।\nतुम रच्छक काहू को डर ना ॥२२॥",
+      "transliteration": "saba sukha lahai tumhārī saranā |\ntuma racchaka kāhū ko ḍara nā ||22||",
+      "english": "All happiness is found in your refuge; with you as protector, there is no fear."
+    },
+    {
+      "id": "chaupai-23",
+      "type": "Chaupai",
+      "number": 23,
+      "original": "आपन तेज सह्मारो आपै ।\nतीनों लोक हाँक तें काँपै ॥२३॥",
+      "transliteration": "āpana teja samhāro āpai |\ntīnoṃ loka hāṅka teṃ kāṅpai ||23||",
+      "english": "Only you can restrain your own radiance; at your roar, the three worlds tremble."
+    },
+    {
+      "id": "chaupai-24",
+      "type": "Chaupai",
+      "number": 24,
+      "original": "भूत पिसाच निकट नहिं आवै ।\nमहाबीर जब नाम सुनावै ॥२४॥",
+      "transliteration": "bhūta pisācha nikaṭa nahiṃ āvai |\nmahābīra jaba nāma sunāvai ||24||",
+      "english": "Ghosts and harmful forces do not come near when the name of Mahavira is heard."
+    },
+    {
+      "id": "chaupai-25",
+      "type": "Chaupai",
+      "number": 25,
+      "original": "नासै रोग हरै सब पीरा ।\nजपत निरन्तर हनुमत बीरा ॥२५॥",
+      "transliteration": "nāsai roga harai saba pīrā |\njapata nirantara hanumata bīrā ||25||",
+      "english": "Illness is destroyed and pain removed for those who constantly repeat the name of brave Hanuman."
+    },
+    {
+      "id": "chaupai-26",
+      "type": "Chaupai",
+      "number": 26,
+      "original": "सङ्कट तें हनुमान छुड़ावै ।\nमन क्रम बचन ध्यान जो लावै ॥२६॥",
+      "transliteration": "saṅkaṭa teṃ hanumāna chuḍāvai |\nmana krama bachana dhyāna jo lāvai ||26||",
+      "english": "Hanuman frees from trouble those who bring him into thought, action, speech, and meditation."
+    },
+    {
+      "id": "chaupai-27",
+      "type": "Chaupai",
+      "number": 27,
+      "original": "सब पर राम तपस्वी राजा ।\nतिन के काज सकल तुम साजा ॥२७॥",
+      "transliteration": "saba para rāma tapasvī rājā |\ntina ke kāja sakala tuma sājā ||27||",
+      "english": "Rama, the ascetic king, rules over all; you complete every one of his tasks."
+    },
+    {
+      "id": "chaupai-28",
+      "type": "Chaupai",
+      "number": 28,
+      "original": "और मनोरथ जो कोई लावै ।\nसोई अमित जीवन फल पावै ॥२८॥",
+      "transliteration": "aura manoratha jo koī lāvai |\nsoī amita jīvana phala pāvai ||28||",
+      "english": "Whoever brings a heartfelt wish to you receives abundant fruit in life."
+    },
+    {
+      "id": "chaupai-29",
+      "type": "Chaupai",
+      "number": 29,
+      "original": "चारों जुग परताप तुह्मारा ।\nहै परसिद्ध जगत उजियारा ॥२९॥",
+      "transliteration": "chāroṃ juga paratāpa tumhārā |\nhai parasiddha jagata ujiyārā ||29||",
+      "english": "Your glory shines through all four ages and is renowned throughout the world."
+    },
+    {
+      "id": "chaupai-30",
+      "type": "Chaupai",
+      "number": 30,
+      "original": "साधु सन्त के तुम रखवारे ।\nअसुर निकन्दन राम दुलारे ॥३०॥",
+      "transliteration": "sādhu santa ke tuma rakhavāre |\nasura nikandana rāma dulāre ||30||",
+      "english": "You protect sages and saints, destroy demons, and are beloved of Rama."
+    },
+    {
+      "id": "chaupai-31",
+      "type": "Chaupai",
+      "number": 31,
+      "original": "अष्टसिद्धि नौ निधि के दाता ।\nअस बर दीन जानकी माता ॥३१॥",
+      "transliteration": "aṣṭasiddhi nau nidhi ke dātā |\nasa bara dīna jānakī mātā ||31||",
+      "english": "You can grant the eight siddhis and nine treasures; Mother Janaki gave you this blessing."
+    },
+    {
+      "id": "chaupai-32",
+      "type": "Chaupai",
+      "number": 32,
+      "original": "राम रसायन तुह्मरे पासा ।\nसदा रहो रघुपति के दासा ॥३२॥",
+      "transliteration": "rāma rasāyana tumhare pāsā |\nsadā raho raghupati ke dāsā ||32||",
+      "english": "The nectar of Rama is with you; may you always remain the servant of Raghupati."
+    },
+    {
+      "id": "chaupai-33",
+      "type": "Chaupai",
+      "number": 33,
+      "original": "तुह्मरे भजन राम को पावै ।\nजनम जनम के दुख बिसरावै ॥३३॥",
+      "transliteration": "tumhare bhajana rāma ko pāvai |\njanama janama ke dukha bisarāvai ||33||",
+      "english": "Through devotion to you, one reaches Rama and forgets the sorrows of many births."
+    },
+    {
+      "id": "chaupai-34",
+      "type": "Chaupai",
+      "number": 34,
+      "original": "अन्त काल रघुबर पुर जाई ।\nजहाँ जन्म हरिभक्त कहाई ॥३४॥",
+      "transliteration": "anta kāla raghubara pura jāī |\njahāṃ janma haribhakta kahāī ||34||",
+      "english": "At life's end one goes to Raghubara's abode, and in future birth is known as a devotee of Hari."
+    },
+    {
+      "id": "chaupai-35",
+      "type": "Chaupai",
+      "number": 35,
+      "original": "और देवता चित्त न धरई ।\nहनुमत सेइ सर्ब सुख करई ॥३५॥",
+      "transliteration": "aura devatā chitta na dharaī |\nhanumata sei sarba sukha karaī ||35||",
+      "english": "One need not fix the mind on other deities; serving Hanuman brings every happiness."
+    },
+    {
+      "id": "chaupai-36",
+      "type": "Chaupai",
+      "number": 36,
+      "original": "सङ्कट कटै मिटै सब पीरा ।\nजो सुमिरै हनुमत बलबीरा ॥३६॥",
+      "transliteration": "saṅkaṭa kaṭai miṭai saba pīrā |\njo sumirai hanumata balabīrā ||36||",
+      "english": "Troubles are cut away and all pain erased for those who remember mighty, brave Hanuman."
+    },
+    {
+      "id": "chaupai-37",
+      "type": "Chaupai",
+      "number": 37,
+      "original": "जय जय जय हनुमान गोसाईं ।\nकृपा करहु गुरुदेव की नाईं ॥३७॥",
+      "transliteration": "jaya jaya jaya hanumāna gosāīṃ |\nkṛpā karahu gurudeva kī nāīṃ ||37||",
+      "english": "Victory, victory, victory to you, Lord Hanuman. Show your grace as a revered teacher does."
+    },
+    {
+      "id": "chaupai-38",
+      "type": "Chaupai",
+      "number": 38,
+      "original": "जो सत बार पाठ कर कोई ।\nछूटहि बन्दि महा सुख होई ॥३८॥",
+      "transliteration": "jo sata bāra pāṭha kara koī |\nchūṭahi bandi mahā sukha hoī ||38||",
+      "english": "Whoever recites this one hundred times is freed from bondage and receives great happiness."
+    },
+    {
+      "id": "chaupai-39",
+      "type": "Chaupai",
+      "number": 39,
+      "original": "जो यह पढ़ै हनुमान चालीसा ।\nहोय सिद्धि साखी गौरीसा ॥३९॥",
+      "transliteration": "jo yaha paḍhai hanumāna chālīsā |\nhoya siddhi sākhī gaurīsā ||39||",
+      "english": "Whoever reads this Hanuman Chalisa gains accomplishment; Shiva himself is witness."
+    },
+    {
+      "id": "chaupai-40",
+      "type": "Chaupai",
+      "number": 40,
+      "original": "तुलसीदास सदा हरि चेरा ।\nकीजै नाथ हृदय महँ डेरा ॥४०॥",
+      "transliteration": "tulasīdāsa sadā hari cherā |\nkījai nātha hṛdaya mahaṃ ḍerā ||40||",
+      "english": "Tulsidas is always the servant of Hari; O Lord, make your dwelling in my heart."
+    },
+    {
+      "id": "closing-doha",
+      "type": "Closing Doha",
+      "number": 1,
+      "original": "पवनतनय सङ्कट हरन मङ्गल मूरति रूप ।\nराम लखन सीता सहित हृदय बसहु सुर भूप ॥",
+      "transliteration": "pavanatanaya saṅkaṭa harana maṅgala mūrati rūpa |\nrāma lakhana sītā sahita hṛdaya basahu sura bhūpa ||",
+      "english": "Son of the Wind, remover of distress, embodiment of auspiciousness, dwell in my heart with Rama, Lakshmana, and Sita, O lord of the divine."
+    }
+  ]
+}
