@@ -5,6 +5,7 @@ This is a small static reader for the complete Hanuman Chalisa.
 The app includes:
 - Two opening dohas, forty chaupais, and one closing doha.
 - Devanagari text, IAST transliteration, and English meaning.
+- Native share support through the platform share sheet where available.
 - Offline support through a service worker.
 - Home-screen install metadata for iOS and Android.
 

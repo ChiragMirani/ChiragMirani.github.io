@@ -93,6 +93,7 @@
         <button type="button" class="btn" id="last">Closing</button>
         <button type="button" class="btn" id="daily">Verse of the day</button>
         <button type="button" class="btn" id="random">Random</button>
+        <button type="button" class="btn" id="share">Share</button>
         <button type="button" class="btn" id="copy">Copy verse</button>
         <button type="button" class="btn" id="link">Copy link</button>
       </div>
@@ -122,6 +123,7 @@
       const btnPrev = document.getElementById("prev");
       const btnNext = document.getElementById("next");
       const btnRandom = document.getElementById("random");
+      const btnShare = document.getElementById("share");
       const btnCopy = document.getElementById("copy");
       const btnLink = document.getElementById("link");
       const btnDaily = document.getElementById("daily");
@@ -184,20 +186,53 @@
         flashButton(btn, "Copied");
       }
 
+      function verseUrl(v) {
+        return SITE + "?v=" + encodeURIComponent(v.id);
+      }
+
+      function shareText(v) {
+        return v.english + "\n\n" + v.original + "\n\n" + labelFor(v) + " · Shree Hanuman Chalisa";
+      }
+
+      async function shareCurrentVerse() {
+        const v = verses[currentIndex];
+        const payload = {
+          title: labelFor(v) + " | Shree Hanuman Chalisa",
+          text: shareText(v),
+          url: verseUrl(v)
+        };
+        const capacitorShare = window.Capacitor?.Plugins?.Share;
+        try {
+          if (capacitorShare?.share) {
+            await capacitorShare.share(payload);
+            flashButton(btnShare, "Shared");
+            return;
+          }
+          if (navigator.share) {
+            await navigator.share(payload);
+            flashButton(btnShare, "Shared");
+            return;
+          }
+        } catch (err) {
+          if (err && err.name === "AbortError") return;
+        }
+        writeClipboard(payload.text + "\n\n" + payload.url, btnShare);
+      }
+
       btnNext.addEventListener("click", () => show(currentIndex + 1));
       btnPrev.addEventListener("click", () => show(currentIndex - 1));
       btnFirst.addEventListener("click", () => show(0));
       btnLast.addEventListener("click", () => show(verses.length - 1));
       btnRandom.addEventListener("click", () => show(Math.floor(Math.random() * verses.length)));
       btnDaily.addEventListener("click", () => show(dailyVerseIndex()));
+      btnShare.addEventListener("click", shareCurrentVerse);
       btnCopy.addEventListener("click", () => {
         const v = verses[currentIndex];
-        const text = v.english + "\n\n" + v.original + "\n\n" + labelFor(v) + " · Shree Hanuman Chalisa";
-        writeClipboard(text, btnCopy);
+        writeClipboard(shareText(v), btnCopy);
       });
       btnLink.addEventListener("click", () => {
         const v = verses[currentIndex];
-        writeClipboard(SITE + "?v=" + encodeURIComponent(v.id), btnLink);
+        writeClipboard(verseUrl(v), btnLink);
       });
 
       document.addEventListener("keydown", (e) => {
