@@ -1,4 +1,4 @@
-# Shri Hanuman Chalisa
+# Shree Hanuman Chalisa
 
 This is a small static reader for the complete Hanuman Chalisa.
 

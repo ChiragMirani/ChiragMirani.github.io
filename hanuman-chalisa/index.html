@@ -3,23 +3,23 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>Shri Hanuman Chalisa in English</title>
+    <title>Shree Hanuman Chalisa in English</title>
     <meta name="description" content="Read the complete Hanuman Chalisa in English, one verse at a time, with Devanagari, IAST transliteration, and a clean English meaning. Free, fast, offline-ready, and installable.">
     <meta name="author" content="Goswami Tulsidas">
     <meta name="robots" content="index,follow,max-image-preview:large">
-    <meta name="keywords" content="hanuman chalisa, hanuman chalisa english, hanuman chalisa meaning, hanuman chalisa lyrics, shri hanuman chalisa, tulsidas, awadhi hymn, hindu devotional hymn">
+    <meta name="keywords" content="hanuman chalisa, hanuman chalisa english, hanuman chalisa meaning, hanuman chalisa lyrics, shree hanuman chalisa, tulsidas, awadhi hymn, hindu devotional hymn">
     <link rel="canonical" href="https://chiragmirani.github.io/hanuman-chalisa/">
 
     <meta property="og:type" content="book">
-    <meta property="og:title" content="Shri Hanuman Chalisa in English">
+    <meta property="og:title" content="Shree Hanuman Chalisa in English">
     <meta property="og:description" content="The complete Hanuman Chalisa with Devanagari, transliteration, and English meaning.">
     <meta property="og:url" content="https://chiragmirani.github.io/hanuman-chalisa/">
-    <meta property="og:site_name" content="Shri Hanuman Chalisa">
+    <meta property="og:site_name" content="Shree Hanuman Chalisa">
     <meta property="og:image" content="https://chiragmirani.github.io/hanuman-chalisa/social-preview.png">
     <meta property="og:image:width" content="1280">
     <meta property="og:image:height" content="640">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Shri Hanuman Chalisa in English">
+    <meta name="twitter:title" content="Shree Hanuman Chalisa in English">
     <meta name="twitter:description" content="The complete Hanuman Chalisa with Devanagari, transliteration, and English meaning.">
     <meta name="twitter:image" content="https://chiragmirani.github.io/hanuman-chalisa/social-preview.png">
     <meta name="twitter:creator" content="@chirag_mirani1">
@@ -31,8 +31,8 @@
     <link rel="manifest" href="manifest-v2.webmanifest">
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
-    <meta name="apple-mobile-web-app-title" content="Hanuman Chalisa">
-    <meta name="application-name" content="Hanuman Chalisa">
+    <meta name="apple-mobile-web-app-title" content="Shree Hanuman">
+    <meta name="application-name" content="Shree Hanuman">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
@@ -46,7 +46,7 @@
           "@type": "WebSite",
           "@id": "https://chiragmirani.github.io/hanuman-chalisa/#website",
           "url": "https://chiragmirani.github.io/hanuman-chalisa/",
-          "name": "Shri Hanuman Chalisa in English",
+          "name": "Shree Hanuman Chalisa in English",
           "alternateName": "Hanuman Chalisa",
           "description": "The complete Hanuman Chalisa with Devanagari, transliteration, and English meaning.",
           "publisher": {"@type": "Person", "name": "Chirag Mirani"}
@@ -54,7 +54,7 @@
         {
           "@type": "Book",
           "name": "Hanuman Chalisa",
-          "alternateName": "Shri Hanuman Chalisa",
+          "alternateName": "Shree Hanuman Chalisa",
           "inLanguage": ["awa", "hi", "en"],
           "author": {"@type": "Person", "name": "Goswami Tulsidas"},
           "license": "https://creativecommons.org/publicdomain/mark/1.0/",
@@ -67,7 +67,7 @@
   <body>
     <main>
       <header class="topbar">
-        <a class="brand" href="./">Shri Hanuman Chalisa</a>
+        <a class="brand" href="./">Shree Hanuman Chalisa</a>
         <nav>
           <a href="about.html">About</a>
         </nav>
@@ -142,9 +142,9 @@
         elQuote.textContent = v.english;
         elOriginal.textContent = v.original || "";
         elTranslit.textContent = v.transliteration || "";
-        elCred.textContent = "Awadhi devotional hymn · Shri Hanuman Chalisa";
+        elCred.textContent = "Awadhi devotional hymn · Shree Hanuman Chalisa";
         history.replaceState(null, "", "?v=" + encodeURIComponent(v.id));
-        document.title = labelFor(v) + " | Hanuman Chalisa";
+        document.title = labelFor(v) + " | Shree Hanuman Chalisa";
         try { localStorage.setItem(STORAGE_KEY, v.id); } catch (e) {}
       }
 
@@ -192,7 +192,7 @@
       btnDaily.addEventListener("click", () => show(dailyVerseIndex()));
       btnCopy.addEventListener("click", () => {
         const v = verses[currentIndex];
-        const text = v.english + "\n\n" + v.original + "\n\n" + labelFor(v) + " · Shri Hanuman Chalisa";
+        const text = v.english + "\n\n" + v.original + "\n\n" + labelFor(v) + " · Shree Hanuman Chalisa";
         writeClipboard(text, btnCopy);
       });
       btnLink.addEventListener("click", () => {
