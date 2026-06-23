@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="The Upanishads">
+  <rect width="64" height="64" rx="13" fill="#17342f"/>
+  <rect x="8" y="8" width="48" height="48" rx="8" fill="none" stroke="#d7a451" stroke-width="3"/>
+  <path d="M13 42 32 36v17L14 50Z" fill="#f7ead0"/>
+  <path d="M32 36 51 42 50 50 32 53Z" fill="#ead08b"/>
+  <path d="M32 36v17" stroke="#7b4b2a" stroke-width="2"/>
+  <path d="M24 34c0-8 5-14 8-18 3 4 8 10 8 18" fill="none" stroke="#f0c36f" stroke-width="4" stroke-linecap="round"/>
+  <path d="M25 24c5-7 9-7 14 0" fill="none" stroke="#e36d3d" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="32" cy="34" r="4" fill="#e36d3d"/>
+</svg>

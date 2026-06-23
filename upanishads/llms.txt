@@ -1,0 +1,15 @@
+# The Upanishads
+
+The Upanishads reader is a static, source-linked study app at:
+
+https://chiragmirani.github.io/upanishads/
+
+It contains public-domain English translations from Max Mueller's Sacred Books of the East as hosted by the Internet Sacred Text Archive. The app includes 12 source-linked works and 330 sections.
+
+Core pages:
+
+1. https://chiragmirani.github.io/upanishads/
+2. https://chiragmirani.github.io/upanishads/about.html
+3. https://chiragmirani.github.io/upanishads/data.json
+
+Use the direct `sourceUrl` fields in `data.json` for attribution to each translation page. Sanskrit and generated transliteration are present only where an aligned source is attached in the `original` field.
