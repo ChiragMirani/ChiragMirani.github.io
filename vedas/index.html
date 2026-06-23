@@ -24,12 +24,12 @@
     <meta name="twitter:title" content="The Vedas in English, Sanskrit, and Transliteration">
     <meta name="twitter:description" content="English translations of the four Vedas with searchable navigation, plain meanings, event relevance notes, and aligned original text where available.">
     <meta name="twitter:image" content="https://chiragmirani.github.io/vedas/social-preview.png">
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg?v=17">
-    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png?v=17">
-    <link rel="icon" href="./favicon.ico?v=17">
-    <link rel="apple-touch-icon" href="./apple-touch-icon.png?v=17">
-    <link rel="manifest" href="./manifest.webmanifest?v=17">
-    <link rel="stylesheet" href="./static/styles.css?v=17">
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg?v=18">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png?v=18">
+    <link rel="icon" href="./favicon.ico?v=18">
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png?v=18">
+    <link rel="manifest" href="./manifest.webmanifest?v=18">
+    <link rel="stylesheet" href="./static/styles.css?v=18">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -137,14 +137,20 @@
           </span>
         </a>
         <nav class="toolbar" aria-label="Reader actions">
-          <button class="icon-btn" id="dailyBtn" type="button" title="Daily passage" aria-label="Daily passage">☼</button>
+          <button class="icon-btn mobile-only" id="topBrowseBtn" type="button" title="Browse passages" aria-label="Browse passages">☰</button>
+          <button class="icon-btn" id="randomBtn" type="button" title="Random passage" aria-label="Random passage">↻</button>
           <button class="icon-btn" id="shareBtn" type="button" title="Share" aria-label="Share">↗</button>
           <a class="icon-btn" href="./about.html" title="About" aria-label="About">i</a>
         </nav>
       </header>
 
       <main class="main">
-        <aside class="panel" aria-label="Veda navigation">
+        <button class="panel-backdrop" id="panelBackdrop" type="button" aria-label="Close navigation"></button>
+        <aside class="panel" id="navigationPanel" aria-label="Veda navigation">
+          <div class="panel-head">
+            <strong>Browse</strong>
+            <button class="icon-btn" id="closeBrowseBtn" type="button" title="Close navigation" aria-label="Close navigation">×</button>
+          </div>
           <section class="controls">
             <div class="field">
               <label for="vedaSelect">Veda</label>
@@ -198,7 +204,7 @@
               </div>
             </div>
             <figure class="hero-art" aria-hidden="true">
-              <img src="./veda-hero.png?v=17" alt="">
+              <img src="./veda-hero.png?v=18" alt="">
             </figure>
           </header>
           <section class="content">
@@ -207,10 +213,10 @@
               <span id="translatorText"></span>
             </div>
             <div class="passage-context" id="passageContext"></div>
-            <div class="original-panel" id="originalPanel" aria-label="Original Sanskrit and transliteration"></div>
             <div class="text" id="passageText">
               <p>Loading...</p>
             </div>
+            <div class="original-panel" id="originalPanel" aria-label="Original Sanskrit and transliteration"></div>
             <p class="source-note" id="sourceNote"></p>
           </section>
         </article>
@@ -245,6 +251,24 @@
           </div>
         </section>
       </main>
+      <nav class="mobile-reader-nav" aria-label="Passage navigation">
+        <button id="mobilePrevBtn" type="button" aria-label="Previous passage">
+          <span aria-hidden="true">‹</span>
+          <strong>Prev</strong>
+        </button>
+        <button id="mobileRandomBtn" type="button" aria-label="Random passage">
+          <span aria-hidden="true">↻</span>
+          <strong>Random</strong>
+        </button>
+        <button id="mobileBrowseBtn" type="button" aria-label="Browse passages">
+          <span aria-hidden="true">☰</span>
+          <strong>Browse</strong>
+        </button>
+        <button id="mobileNextBtn" type="button" aria-label="Next passage">
+          <span aria-hidden="true">›</span>
+          <strong>Next</strong>
+        </button>
+      </nav>
     </div>
 
     <script>
@@ -277,8 +301,16 @@
         note: document.getElementById("sourceNote"),
         prev: document.getElementById("prevBtn"),
         next: document.getElementById("nextBtn"),
-        daily: document.getElementById("dailyBtn"),
-        share: document.getElementById("shareBtn")
+        random: document.getElementById("randomBtn"),
+        share: document.getElementById("shareBtn"),
+        panel: document.getElementById("navigationPanel"),
+        backdrop: document.getElementById("panelBackdrop"),
+        topBrowse: document.getElementById("topBrowseBtn"),
+        closeBrowse: document.getElementById("closeBrowseBtn"),
+        mobilePrev: document.getElementById("mobilePrevBtn"),
+        mobileNext: document.getElementById("mobileNextBtn"),
+        mobileRandom: document.getElementById("mobileRandomBtn"),
+        mobileBrowse: document.getElementById("mobileBrowseBtn")
       };
 
       function getCurrent() {
@@ -307,11 +339,35 @@
         );
       }
 
-      function setLocation(vedaIndex, bookIndex, sectionIndex) {
+      function updateBrowseState(open) {
+        document.body.classList.toggle("nav-open", open);
+        [els.topBrowse, els.mobileBrowse].forEach((button) => {
+          if (button) button.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+      }
+
+      function openBrowse() {
+        updateBrowseState(true);
+        requestAnimationFrame(() => els.search.focus({ preventScroll: true }));
+      }
+
+      function closeBrowse() {
+        updateBrowseState(false);
+      }
+
+      function scrollToReaderTop() {
+        requestAnimationFrame(() => {
+          document.querySelector(".reader").scrollIntoView({ block: "start" });
+        });
+      }
+
+      function setLocation(vedaIndex, bookIndex, sectionIndex, options = {}) {
         state.vedaIndex = Math.max(0, Math.min(vedaIndex, state.data.vedas.length - 1));
         state.bookIndex = Math.max(0, Math.min(bookIndex, state.data.vedas[state.vedaIndex].books.length - 1));
         state.sectionIndex = Math.max(0, Math.min(sectionIndex, state.data.vedas[state.vedaIndex].books[state.bookIndex].sections.length - 1));
         render();
+        if (options.closeBrowse !== false) closeBrowse();
+        if (options.scroll !== false) scrollToReaderTop();
       }
 
       function populateSelect(select, items, selectedIndex, labeler) {
@@ -376,7 +432,7 @@
           const preview = document.createElement("span");
           preview.textContent = item.section.title.replace(/^HYMN\s+/i, "Hymn ") || item.section.text.slice(0, 90);
           button.append(title, preview);
-          button.addEventListener("click", () => setLocation(item.vedaIndex, item.bookIndex, item.sectionIndex));
+          button.addEventListener("click", () => setLocation(item.vedaIndex, item.bookIndex, item.sectionIndex, { closeBrowse: true }));
           els.list.append(button);
         });
       }
@@ -602,6 +658,7 @@
           bookIndex: state.bookIndex,
           sectionIndex: state.sectionIndex
         }));
+        updateNavigationState();
       }
 
       function render() {
@@ -616,12 +673,29 @@
         if (next) setLocation(next.vedaIndex, next.bookIndex, next.sectionIndex);
       }
 
-      function openDaily() {
-        const today = new Date();
-        const seed = Number(`${today.getFullYear()}${today.getMonth() + 1}${today.getDate()}`);
-        const index = seed % state.flat.length;
+      function openRandom() {
+        if (!state.flat.length) return;
+        const current = currentFlatIndex();
+        let index = Math.floor(Math.random() * state.flat.length);
+        if (state.flat.length > 1) {
+          while (index === current) {
+            index = Math.floor(Math.random() * state.flat.length);
+          }
+        }
         const item = state.flat[index];
         setLocation(item.vedaIndex, item.bookIndex, item.sectionIndex);
+      }
+
+      function updateNavigationState() {
+        const index = currentFlatIndex();
+        const atStart = index <= 0;
+        const atEnd = index >= state.flat.length - 1;
+        [els.prev, els.mobilePrev].forEach((button) => {
+          if (button) button.disabled = atStart;
+        });
+        [els.next, els.mobileNext].forEach((button) => {
+          if (button) button.disabled = atEnd;
+        });
       }
 
       async function shareCurrent() {
@@ -651,7 +725,7 @@
             if (bookIndex >= 0) {
               const sectionIndex = state.data.vedas[vedaIndex].books[bookIndex].sections.findIndex((section) => section.id === sectionId);
               if (sectionIndex >= 0) {
-                setLocation(vedaIndex, bookIndex, sectionIndex);
+                setLocation(vedaIndex, bookIndex, sectionIndex, { scroll: false, closeBrowse: false });
                 return;
               }
             }
@@ -661,13 +735,13 @@
         try {
           const saved = JSON.parse(localStorage.getItem("vedas:last") || "{}");
           if (Number.isInteger(saved.vedaIndex)) {
-            setLocation(saved.vedaIndex, saved.bookIndex || 0, saved.sectionIndex || 0);
+            setLocation(saved.vedaIndex, saved.bookIndex || 0, saved.sectionIndex || 0, { scroll: false, closeBrowse: false });
             return;
           }
         } catch (error) {
           localStorage.removeItem("vedas:last");
         }
-        setLocation(0, 0, 0);
+        setLocation(0, 0, 0, { scroll: false, closeBrowse: false });
       }
 
       els.veda.addEventListener("change", () => setLocation(Number(els.veda.value), 0, 0));
@@ -676,10 +750,18 @@
       els.search.addEventListener("input", renderList);
       els.prev.addEventListener("click", () => navigate(-1));
       els.next.addEventListener("click", () => navigate(1));
-      els.daily.addEventListener("click", openDaily);
+      els.random.addEventListener("click", openRandom);
       els.share.addEventListener("click", () => shareCurrent().catch(() => {}));
+      els.topBrowse.addEventListener("click", openBrowse);
+      els.mobileBrowse.addEventListener("click", openBrowse);
+      els.closeBrowse.addEventListener("click", closeBrowse);
+      els.backdrop.addEventListener("click", closeBrowse);
+      els.mobilePrev.addEventListener("click", () => navigate(-1));
+      els.mobileNext.addEventListener("click", () => navigate(1));
+      els.mobileRandom.addEventListener("click", openRandom);
 
       window.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeBrowse();
         if (event.target.matches("input, select, textarea")) return;
         if (event.key === "ArrowLeft") navigate(-1);
         if (event.key === "ArrowRight") navigate(1);
@@ -694,14 +776,14 @@
         if (state.data) restoreLocation();
       });
 
-      fetch("./data.json?v=17", { cache: "no-store" })
+      fetch("./data.json?v=18", { cache: "no-store" })
         .then((response) => response.json())
         .then((data) => {
           state.data = data;
           flatten();
           restoreLocation();
           if ("serviceWorker" in navigator) {
-            navigator.serviceWorker.register("./sw.js?v=17").catch(() => {});
+            navigator.serviceWorker.register("./sw.js?v=18").catch(() => {});
           }
         })
         .catch(() => {
