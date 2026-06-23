@@ -1,7 +1,7 @@
 {
   "name": "The Vedas",
   "short_name": "Vedas",
-  "description": "A reader for public-domain English translations and meanings of the four Veda Samhitas.",
+  "description": "A reader for English translations, meanings, event relevance, and available Sanskrit/transliteration for the four Veda Samhitas.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
@@ -9,17 +9,17 @@
   "theme_color": "#c96f18",
   "icons": [
     {
-      "src": "./favicon-192.png?v=16",
+      "src": "./favicon-192.png?v=17",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "./favicon-512.png?v=16",
+      "src": "./favicon-512.png?v=17",
       "sizes": "512x512",
       "type": "image/png"
     },
     {
-      "src": "./apple-touch-icon.png?v=16",
+      "src": "./apple-touch-icon.png?v=17",
       "sizes": "180x180",
       "type": "image/png"
     }

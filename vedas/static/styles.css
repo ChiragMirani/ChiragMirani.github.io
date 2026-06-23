@@ -432,6 +432,107 @@ button {
   box-shadow: 0 8px 20px rgba(16, 34, 52, 0.14);
 }
 
+.passage-context,
+.original-panel {
+  max-width: 72ch;
+  margin: 0 auto 1.35rem;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(29, 29, 31, 0.08);
+  border-bottom: 1px solid rgba(29, 29, 31, 0.08);
+}
+
+.original-panel {
+  margin-bottom: 1.6rem;
+  padding-bottom: 1.1rem;
+  border-top: 0;
+}
+
+.context-label {
+  margin: 0 0 0.35rem;
+  color: #7b838b;
+  font-size: 0.7rem;
+  font-weight: 820;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.passage-context strong {
+  display: block;
+  color: var(--ink);
+  font-size: 1.02rem;
+  line-height: 1.35;
+}
+
+.passage-context p,
+.original-unavailable,
+.original-source {
+  margin: 0.4rem 0 0;
+  color: #5d6770;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.context-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.42rem;
+  margin-top: 0.72rem;
+}
+
+.context-tags span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.55rem;
+  padding: 0 0.58rem;
+  border: 1px solid rgba(83, 111, 71, 0.22);
+  border-radius: 999px;
+  color: #405a36;
+  background: #f5f8f3;
+  font-size: 0.75rem;
+  font-weight: 680;
+}
+
+.original-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 0.85rem;
+}
+
+.original-section h3 {
+  margin: 0 0 0.45rem;
+  color: var(--ink);
+  font-size: 0.98rem;
+  line-height: 1.35;
+  font-weight: 760;
+}
+
+.original-text {
+  max-height: 24rem;
+  margin: 0;
+  overflow: auto;
+  padding: 0.85rem 0 0.85rem 0.95rem;
+  border-left: 3px solid rgba(227, 74, 26, 0.36);
+  color: #24272b;
+  background: #fbfbfd;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.sanskrit-block .original-text {
+  font-family: "Nirmala UI", "Kohinoor Devanagari", "Noto Serif Devanagari", serif;
+  font-size: 1.08rem;
+}
+
+.transliteration-block .original-text {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.original-source a {
+  color: var(--saffron);
+}
+
 .text {
   max-width: 72ch;
   margin: 0 auto;

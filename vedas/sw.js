@@ -1,18 +1,18 @@
-const CACHE_NAME = "vedas-reader-v16";
+const CACHE_NAME = "vedas-reader-v17";
 const CORE_ASSETS = [
   "./",
   "./index.html",
   "./about.html",
-  "./data.json?v=16",
-  "./static/styles.css?v=16",
-  "./manifest.webmanifest?v=16",
-  "./favicon.svg?v=16",
-  "./favicon.ico?v=16",
-  "./favicon-32.png?v=16",
-  "./favicon-192.png?v=16",
-  "./favicon-512.png?v=16",
-  "./apple-touch-icon.png?v=16",
-  "./veda-hero.png?v=16",
+  "./data.json?v=17",
+  "./static/styles.css?v=17",
+  "./manifest.webmanifest?v=17",
+  "./favicon.svg?v=17",
+  "./favicon.ico?v=17",
+  "./favicon-32.png?v=17",
+  "./favicon-192.png?v=17",
+  "./favicon-512.png?v=17",
+  "./apple-touch-icon.png?v=17",
+  "./veda-hero.png?v=17",
   "./social-preview.png"
 ];
 

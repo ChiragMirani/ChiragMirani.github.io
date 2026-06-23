@@ -3,15 +3,15 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Vedas in English | Rigveda, Samaveda, Yajurveda, Atharvaveda</title>
-    <meta name="description" content="Read public-domain English translations of the Rigveda, Samaveda, Yajurveda, and Atharvaveda with verse-by-verse plain meanings, source attribution, and searchable navigation.">
+    <title>The Vedas in English, Sanskrit, and Transliteration | Rigveda, Samaveda, Yajurveda, Atharvaveda</title>
+    <meta name="description" content="Read public-domain English translations of the Rigveda, Samaveda, Yajurveda, and Atharvaveda with plain meanings, event relevance, Sanskrit/transliteration where aligned, and source attribution.">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="author" content="Chirag Mirani">
     <meta name="application-name" content="The Vedas">
     <meta name="theme-color" content="#c96f18">
     <link rel="canonical" href="https://chiragmirani.github.io/vedas/">
-    <meta property="og:title" content="The Vedas in English">
-    <meta property="og:description" content="Search the four Veda Samhitas with public-domain English translations, source attribution, and plain meanings for each verse.">
+    <meta property="og:title" content="The Vedas in English, Sanskrit, and Transliteration">
+    <meta property="og:description" content="Search the four Veda Samhitas with English translations, event relevance notes, source attribution, and original Sanskrit/transliteration where aligned.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://chiragmirani.github.io/vedas/">
     <meta property="og:site_name" content="The Vedas">
@@ -21,15 +21,15 @@
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="The Vedas English translation reader">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="The Vedas in English">
-    <meta name="twitter:description" content="Public-domain English translations of the four Vedas with searchable navigation and verse-by-verse plain meanings.">
+    <meta name="twitter:title" content="The Vedas in English, Sanskrit, and Transliteration">
+    <meta name="twitter:description" content="English translations of the four Vedas with searchable navigation, plain meanings, event relevance notes, and aligned original text where available.">
     <meta name="twitter:image" content="https://chiragmirani.github.io/vedas/social-preview.png">
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg?v=16">
-    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png?v=16">
-    <link rel="icon" href="./favicon.ico?v=16">
-    <link rel="apple-touch-icon" href="./apple-touch-icon.png?v=16">
-    <link rel="manifest" href="./manifest.webmanifest?v=16">
-    <link rel="stylesheet" href="./static/styles.css?v=16">
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg?v=17">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png?v=17">
+    <link rel="icon" href="./favicon.ico?v=17">
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png?v=17">
+    <link rel="manifest" href="./manifest.webmanifest?v=17">
+    <link rel="stylesheet" href="./static/styles.css?v=17">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -40,7 +40,7 @@
             "name": "The Vedas",
             "url": "https://chiragmirani.github.io/vedas/",
             "inLanguage": "en",
-            "description": "A searchable public-domain English translation reader for the four Veda Samhitas with verse-by-verse plain meanings.",
+            "description": "A searchable public-domain English translation reader for the four Veda Samhitas with plain meanings, event relevance notes, and aligned Sanskrit/transliteration where available.",
             "publisher": {
               "@type": "Person",
               "name": "Chirag Mirani"
@@ -62,7 +62,7 @@
             "dateModified": "2026-06-23",
             "educationalUse": "Study and reference",
             "genre": "Religious text translation",
-            "keywords": "Vedas, Rigveda, Samaveda, Yajurveda, Atharvaveda, English translation, Veda meaning",
+            "keywords": "Vedas, Rigveda, Samaveda, Yajurveda, Atharvaveda, English translation, Sanskrit, transliteration, Veda meaning, Vedic hymns",
             "about": [
               { "@type": "Thing", "name": "Rigveda" },
               { "@type": "Thing", "name": "Samaveda" },
@@ -94,6 +94,22 @@
                 "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "Yes. Each verse is shown with the public-domain English translation and a plain meaning generated from that English translation."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Does this reader include Sanskrit and transliteration?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes where a reliable aligned source is available. Rigveda and Atharvaveda passages include Sanskrit and IAST transliteration sourced from GRETIL; other passages are marked source-needed rather than filled with guessed text."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Does this reader show which event a hymn is relevant for?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Each passage includes an inferred relevant event or use, such as fire offering, Soma ritual, healing, protection, marriage, funeral, prosperity, royal rite, or general recitation. These notes are study aids and usage varies by tradition."
                 }
               },
               {
@@ -182,7 +198,7 @@
               </div>
             </div>
             <figure class="hero-art" aria-hidden="true">
-              <img src="./veda-hero.png?v=16" alt="">
+              <img src="./veda-hero.png?v=17" alt="">
             </figure>
           </header>
           <section class="content">
@@ -190,6 +206,8 @@
               <span class="chip" id="referenceChip">Veda</span>
               <span id="translatorText"></span>
             </div>
+            <div class="passage-context" id="passageContext"></div>
+            <div class="original-panel" id="originalPanel" aria-label="Original Sanskrit and transliteration"></div>
             <div class="text" id="passageText">
               <p>Loading...</p>
             </div>
@@ -213,8 +231,16 @@
               <p>The reader includes Ralph T.H. Griffith's Rigveda, Samaveda, and Atharvaveda translations, plus Arthur Berriedale Keith's translation of the Taittiriya Samhita of the Black Yajurveda.</p>
             </article>
             <article>
+              <h3>Does it include Sanskrit and transliteration?</h3>
+              <p>Rigveda and Atharvaveda passages include aligned Sanskrit and IAST transliteration from GRETIL. Samaveda and Yajurveda passages are marked source-needed until an aligned source can be attached safely.</p>
+            </article>
+            <article>
+              <h3>Does it show event relevance?</h3>
+              <p>Yes. Every passage has an inferred relevant event or use, such as fire offering, Soma ritual, healing, protection, marriage, funeral, prosperity, royal rite, or general recitation.</p>
+            </article>
+            <article>
               <h3>What is searchable here?</h3>
-              <p>The site contains 4 Vedas, 52 books, and 2,251 passages with source labels, translator attribution, and searchable English text.</p>
+              <p>The site contains 4 Vedas, 52 books, and 2,251 passages with source labels, translator attribution, searchable English text, event notes, and available original-language text.</p>
             </article>
           </div>
         </section>
@@ -245,6 +271,8 @@
         heroTranslator: document.getElementById("heroTranslatorText"),
         ref: document.getElementById("referenceChip"),
         translator: document.getElementById("translatorText"),
+        context: document.getElementById("passageContext"),
+        original: document.getElementById("originalPanel"),
         text: document.getElementById("passageText"),
         note: document.getElementById("sourceNote"),
         prev: document.getElementById("prevBtn"),
@@ -309,7 +337,9 @@
         const query = els.search.value.trim().toLowerCase();
         const sections = query
           ? state.flat.filter(({ section, veda, book }) => {
-              const haystack = `${veda.name} ${book.title} ${section.reference} ${section.title} ${section.text}`.toLowerCase();
+              const eventText = section.eventRelevance ? `${section.eventRelevance.label} ${(section.eventRelevance.tags || []).join(" ")}` : "";
+              const originalText = section.original ? `${section.original.sanskrit || ""} ${section.original.transliteration || ""}` : "";
+              const haystack = `${veda.name} ${book.title} ${section.reference} ${section.title} ${eventText} ${section.text} ${originalText}`.toLowerCase();
               return haystack.includes(query);
             }).slice(0, 80)
           : book.sections.map((section, sectionIndex) => ({
@@ -459,6 +489,92 @@
         return block;
       }
 
+      function renderEventContext(section) {
+        const event = section.eventRelevance;
+        els.context.innerHTML = "";
+        if (!event) {
+          els.context.hidden = true;
+          return;
+        }
+        els.context.hidden = false;
+
+        const label = document.createElement("div");
+        label.className = "context-label";
+        label.textContent = "Relevant event / use";
+
+        const title = document.createElement("strong");
+        title.textContent = event.label;
+
+        const note = document.createElement("p");
+        note.textContent = event.note || "Inferred from the passage context.";
+
+        const tags = document.createElement("div");
+        tags.className = "context-tags";
+        (event.tags || []).forEach((tag) => {
+          const chip = document.createElement("span");
+          chip.textContent = tag;
+          tags.append(chip);
+        });
+
+        els.context.append(label, title, note, tags);
+      }
+
+      function originalBlock(title, text, className) {
+        const section = document.createElement("section");
+        section.className = `original-section ${className}`;
+
+        const heading = document.createElement("h3");
+        heading.textContent = title;
+
+        const pre = document.createElement("pre");
+        pre.className = "original-text";
+        pre.textContent = text;
+
+        section.append(heading, pre);
+        return section;
+      }
+
+      function renderOriginal(section) {
+        const original = section.original;
+        els.original.innerHTML = "";
+        if (!original) {
+          els.original.hidden = true;
+          return;
+        }
+        els.original.hidden = false;
+
+        const label = document.createElement("div");
+        label.className = "context-label";
+        label.textContent = "Original text";
+        els.original.append(label);
+
+        if (original.status !== "available") {
+          const unavailable = document.createElement("p");
+          unavailable.className = "original-unavailable";
+          unavailable.textContent = original.note || "Original Sanskrit and transliteration are not attached for this passage yet.";
+          els.original.append(unavailable);
+          return;
+        }
+
+        const grid = document.createElement("div");
+        grid.className = "original-grid";
+        grid.append(
+          originalBlock("Sanskrit", original.sanskrit, "sanskrit-block"),
+          originalBlock("Transliteration", original.transliteration, "transliteration-block")
+        );
+        els.original.append(grid);
+
+        const source = document.createElement("p");
+        source.className = "original-source";
+        source.textContent = `${original.note} Source: `;
+        const link = document.createElement("a");
+        link.href = original.sourceUrl;
+        link.rel = "noopener noreferrer";
+        link.textContent = original.sourceTitle;
+        source.append(link, ".");
+        els.original.append(source);
+      }
+
       function renderPassage() {
         const { veda, book, section } = getCurrent();
         document.title = `${section.reference} · The Vedas`;
@@ -471,6 +587,8 @@
         els.heroTranslator.textContent = `${veda.translator} · ${veda.year}`;
         els.ref.textContent = section.reference;
         els.translator.textContent = `English translation · ${veda.translator}, ${veda.year}`;
+        renderEventContext(section);
+        renderOriginal(section);
         els.text.innerHTML = "";
         section.text.split(/\n{2,}/).forEach((paragraph) => {
           els.text.append(renderVerse(paragraph));
@@ -576,14 +694,14 @@
         if (state.data) restoreLocation();
       });
 
-      fetch("./data.json?v=16", { cache: "no-store" })
+      fetch("./data.json?v=17", { cache: "no-store" })
         .then((response) => response.json())
         .then((data) => {
           state.data = data;
           flatten();
           restoreLocation();
           if ("serviceWorker" in navigator) {
-            navigator.serviceWorker.register("./sw.js?v=16").catch(() => {});
+            navigator.serviceWorker.register("./sw.js?v=17").catch(() => {});
           }
         })
         .catch(() => {
