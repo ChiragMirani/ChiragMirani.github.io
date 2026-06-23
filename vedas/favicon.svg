@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="The Vedas">
+  <rect width="64" height="64" rx="13" fill="#102234"/>
+  <rect x="7" y="7" width="50" height="50" rx="9" fill="none" stroke="#f4b62e" stroke-width="3"/>
+  <path d="M12 38 32 34v16L13 45Z" fill="#fff7d7"/>
+  <path d="M32 34 52 38 51 45 32 50Z" fill="#f8df9b"/>
+  <path d="M32 34v16" stroke="#9d6330" stroke-width="2" stroke-linecap="round"/>
+  <path d="M19 42c4-2 8-2 11 1M45 42c-4-2-8-2-11 1" fill="none" stroke="#9d6330" stroke-width="1.5" stroke-linecap="round"/>
+  <ellipse cx="32" cy="27.5" rx="10" ry="3.5" fill="#9d6330"/>
+  <path d="M32 12c6 7 9 12 9 17 0 5-4 8-9 10-5-2-9-5-9-10 0-5 3-10 9-17Z" fill="#f26a2e"/>
+  <path d="M32 19c3.5 5 5 8 5 11 0 3-2 5-5 6-3-1-5-3-5-6 0-3 1.5-6 5-11Z" fill="#ffd056"/>
+</svg>

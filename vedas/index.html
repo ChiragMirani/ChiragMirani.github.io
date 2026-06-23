@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Vedas in English | Rigveda, Samaveda, Yajurveda, Atharvaveda</title>
+    <meta name="description" content="Read public-domain English translations of the Rigveda, Samaveda, Yajurveda, and Atharvaveda with verse-by-verse plain meanings, source attribution, and searchable navigation.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="author" content="Chirag Mirani">
+    <meta name="application-name" content="The Vedas">
+    <meta name="theme-color" content="#c96f18">
+    <link rel="canonical" href="https://chiragmirani.github.io/vedas/">
+    <meta property="og:title" content="The Vedas in English">
+    <meta property="og:description" content="Search the four Veda Samhitas with public-domain English translations, source attribution, and plain meanings for each verse.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chiragmirani.github.io/vedas/">
+    <meta property="og:site_name" content="The Vedas">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:image" content="https://chiragmirani.github.io/vedas/social-preview.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="The Vedas English translation reader">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Vedas in English">
+    <meta name="twitter:description" content="Public-domain English translations of the four Vedas with searchable navigation and verse-by-verse plain meanings.">
+    <meta name="twitter:image" content="https://chiragmirani.github.io/vedas/social-preview.png">
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg?v=16">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png?v=16">
+    <link rel="icon" href="./favicon.ico?v=16">
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png?v=16">
+    <link rel="manifest" href="./manifest.webmanifest?v=16">
+    <link rel="stylesheet" href="./static/styles.css?v=16">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://chiragmirani.github.io/vedas/#website",
+            "name": "The Vedas",
+            "url": "https://chiragmirani.github.io/vedas/",
+            "inLanguage": "en",
+            "description": "A searchable public-domain English translation reader for the four Veda Samhitas with verse-by-verse plain meanings.",
+            "publisher": {
+              "@type": "Person",
+              "name": "Chirag Mirani"
+            },
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://chiragmirani.github.io/vedas/?q={search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
+          },
+          {
+            "@type": "CreativeWork",
+            "@id": "https://chiragmirani.github.io/vedas/#reader",
+            "name": "The Vedas English Translation Reader",
+            "url": "https://chiragmirani.github.io/vedas/",
+            "isAccessibleForFree": true,
+            "inLanguage": "en",
+            "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+            "dateModified": "2026-06-23",
+            "educationalUse": "Study and reference",
+            "genre": "Religious text translation",
+            "keywords": "Vedas, Rigveda, Samaveda, Yajurveda, Atharvaveda, English translation, Veda meaning",
+            "about": [
+              { "@type": "Thing", "name": "Rigveda" },
+              { "@type": "Thing", "name": "Samaveda" },
+              { "@type": "Thing", "name": "Yajurveda" },
+              { "@type": "Thing", "name": "Atharvaveda" }
+            ],
+            "hasPart": [
+              { "@type": "CreativeWork", "name": "Rigveda English translation" },
+              { "@type": "CreativeWork", "name": "Samaveda English translation" },
+              { "@type": "CreativeWork", "name": "Yajurveda English translation" },
+              { "@type": "CreativeWork", "name": "Atharvaveda English translation" }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://chiragmirani.github.io/vedas/#answers",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What are the Vedas?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "The Vedas are four ancient Sanskrit collections: the Rigveda, Samaveda, Yajurveda, and Atharvaveda. This reader presents public-domain English translations for study and reference."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Does this reader include meanings for each verse?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Each verse is shown with the public-domain English translation and a plain meaning generated from that English translation."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Which Veda translations are included?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "The reader includes Ralph T.H. Griffith's Rigveda, Samaveda, and Atharvaveda translations, plus Arthur Berriedale Keith's translation of the Taittiriya Samhita of the Black Yajurveda."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <a class="brand" href="./" aria-label="The Vedas home">
+          <span class="mark" aria-hidden="true">ॐ</span>
+          <span class="brand-text">
+            <h1>The Vedas</h1>
+            <p>English translation · four Vedas</p>
+          </span>
+        </a>
+        <nav class="toolbar" aria-label="Reader actions">
+          <button class="icon-btn" id="dailyBtn" type="button" title="Daily passage" aria-label="Daily passage">☼</button>
+          <button class="icon-btn" id="shareBtn" type="button" title="Share" aria-label="Share">↗</button>
+          <a class="icon-btn" href="./about.html" title="About" aria-label="About">i</a>
+        </nav>
+      </header>
+
+      <main class="main">
+        <aside class="panel" aria-label="Veda navigation">
+          <section class="controls">
+            <div class="field">
+              <label for="vedaSelect">Veda</label>
+              <select class="select" id="vedaSelect"></select>
+            </div>
+            <div class="field">
+              <label for="bookSelect">Book</label>
+              <select class="select" id="bookSelect"></select>
+            </div>
+            <div class="field">
+              <label for="sectionSelect">Passage</label>
+              <select class="select" id="sectionSelect"></select>
+            </div>
+            <div class="field">
+              <label for="searchInput">Search</label>
+              <input class="search" id="searchInput" type="search" placeholder="Search translations and passages">
+            </div>
+            <div class="stats" aria-label="Current collection statistics">
+              <div class="stat">
+                <strong id="bookCount">0</strong>
+                <span>books</span>
+              </div>
+              <div class="stat">
+                <strong id="sectionCount">0</strong>
+                <span>passages</span>
+              </div>
+            </div>
+          </section>
+          <section class="verse-list" id="sectionList" aria-label="Passage list"></section>
+        </aside>
+
+        <article class="reader" aria-live="polite">
+          <header class="reader-head">
+            <div class="reader-title-copy">
+              <p class="eyebrow" id="readerEyebrow">Loading</p>
+              <h2 id="readerTitle">The Vedas</h2>
+              <p class="reader-meta" id="readerMeta">Loading public-domain translations.</p>
+              <dl class="reader-facts" aria-label="Current passage details">
+                <div>
+                  <dt>Meaning</dt>
+                  <dd id="definitionText">Veda of knowledge</dd>
+                </div>
+                <div>
+                  <dt>Translation</dt>
+                  <dd id="heroTranslatorText">Public domain</dd>
+                </div>
+              </dl>
+              <div class="nav-actions">
+                <button class="icon-btn" id="prevBtn" type="button" title="Previous passage" aria-label="Previous passage">‹</button>
+                <button class="icon-btn" id="nextBtn" type="button" title="Next passage" aria-label="Next passage">›</button>
+              </div>
+            </div>
+            <figure class="hero-art" aria-hidden="true">
+              <img src="./veda-hero.png?v=16" alt="">
+            </figure>
+          </header>
+          <section class="content">
+            <div class="reference">
+              <span class="chip" id="referenceChip">Veda</span>
+              <span id="translatorText"></span>
+            </div>
+            <div class="text" id="passageText">
+              <p>Loading...</p>
+            </div>
+            <p class="source-note" id="sourceNote"></p>
+          </section>
+        </article>
+        <section class="answer-panel" id="answers" aria-labelledby="vedaAnswersTitle">
+          <p class="eyebrow">Study answers</p>
+          <h2 id="vedaAnswersTitle">Vedas English translation and meaning</h2>
+          <div class="answer-grid">
+            <article>
+              <h3>What are the Vedas?</h3>
+              <p>The Vedas are four ancient Sanskrit collections: the Rigveda, Samaveda, Yajurveda, and Atharvaveda. This reader presents public-domain English translations for study and reference.</p>
+            </article>
+            <article>
+              <h3>Does this reader include meanings for each verse?</h3>
+              <p>Yes. Each verse is shown with the public-domain English translation and a plain meaning generated from that English translation. The plain meaning is not a traditional Sanskrit commentary.</p>
+            </article>
+            <article>
+              <h3>Which Veda translations are included?</h3>
+              <p>The reader includes Ralph T.H. Griffith's Rigveda, Samaveda, and Atharvaveda translations, plus Arthur Berriedale Keith's translation of the Taittiriya Samhita of the Black Yajurveda.</p>
+            </article>
+            <article>
+              <h3>What is searchable here?</h3>
+              <p>The site contains 4 Vedas, 52 books, and 2,251 passages with source labels, translator attribution, and searchable English text.</p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      const state = {
+        data: null,
+        vedaIndex: 0,
+        bookIndex: 0,
+        sectionIndex: 0,
+        flat: []
+      };
+
+      const els = {
+        veda: document.getElementById("vedaSelect"),
+        book: document.getElementById("bookSelect"),
+        section: document.getElementById("sectionSelect"),
+        search: document.getElementById("searchInput"),
+        list: document.getElementById("sectionList"),
+        bookCount: document.getElementById("bookCount"),
+        sectionCount: document.getElementById("sectionCount"),
+        eyebrow: document.getElementById("readerEyebrow"),
+        title: document.getElementById("readerTitle"),
+        meta: document.getElementById("readerMeta"),
+        definition: document.getElementById("definitionText"),
+        heroTranslator: document.getElementById("heroTranslatorText"),
+        ref: document.getElementById("referenceChip"),
+        translator: document.getElementById("translatorText"),
+        text: document.getElementById("passageText"),
+        note: document.getElementById("sourceNote"),
+        prev: document.getElementById("prevBtn"),
+        next: document.getElementById("nextBtn"),
+        daily: document.getElementById("dailyBtn"),
+        share: document.getElementById("shareBtn")
+      };
+
+      function getCurrent() {
+        const veda = state.data.vedas[state.vedaIndex];
+        const book = veda.books[state.bookIndex];
+        const section = book.sections[state.sectionIndex];
+        return { veda, book, section };
+      }
+
+      function flatten() {
+        state.flat = [];
+        state.data.vedas.forEach((veda, vedaIndex) => {
+          veda.books.forEach((book, bookIndex) => {
+            book.sections.forEach((section, sectionIndex) => {
+              state.flat.push({ vedaIndex, bookIndex, sectionIndex, veda, book, section });
+            });
+          });
+        });
+      }
+
+      function currentFlatIndex() {
+        return state.flat.findIndex((item) =>
+          item.vedaIndex === state.vedaIndex &&
+          item.bookIndex === state.bookIndex &&
+          item.sectionIndex === state.sectionIndex
+        );
+      }
+
+      function setLocation(vedaIndex, bookIndex, sectionIndex) {
+        state.vedaIndex = Math.max(0, Math.min(vedaIndex, state.data.vedas.length - 1));
+        state.bookIndex = Math.max(0, Math.min(bookIndex, state.data.vedas[state.vedaIndex].books.length - 1));
+        state.sectionIndex = Math.max(0, Math.min(sectionIndex, state.data.vedas[state.vedaIndex].books[state.bookIndex].sections.length - 1));
+        render();
+      }
+
+      function populateSelect(select, items, selectedIndex, labeler) {
+        select.innerHTML = "";
+        items.forEach((item, index) => {
+          const option = document.createElement("option");
+          option.value = String(index);
+          option.textContent = labeler(item, index);
+          option.selected = index === selectedIndex;
+          select.append(option);
+        });
+      }
+
+      function renderSelectors() {
+        const { veda, book } = getCurrent();
+        populateSelect(els.veda, state.data.vedas, state.vedaIndex, (item) => item.name);
+        populateSelect(els.book, veda.books, state.bookIndex, (item) => item.label || item.title);
+        populateSelect(els.section, book.sections, state.sectionIndex, (item) => item.reference);
+      }
+
+      function renderList() {
+        const { book } = getCurrent();
+        const query = els.search.value.trim().toLowerCase();
+        const sections = query
+          ? state.flat.filter(({ section, veda, book }) => {
+              const haystack = `${veda.name} ${book.title} ${section.reference} ${section.title} ${section.text}`.toLowerCase();
+              return haystack.includes(query);
+            }).slice(0, 80)
+          : book.sections.map((section, sectionIndex) => ({
+              vedaIndex: state.vedaIndex,
+              bookIndex: state.bookIndex,
+              sectionIndex,
+              veda: state.data.vedas[state.vedaIndex],
+              book,
+              section
+            }));
+
+        els.list.innerHTML = "";
+        if (!sections.length) {
+          const empty = document.createElement("div");
+          empty.className = "empty";
+          empty.textContent = "No passages found.";
+          els.list.append(empty);
+          return;
+        }
+
+        sections.forEach((item) => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "verse-link";
+          if (
+            item.vedaIndex === state.vedaIndex &&
+            item.bookIndex === state.bookIndex &&
+            item.sectionIndex === state.sectionIndex
+          ) {
+            button.classList.add("active");
+          }
+          const title = document.createElement("strong");
+          title.textContent = item.section.reference;
+          const preview = document.createElement("span");
+          preview.textContent = item.section.title.replace(/^HYMN\s+/i, "Hymn ") || item.section.text.slice(0, 90);
+          button.append(title, preview);
+          button.addEventListener("click", () => setLocation(item.vedaIndex, item.bookIndex, item.sectionIndex));
+          els.list.append(button);
+        });
+      }
+
+      function matchCase(original, replacement) {
+        if (original === original.toUpperCase()) return replacement.toUpperCase();
+        if (original[0] === original[0].toUpperCase()) {
+          return replacement[0].toUpperCase() + replacement.slice(1);
+        }
+        return replacement;
+      }
+
+      function replaceWord(text, source, replacement) {
+        return text.replace(new RegExp(`\\b${source}\\b`, "gi"), (match) => matchCase(match, replacement));
+      }
+
+      function plainMeaning(text) {
+        const replacements = [
+          ["hath", "has"],
+          ["hast", "have"],
+          ["thou", "you"],
+          ["thee", "you"],
+          ["thy", "your"],
+          ["thine", "yours"],
+          ["ye", "you"],
+          ["art", "are"],
+          ["dost", "do"],
+          ["doth", "does"],
+          ["didst", "did"],
+          ["wast", "were"],
+          ["wert", "were"],
+          ["shalt", "shall"],
+          ["wilt", "will"],
+          ["unto", "to"],
+          ["hither", "here"],
+          ["thither", "there"],
+          ["whence", "from where"],
+          ["wherein", "in which"],
+          ["whereby", "by which"],
+          ["therein", "in it"],
+          ["thereby", "by that"],
+          ["thereof", "of it"],
+          ["therewith", "with that"],
+          ["o'er", "over"],
+          ["ere", "before"],
+          ["subduest", "subdue"],
+          ["bringest", "bring"],
+          ["comest", "come"],
+          ["goest", "go"],
+          ["makest", "make"],
+          ["givest", "give"],
+          ["knowest", "know"],
+          ["seest", "see"],
+          ["bearest", "bear"],
+          ["hearest", "hear"],
+          ["callest", "call"],
+          ["drinkest", "drink"],
+          ["fillest", "fill"],
+          ["leadest", "lead"],
+          ["guardest", "guard"],
+          ["sendest", "send"],
+          ["shinest", "shine"],
+          ["standest", "stand"],
+          ["speakest", "speak"],
+          ["slayest", "slay"]
+        ];
+        return replacements.reduce((value, [source, replacement]) => replaceWord(value, source, replacement), text)
+          .replace(/\s+/g, " ")
+          .trim();
+      }
+
+      function splitVerse(paragraph) {
+        const numbered = paragraph.match(/^(\d+)\.\s+([\s\S]+)$/);
+        if (numbered) return { marker: `${numbered[1]}.`, body: numbered[2] };
+        const lettered = paragraph.match(/^([a-z])\s+([\s\S]+)$/);
+        if (lettered) return { marker: `${lettered[1]}.`, body: lettered[2] };
+        return { marker: "", body: paragraph };
+      }
+
+      function renderVerse(paragraph) {
+        const verse = splitVerse(paragraph);
+        const block = document.createElement("section");
+        block.className = "verse-block";
+
+        const marker = document.createElement("div");
+        marker.className = "verse-number";
+        marker.textContent = verse.marker || " ";
+
+        const body = document.createElement("div");
+        body.className = "verse-body";
+
+        const translationLabel = document.createElement("div");
+        translationLabel.className = "verse-label";
+        translationLabel.textContent = "Translation";
+
+        const translation = document.createElement("p");
+        translation.className = "verse-translation";
+        translation.textContent = verse.body;
+
+        const meaningLabel = document.createElement("div");
+        meaningLabel.className = "verse-label meaning-label";
+        meaningLabel.textContent = "Plain meaning";
+
+        const meaning = document.createElement("p");
+        meaning.className = "verse-meaning";
+        meaning.textContent = plainMeaning(verse.body);
+
+        body.append(translationLabel, translation, meaningLabel, meaning);
+        block.append(marker, body);
+        return block;
+      }
+
+      function renderPassage() {
+        const { veda, book, section } = getCurrent();
+        document.title = `${section.reference} · The Vedas`;
+        els.bookCount.textContent = veda.books.length.toLocaleString();
+        els.sectionCount.textContent = veda.books.reduce((sum, item) => sum + item.sections.length, 0).toLocaleString();
+        els.eyebrow.textContent = `${veda.name} · ${book.title}`;
+        els.title.textContent = section.title;
+        els.meta.textContent = veda.description;
+        els.definition.textContent = veda.meaning;
+        els.heroTranslator.textContent = `${veda.translator} · ${veda.year}`;
+        els.ref.textContent = section.reference;
+        els.translator.textContent = `English translation · ${veda.translator}, ${veda.year}`;
+        els.text.innerHTML = "";
+        section.text.split(/\n{2,}/).forEach((paragraph) => {
+          els.text.append(renderVerse(paragraph));
+        });
+        els.note.innerHTML = `Plain meanings are modernized readings from the public-domain English translation. Source: <a href="${section.sourceUrl}" rel="noopener noreferrer">${veda.sourceTitle}</a>.`;
+
+        const hash = `${veda.id}/${book.id}/${section.id}`;
+        history.replaceState(null, "", `#${hash}`);
+        localStorage.setItem("vedas:last", JSON.stringify({
+          vedaIndex: state.vedaIndex,
+          bookIndex: state.bookIndex,
+          sectionIndex: state.sectionIndex
+        }));
+      }
+
+      function render() {
+        renderSelectors();
+        renderList();
+        renderPassage();
+      }
+
+      function navigate(delta) {
+        const index = currentFlatIndex();
+        const next = state.flat[index + delta];
+        if (next) setLocation(next.vedaIndex, next.bookIndex, next.sectionIndex);
+      }
+
+      function openDaily() {
+        const today = new Date();
+        const seed = Number(`${today.getFullYear()}${today.getMonth() + 1}${today.getDate()}`);
+        const index = seed % state.flat.length;
+        const item = state.flat[index];
+        setLocation(item.vedaIndex, item.bookIndex, item.sectionIndex);
+      }
+
+      async function shareCurrent() {
+        const { section } = getCurrent();
+        const url = location.href;
+        if (navigator.share) {
+          await navigator.share({ title: `The Vedas · ${section.reference}`, url });
+        } else {
+          await navigator.clipboard.writeText(url);
+          els.share.textContent = "✓";
+          setTimeout(() => { els.share.textContent = "↗"; }, 1200);
+        }
+      }
+
+      function restoreLocation() {
+        const requestedSearch = new URLSearchParams(location.search).get("q");
+        if (requestedSearch) {
+          els.search.value = requestedSearch;
+        }
+
+        const hash = decodeURIComponent(location.hash.replace(/^#/, ""));
+        if (hash) {
+          const [vedaId, bookId, sectionId] = hash.split("/");
+          const vedaIndex = state.data.vedas.findIndex((veda) => veda.id === vedaId);
+          if (vedaIndex >= 0) {
+            const bookIndex = state.data.vedas[vedaIndex].books.findIndex((book) => book.id === bookId);
+            if (bookIndex >= 0) {
+              const sectionIndex = state.data.vedas[vedaIndex].books[bookIndex].sections.findIndex((section) => section.id === sectionId);
+              if (sectionIndex >= 0) {
+                setLocation(vedaIndex, bookIndex, sectionIndex);
+                return;
+              }
+            }
+          }
+        }
+
+        try {
+          const saved = JSON.parse(localStorage.getItem("vedas:last") || "{}");
+          if (Number.isInteger(saved.vedaIndex)) {
+            setLocation(saved.vedaIndex, saved.bookIndex || 0, saved.sectionIndex || 0);
+            return;
+          }
+        } catch (error) {
+          localStorage.removeItem("vedas:last");
+        }
+        setLocation(0, 0, 0);
+      }
+
+      els.veda.addEventListener("change", () => setLocation(Number(els.veda.value), 0, 0));
+      els.book.addEventListener("change", () => setLocation(state.vedaIndex, Number(els.book.value), 0));
+      els.section.addEventListener("change", () => setLocation(state.vedaIndex, state.bookIndex, Number(els.section.value)));
+      els.search.addEventListener("input", renderList);
+      els.prev.addEventListener("click", () => navigate(-1));
+      els.next.addEventListener("click", () => navigate(1));
+      els.daily.addEventListener("click", openDaily);
+      els.share.addEventListener("click", () => shareCurrent().catch(() => {}));
+
+      window.addEventListener("keydown", (event) => {
+        if (event.target.matches("input, select, textarea")) return;
+        if (event.key === "ArrowLeft") navigate(-1);
+        if (event.key === "ArrowRight") navigate(1);
+        if (event.key === "Home") setLocation(0, 0, 0);
+        if (event.key === "End") {
+          const last = state.flat[state.flat.length - 1];
+          setLocation(last.vedaIndex, last.bookIndex, last.sectionIndex);
+        }
+      });
+
+      window.addEventListener("hashchange", () => {
+        if (state.data) restoreLocation();
+      });
+
+      fetch("./data.json?v=16", { cache: "no-store" })
+        .then((response) => response.json())
+        .then((data) => {
+          state.data = data;
+          flatten();
+          restoreLocation();
+          if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("./sw.js?v=16").catch(() => {});
+          }
+        })
+        .catch(() => {
+          els.eyebrow.textContent = "Data unavailable";
+          els.title.textContent = "The Vedas";
+          els.meta.textContent = "Run the build script to generate docs/data.json.";
+          els.text.innerHTML = "<p>The reader is ready, but the Veda data file has not been generated yet.</p>";
+        });
+    </script>
+  </body>
+</html>
