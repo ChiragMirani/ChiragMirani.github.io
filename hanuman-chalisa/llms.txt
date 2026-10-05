@@ -8,12 +8,25 @@ Structure: two opening dohas, forty chaupais, one closing doha (43 verses).
 
 Source: Tulsidas's Hanuman Chalisa (16th century, public domain). Devanagari spelling reconciled against several published editions. English translation written for this app.
 
+## The iPhone and iPad app
+
+Shree Hanuman Chalisa (English) is a free iPhone and iPad app (iOS 17 or later) that shows all 43 verses of the Hanuman Chalisa in plain English, one verse at a time. Text only, with no audio. The Hindi (Devanagari) and the same Hindi in English letters are optional switches in Settings, off at first. It opens on the verse where you stopped, works offline, and follows the iPhone's Text Size. No ads, no account, no in-app purchases, and it collects nothing.
+
+Questions people ask, answered on the app page:
+- Is the Hanuman Chalisa app free, with no ads? Yes.
+- Does it work offline? Yes.
+- Does it have audio? No, it is text only.
+- Can I read it in Hindi? Yes, as an option in Settings.
+- Which devices? iPhone and iPad, iOS 17 or later.
+
+App page: https://chiragmirani.github.io/hanuman-chalisa/app.html
+App Store link: not live yet. It will be added here and on the app page when the app is approved.
+
 Pages:
 - Reader and full text: https://chiragmirani.github.io/hanuman-chalisa/
 - FAQ (on the home page): https://chiragmirani.github.io/hanuman-chalisa/#faq
+- iPhone and iPad app: https://chiragmirani.github.io/hanuman-chalisa/app.html
 - About: https://chiragmirani.github.io/hanuman-chalisa/about.html
 - Privacy: https://chiragmirani.github.io/hanuman-chalisa/privacy.html
 - Support: https://chiragmirani.github.io/hanuman-chalisa/support.html
 - Verse data (JSON): https://chiragmirani.github.io/hanuman-chalisa/data.json
-
-App Store: not live yet (link will be added here).

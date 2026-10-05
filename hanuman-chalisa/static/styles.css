@@ -572,3 +572,15 @@ a:hover {
 .prose li {
   margin: 6px 0;
 }
+
+/* Four nav links plus the name do not fit on one line on a phone, so let them wrap. */
+@media (max-width: 480px) {
+  .topbar {
+    flex-wrap: wrap;
+    gap: 6px 0;
+  }
+
+  .topbar nav a {
+    margin: 0 16px 0 0;
+  }
+}
