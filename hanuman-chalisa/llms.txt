@@ -1,13 +1,19 @@
 # Shree Hanuman Chalisa
 
-This is a small static reader for the complete Hanuman Chalisa.
+All 43 verses of the Hanuman Chalisa on one page, as plain HTML: English meaning first, then Devanagari, then Roman transliteration. Free, no ads, no account, no tracking. Works offline after the first visit.
 
-The app includes:
-- Two opening dohas, forty chaupais, and one closing doha.
-- Devanagari text, IAST transliteration, and English meaning.
-- Native share support through the platform share sheet where available.
-- Offline support through a service worker.
-- Home-screen install metadata for iOS and Android.
+The text is a Hindu devotional hymn attributed to Goswami Tulsidas (16th century, Awadhi). It is a devotional text, not medical advice, and it makes no promise of any result.
 
-Canonical URL: https://chiragmirani.github.io/hanuman-chalisa/
-Source text reference: https://wiki.yoga-vidya.de/Hanuman_Chalisa_Text
+Structure: two opening dohas, forty chaupais, one closing doha (43 verses).
+
+Source: Tulsidas's Hanuman Chalisa (16th century, public domain). Devanagari spelling reconciled against several published editions. English translation written for this app.
+
+Pages:
+- Reader and full text: https://chiragmirani.github.io/hanuman-chalisa/
+- FAQ (on the home page): https://chiragmirani.github.io/hanuman-chalisa/#faq
+- About: https://chiragmirani.github.io/hanuman-chalisa/about.html
+- Privacy: https://chiragmirani.github.io/hanuman-chalisa/privacy.html
+- Support: https://chiragmirani.github.io/hanuman-chalisa/support.html
+- Verse data (JSON): https://chiragmirani.github.io/hanuman-chalisa/data.json
+
+App Store: not live yet (link will be added here).

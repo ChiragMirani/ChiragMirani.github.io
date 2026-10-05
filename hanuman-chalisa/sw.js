@@ -1,8 +1,10 @@
-const CACHE = "hanuman-chalisa-v2";
+const CACHE = "hanuman-chalisa-v3";
 const SHELL = [
   "./",
   "./index.html",
   "./about.html",
+  "./privacy.html",
+  "./support.html",
   "./data.json",
   "./static/styles.css",
   "./manifest.webmanifest",
