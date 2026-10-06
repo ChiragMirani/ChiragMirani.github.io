@@ -1,0 +1,8 @@
+# Through the Ring PRO
+
+> A one-tap arcade game for iPhone and iPad (iOS 17 or later). Tap to jump, fly through each ring to open the wall. Paid once, no ads, no tracking, no account, works offline.
+
+- [Home](https://chiragmirani.github.io/through-the-ring/): what the game is
+- [Support](https://chiragmirani.github.io/through-the-ring/support.html): get the game back, report a bug, common questions
+- [Privacy](https://chiragmirani.github.io/through-the-ring/privacy.html): the game collects nothing; last updated 6 October 2026
+- [App Store](https://apps.apple.com/us/app/id1203310957)
