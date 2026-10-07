@@ -1,0 +1,17 @@
+# Chirag Mirani
+
+> Independent quantitative researcher and app builder. Projects below are public and free to read.
+
+## Apps and readers
+- [Shree Hanuman Chalisa (English)](https://chiragmirani.github.io/hanuman-chalisa/): the Hanuman Chalisa verse by verse in plain English, with the Hindi and the Hindi in English letters. Free iPhone and iPad app: https://apps.apple.com/app/id6819752072
+- [Through the Ring PRO](https://chiragmirani.github.io/through-the-ring/): a one-tap arcade game for iPhone and iPad. Pay once, no ads, no tracking.
+- [Gita](https://chiragmirani.github.io/gita-quotes/): all 700 verses of the Bhagavad Gita in English.
+- [The Vedas reader](https://chiragmirani.github.io/vedas/) and [The Upanishads reader](https://chiragmirani.github.io/upanishads/).
+
+## Research
+- [Live US macro forecast dashboard](https://chiragmirani.github.io/macro-dashboard/): house forecasts and Kalshi consensus for major US releases, with an honest track record.
+- [Exposure-Time Normalized Performance (SSRN, 2026)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6292699)
+
+## Contact
+- GitHub: https://github.com/ChiragMirani
+- LinkedIn: https://www.linkedin.com/in/chiragmirani/

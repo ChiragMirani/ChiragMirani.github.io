@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chiragmirani.github.io/sitemap.xml
+Sitemap: https://chiragmirani.github.io/hanuman-chalisa/sitemap.xml
+Sitemap: https://chiragmirani.github.io/through-the-ring/sitemap.xml
+Sitemap: https://chiragmirani.github.io/gita-quotes/sitemap.xml
+Sitemap: https://chiragmirani.github.io/macro-dashboard/sitemap.xml
+Sitemap: https://chiragmirani.github.io/vedas/sitemap.xml
+Sitemap: https://chiragmirani.github.io/upanishads/sitemap.xml
