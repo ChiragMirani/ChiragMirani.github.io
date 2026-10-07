@@ -20,7 +20,7 @@ Questions people ask, answered on the app page:
 - Which devices? iPhone and iPad, iOS 17 or later.
 
 App page: https://chiragmirani.github.io/hanuman-chalisa/app.html
-App Store link: not live yet. It will be added here and on the app page when the app is approved.
+App Store: https://apps.apple.com/app/id6819752072
 
 Pages:
 - Reader and full text: https://chiragmirani.github.io/hanuman-chalisa/

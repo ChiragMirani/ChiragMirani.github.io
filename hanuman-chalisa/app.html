@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta name="apple-itunes-app" content="app-id=6819752072">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Shree Hanuman Chalisa (English): Free iPhone and iPad App</title>
     <meta name="description" content="A free iPhone and iPad app with all 43 verses of the Hanuman Chalisa in plain English, one verse at a time. Text only, no ads, no account, works offline.">
@@ -36,6 +37,8 @@
       .shots{max-width:680px;margin:0 auto;padding:40px 0;border-top:1px solid var(--rule);text-align:center}
       .shots h2{margin:0 0 20px;font-size:28px;font-weight:600}
       .shot-row{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+      .shot-img{width:176px;height:auto;border-radius:22px;border:1px solid var(--rule)}
+      .store-link{display:inline-block;padding:12px 22px;border-radius:12px;background:#000;color:#fff;font-weight:600;text-decoration:none}
       .shot{width:176px;aspect-ratio:9/19.5;display:flex;align-items:center;justify-content:center;padding:12px;border:1px dashed var(--muted);border-radius:22px;color:var(--muted);font-size:14px;line-height:1.4}
       .glance{max-width:680px;margin:0 auto;padding:40px 0;border-top:1px solid var(--rule)}
       .glance h2{margin:0 0 16px;font-size:28px;font-weight:600;text-align:center}
@@ -52,7 +55,7 @@
       .muted{color:var(--muted)}
       .prose a{overflow-wrap:anywhere}
       @media(max-width:480px){.topbar{flex-wrap:wrap;gap:6px 0}.topbar nav a{margin:0 16px 0 0}}
-      @media (max-width:640px){.app-hero{padding-top:48px}.app-hero h1{font-size:2.35rem}.app-hero .lead-line{font-size:19px}.shot-row{gap:10px;flex-wrap:nowrap}.shot{width:calc((100% - 20px)/3);padding:6px;font-size:11px;border-radius:14px}.glance dl{grid-template-columns:1fr;gap:2px}.glance dt{margin-top:10px}}
+      @media (max-width:640px){.app-hero{padding-top:48px}.app-hero h1{font-size:2.35rem}.app-hero .lead-line{font-size:19px}.shot-row{gap:10px;flex-wrap:nowrap}.shot-img{width:calc((100% - 20px)/3);border-radius:14px}.shot{width:calc((100% - 20px)/3);padding:6px;font-size:11px;border-radius:14px}.glance dl{grid-template-columns:1fr;gap:2px}.glance dt{margin-top:10px}}
     </style>
     <script type="application/ld+json">
 {
@@ -108,6 +111,9 @@
       "description": "All 43 verses of the Hanuman Chalisa in plain English, one verse at a time, with the Hindi and the same Hindi in English letters one switch away in Settings. Text only, with no audio. Works offline. No ads, no account, and nothing collected.",
       "applicationCategory": "ReferenceApplication",
       "applicationSubCategory": "Religion and Devotional Text",
+      "installUrl": "https://apps.apple.com/app/id6819752072",
+      "downloadUrl": "https://apps.apple.com/app/id6819752072",
+      "sameAs": ["https://apps.apple.com/app/id6819752072"],
       "operatingSystem": "iOS 17.0 or later, iPadOS 17.0 or later",
       "softwareRequirements": "Requires iOS 17.0 or later, or iPadOS 17.0 or later",
       "isAccessibleForFree": true,
@@ -231,12 +237,8 @@
         <img src="hanuman-app-icon-192.png" width="96" height="96" alt="Shree Hanuman Chalisa (English) app icon">
         <h1>Shree Hanuman Chalisa (English)</h1>
         <p class="lead-line">The Hanuman Chalisa in plain English, one verse at a time. A free iPhone and iPad app with all 43 verses, no ads and no account.</p>
-        <!-- OWNER: when the app is live, replace this whole box with the App Store badge
-             linking to the real App Store URL, then update llms.txt and index.html to match.
-             Do not invent a URL. The structured data on this page has no store URL on purpose. -->
         <div class="store-slot" id="app-store-link">
-          <strong>Coming to the App Store</strong>
-          <span class="placeholder">[App Store link goes here when the app is live]</span>
+          <a class="store-link" href="https://apps.apple.com/app/id6819752072">Download on the App Store</a>
         </div>
       </section>
 
@@ -272,15 +274,12 @@
         </dl>
       </section>
 
-      <!-- PLACEHOLDER: replace the three boxes with the real App Store screenshots
-           (captioned set from docs/screenshot-plan.md in the app repo) once they are shot
-           from the final build. Give each <img> a plain-words alt text. -->
       <section class="shots" id="screenshots">
         <h2>Screenshots</h2>
         <div class="shot-row">
-          <div class="shot"><span class="placeholder">[Screenshot 1 goes here]</span></div>
-          <div class="shot"><span class="placeholder">[Screenshot 2 goes here]</span></div>
-          <div class="shot"><span class="placeholder">[Screenshot 3 goes here]</span></div>
+          <img class="shot-img" src="static/app-shots/01-hero.jpg" width="176" alt="The app showing verse 10 in plain English under the Shree Hanuman picture" loading="lazy">
+          <img class="shot-img" src="static/app-shots/02-three-ways.jpg" width="176" alt="One verse in English, with the Hindi and the Hindi in English letters switched on" loading="lazy">
+          <img class="shot-img" src="static/app-shots/03-nothing-collected.jpg" width="176" alt="A reading page with the promise: no ads, no account, nothing collected" loading="lazy">
         </div>
       </section>
 

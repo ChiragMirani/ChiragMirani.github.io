@@ -1,4 +1,4 @@
-const CACHE = "hanuman-chalisa-v4";
+const CACHE = "hanuman-chalisa-v5";
 const SHELL = [
   "./",
   "./index.html",
