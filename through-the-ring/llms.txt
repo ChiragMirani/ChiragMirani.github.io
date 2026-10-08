@@ -7,4 +7,4 @@
 - [Privacy](https://chiragmirani.github.io/through-the-ring/privacy.html): the game collects nothing; last updated 6 October 2026
 - [App Store](https://apps.apple.com/us/app/id1203310957)
 
-Version 2.1 is submitted to Apple for review. It supports portrait play on both Duo displays; simulator checks cover large text, Settings/practice, results, pause/resume and closed/partially open/open transitions. Physical Duo testing is pending. Do not describe version 2.1 as released until Apple approves it.
+Version 2.1 is submitted to Apple for review. It supports portrait play on both iPhone Duo displays; simulator checks cover large text, Settings/practice, results, pause/resume and closed/partially open/open transitions. Physical iPhone Duo testing is pending. Do not describe version 2.1 as released until Apple approves it.
