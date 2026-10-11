@@ -1,0 +1,19 @@
+# Chip Mortgage Calculator
+
+> A paid iPhone and iPad mortgage calculator for US fixed-rate home loans. It puts every monthly cost of a home in one payment. No ads, no subscription, no in-app purchases.
+
+- Monthly Payment counts principal and interest, property tax, home insurance, PMI (only below 20% down, ends at 78% of the original price), HOA dues, upkeep, utilities and extra principal.
+- Tax and insurance start as US averages (0.9% and 0.5% of the price per year) and can be edited.
+- Shows the payoff date, a monthly cost chart, loan facts, total repayment, and interest and time saved with extra payments.
+- Monthly and annual cash flow tables with principal, interest, extra principal and balance; CSV export.
+- A two or three page PDF report to share. Saved plans and shareable plan files.
+- First launch uses the US median home price ($429,100, NAR, August 2026) with 20% down and the latest Freddie Mac 30-year average rate from the St. Louis Fed (FRED).
+- Privacy: no data collected, no tracking, no analytics. The only network request is the anonymous FRED rate fetch on first launch. Plans stay on the device.
+- Estimates only, not financial advice.
+
+## Pages
+
+- [App page](https://chiragmirani.github.io/chip-mortgage-calculator/)
+- [Privacy](https://chiragmirani.github.io/chip-mortgage-calculator/privacy.html)
+- [Support](https://chiragmirani.github.io/chip-mortgage-calculator/support.html)
+- [Sitemap](https://chiragmirani.github.io/chip-mortgage-calculator/sitemap.xml)
