@@ -3,16 +3,29 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Through the Ring PRO: Arcade | Offline Tap Ball Game, No Ads</title>
-<meta name="description" content="Through the Ring PRO is an offline one-tap ball game for iPhone and iPad. Fly through each ring to open the wall, then see your place on today's leaderboard. No ads, no tracking. Now in 9 languages.">
-<meta name="robots" content="index,follow">
+<title>Through the Ring PRO: One-Tap Arcade Game, No Ads, Works Offline</title>
+<meta name="description" content="Through the Ring PRO is a $2.99 one-tap arcade game for iPhone and iPad with no ads, no in-app purchases and no internet needed. Facts, how to play and FAQ.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="Chirag Mirani">
 <link rel="canonical" href="https://chiragmirani.github.io/through-the-ring/">
+<link rel="icon" type="image/png" sizes="32x32" href="img/icon-32.png">
+<link rel="apple-touch-icon" href="img/icon-180.png">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Through the Ring PRO: Arcade | Offline Tap Ball Game, No Ads">
-<meta property="og:description" content="Through the Ring PRO is an offline one-tap ball game for iPhone and iPad. Fly through each ring to open the wall, then see your place on today's leaderboard. No ads, no tracking. Now in 9 languages.">
+<meta property="og:site_name" content="Through the Ring PRO">
+<meta property="og:title" content="Through the Ring PRO: One-Tap Arcade Game, No Ads, Works Offline">
+<meta property="og:description" content="Through the Ring PRO is a $2.99 one-tap arcade game for iPhone and iPad with no ads, no in-app purchases and no internet needed. Facts, how to play and FAQ.">
 <meta property="og:url" content="https://chiragmirani.github.io/through-the-ring/">
+<meta property="og:image" content="https://chiragmirani.github.io/through-the-ring/img/social-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Through the Ring PRO app icon, a smiling ball flying through a winged gold ring, beside two gameplay screenshots">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Through the Ring PRO: One-Tap Arcade Game, No Ads, Works Offline">
+<meta name="twitter:description" content="Through the Ring PRO is a $2.99 one-tap arcade game for iPhone and iPad with no ads, no in-app purchases and no internet needed. Facts, how to play and FAQ.">
+<meta name="twitter:image" content="https://chiragmirani.github.io/through-the-ring/img/social-card.jpg">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta name="apple-itunes-app" content="app-id=1203310957">
 <style>
 :root{color-scheme:light dark;--bg:#fff;--text:#1d1d1f;--muted:#6e6e73;--rule:#d2d2d7;--accent:#0071e3;--panel:#f5f5f7}
 @media(prefers-color-scheme:dark){:root{--bg:#000;--text:#f5f5f7;--muted:#86868b;--rule:#2a2a2c;--accent:#2997ff;--panel:#1d1d1f}}
@@ -22,7 +35,7 @@ main{max-width:680px;margin:0 auto;padding:0 22px 40px;text-align:center}
 a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 .top{padding:16px 0;border-bottom:1px solid var(--rule);display:flex;flex-wrap:wrap;justify-content:center;gap:6px 24px;font-size:15px}
 .top .brand{color:var(--text);font-weight:600}
-h1{font-size:2.2rem;line-height:1.15;margin:48px 0 12px}
+h1{font-size:2.2rem;line-height:1.15;margin:40px 0 12px}
 h2{font-size:1.35rem;margin:40px 0 10px}
 h3{font-size:1.05rem;margin:0 0 6px}
 p{margin:10px 0}.lead{font-size:1.15rem;color:var(--muted)}
@@ -30,68 +43,337 @@ p{margin:10px 0}.lead{font-size:1.15rem;color:var(--muted)}
 ul{list-style:none;padding:0;margin:12px 0}li{margin:10px 0}
 .btn{display:inline-block;margin:18px 0 6px;padding:12px 26px;border-radius:999px;background:var(--accent);color:#fff;font-weight:600}
 .btn:hover{text-decoration:none;opacity:.9}
-.card{background:var(--panel);border-radius:14px;padding:14px 18px;margin:12px 0}
+.card{background:var(--panel);border-radius:14px;padding:14px 18px;margin:12px 0;text-align:left}
+.answer{background:var(--panel);border-radius:14px;padding:16px 20px;margin:18px 0;text-align:left;font-size:1.05rem}
+.left{text-align:left}
+.icon{display:block;margin:36px auto 0;width:96px;height:96px;border-radius:22px}
+.shots{display:flex;gap:10px;justify-content:center;margin:22px 0 4px}
+.shots img{width:31%;max-width:180px;height:auto;border-radius:12px;border:1px solid var(--rule)}
+table{width:100%;border-collapse:collapse;text-align:left;font-size:15px;margin:12px 0}
+th,td{padding:9px 8px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{width:34%;font-weight:600}
+ol.steps{text-align:left;padding-left:22px;margin:12px 0}ol.steps li{margin:8px 0}
+ul.dots{list-style:disc;text-align:left;padding-left:22px}ul.dots li{margin:6px 0}
 .foot{margin-top:56px;padding-top:18px;border-top:1px solid var(--rule)}
+.crumbs{font-size:14px;color:var(--muted);margin:14px 0 0}
 </style>
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
- "@type": "SoftwareApplication",
- "name": "Through the Ring PRO",
- "alternateName": "Through the Ring PRO: Arcade",
- "inLanguage": ["en", "es", "fr", "de", "ja", "ko", "pt-BR", "it", "zh-Hant"],
- "operatingSystem": "iOS 17 or later",
- "applicationCategory": "GameApplication",
- "description": "An offline one-tap ball game for iPhone and iPad. Tap to jump, fly through each ring, and open the wall. Every Play run counts on today's Game Center leaderboard. No ads, no tracking, no account needed. Now in 9 languages.",
- "url": "https://chiragmirani.github.io/through-the-ring/",
- "sameAs": "https://apps.apple.com/us/app/id1203310957",
- "installUrl": "https://apps.apple.com/us/app/id1203310957",
- "offers": {
-  "@type": "Offer",
-  "price": "2.99",
-  "priceCurrency": "USD"
- },
- "author": {
-  "@type": "Person",
-  "name": "Chirag Mirani"
- }
+ "@graph": [
+  {
+   "@type": "WebPage",
+   "@id": "https://chiragmirani.github.io/through-the-ring/#webpage",
+   "url": "https://chiragmirani.github.io/through-the-ring/",
+   "name": "Through the Ring PRO: Arcade",
+   "description": "Through the Ring PRO is a $2.99 one-tap arcade game for iPhone and iPad with no ads, no in-app purchases and no internet needed. Facts, how to play and FAQ.",
+   "inLanguage": "en",
+   "dateModified": "2026-10-14",
+   "author": {
+    "@type": "Person",
+    "name": "Chirag Mirani",
+    "url": "https://chiragmirani.github.io/"
+   },
+   "about": {
+    "@id": "https://chiragmirani.github.io/through-the-ring/#app"
+   },
+   "breadcrumb": {
+    "@id": "https://chiragmirani.github.io/through-the-ring/#breadcrumbs"
+   }
+  },
+  {
+   "@type": [
+    "VideoGame",
+    "SoftwareApplication"
+   ],
+   "@id": "https://chiragmirani.github.io/through-the-ring/#app",
+   "name": "Through the Ring PRO",
+   "alternateName": "Through the Ring PRO: Arcade",
+   "description": "A one-tap arcade game for iPhone and iPad. Tap to make the ball jump, fly through each ring to open the wall behind it, and chase a higher score. Paid once: no ads, no in-app purchases, no subscriptions, no account, and no internet needed to play.",
+   "url": "https://chiragmirani.github.io/through-the-ring/",
+   "image": "https://chiragmirani.github.io/through-the-ring/img/icon-512.jpg",
+   "screenshot": [
+    "https://chiragmirani.github.io/through-the-ring/img/01-play.jpg",
+    "https://chiragmirani.github.io/through-the-ring/img/02-power.jpg",
+    "https://chiragmirani.github.io/through-the-ring/img/03-angel.jpg",
+    "https://chiragmirani.github.io/through-the-ring/img/04-secrets.jpg"
+   ],
+   "applicationCategory": "GameApplication",
+   "applicationSubCategory": "Arcade",
+   "genre": [
+    "Arcade",
+    "Casual"
+   ],
+   "gamePlatform": [
+    "iPhone",
+    "iPad"
+   ],
+   "operatingSystem": "iOS 17 or later",
+   "softwareVersion": "2.1.1",
+   "inLanguage": [
+    "en",
+    "es",
+    "fr",
+    "de",
+    "ja",
+    "ko",
+    "pt-BR",
+    "it",
+    "zh-Hant"
+   ],
+   "numberOfPlayers": {
+    "@type": "QuantitativeValue",
+    "value": 1
+   },
+   "playMode": "SinglePlayer",
+   "installUrl": "https://apps.apple.com/us/app/id1203310957",
+   "downloadUrl": "https://apps.apple.com/us/app/id1203310957",
+   "sameAs": [
+    "https://apps.apple.com/us/app/id1203310957"
+   ],
+   "isAccessibleForFree": false,
+   "offers": {
+    "@type": "Offer",
+    "price": "2.99",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://apps.apple.com/us/app/id1203310957",
+    "description": "One-time purchase. No in-app purchases, no subscriptions, no ads."
+   },
+   "author": {
+    "@type": "Person",
+    "name": "Chirag Mirani",
+    "url": "https://chiragmirani.github.io/"
+   },
+   "publisher": {
+    "@type": "Person",
+    "name": "Chirag Mirani",
+    "url": "https://chiragmirani.github.io/"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://chiragmirani.github.io/through-the-ring/#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Does Through the Ring PRO have ads or in-app purchases?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. There are no ads, no in-app purchases and no subscriptions. You pay $2.99 once on the App Store (the US price) and get the whole game."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does it work offline, in airplane mode, or without Wi-Fi?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. The game needs no internet connection to play, so it works in airplane mode and with no Wi-Fi or cellular data. Only the optional Game Center leaderboards and challenges need a connection."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do you play?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Tap anywhere and the ball jumps; let go and gravity pulls it down. Fly through each ring to open the wall behind it. Hitting a closed wall or the spikes on the floor or ceiling costs one of your three lives."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is there a free version or a free trial?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Through the Ring PRO is paid up front, and there is no free trial inside the game. If you want to see it first, look at the screenshots and the preview video on the App Store page."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What devices does it run on?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "iPhone and iPad with iOS 17 or later, played in portrait. On iPhone Duo you can play on either display."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does it need an account or collect my data?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No account is needed. The game has no analytics, no ads and no tracking, and its developer receives nothing about you. If you choose to use Game Center, Apple keeps your leaderboard scores."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What is the daily leaderboard?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Every normal Play run counts on two Game Center leaderboards: today's board, which resets once a day, and the all-time board. After each run the game shows your place, for example “You're #4 of 11 today.”"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is it good for kids?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "It has no ads, no purchases inside, no chat and no account, which is why many parents look for games like it. It is a timing game, so very young children may find it hard; Slow mode and Practice make it gentler."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What languages is it in?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Nine: English, Spanish, French, German, Japanese, Korean, Portuguese (Brazil), Italian and Traditional Chinese. It follows your device language."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I play against friends?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Not in real time. You can compare scores on Game Center leaderboards and send friends the Beat My Best Run challenge (iOS 26 or later). A Challenge a friend button after every run is coming in version 2.1.2."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Will my scores move to a new iPhone?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Your in-game best score is saved on the device you play on, so a new phone starts at zero. Scores you posted to Game Center stay with your Game Center account."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://chiragmirani.github.io/through-the-ring/#breadcrumbs",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Chirag Mirani",
+     "item": "https://chiragmirani.github.io/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Through the Ring PRO",
+     "item": "https://chiragmirani.github.io/through-the-ring/"
+    }
+   ]
+  }
+ ]
 }
 </script>
-<meta name="apple-itunes-app" content="app-id=1203310957">
 </head>
 <body>
 <main>
 <nav class="top"><a class="brand" href="./">Through the Ring PRO</a><a href="support.html">Support</a><a href="privacy.html">Privacy</a></nav>
-<h1>Through the Ring PRO</h1>
-<p class="lead">Tap to jump. Fly through the ring. Open the wall.</p>
-<p class="muted">Offline Tap Ball Game · No Ads · Now in 9 Languages</p>
-<a class="btn" href="https://apps.apple.com/us/app/id1203310957">See It on the App Store</a>
-<h2>What the Game Is</h2>
-<p>A glowing ball rolls through a never-ending course. Tap anywhere on the screen and it jumps; let go and gravity brings it back down. Each ring you fly through opens the wall just behind it. Miss the ring and the wall stays shut. A closed wall ends your run, and so do the spikes on the floor and the ceiling.</p>
-<p>Aim for the center of each ring to earn more points, and watch for special rings worth 2x, 3x and 10x. Then you try to beat your best.</p>
-<h2>Today's Leaderboard</h2>
-<p>Every Play run counts on two Game Center leaderboards: today's board, which resets once a day, and the all-time board. After each run you see your place, like “You're #4 of 11 today.”</p>
-<p>Think you can do better than a friend? Send them a Game Center challenge: Beat My Best Run (iOS 26 or later). Game Center is optional. Without it, the game plays exactly the same.</p>
-<h2>How It Treats You</h2>
-<ul>
-<li><strong>No ads.</strong> Not one, not ever.</li>
-<li><strong>No tracking and no account needed.</strong> The game collects nothing about you.</li>
-<li><strong>No internet needed.</strong> It works on a plane. Game Center leaderboards and challenges are optional and need a connection.</li>
-<li><strong>Music, sound and vibration controls</strong> in Settings, and it works with VoiceOver.</li>
-<li><strong>Now in 9 languages:</strong> English, Spanish, French, German, Japanese, Korean, Portuguese (Brazil), Italian and Traditional Chinese.</li>
+
+<h1>Through the Ring PRO: Arcade</h1>
+<img class="icon" src="img/icon-180.png" width="96" height="96" alt="Through the Ring PRO app icon">
+<div class="answer">
+<p><strong>Through the Ring PRO is a $2.99 one-tap arcade game for iPhone and iPad with no ads, no in-app purchases and no internet needed.</strong> You tap to make a ball jump through rings, each ring you pass opens the wall behind it, and you chase a higher score, on a plane or anywhere else.</p>
+</div>
+<a class="btn" href="https://apps.apple.com/us/app/id1203310957">Get It on the App Store, $2.99</a>
+<p class="muted">Paid once · No ads · No in-app purchases · Works offline · iOS 17 or later</p>
+<div class="shots">
+<img src="img/01-play.jpg" width="360" height="783" loading="lazy" alt="Gameplay: the ball flies through a gold ring worth 2x, with score, three lives, sound and pause at the top">
+<img src="img/02-power.jpg" width="360" height="783" loading="lazy" alt="Power Flight: three guided rings at triple points">
+<img src="img/03-angel.jpg" width="360" height="783" loading="lazy" alt="A winged Angel ring, worth 10 times the ring points">
+</div>
+
+<h2>Key Facts</h2>
+<table>
+<tr><th>Price</th><td>$2.99 in the US App Store, paid once. Other countries pay Apple's local equivalent.</td></tr>
+<tr><th>In-app purchases</th><td>None. No subscriptions, no coins, no unlocks for sale.</td></tr>
+<tr><th>Ads</th><td>None.</td></tr>
+<tr><th>Internet</th><td>Not needed to play. Works in airplane mode. Game Center leaderboards and challenges are optional and need a connection.</td></tr>
+<tr><th>Data collected</th><td>None by the developer: no accounts, analytics or tracking. The app's privacy manifest declares no collected data and no tracking. Optional Game Center scores are held by Apple. See the <a href="privacy.html">privacy page</a>.</td></tr>
+<tr><th>Devices</th><td>iPhone and iPad with iOS 17 or later, in portrait. iPhone Duo on either display.</td></tr>
+<tr><th>Game Center</th><td>Optional. Today's leaderboard (resets once a day) and an all-time leaderboard.</td></tr>
+<tr><th>Languages</th><td>English, Spanish, French, German, Japanese, Korean, Portuguese (Brazil), Italian, Traditional Chinese.</td></tr>
+<tr><th>Players</th><td>One player. No real-time multiplayer, no chat.</td></tr>
+<tr><th>Accessibility</th><td>VoiceOver labels on menu controls, Reduce Motion support, a light outline option, Slow mode, and separate music, sound and vibration controls. It is a timing game, so it is not fully accessible to everyone.</td></tr>
+<tr><th>Current version</th><td>2.1.1. The original game came out in 2017; version 2.0 rebuilt it from scratch.</td></tr>
+<tr><th>Made by</th><td>Chirag Mirani, an independent developer.</td></tr>
+</table>
+
+<h2>How to Play</h2>
+<ol class="steps">
+<li><strong>Tap anywhere</strong> and the ball jumps. Let go and gravity brings it back down.</li>
+<li><strong>Fly through the ring.</strong> Each ring you pass opens the wall just behind it. Miss the ring and the wall stays shut.</li>
+<li><strong>Watch your lives.</strong> You start with three. A closed wall, the floor spikes and the ceiling spikes each cost one.</li>
+<li><strong>Aim for the center.</strong> Center passes score more, and a perfect streak multiplies your points.</li>
+<li><strong>Beat your best.</strong> The course never ends, and it starts slow, then picks up as you score.</li>
+</ol>
+
+<h2>Ways to Play</h2>
+<div class="card"><h3>Play</h3><p>The main game. Every normal Play run counts on today's leaderboard and the all-time leaderboard if you use Game Center, and the game shows your place after each run. The old separate Daily Ring mode is now part of Play.</p></div>
+<div class="card"><h3>Slow mode</h3><p>A switch in Settings that makes the game 20 percent slower. It keeps its own best score and still unlocks ball colors, but it is not scored online.</p></div>
+<div class="card"><h3>Practice</h3><p>Unlimited retries for learning the timing. Practice runs earn no progress and are not scored online.</p></div>
+<div class="card"><h3>Save and continue</h3><p>If a call or a message interrupts you, your run is saved and you can continue it later.</p></div>
+
+<h2>What Makes a Run Interesting</h2>
+<ul class="dots">
+<li><strong>Special rings:</strong> gold rings are worth 2x, prism rings 3x, and rare winged Angel rings 10x.</li>
+<li><strong>Power Flight:</strong> a bullseye can launch three rings of automatic flight at triple points. Then you take back control for the Double Angel ring, worth 20x.</li>
+<li><strong>Life Rings</strong> at every 25th ring give back a lost life.</li>
+<li><strong>Ten hidden secrets</strong> unlock new ball characters, and the sky changes as you climb.</li>
+<li><strong>Share your score</strong> as a picture. Sharing also gives you one extra life on your runs that day.</li>
 </ul>
-<h2>Made For</h2>
-<p>iPhone, iPad and iPhone Duo, in portrait (on either iPhone Duo display). It needs iOS 17 or later. One price, paid once, no purchases inside.</p>
-<h2>What's New in Version 2.1.1</h2>
+
+<h2>Why No Ads and No In-App Purchases</h2>
+<p class="left">Through the Ring PRO uses the oldest model on the App Store: you pay once and own the whole game. Nothing in it is for sale, so there is no reason for the game to slow you down, nag you or show you an ad between runs. Lives, Power Flight, secrets and ball colors are all earned by playing.</p>
+<p class="left">It also keeps the game simple to trust. With no ads there is no ad network, and with no purchases there is no store inside the game for a child to tap. The developer does not run any servers for it at all.</p>
+<p class="left">The honest trade-off: you pay $2.99 before you can play, and there is no free trial.</p>
+
+<h2>Is It the Right Game for You?</h2>
+<div class="card"><h3>It fits if you want</h3>
+<ul class="dots">
+<li>A game with no ads and nothing to buy after you pay.</li>
+<li>Something to play offline: on a plane, on the subway, with no signal.</li>
+<li>Short runs you can start in a second, one thumb, one tap.</li>
+<li>A timing and reflex challenge with a score to beat, and a daily leaderboard if you like competing.</li>
+</ul></div>
+<div class="card"><h3>Look elsewhere if you want</h3>
+<ul class="dots">
+<li>A free game. This one costs $2.99 up front.</li>
+<li>A story, levels to complete, or deep strategy. This is an endless arcade game.</li>
+<li>Real-time multiplayer or chat.</li>
+<li>Landscape play, Android, Mac or a game controller. It is iPhone and iPad, portrait, touch only.</li>
+<li>A scientific reaction-time test. The game trains timing but does not measure your reaction time in milliseconds.</li>
+</ul></div>
+
+<h2>Coming Next</h2>
+<p><strong>Version 2.1.2</strong> adds a Challenge a friend button after every run, which sends your Game Center friends the Beat My Best Run challenge (iOS 26 or later). It has been submitted to Apple and arrives once Apple approves it.</p>
+
+<h2>Questions People Ask</h2>
+<div class="card"><h3>Does Through the Ring PRO have ads or in-app purchases?</h3><p>No. There are no ads, no in-app purchases and no subscriptions. You pay $2.99 once on the App Store (the US price) and get the whole game.</p></div>
+<div class="card"><h3>Does it work offline, in airplane mode, or without Wi-Fi?</h3><p>Yes. The game needs no internet connection to play, so it works in airplane mode and with no Wi-Fi or cellular data. Only the optional Game Center leaderboards and challenges need a connection.</p></div>
+<div class="card"><h3>How do you play?</h3><p>Tap anywhere and the ball jumps; let go and gravity pulls it down. Fly through each ring to open the wall behind it. Hitting a closed wall or the spikes on the floor or ceiling costs one of your three lives.</p></div>
+<div class="card"><h3>Is there a free version or a free trial?</h3><p>No. Through the Ring PRO is paid up front, and there is no free trial inside the game. If you want to see it first, look at the screenshots and the preview video on the App Store page.</p></div>
+<div class="card"><h3>What devices does it run on?</h3><p>iPhone and iPad with iOS 17 or later, played in portrait. On iPhone Duo you can play on either display.</p></div>
+<div class="card"><h3>Does it need an account or collect my data?</h3><p>No account is needed. The game has no analytics, no ads and no tracking, and its developer receives nothing about you. If you choose to use Game Center, Apple keeps your leaderboard scores.</p></div>
+<div class="card"><h3>What is the daily leaderboard?</h3><p>Every normal Play run counts on two Game Center leaderboards: today's board, which resets once a day, and the all-time board. After each run the game shows your place, for example “You're #4 of 11 today.”</p></div>
+<div class="card"><h3>Is it good for kids?</h3><p>It has no ads, no purchases inside, no chat and no account, which is why many parents look for games like it. It is a timing game, so very young children may find it hard; Slow mode and Practice make it gentler.</p></div>
+<div class="card"><h3>What languages is it in?</h3><p>Nine: English, Spanish, French, German, Japanese, Korean, Portuguese (Brazil), Italian and Traditional Chinese. It follows your device language.</p></div>
+<div class="card"><h3>Can I play against friends?</h3><p>Not in real time. You can compare scores on Game Center leaderboards and send friends the Beat My Best Run challenge (iOS 26 or later). A Challenge a friend button after every run is coming in version 2.1.2.</p></div>
+<div class="card"><h3>Will my scores move to a new iPhone?</h3><p>Your in-game best score is saved on the device you play on, so a new phone starts at zero. Scores you posted to Game Center stay with your Game Center account.</p></div>
+
+<h2>Guides</h2>
 <ul>
-<li><strong>Daily Ring is now part of Play.</strong> There is no separate mode: every Play run counts on today's leaderboard and the all-time board.</li>
-<li><strong>See your place after each run,</strong> like “You're #4 of 11 today.”</li>
-<li><strong>Challenge a friend</strong> to Beat My Best Run in Game Center (iOS 26 or later).</li>
-<li><strong>Now in 9 languages,</strong> with Spanish, French, German, Japanese, Korean, Portuguese (Brazil), Italian and Traditional Chinese joining English.</li>
+<li><a href="games-without-in-app-purchases.html">iPhone games without in-app purchases: how to check, and one that qualifies</a></li>
+<li><a href="offline-games-no-wifi-no-ads.html">Offline iPhone games with no Wi-Fi and no ads, for flights and commutes</a></li>
+<li><a href="reaction-time-game.html">A one-tap timing game for reflexes: what it trains, and what it does not</a></li>
 </ul>
-<h2>Need Help?</h2>
-<p>Visit the <a href="support.html">support page</a> or read the <a href="privacy.html">privacy page</a>.</p>
-<footer class="foot"><p class="muted"><a href="./">Home</a> · <a href="support.html">Support</a> · <a href="privacy.html">Privacy</a></p></footer>
+<a class="btn" href="https://apps.apple.com/us/app/id1203310957">Get It on the App Store, $2.99</a>
+<p>Need help? Visit the <a href="support.html">support page</a> or read the <a href="privacy.html">privacy page</a>.</p>
+<footer class="foot">
+<p class="muted"><a href="./">Home</a> · <a href="games-without-in-app-purchases.html">No in-app purchases</a> · <a href="offline-games-no-wifi-no-ads.html">Offline, no ads</a> · <a href="reaction-time-game.html">Timing game</a> · <a href="support.html">Support</a> · <a href="privacy.html">Privacy</a></p>
+<p class="muted">Made by Chirag Mirani. Page updated October 14, 2026. Facts on this page come from the game itself and its App Store listing.</p>
+</footer>
 </main>
 </body>
 </html>

@@ -1,10 +1,22 @@
 # Through the Ring PRO
 
-> Through the Ring PRO: Arcade (Offline Tap Ball Game · No Ads) is a one-tap arcade game for iPhone, iPad and iPhone Duo (iOS 17 or later). Tap to jump, fly through each ring to open the wall. Paid once, no ads, no tracking, no account needed, works offline. Available in 9 languages: English, Spanish, French, German, Japanese, Korean, Portuguese (Brazil), Italian and Traditional Chinese.
+> Through the Ring PRO: Arcade is a $2.99 (US price) one-tap arcade game for iPhone and iPad, paid once, with no ads, no in-app purchases, no subscriptions, no account and no internet needed to play (works in airplane mode). Made by independent developer Chirag Mirani. App Store: https://apps.apple.com/us/app/id1203310957
 
-- [Home](https://chiragmirani.github.io/through-the-ring/): what the game is
+## Pages
+- [Home](https://chiragmirani.github.io/through-the-ring/): key facts, how to play, ways to play, FAQ
+- [iPhone games without in-app purchases](https://chiragmirani.github.io/through-the-ring/games-without-in-app-purchases.html): how to check any game, and why this one qualifies
+- [Offline iPhone game with no Wi-Fi and no ads](https://chiragmirani.github.io/through-the-ring/offline-games-no-wifi-no-ads.html): playing on flights and with no signal
+- [One-tap timing and reflex game](https://chiragmirani.github.io/through-the-ring/reaction-time-game.html): what the game trains, and what it does not
 - [Support](https://chiragmirani.github.io/through-the-ring/support.html): get the game back, report a bug, common questions
-- [Privacy](https://chiragmirani.github.io/through-the-ring/privacy.html): the game collects nothing; Game Center is optional; last updated October 13, 2026
-- [App Store](https://apps.apple.com/us/app/id1203310957)
+- [Privacy](https://chiragmirani.github.io/through-the-ring/privacy.html): the developer collects nothing; Game Center is optional; last updated October 13, 2026
 
-Version 2.1.1 is live on the App Store (October 13, 2026). The separate Daily Ring mode was merged into Play: every Play run counts on two Game Center leaderboards, today's (resets once a day) and all time. After each run the player sees their place (for example "You're #4 of 11 today"). Players can send the Game Center challenge "Beat My Best Run" to friends (iOS 26 or later). Game Center is optional. Version 2.1 added portrait play on either iPhone Duo display.
+## Facts
+- Price: $2.99 in the US App Store, one-time. No in-app purchases, no subscriptions, no ads, no analytics, no tracking.
+- Offline: the full game plays with no internet. Only optional Game Center leaderboards and challenges need a connection.
+- Devices: iPhone and iPad, iOS 17 or later, portrait; iPhone Duo on either display. Not on Android or Mac.
+- Gameplay: tap to jump, fly the ball through each ring to open the wall behind it; walls and floor/ceiling spikes cost one of three lives. Special rings: gold 2x, prism 3x, Angel 10x; Power Flight; Double Angel 20x; Life Rings every 25th ring; 10 hidden secrets.
+- Ways to play: Play (counts on Game Center's today leaderboard, which resets daily, and the all-time leaderboard), Slow mode (20% slower, not scored online), Practice (unlimited retries, not scored online). Runs can be saved and continued.
+- Languages (9): English, Spanish, French, German, Japanese, Korean, Portuguese (Brazil), Italian, Traditional Chinese.
+- Single player; no real-time multiplayer or chat. Game Center friend challenge "Beat My Best Run" needs iOS 26 or later.
+- Current version: 2.1.1 (October 13, 2026). Version 2.1.2, submitted to Apple and not yet released, adds a "Challenge a friend" button after every run.
+- Not a millisecond reaction-time test; it is a timing game whose speed rises as you score.
