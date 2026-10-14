@@ -59,7 +59,7 @@ ul{list-style:none;padding:0;margin:12px 0}li{margin:10px 0}
    "name": "Do I need an internet connection to play?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "No. The game works with no internet, including in airplane mode."
+    "text": "No. The game works with no internet, including in airplane mode. Game Center leaderboards and friend challenges are optional and need a connection."
    }
   },
   {
@@ -67,7 +67,7 @@ ul{list-style:none;padding:0;margin:12px 0}li{margin:10px 0}
    "name": "Will my best score move to a new phone?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Your best score is saved only on the device you play on, and nothing is sent anywhere. That keeps your data private, and it also means a new phone starts at zero, and so does reinstalling the app."
+    "text": "Your in-game best score is saved only on the device you play on. A new phone starts at zero, and so does reinstalling the app. If you use Game Center, your leaderboard scores are kept by Apple with your Game Center account, so they still appear on the leaderboards from a new phone."
    }
   },
   {
@@ -75,7 +75,7 @@ ul{list-style:none;padding:0;margin:12px 0}li{margin:10px 0}
    "name": "Which devices and iOS versions does it run on?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "iPhone and iPad with iOS 17 or later, in portrait. Version 2.0 is a full rebuild, so scores from the old version do not carry over. Version 2.1, submitted for Apple review, also supports portrait play on either iPhone Duo display. iPhone Duo checks used the simulator; physical iPhone Duo testing is still pending."
+    "text": "iPhone, iPad and iPhone Duo with iOS 17 or later, in portrait. On iPhone Duo you can play on either display. Game Center friend challenges need iOS 26 or later. Version 2.0 is a full rebuild, so scores from the old version do not carry over."
    }
   },
   {
@@ -83,7 +83,31 @@ ul{list-style:none;padding:0;margin:12px 0}li{margin:10px 0}
    "name": "How do I turn off the sound or the vibration?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "On the main menu, tap the speaker button for sound and the vibration button for haptics. The game remembers your choice. The game also respects your iPhone's Reduce Motion setting."
+    "text": "Open Settings in the game for separate Music, Sound effects and Vibration controls. During a run, the speaker button next to pause mutes or unmutes sound. The game remembers your choice. The game also respects your iPhone's Reduce Motion setting."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How does today's leaderboard work?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Every Play run counts on two Game Center leaderboards: today's board, which resets once a day (the game shows your local reset time), and the all-time board. There is no separate Daily Ring mode anymore. After each run you see your place, like “You're #4 of 11 today.” Slow Mode and Practice runs are not scored online."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I challenge a friend?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Open the leaderboard in the game and send a friend the Beat My Best Run challenge in Game Center. Challenges need iOS 26 or later and a Game Center sign-in."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What languages is the game in?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Nine: English, Spanish, French, German, Japanese, Korean, Portuguese (Brazil), Italian and Traditional Chinese. The game follows your device language. To choose a different language for just this game, open the iOS Settings app, find Through the Ring PRO, and tap Language."
    }
   }
  ]
@@ -94,9 +118,11 @@ ul{list-style:none;padding:0;margin:12px 0}li{margin:10px 0}
  "@context": "https://schema.org",
  "@type": "SoftwareApplication",
  "name": "Through the Ring PRO",
+ "alternateName": "Through the Ring PRO: Arcade",
+ "inLanguage": ["en", "es", "fr", "de", "ja", "ko", "pt-BR", "it", "zh-Hant"],
  "operatingSystem": "iOS 17 or later",
  "applicationCategory": "GameApplication",
- "description": "A one-tap arcade game for iPhone and iPad. Tap to jump, fly through each ring, and open the wall. No ads, no tracking, no account.",
+ "description": "An offline one-tap ball game for iPhone and iPad. Tap to jump, fly through each ring, and open the wall. Every Play run counts on today's Game Center leaderboard. No ads, no tracking, no account needed. Now in 9 languages.",
  "url": "https://chiragmirani.github.io/through-the-ring/",
  "sameAs": "https://apps.apple.com/us/app/id1203310957",
  "installUrl": "https://apps.apple.com/us/app/id1203310957",
@@ -134,10 +160,13 @@ ul{list-style:none;padding:0;margin:12px 0}li{margin:10px 0}
 <h2>Questions People Ask</h2>
 <div class="card"><h3>How do I get my purchase back on a new phone?</h3><p>Through the Ring PRO is paid once, up front, so there is nothing to restore inside the game. Open the App Store, tap your profile picture, then Purchased (or Purchases), find the game, and tap the cloud icon to download it again. Use the same Apple Account you bought it with.</p></div>
 <div class="card"><h3>Does the game have ads or in-app purchases?</h3><p>No. There are no ads and nothing to buy inside the game. You pay once, when you download it.</p></div>
-<div class="card"><h3>Do I need an internet connection to play?</h3><p>No. The game works with no internet, including in airplane mode.</p></div>
-<div class="card"><h3>Will my best score move to a new phone?</h3><p>Your best score is saved only on the device you play on, and nothing is sent anywhere. That keeps your data private, and it also means a new phone starts at zero, and so does reinstalling the app.</p></div>
-<div class="card"><h3>Which devices and iOS versions does it run on?</h3><p>iPhone and iPad with iOS 17 or later, in portrait. Version 2.0 is a full rebuild, so scores from the old version do not carry over. Version 2.1, submitted for Apple review, also supports portrait play on either iPhone Duo display. iPhone Duo checks used the simulator; physical iPhone Duo testing is still pending.</p></div>
-<div class="card"><h3>How do I turn off the sound or the vibration?</h3><p>On the main menu, tap the speaker button for sound and the vibration button for haptics. The game remembers your choice. The game also respects your iPhone's Reduce Motion setting.</p></div>
+<div class="card"><h3>Do I need an internet connection to play?</h3><p>No. The game works with no internet, including in airplane mode. Game Center leaderboards and friend challenges are optional and need a connection.</p></div>
+<div class="card"><h3>How does today's leaderboard work?</h3><p>Every Play run counts on two Game Center leaderboards: today's board, which resets once a day (the game shows your local reset time), and the all-time board. There is no separate Daily Ring mode anymore. After each run you see your place, like “You're #4 of 11 today.” Slow Mode and Practice runs are not scored online.</p></div>
+<div class="card"><h3>How do I challenge a friend?</h3><p>Open the leaderboard in the game and send a friend the Beat My Best Run challenge in Game Center. Challenges need iOS 26 or later and a Game Center sign-in.</p></div>
+<div class="card"><h3>What languages is the game in?</h3><p>Nine: English, Spanish, French, German, Japanese, Korean, Portuguese (Brazil), Italian and Traditional Chinese. The game follows your device language. To choose a different language for just this game, open the iOS Settings app, find Through the Ring PRO, and tap Language.</p></div>
+<div class="card"><h3>Will my best score move to a new phone?</h3><p>Your in-game best score is saved only on the device you play on. A new phone starts at zero, and so does reinstalling the app. If you use Game Center, your leaderboard scores are kept by Apple with your Game Center account, so they still appear on the leaderboards from a new phone.</p></div>
+<div class="card"><h3>Which devices and iOS versions does it run on?</h3><p>iPhone, iPad and iPhone Duo with iOS 17 or later, in portrait. On iPhone Duo you can play on either display. Game Center friend challenges need iOS 26 or later. Version 2.0 is a full rebuild, so scores from the old version do not carry over.</p></div>
+<div class="card"><h3>How do I turn off the sound or the vibration?</h3><p>Open Settings in the game for separate Music, Sound effects and Vibration controls. During a run, the speaker button next to pause mutes or unmutes sound. The game remembers your choice. The game also respects your iPhone's Reduce Motion setting.</p></div>
 
 <h2>Our Promise</h2>
 <p>The game collects nothing about you. Read the <a href="privacy.html">privacy page</a>.</p>

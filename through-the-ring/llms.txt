@@ -1,10 +1,10 @@
 # Through the Ring PRO
 
-> A one-tap arcade game for iPhone and iPad (iOS 17 or later). Tap to jump, fly through each ring to open the wall. Paid once, no ads, no tracking, no account, works offline.
+> Through the Ring PRO: Arcade (Offline Tap Ball Game · No Ads) is a one-tap arcade game for iPhone, iPad and iPhone Duo (iOS 17 or later). Tap to jump, fly through each ring to open the wall. Paid once, no ads, no tracking, no account needed, works offline. Available in 9 languages: English, Spanish, French, German, Japanese, Korean, Portuguese (Brazil), Italian and Traditional Chinese.
 
 - [Home](https://chiragmirani.github.io/through-the-ring/): what the game is
 - [Support](https://chiragmirani.github.io/through-the-ring/support.html): get the game back, report a bug, common questions
-- [Privacy](https://chiragmirani.github.io/through-the-ring/privacy.html): the game collects nothing; last updated 6 October 2026
+- [Privacy](https://chiragmirani.github.io/through-the-ring/privacy.html): the game collects nothing; Game Center is optional; last updated October 13, 2026
 - [App Store](https://apps.apple.com/us/app/id1203310957)
 
-Version 2.1 is submitted to Apple for review. It supports portrait play on both iPhone Duo displays; simulator checks cover large text, Settings/practice, results, pause/resume and closed/partially open/open transitions. Physical iPhone Duo testing is pending. Do not describe version 2.1 as released until Apple approves it.
+Version 2.1.1 is live on the App Store (October 13, 2026). The separate Daily Ring mode was merged into Play: every Play run counts on two Game Center leaderboards, today's (resets once a day) and all time. After each run the player sees their place (for example "You're #4 of 11 today"). Players can send the Game Center challenge "Beat My Best Run" to friends (iOS 26 or later). Game Center is optional. Version 2.1 added portrait play on either iPhone Duo display.
