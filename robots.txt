@@ -9,3 +9,4 @@ Sitemap: https://chiragmirani.github.io/macro-dashboard/sitemap.xml
 Sitemap: https://chiragmirani.github.io/vedas/sitemap.xml
 Sitemap: https://chiragmirani.github.io/upanishads/sitemap.xml
 Sitemap: https://chiragmirani.github.io/chip-compound-calculator/sitemap.xml
+Sitemap: https://chiragmirani.github.io/series65/sitemap.xml

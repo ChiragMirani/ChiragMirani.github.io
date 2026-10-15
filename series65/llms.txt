@@ -1,0 +1,19 @@
+# Series 65 Exam Practice Tests
+
+> Series 65 Exam Practice Tests is an iPhone and iPad app with 1,211 practice questions and 1,143 flashcards for the Series 65 (Uniform Investment Adviser Law Examination). Every answer explains why the right answer is right and why yours was wrong, with a link to the official rule. Free to try; one $19.99 payment unlocks everything. No subscription, works offline.
+
+- App Store: https://apps.apple.com/app/id6812059689
+- Page: https://chiragmirani.github.io/series65/
+- Platforms: iPhone and iPad. Works offline. No account, analytics or advertising; answers stay on the device.
+- Price: free download with one 10-question practice test and 10 flashcards; one $19.99 (US) in-app purchase, "Everything Unlocked", opens all 1,211 questions and 1,143 flashcards. No subscription.
+- Tests: 10, 20, 30, 50, 70 or 140 questions in the real exam's section mix, timed at 77 seconds a question; Practice and Exam modes; section scores and a list of missed rules after each test.
+- Does not predict a pass probability.
+
+## The Series 65 exam (from NASAA)
+- How many questions are on the Series 65 exam? 140 questions: 130 scored questions plus 10 unscored pretest questions mixed in, so you can't tell which ones don't count. You have 180 minutes, about 77 seconds a question.
+- What score do you need to pass the Series 65? You need at least 92 of the 130 scored questions right, which is about 71%. Results are shown on screen right after you finish.
+- What topics does the Series 65 cover? Four sections, from the North American Securities Administrators Association (NASAA) outline that took effect on June 12, 2023: Economic Factors and Business Information (15%, 20 questions), Investment Vehicle Characteristics (25%, 32 questions), Client Investment Recommendations and Strategies (30%, 39 questions), and Laws, Regulations and Guidelines, Including Prohibition on Unethical Business Practices (30%, 39 questions).
+- Who writes and runs the Series 65 exam? NASAA develops the exam and the Financial Industry Regulatory Authority (FINRA) administers it. The exam fee is $187, paid to FINRA. It is closed book.
+- Sources: https://www.nasaa.org/exams/series-65/ and https://www.nasaa.org/wp-content/uploads/2023/09/NASAA-Series-65-Exam-Study-Guide.pdf
+
+Independent study aid. Not affiliated with, endorsed by, or connected to NASAA, FINRA, or the SEC.
