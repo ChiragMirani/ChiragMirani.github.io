@@ -17,6 +17,6 @@
 - Gameplay: tap to jump, fly the ball through each ring to open the wall behind it; walls and floor/ceiling spikes cost one of three lives. Special rings: gold 2x, prism 3x, Angel 10x; Power Flight; Double Angel 20x; Life Rings every 25th ring; 10 hidden secrets.
 - Ways to play: Play (counts on Game Center's today leaderboard, which resets daily, and the all-time leaderboard), Slow mode (20% slower, not scored online), Practice (unlimited retries, not scored online). Runs can be saved and continued.
 - Languages (9): English, Spanish, French, German, Japanese, Korean, Portuguese (Brazil), Italian, Traditional Chinese.
-- Single player; no real-time multiplayer or chat. Game Center friend challenge "Beat My Best Run" needs iOS 26 or later.
-- Current version: 2.1.1 (October 13, 2026). Version 2.1.2, submitted to Apple and not yet released, adds a "Challenge a friend" button after every run.
+- Single player; no real-time multiplayer or chat. After a normal Play run, a "Challenge a friend" button opens Apple's Game Center challenge "Beat My Best Run" for friends (iOS 26 or later, signed in to Game Center).
+- Current version: 2.1.2 (released October 15, 2026), which added the "Challenge a friend" button.
 - Not a millisecond reaction-time test; it is a timing game whose speed rises as you score.
