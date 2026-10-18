@@ -15,3 +15,4 @@ Sitemap: https://chiragmirani.github.io/locklab/sitemap.xml
 Sitemap: https://chiragmirani.github.io/series65/sitemap.xml
 Sitemap: https://chiragmirani.github.io/chip-mortgage-calculator/sitemap.xml
 Sitemap: https://chiragmirani.github.io/mcat-mini/sitemap.xml
+Sitemap: https://chiragmirani.github.io/home-sitemap.xml
