@@ -10,7 +10,7 @@ Source: Tulsidas's Hanuman Chalisa (16th century, public domain). Devanagari spe
 
 ## The iPhone and iPad app
 
-Shree Hanuman Chalisa (English) is a free iPhone and iPad app (iOS 17 or later) that shows all 43 verses of the Hanuman Chalisa in plain English, one verse at a time. Text only, with no audio. The Hindi (Devanagari) and the same Hindi in English letters are optional switches in Settings, off at first. It opens on the verse where you stopped, works offline, and follows the iPhone's Text Size. No ads, no account, no in-app purchases, and it collects nothing.
+Shree Hanuman Chalisa English is a free iPhone and iPad app (iOS 17 or later) that shows all 43 verses of the Hanuman Chalisa in plain English, one verse at a time. Text only, with no audio. The Hindi (Devanagari) and the same Hindi in English letters are optional switches in Settings, off at first. Gujarati letters are also available. It opens on the verse where you stopped, works offline, and follows the iPhone's Text Size. No ads, no account, no in-app purchases, and it collects nothing.
 
 Questions people ask, answered on the app page:
 - Is the Hanuman Chalisa app free, with no ads? Yes.

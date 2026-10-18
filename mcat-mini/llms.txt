@@ -1,0 +1,20 @@
+# MCAT Prep: Mini Practice Tests
+
+> MCAT Prep: Mini Practice Tests (MCAT Mini) is an iPhone app of four-question practice mini-tests across all four MCAT sections, with an explanation after every answer. Coming soon to the App Store: it has been submitted and is not yet available.
+
+- Page: https://chiragmirani.github.io/mcat-mini/
+- Status: coming soon to the App Store (no App Store link yet).
+- Each mini-test has one question from each of the four MCAT sections, or four from a subject you pick. You see right away whether you were correct, then read the explanation.
+- Mixed and subject practice, reading (CARS) passages, review of missed and marked questions, streaks, badges and a daily goal.
+- Free, with no account and no ads. Optional tips are offered as Apple in-app purchases.
+- Privacy: collects no data about you; no tracking or analytics. Progress stays on the iPhone.
+- Original practice questions. Mini-tests do not predict an MCAT score. Questions and explanations are in English; app menus are in English, Spanish, French and Arabic.
+- Not affiliated with or endorsed by the Association of American Medical Colleges (AAMC). MCAT is a registered trademark of the AAMC.
+
+## Pages
+- [App page](https://chiragmirani.github.io/mcat-mini/)
+- [Privacy](https://chiragmirani.github.io/mcat-mini/privacy.html)
+- [Support](https://chiragmirani.github.io/mcat-mini/support.html)
+- [Sitemap](https://chiragmirani.github.io/mcat-mini/sitemap.xml)
+
+Last updated: Sunday, October 18, 2026. Made by Chirag Mirani: https://chiragmirani.github.io/

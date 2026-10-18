@@ -1,0 +1,19 @@
+# Practice Combination Lock
+
+> Practice Combination Lock is a free iPhone and iPad trainer for three-number rotary combination locks: watch, learn and practice the right-left-right sequence on a 0–39 dial. Works offline, no ads or accounts.
+
+- App Store: https://apps.apple.com/us/app/id6822015018
+- Page: https://chiragmirani.github.io/locklab/
+- Platforms: iPhone and iPad. Works offline. No account, no ads, no tracking.
+- Price: free. All features are free; optional one-time tips support the app and unlock nothing. No subscriptions.
+- Modes: Watch (see every turn), Learn (guided steps) and Practice (try your own three-number combination). Version 1.0.1; the App Store listing has a preview video.
+- It is a simulator: check your physical lock's own instructions, because different models can work differently.
+
+## Questions people ask
+- How can my child practice a school locker combination lock before middle school? Practice Combination Lock lets a child rehearse a three-number locker lock on an iPhone or iPad before the first day of school, with Watch, Learn and Practice modes on a 0–39 dial, as many times as they like.
+- Is there a free app to practice opening a combination lock? Yes. Practice Combination Lock is free on the App Store for iPhone and iPad; every practice feature is included, and optional tips unlock nothing extra.
+- How do you open a three-number combination lock? On a typical school locker lock: turn right three full turns to reset, keep turning right and stop on the first number; turn left, pass the second number once and stop on it the second time; turn right to the third number; pull up.
+- Does it work offline? Yes, with no account or sign-in.
+- Does it have ads or in-app purchases? No ads and no subscriptions. The only in-app purchases are optional one-time tips, which unlock no features.
+
+Last updated: Sunday, October 18, 2026. Made by Chirag Mirani: https://chiragmirani.github.io/
