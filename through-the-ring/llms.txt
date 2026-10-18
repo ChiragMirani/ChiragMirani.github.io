@@ -1,22 +1,23 @@
 # Through the Ring PRO
 
-> Through the Ring PRO: Arcade is a $2.99 (US price) one-tap arcade game for iPhone and iPad, paid once, with no ads, no in-app purchases, no subscriptions, no account and no internet needed to play (works in airplane mode). Made by independent developer Chirag Mirani. App Store: https://apps.apple.com/us/app/id1203310957
+> Through the Ring PRO: Arcade is a free-to-try one-tap arcade game for iPhone and iPad. The download is free and includes 3 free runs (at most one per day; a skipped day does not use one up), and Practice is always free. One optional one-time in-app purchase, "Unlock the Full Game" ($2.99 in the US; prices vary by country), gives unlimited runs. No ads, no subscription, no tracking, no account and no internet needed to play (works in airplane mode). Made by independent developer Chirag Mirani. App Store: https://apps.apple.com/us/app/id1203310957
 
 ## Pages
 - [Home](https://chiragmirani.github.io/through-the-ring/): key facts, how to play, ways to play, FAQ
-- [iPhone games without in-app purchases](https://chiragmirani.github.io/through-the-ring/games-without-in-app-purchases.html): how to check any game, and why this one qualifies
+- [iPhone games with no ads and no subscription](https://chiragmirani.github.io/through-the-ring/games-without-in-app-purchases.html): how to check any game for ads, subscriptions and in-app purchases, and where this game stands (free to try, one optional one-time unlock)
 - [Offline iPhone game with no Wi-Fi and no ads](https://chiragmirani.github.io/through-the-ring/offline-games-no-wifi-no-ads.html): playing on flights and with no signal
 - [One-tap timing and reflex game](https://chiragmirani.github.io/through-the-ring/reaction-time-game.html): what the game trains, and what it does not
-- [Support](https://chiragmirani.github.io/through-the-ring/support.html): get the game back, report a bug, common questions
-- [Privacy](https://chiragmirani.github.io/through-the-ring/privacy.html): the developer collects nothing; Game Center is optional; last updated October 16, 2026
+- [Support](https://chiragmirani.github.io/through-the-ring/support.html): get the game back, restore your purchase, report a bug, common questions
+- [Privacy](https://chiragmirani.github.io/through-the-ring/privacy.html): the developer collects nothing; Game Center is optional; last updated Friday, October 23, 2026
 
 ## Facts
-- Price: $2.99 in the US App Store, one-time. No in-app purchases, no subscriptions, no ads, no analytics, no tracking.
-- Offline: the full game plays with no internet. Only optional Game Center leaderboards and challenges need a connection.
+- Price: free download. Free to try: 3 free runs, at most one per day (a skipped day does not use one up); Practice is always free. One optional one-time in-app purchase, "Unlock the Full Game", $2.99 in the US App Store (prices vary by country), for unlimited runs. Family Sharing is on. No subscriptions, no ads, no analytics, no tracking.
+- Earlier buyers: people who bought the game before version 2.2 keep everything unlocked and do not pay again; "Restore purchase" is in Settings → Full Game.
+- Offline: the full game plays with no internet. Only optional Game Center leaderboards and challenges, and buying or restoring the unlock, need a connection.
 - Devices: iPhone and iPad, iOS 17 or later, portrait; iPhone Duo on either display. Not on Android or Mac.
 - Gameplay: tap to jump, fly the ball through each ring to open the wall behind it; walls and floor/ceiling spikes cost one of three lives. Special rings: gold 2x, prism 3x, Angel 10x; Power Flight; Double Angel 20x; Life Rings every 25th ring; 10 hidden secrets.
-- Ways to play: Play (counts on Game Center's today leaderboard, which resets daily, and the all-time leaderboard), Slow mode (20% slower, not scored online), Practice (unlimited retries, not scored online). Runs can be saved and continued.
+- Ways to play: Play (counts on Game Center's today leaderboard, which resets daily, and the all-time leaderboard), Slow mode (20% slower, not scored online), Practice (unlimited retries, not scored online, always free). Runs can be saved and continued.
 - Languages (9): English, Spanish, French, German, Japanese, Korean, Portuguese (Brazil), Italian, Traditional Chinese.
 - Single player; no real-time multiplayer or chat. After a normal Play run, a "Challenge a friend" button sends the score card, "Can you beat it?" and the App Store link by Messages, WhatsApp or any app; the friend needs no Game Center. Game Center challenges ("Beat My Best Run") can still be started from Apple's Games app on iOS 26.
-- Current version: 2.1.3 (released October 16, 2026): "Challenge a friend" now sends the challenge by message to anyone.
+- Current version: 2.2 (released Friday, October 23, 2026): the game became a free download with 3 free runs and one optional one-time unlock. Version 2.1.3 (October 16, 2026) made "Challenge a friend" work by message with anyone.
 - Not a millisecond reaction-time test; it is a timing game whose speed rises as you score.
