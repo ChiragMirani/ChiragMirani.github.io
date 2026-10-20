@@ -1,6 +1,13 @@
 # Chirag Mirani
 
-> Independent quantitative researcher and app builder. Projects below are public and free to read.
+> Chirag Mirani is a data scientist and quantitative researcher in Suwanee, Georgia, with about 20 years in quantitative finance and a Master of Science in Computational Finance from Carnegie Mellon University. He builds predictive models and forecasting systems across macro, options, volatility, time series and prediction markets, competes on Kaggle, and ships iPhone and iPad apps. Projects below are public and free to read.
+
+## About
+- Role: data scientist and quantitative researcher. Open to data science and quantitative research roles.
+- Skills: Python, time series forecasting, machine learning, reinforcement learning, options and volatility modeling, macroeconomic forecasting, prediction-market modeling, backtesting.
+- Evidence of work: a live US macro forecast dashboard with a public track record against Kalshi and actual releases; a published paper on exposure-adjusted strategy evaluation; Kaggle silver-medal notebook and a top 22% finish (379 of 1,711 teams) in the MITSUI Commodity Prediction Challenge.
+- Current research: reinforcement learning and ARC-AGI-2 reasoning benchmarks (ARC Prize 2026).
+- Profiles: GitHub https://github.com/ChiragMirani, LinkedIn https://www.linkedin.com/in/chiragmirani/, Kaggle https://www.kaggle.com/cmirani, SSRN https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6292699
 
 ## Apps and readers
 - [Shree Hanuman Chalisa (English)](https://chiragmirani.github.io/hanuman-chalisa/): the Hanuman Chalisa verse by verse in plain English, with the Hindi (Devanagari), the Hindi in English letters and Gujarati letters; all 43 verses, offline. Free iPhone and iPad app, Shree Hanuman Chalisa English, no ads and no data collected: https://apps.apple.com/app/id6819752072
