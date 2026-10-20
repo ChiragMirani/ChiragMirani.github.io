@@ -1,0 +1,22 @@
+# GMAT Mini
+
+> GMAT Mini is an iPhone and iPad app for GMAT practice in short sessions. Each mini quiz has four GMAT-style questions across Quantitative Reasoning, Verbal Reasoning and Data Insights (the three sections of the GMAT Focus Edition), with a step-by-step explanation after every answer.
+
+Facts:
+- 3,000 original practice questions; the first mini quiz is free; one purchase unlocks everything, no subscription.
+- A mini quiz is four questions: one per section plus one from a rotating section. You can also practice one section at a time or retry missed questions.
+- A countdown timer is hidden by default and can be shown in Settings.
+- No account, no ads, no tracking. Practice history stays on the device.
+- App menus are in 11 languages; questions and explanations are in English.
+- Independent study aid, not affiliated with or endorsed by the Graduate Management Admission Council. Scores do not predict a GMAT score.
+
+Guides:
+- [How the GMAT Focus Edition sections work](https://chiragmirani.github.io/gmat-mini/gmat-focus-edition-sections.html): three sections, question counts and minutes as published by the Graduate Management Admission Council, question types, and how a mini quiz maps onto them.
+- [GMAT practice questions by section](https://chiragmirani.github.io/gmat-mini/gmat-practice-questions.html): question types in each section with two worked examples.
+- [GMAT mini quiz: how a four-question daily habit works](https://chiragmirani.github.io/gmat-mini/gmat-mini-quiz.html): what happens in one mini quiz and a simple routine.
+
+Links:
+- [Home and questions and answers](https://chiragmirani.github.io/gmat-mini/)
+- [Support](https://chiragmirani.github.io/gmat-mini/support.html)
+- [Privacy](https://chiragmirani.github.io/gmat-mini/privacy.html)
+- [App Store](https://apps.apple.com/app/id6824875450)
