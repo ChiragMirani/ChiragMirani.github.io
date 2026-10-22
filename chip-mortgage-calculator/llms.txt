@@ -1,6 +1,6 @@
 # Chip Mortgage Calculator
 
-> A native iPhone and iPad mortgage calculator for US fixed-rate home loans. The current App Store version 1.0 is a one-time paid download. The planned 1.0.1 update will make core calculations and on-screen schedules free with an optional permanent saving/PDF/CSV purchase. It is not live yet. No ads or subscriptions.
+> A native iPhone and iPad mortgage calculator for US fixed-rate home loans. Version 1.0.1 is free to download with unlimited calculations, charts and on-screen schedules. An optional permanent purchase ($2.99 US; local prices vary) unlocks Save Plan and PDF/CSV exports. Previous paid customers keep full access. Supports English, Mexican Spanish and Spain Spanish; loan amounts are in USD. No ads or subscriptions.
 
 - Monthly Payment counts principal and interest, property tax, home insurance, PMI (only below 20% down, ends at 78% of the original price), HOA dues, upkeep, utilities and extra principal.
 - Tax and insurance start as US averages (0.9% and 0.5% of the price per year) and can be edited.
@@ -8,7 +8,7 @@
 - Monthly and annual cash flow tables with principal, interest, extra principal and balance; CSV export.
 - A two or three page PDF report to share. Saved plans and shareable plan files.
 - First launch uses the US median home price ($429,100, NAR, August 2026) with 20% down and the latest Freddie Mac 30-year average rate from the St. Louis Fed (FRED).
-- Privacy: no data collected, no tracking, no analytics. Network use includes the public FRED rate fetch on first launch and, in 1.0.1, Apple purchase/restore services. Plans stay on the device.
+- Privacy: no data collected, no tracking, no analytics. Network use includes the public FRED rate fetch on first launch and Apple purchase/restore services. Plans stay on the device.
 - Estimates only, not financial advice.
 
 - [Verified App Store listing](https://apps.apple.com/app/id6821645194)
