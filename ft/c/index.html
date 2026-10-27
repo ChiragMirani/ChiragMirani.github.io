@@ -50,7 +50,12 @@
     var code = q.get("code") || "";
     var name = (q.get("n") || "").slice(0, 20);
     var pts = parseInt(q.get("p") || "", 10);
-    if (name) document.getElementById("who").textContent = name + " challenges you!";
+    if (name) document.getElementById("who").textContent = code && !d ? name + " invited you to a duel!" : name + " challenges you!";
+    if (code && !d) {
+      document.getElementById("open").textContent = name ? "Join " + name + "'s duel" : "Join the duel";
+      var e = parseInt(q.get("e") || "", 10);
+      if (!isNaN(e) && Date.now() / 1000 > e) document.getElementById("who").textContent = "This invitation has ended. Ask for a new one.";
+    }
     if (!isNaN(pts) && pts >= 0) { document.getElementById("num").textContent = pts; document.getElementById("scorebox").hidden = false; }
     var app = d ? "throughthering://challenge?d=" + encodeURIComponent(d)
                 : (code ? "throughthering://duel?code=" + encodeURIComponent(code) : "throughthering://");
