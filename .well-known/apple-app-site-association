@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["5G4ATXQY57.co.justforward.throughtheringpro"],
+        "components": [
+          { "/": "/ft/*", "comment": "Flappy Tappy friend challenges and duel invitations" }
+        ]
+      }
+    ]
+  }
+}

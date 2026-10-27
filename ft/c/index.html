@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>You're challenged! · Flappy Tappy</title>
+<meta name="description" content="30-second one-tap duels. Beat my score in Flappy Tappy.">
+<meta property="og:title" content="You're challenged in Flappy Tappy!">
+<meta property="og:description" content="30 seconds, one tap. Can you beat my score?">
+<meta name="apple-itunes-app" content="app-id=1203310957">
+<style>
+  :root { --sky1:#ffffff; --sky2:#efe9ff; --ink:#1f1b3a; --muted:#6b6690; --magenta:#ff2d8a; --violet:#5a32d6; --cyan:#22c3e6; }
+  * { box-sizing: border-box; }
+  body { margin:0; min-height:100vh; font-family: ui-rounded, -apple-system, "SF Pro Rounded", system-ui, sans-serif;
+         background: linear-gradient(180deg, var(--sky1), var(--sky2)); color: var(--ink);
+         display:flex; align-items:center; justify-content:center; padding:24px 16px; }
+  .card { width:100%; max-width:420px; background:#fff; border-radius:28px; padding:28px 24px; text-align:center;
+          box-shadow: 0 10px 30px rgba(90,50,214,.18); border:1.5px solid #ece6ff; }
+  .tag { display:inline-block; background: var(--violet); color:#fff; font-weight:800; letter-spacing:3px; font-size:12px;
+         padding:8px 14px; border-radius:999px; }
+  h1 { font-size:40px; margin:14px 0 4px; font-weight:900; letter-spacing:-1px; }
+  .who { font-size:20px; color: var(--muted); margin:0 0 18px; font-weight:600; }
+  .score { font-size:15px; letter-spacing:2px; color: var(--muted); font-weight:700; }
+  .num { font-size:64px; font-weight:900; color: var(--magenta); line-height:1; margin:6px 0 20px; }
+  .btn { display:block; width:100%; padding:18px; border-radius:18px; font-size:20px; font-weight:900; text-decoration:none; margin-top:12px; }
+  .play { background: var(--magenta); color:#fff; }
+  .get { background:#fff; color: var(--violet); border:2px solid var(--violet); }
+  .small { color: var(--muted); font-size:14px; margin-top:16px; line-height:1.4; }
+</style>
+</head>
+<body>
+<main class="card">
+  <span class="tag">YOU'RE CHALLENGED</span>
+  <h1>Flappy Tappy</h1>
+  <p class="who" id="who">A friend challenges you!</p>
+  <div id="scorebox" hidden>
+    <div class="score">SCORE TO BEAT</div>
+    <div class="num" id="num">0</div>
+  </div>
+  <a class="btn play" id="open" href="#">Play the challenge</a>
+  <a class="btn get" href="https://apps.apple.com/app/id1203310957">Get Flappy Tappy (free)</a>
+  <p class="small">30-second duels, one tap. No game yet? Get it free, then come back and tap “Play the challenge”.</p>
+</main>
+<script>
+  // The challenge travels in the link itself (?d=...). The page reads only the name and score for display;
+  // the game checks everything again when it opens the link.
+  (function () {
+    var q = new URLSearchParams(location.search);
+    var d = q.get("d") || "";
+    var code = q.get("code") || "";
+    var name = (q.get("n") || "").slice(0, 20);
+    var pts = parseInt(q.get("p") || "", 10);
+    if (name) document.getElementById("who").textContent = name + " challenges you!";
+    if (!isNaN(pts) && pts >= 0) { document.getElementById("num").textContent = pts; document.getElementById("scorebox").hidden = false; }
+    var app = d ? "throughthering://challenge?d=" + encodeURIComponent(d)
+                : (code ? "throughthering://duel?code=" + encodeURIComponent(code) : "throughthering://");
+    document.getElementById("open").href = app;
+  })();
+</script>
+</body>
+</html>
