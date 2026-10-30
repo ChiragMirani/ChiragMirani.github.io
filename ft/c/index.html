@@ -8,6 +8,7 @@
 <meta property="og:title" content="You're challenged in Flappy Tappy!">
 <meta property="og:description" content="30 seconds, one tap. Can you beat my score?">
 <meta name="apple-itunes-app" content="app-id=1203310957">
+<meta name="google-play-app" content="app-id=com.flappytappy">
 <style>
   :root { --sky1:#ffffff; --sky2:#efe9ff; --ink:#1f1b3a; --muted:#6b6690; --magenta:#ff2d8a; --violet:#5a32d6; --cyan:#22c3e6; }
   * { box-sizing: border-box; }
@@ -38,7 +39,7 @@
     <div class="num" id="num">0</div>
   </div>
   <a class="btn play" id="open" href="#">Play the challenge</a>
-  <a class="btn get" href="https://apps.apple.com/app/id1203310957">Get Flappy Tappy (free)</a>
+  <a class="btn get" id="get" href="https://apps.apple.com/app/id1203310957">Get Flappy Tappy (free)</a>
   <p class="small">30-second duels, one tap. No game yet? Get it free, then come back and tap “Play the challenge”.</p>
 </main>
 <script>
@@ -59,6 +60,22 @@
     if (!isNaN(pts) && pts >= 0) { document.getElementById("num").textContent = pts; document.getElementById("scorebox").hidden = false; }
     var app = d ? "throughthering://challenge?d=" + encodeURIComponent(d)
                 : (code ? "throughthering://duel?code=" + encodeURIComponent(code) : "throughthering://");
+    // Android (added for the Android game, package com.flappytappy): an intent:// link opens the game when it is
+    // installed and Google Play when it is not, in one tap. Android has friend challenges only (no live duels yet),
+    // so a link with just a code simply opens the game.
+    if (/Android/i.test(navigator.userAgent)) {
+      // The Play link carries the challenge in its install referrer: a friend without the game installs it and the
+      // challenge opens on the game's first launch. utm_* tags make friend installs a separate source in Analytics.
+      var ref = "utm_source=challenge&utm_medium=friend&utm_campaign=challenge_link" + (d ? "&ch=" + d : "");
+      var play = "https://play.google.com/store/apps/details?id=com.flappytappy&referrer=" + encodeURIComponent(ref);
+      var tail = "package=com.flappytappy;S.browser_fallback_url=" + encodeURIComponent(play) + ";end";
+      app = d ? "intent://challenge?d=" + encodeURIComponent(d) + "#Intent;scheme=flappytappy;" + tail
+              : "intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;" + tail;
+      if (code && !d) document.getElementById("open").textContent = "Open Flappy Tappy";
+      var get = document.getElementById("get");
+      get.href = play;
+      get.textContent = "Get it on Google Play (free)";
+    }
     document.getElementById("open").href = app;
   })();
 </script>

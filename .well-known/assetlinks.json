@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.flappytappy",
+      "sha256_cert_fingerprints": [
+        "51:1A:87:D2:AE:6E:0D:4B:C2:CB:B6:91:AD:5E:E9:7C:8A:A2:8C:7E:A4:FC:1F:02:BE:EC:F5:9D:FC:28:A4:75"
+      ]
+    }
+  }
+]
