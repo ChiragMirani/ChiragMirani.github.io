@@ -40,7 +40,7 @@
   </div>
   <a class="btn play" id="open" href="#">Play the challenge</a>
   <a class="btn get" id="get" href="https://apps.apple.com/app/id1203310957">Get Flappy Tappy (free)</a>
-  <p class="small">30-second duels, one tap. No game yet? Get it free, then come back and tap “Play the challenge”.</p>
+  <p class="small" id="small">30-second duels, one tap. No game yet? Get it free, then come back and tap “Play the challenge”.</p>
 </main>
 <script>
   // The challenge travels in the link itself (?d=...). The page reads only the name and score for display;
@@ -54,28 +54,47 @@
     if (name) document.getElementById("who").textContent = code && !d ? name + " invited you to a duel!" : name + " challenges you!";
     if (code && !d) {
       document.getElementById("open").textContent = name ? "Join " + name + "'s duel" : "Join the duel";
-      var e = parseInt(q.get("e") || "", 10);
-      if (!isNaN(e) && Date.now() / 1000 > e) document.getElementById("who").textContent = "This invitation has ended. Ask for a new one.";
+      document.getElementById("small").textContent = "30-second duels, one tap. No game yet? Get it free: on Android the duel joins by itself when the game first opens.";
+      var ends = parseInt(q.get("e") || "", 10);
+      if (!isNaN(ends) && Date.now() / 1000 > ends) document.getElementById("who").textContent = "This invitation has ended. Ask for a new one.";
     }
     if (!isNaN(pts) && pts >= 0) { document.getElementById("num").textContent = pts; document.getElementById("scorebox").hidden = false; }
+    var relay = q.get("r") || "";
+    var e = parseInt(q.get("e") || "", 10);
+    var ended = code && !d && !isNaN(e) && Date.now() / 1000 > e;
     var app = d ? "throughthering://challenge?d=" + encodeURIComponent(d)
                 : (code ? "throughthering://duel?code=" + encodeURIComponent(code) : "throughthering://");
-    // Android (added for the Android game, package com.flappytappy): an intent:// link opens the game when it is
-    // installed and Google Play when it is not, in one tap. Android has friend challenges only (no live duels yet),
-    // so a link with just a code simply opens the game.
-    if (/Android/i.test(navigator.userAgent)) {
-      // The Play link carries the challenge in its install referrer: a friend without the game installs it and the
-      // challenge opens on the game's first launch. utm_* tags make friend installs a separate source in Analytics.
-      var ref = "utm_source=challenge&utm_medium=friend&utm_campaign=challenge_link" + (d ? "&ch=" + d : "");
+    var isAndroid = /Android/i.test(navigator.userAgent);
+    // A live invitation made on Android ("r=fb") meets over Firebase, which the iPhone game does not speak yet.
+    if (code && !d && relay === "fb" && !isAndroid && /iPhone|iPad|iPod|Macintosh/i.test(navigator.userAgent)) {
+      document.getElementById("who").textContent = (name || "Your friend") + " is playing on Android. Duels between iPhone and Android are coming soon.";
+      document.getElementById("open").hidden = true;
+    }
+    // Android (package com.flappytappy): an intent:// link opens the game when it is installed and Google Play when it
+    // is not, in one tap.
+    if (isAndroid) {
+      // The Play link carries the challenge or the live invitation in its install referrer: a friend without the game
+      // installs it and the challenge opens (or the duel joins) on the game's first launch. utm_* tags make friend
+      // installs a separate source in Analytics.
+      var ref;
+      if (d) ref = "utm_source=challenge&utm_medium=friend&utm_campaign=challenge_link&ch=" + d;
+      else if (code) ref = "utm_source=friend-invite&utm_medium=friend&utm_campaign=invite_link&code=" + encodeURIComponent(code)
+                         + (isNaN(e) ? "" : "&e=" + e) + (name ? "&n=" + encodeURIComponent(name) : "");
+      else ref = "utm_source=challenge&utm_medium=friend&utm_campaign=challenge_link";
       var play = "https://play.google.com/store/apps/details?id=com.flappytappy&referrer=" + encodeURIComponent(ref);
       var tail = "package=com.flappytappy;S.browser_fallback_url=" + encodeURIComponent(play) + ";end";
-      app = d ? "intent://challenge?d=" + encodeURIComponent(d) + "#Intent;scheme=flappytappy;" + tail
-              : "intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;" + tail;
-      if (code && !d) document.getElementById("open").textContent = "Open Flappy Tappy";
+      if (d) app = "intent://challenge?d=" + encodeURIComponent(d) + "#Intent;scheme=flappytappy;" + tail;
+      else if (code) {
+        // The live invitation: the game joins the friend's duel straight away (the link keeps its code, end time,
+        // name and relay).
+        var extra = (isNaN(e) ? "" : "&e=" + e) + (name ? "&n=" + encodeURIComponent(name) : "") + (relay ? "&r=" + encodeURIComponent(relay) : "");
+        app = "intent://duel?code=" + encodeURIComponent(code) + extra + "#Intent;scheme=flappytappy;" + tail;
+      } else app = "intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;" + tail;
       var get = document.getElementById("get");
       get.href = play;
       get.textContent = "Get it on Google Play (free)";
     }
+    if (ended) document.getElementById("open").hidden = true;
     document.getElementById("open").href = app;
   })();
 </script>
