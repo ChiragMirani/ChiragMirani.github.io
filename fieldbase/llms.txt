@@ -1,0 +1,18 @@
+# Fieldbase
+
+> Fieldbase is an offline survival companion for iPhone: saved guidance and reference documents, field tools, offline maps and an assistant that runs on the phone. It is in development and coming to the App Store; it is not available to download yet.
+
+- Page: https://chiragmirani.github.io/fieldbase/
+- Status: in development, coming to the App Store (no App Store link yet).
+- Works offline: saved guides with source links, compass, flashlight, Morse code, calculators, saved places, maps you download, your own notes and documents, and on-device voice transcription.
+- When connected, it can search the web for current information (can be turned off), save a United States National Weather Service forecast, and prepare nearby water, places and maps.
+- Privacy: no account, no ads, no analytics, no tracking; the developer receives nothing. Chats, notes, imports and photos stay on the iPhone. Area coordinates go to OpenStreetMap data services and the National Weather Service only for the features above.
+- Safety: general information only, not a substitute for emergency services; it does not contact rescuers.
+
+## Pages
+- [App page](https://chiragmirani.github.io/fieldbase/)
+- [Privacy](https://chiragmirani.github.io/fieldbase/privacy.html)
+- [Support](https://chiragmirani.github.io/fieldbase/support.html)
+- [Sitemap](https://chiragmirani.github.io/fieldbase/sitemap.xml)
+
+Last updated: Wednesday, November 4, 2026. Made by Chirag Mirani: https://chiragmirani.github.io/

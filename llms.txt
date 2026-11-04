@@ -21,6 +21,8 @@
 - Coming soon to the App Store (submitted, not yet live):
   - [Chip Mortgage Calculator](https://chiragmirani.github.io/chip-mortgage-calculator/). Details: https://chiragmirani.github.io/chip-mortgage-calculator/llms.txt
   - [MCAT Prep: Mini Practice Tests](https://chiragmirani.github.io/mcat-mini/): four-question practice mini-tests across the four MCAT sections, with an explanation after every answer, for iPhone. Details: https://chiragmirani.github.io/mcat-mini/llms.txt
+- In development, coming to the App Store:
+  - [Fieldbase](https://chiragmirani.github.io/fieldbase/): an offline survival companion for iPhone with saved guidance, field tools, offline maps and an assistant that runs on the phone. No account, ads or tracking. Details: https://chiragmirani.github.io/fieldbase/llms.txt
 - [Gita](https://chiragmirani.github.io/gita-quotes/): all 700 verses of the Bhagavad Gita in English.
 - [The Vedas reader](https://chiragmirani.github.io/vedas/) and [The Upanishads reader](https://chiragmirani.github.io/upanishads/).
 
