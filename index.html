@@ -64,41 +64,92 @@
     }
     </script>
     <style>
-      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 600px; margin: 80px auto; padding: 0 24px; color: #111; }
-      a { color: #0a66c2; }
-      h2 { font-size: 1.2em; margin-top: 2em; }
-      .apps li { margin-bottom: 0.6em; }
-      .muted { color: #555; }
+      :root { --ink:#14171f; --muted:#5b6170; --line:#e4e7ee; --accent:#0a5cc2; --bg:#ffffff; --soft:#f6f8fb; }
+      * { box-sizing: border-box; }
+      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif; max-width: 760px; margin: 0 auto; padding: 64px 24px 72px; color: var(--ink); background: var(--bg); line-height: 1.55; }
+      a { color: var(--accent); text-decoration: none; } a:hover { text-decoration: underline; }
+      header h1 { font-size: 2.2em; margin: 0; letter-spacing: -0.02em; }
+      .role { font-size: 1.1em; color: var(--muted); margin: 6px 0 18px; font-weight: 500; }
+      .lead { font-size: 1.05em; }
+      .cta { display: inline-block; margin-top: 6px; padding: 9px 16px; border-radius: 8px; background: var(--ink); color: #fff; font-weight: 600; }
+      .cta:hover { text-decoration: none; opacity: .9; }
+      .links { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 14px 0 0; padding: 0; list-style: none; font-weight: 500; }
+      section { margin-top: 44px; }
+      h2 { font-size: 0.82em; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin: 0 0 14px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+      .item { margin: 0 0 18px; }
+      .item h3 { font-size: 1.05em; margin: 0; }
+      .item p { margin: 3px 0 0; color: #333a46; }
+      .meta { color: var(--muted); font-size: 0.92em; }
+      .side { background: var(--soft); border: 1px solid var(--line); border-radius: 12px; padding: 20px 22px 8px; }
+      .side h2 { border: 0; padding: 0; margin-bottom: 4px; }
+      .side .note { color: var(--muted); margin: 0 0 14px; font-size: 0.95em; }
+      .apps { list-style: none; padding: 0; margin: 0; }
+      .apps li { margin: 0 0 12px; }
+      .apps .store { font-size: 0.9em; }
+      footer { margin-top: 48px; color: var(--muted); font-size: 0.9em; }
     </style>
     <script data-goatcounter="https://submartingaleoptions.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
   <body>
-    <h1>Chirag Mirani</h1>
-    <p>Data scientist and quantitative researcher in Suwanee, Georgia, with about 20 years in quantitative finance (Master of Science in Computational Finance, Carnegie Mellon University). I build predictive models and forecasting systems across macro, options, volatility, time series and prediction markets, and I compete on Kaggle.</p>
-    <p><strong>Open to data science and quantitative research roles.</strong> Reach me on <a href="https://www.linkedin.com/in/chiragmirani/">LinkedIn</a>.</p>
-    <p>Main project: <a href="https://chiragmirani.github.io/macro-dashboard/">MacroForecastbyCM</a>, a live US macro forecast dashboard.</p>
-    <ul>
-      <li><a href="https://chiragmirani.github.io/macro-dashboard/">Live macro forecast dashboard</a></li>
-      <li><a href="https://chiragmirani.github.io/vedas/">The Vedas reader</a></li>
-      <li><a href="https://chiragmirani.github.io/upanishads/">The Upanishads reader</a></li>
-      <li><a href="https://github.com/ChiragMirani">GitHub</a></li>
-      <li><a href="https://www.kaggle.com/cmirani">Kaggle</a> &mdash; active in ARC-AGI-2 and NVARC</li>
-      <li><a href="https://www.linkedin.com/in/chiragmirani/">LinkedIn</a></li>
-      <li><a href="https://x.com/chirag_mirani1">X / @chirag_mirani1</a></li>
-      <li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6292699">Exposure-Time Normalized Performance (SSRN, 2026)</a></li>
-      <li><a href="https://chiragmirani.github.io/macro-dashboard/treasury-futures-model.pdf">A Predictive Model for 10-Year Treasury Futures (PDF, 2025)</a></li>
-    </ul>
-    <h2 id="apps">Apps</h2>
-    <p class="muted">iPhone and iPad apps, available on the App Store.</p>
-    <ul class="apps">
-      <li><a href="https://chiragmirani.github.io/through-the-ring/">Flappy Tappy</a> &mdash; a one-tap arcade game: fly through the rings, chase Bullseyes, and duel rivals from around the world. <a href="https://chiragmirani.github.io/flappy-tappy/">Play in your browser</a> · <a href="https://apps.apple.com/us/app/id1203310957">App Store</a></li>
-      <li><a href="https://chiragmirani.github.io/hanuman-chalisa/">Shree Hanuman Chalisa (English)</a> &mdash; the Hanuman Chalisa verse by verse in plain English. <a href="https://apps.apple.com/app/id6819752072">App Store</a></li>
-      <li><a href="https://chiragmirani.github.io/vocabula-pages/app/">Vocabula: K-12 Vocabulary</a> &mdash; 4,241 vocabulary flashcards in English, Math and Science. <a href="https://apps.apple.com/us/app/vocabula-k-12-vocabulary/id6819035983">App Store</a></li>
-      <li><a href="https://chiragmirani.github.io/chip-compound-calculator/">Compound Interest Calculators</a> &mdash; Chip: Savings Plans &amp; Goals. An offline compound interest calculator with charts, plan comparison, goal solving and PDF/CSV reports. <a href="https://apps.apple.com/app/id6822411872">App Store</a></li>
-      <li><a href="https://chiragmirani.github.io/series65/">Series 65 Exam Practice Tests</a> &mdash; the question bank I built and studied with before passing the Series 65 on my first attempt in September 2026: 1,211 practice questions and 1,143 flashcards, every answer explained. <a href="https://apps.apple.com/app/id6812059689">App Store</a></li>
-      <li><a href="https://chiragmirani.github.io/locklab/">Practice Combination Lock</a> &mdash; learn and practice a three-number school locker combination lock. <a href="https://apps.apple.com/us/app/id6822015018">App Store</a></li>
-      <li><a href="https://chiragmirani.github.io/zoes-vocabulary/">VocabDeck</a> &mdash; K-12 vocabulary flashcards. <a href="https://apps.apple.com/app/id6761394575">App Store</a></li>
-    </ul>
-    <p class="muted"><a href="https://chiragmirani.github.io/chip-mortgage-calculator/">Chip Mortgage Calculator</a> is now available for iPhone and iPad. Coming soon to the App Store: <a href="https://chiragmirani.github.io/mcat-mini/">MCAT Prep: Mini Practice Tests</a> (four-question MCAT practice mini-tests with an explanation after every answer).</p>
+    <header>
+      <h1>Chirag Mirani</h1>
+      <p class="role">Investing · Data Science · Quantitative Research</p>
+      <p class="lead">Data scientist and quantitative researcher with about 20 years in quantitative finance (Master of Science in Computational Finance, Carnegie Mellon University). I build predictive models and forecasting systems across macroeconomics, rates, options, volatility, time series and prediction markets. Based in Suwanee, Georgia.</p>
+      <p><strong>Open to data science and quantitative research roles.</strong></p>
+      <a class="cta" href="https://www.linkedin.com/in/chiragmirani/">Connect on LinkedIn</a>
+      <ul class="links">
+        <li><a href="https://github.com/ChiragMirani">GitHub</a></li>
+        <li><a href="https://www.kaggle.com/cmirani">Kaggle</a></li>
+        <li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6292699">SSRN</a></li>
+        <li><a href="https://x.com/chirag_mirani1">X (@chirag_mirani1)</a></li>
+      </ul>
+    </header>
+
+    <section>
+      <h2>Investing and quantitative research</h2>
+      <div class="item">
+        <h3><a href="https://chiragmirani.github.io/macro-dashboard/">MacroForecastbyCM: live US macro forecast dashboard</a></h3>
+        <p>My main project: forecasts for the US economy, updated as new data arrives.</p>
+      </div>
+      <div class="item">
+        <h3><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6292699">Exposure-Time Normalized Performance</a></h3>
+        <p class="meta">Working paper, SSRN, 2026</p>
+      </div>
+      <div class="item">
+        <h3><a href="https://chiragmirani.github.io/macro-dashboard/treasury-futures-model.pdf">A Predictive Model for 10-Year Treasury Futures</a></h3>
+        <p class="meta">Research note (PDF), 2025</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Data science and machine learning</h2>
+      <div class="item">
+        <h3><a href="https://www.kaggle.com/cmirani">Kaggle competitions</a></h3>
+        <p>Active in ARC-AGI-2 (abstract reasoning) and NVARC.</p>
+      </div>
+      <div class="item">
+        <h3><a href="https://github.com/ChiragMirani">Open-source work on GitHub</a></h3>
+        <p>Code behind my research, models and projects.</p>
+      </div>
+    </section>
+
+    <section class="side" id="apps">
+      <h2>Side projects</h2>
+      <p class="note">Apps I build and ship in my spare time, for iPhone and iPad.</p>
+      <ul class="apps">
+        <li><a href="https://chiragmirani.github.io/through-the-ring/">Flappy Tappy</a> &mdash; a one-tap arcade game with duels against rivals from around the world. <span class="store"><a href="https://chiragmirani.github.io/flappy-tappy/">Play in your browser</a> · <a href="https://apps.apple.com/us/app/id1203310957">App Store</a></span></li>
+        <li><a href="https://chiragmirani.github.io/series65/">Series 65 Exam Practice Tests</a> &mdash; the question bank I built and studied with before passing the Series 65 on my first attempt in September 2026: 1,211 practice questions and 1,143 flashcards, every answer explained. <span class="store"><a href="https://apps.apple.com/app/id6812059689">App Store</a></span></li>
+        <li><a href="https://chiragmirani.github.io/chip-compound-calculator/">Chip: Savings Plans &amp; Goals</a> &mdash; an offline compound interest calculator with charts, plan comparison, goal solving and reports. <span class="store"><a href="https://apps.apple.com/app/id6822411872">App Store</a></span></li>
+        <li><a href="https://chiragmirani.github.io/chip-mortgage-calculator/">Chip Mortgage Calculator</a> &mdash; mortgage payments, schedules and comparisons for iPhone and iPad.</li>
+        <li><a href="https://chiragmirani.github.io/vocabula-pages/app/">Vocabula: K-12 Vocabulary</a> &mdash; 4,241 vocabulary flashcards in English, Math and Science. <span class="store"><a href="https://apps.apple.com/us/app/vocabula-k-12-vocabulary/id6819035983">App Store</a></span></li>
+        <li><a href="https://chiragmirani.github.io/zoes-vocabulary/">VocabDeck</a> &mdash; K-12 vocabulary flashcards. <span class="store"><a href="https://apps.apple.com/app/id6761394575">App Store</a></span></li>
+        <li><a href="https://chiragmirani.github.io/locklab/">Practice Combination Lock</a> &mdash; learn and practice a three-number school locker combination lock. <span class="store"><a href="https://apps.apple.com/us/app/id6822015018">App Store</a></span></li>
+        <li><a href="https://chiragmirani.github.io/hanuman-chalisa/">Shree Hanuman Chalisa (English)</a> &mdash; the Hanuman Chalisa verse by verse in plain English. <span class="store"><a href="https://apps.apple.com/app/id6819752072">App Store</a></span></li>
+        <li><a href="https://chiragmirani.github.io/vedas/">The Vedas reader</a> and <a href="https://chiragmirani.github.io/upanishads/">The Upanishads reader</a> &mdash; online readers.</li>
+        <li><a href="https://chiragmirani.github.io/mcat-mini/">MCAT Prep: Mini Practice Tests</a> &mdash; coming soon to the App Store.</li>
+      </ul>
+    </section>
+
+    <footer>© Chirag Mirani · Suwanee, Georgia</footer>
   </body>
 </html>
