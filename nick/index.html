@@ -269,7 +269,7 @@
 <div class="wrap">
   <header>
     <h1>Nick's Grocery List</h1>
-    <p>1224 Briar Hill Dr &middot; delivered from Walmart Denton</p>
+    <p>Walmart delivery restock</p>
   </header>
 
   <div class="howto">
@@ -441,7 +441,7 @@
   function buildText() {
     var picked = items.filter(function (it) { return it.cb.checked; });
     if (!picked.length) return "";
-    var lines = ["Nick needs (1224 Briar Hill):", ""];
+    var lines = ["Nick needs:", ""];
     picked.forEach(function (it) {
       var q = parseInt(it.out.textContent, 10);
       lines.push("- " + it.name + (q > 1 ? " x" + q : ""));
