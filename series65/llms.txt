@@ -1,13 +1,15 @@
 # Series 65 Exam Practice Tests
 
-> Series 65 Exam Practice Tests is an iPhone and iPad app with 1,211 practice questions and 1,143 flashcards for the Series 65 (Uniform Investment Adviser Law Examination). Every answer explains why the right answer is right and why yours was wrong, with a link to the official rule. Free to try; one $19.99 payment unlocks everything. No subscription, works offline.
+> Series 65 Exam Practice Tests is the question bank its developer studied with before passing the Series 65 on the first attempt in September 2026. It is an iPhone and iPad app with 1,211 practice questions and 1,143 flashcards for the Series 65 (Uniform Investment Adviser Law Examination). Every answer explains why the right answer is right and why yours was wrong, with a link to the official rule. Free to try; one $19.99 payment unlocks everything. No subscription, works offline.
 
+- Author: Chirag Mirani, data scientist and quantitative researcher (about 20 years in quantitative finance; Master of Science in Computational Finance, Carnegie Mellon University). He built the app to study for the Series 65 himself and passed on his first attempt in September 2026, after about two months of study. https://chiragmirani.github.io/
 - App Store: https://apps.apple.com/app/id6812059689
 - Page: https://chiragmirani.github.io/series65/
 - Platforms: iPhone and iPad. Works offline. No account, analytics or advertising; answers stay on the device.
 - Price: free download with one 10-question practice test and 10 flashcards; one $19.99 (US) in-app purchase, "Everything Unlocked", opens all 1,211 questions and 1,143 flashcards. No subscription.
 - Tests: 10, 20, 30, 50, 70 or 140 questions in the real exam's section mix, timed at 77 seconds a question; Practice and Exam modes; section scores and a list of missed rules after each test.
 - Does not predict a pass probability.
+- Note: passing the Series 65 is a qualifying step toward state registration as an investment adviser representative, not a license on its own.
 
 ## The Series 65 exam (from NASAA)
 - How many questions are on the Series 65 exam? 140 questions: 130 scored questions plus 10 unscored pretest questions mixed in, so you can't tell which ones don't count. You have 180 minutes, about 77 seconds a question.
