@@ -77,93 +77,128 @@
   gtag('config', 'G-2VCY3032BW');
 </script>
 <style>
-  :root { --violet:#5B34D8; --violet-edge:#3A1F9E; --magenta:#FF2E88; --magenta-edge:#A3125A; --ink:#2A1055; --gold:#FFC62E; --mint:#35E0A1; --sky:#EFE8FF; }
-  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-  html, body { margin:0; background:var(--violet); overflow-x:hidden; font-family: "Nunito", ui-rounded, "SF Pro Rounded", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color:var(--ink); touch-action:manipulation; user-select:none; -webkit-user-select:none; }
+  :root { --violet:#5B34D8; --violet-edge:#3A1F9E; --magenta:#FF2E88; --magenta-edge:#A3125A; --ink:#2A1055; --muted:#4E3F85; --gold:#FFC62E; --gold-text:#B87800; --mint:#35E0A1; --hair:#DCD0FF; --green:#12A06A; }
+  * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html, body { margin:0; background:var(--violet); overflow-x:hidden; font-family:"Nunito", ui-rounded, "SF Pro Rounded", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color:var(--ink); touch-action:manipulation; user-select:none; -webkit-user-select:none; }
   #stage { position:relative; height:100vh; height:100svh; overflow:hidden; }
   canvas { position:absolute; inset:0; width:100%; height:100%; display:block; touch-action:none; }
-  #stage .hud { pointer-events:none; } #stage .hud, #stage .toast, #stage .tapnote, #stage .overlay { position:absolute; }
-  .ready { position:absolute; left:0; right:0; bottom:24%; text-align:center; pointer-events:none; }
-  .ready .logo { font-size:44px; font-weight:900; color:#5B34D8; letter-spacing:-.5px; text-shadow:0 3px 0 #fff, 0 0 18px #fff; }
-  .ready .hint { display:inline-block; margin-top:10px; background:#fff; color:#2A1055; border-radius:999px; padding:8px 18px; font-weight:900; font-size:19px; box-shadow:0 4px 0 #DCD0FF; animation:pulse 1.2s ease-in-out infinite; }
-  @keyframes pulse { 50% { transform:scale(1.06); } }
-  .key { display:inline-block; min-width:92px; padding:2px 12px; margin:0 4px; border-radius:8px; background:#2A1055; color:#fff; font-size:16px; letter-spacing:1px; box-shadow:0 3px 0 #000; vertical-align:2px; }
-  .howline { margin:12px auto 0; max-width:320px; font-weight:800; font-size:16px; color:#2A1055; text-shadow:0 0 8px #fff, 0 0 8px #fff; }
-  .xbtn { pointer-events:auto; border:0; width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,.92); color:#2A1055; font:inherit; font-weight:900; font-size:20px; cursor:pointer; box-shadow:0 2px 0 rgba(42,16,85,.15); }
-  .hudright { display:flex; gap:8px; align-items:center; }
-  .brand { display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:6px; }
-  .brand img { width:48px; height:48px; border-radius:12px; box-shadow:0 2px 0 rgba(42,16,85,.2); }
-  .brand span { font-size:26px; font-weight:900; color:#5B34D8; letter-spacing:-.4px; }
-  .badges { display:flex; gap:8px; margin-top:10px; }
+  .hidden { display:none !important; }
+  /* Top bar, as in the app: score left, lives in the middle, pause right. */
+  .bar { position:absolute; left:50%; transform:translateX(-50%); top:max(8px, env(safe-area-inset-top)); width:min(calc(100% - 16px), 520px); height:52px; background:#fff; border-radius:16px; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; padding:0 14px; box-shadow:0 2px 0 rgba(42,16,85,.18); z-index:3; }
+  .bar .score { font-size:28px; font-weight:900; justify-self:start; min-width:40px; text-align:center; }
+  .bar .lives { font-size:24px; letter-spacing:2px; color:#F0284A; line-height:1; }
+  .bar .lives .gone { color:#E6DDFF; }
+  .bar .pause { justify-self:end; width:40px; height:40px; border:0; background:none; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:5px; }
+  .bar .pause i { display:block; width:6px; height:22px; background:var(--ink); border-radius:2px; }
+  .mult { position:absolute; left:50%; transform:translateX(-50%); top:calc(max(8px, env(safe-area-inset-top)) + 58px); background:var(--gold); color:var(--ink); border-radius:999px; padding:3px 12px; font-weight:900; font-size:16px; z-index:3; }
+  /* Front: the name as a logo, and where to find the app. */
+  .brandfront { position:absolute; left:0; right:0; top:calc(max(8px, env(safe-area-inset-top)) + 70px); display:flex; flex-direction:column; align-items:center; gap:6px; z-index:2; pointer-events:none; }
+  .brandfront .row { display:flex; align-items:center; gap:10px; }
+  .brandfront img { width:46px; height:46px; border-radius:12px; box-shadow:0 2px 0 rgba(42,16,85,.2); }
+  .brandfront .name { font-size:34px; font-weight:900; color:var(--violet); letter-spacing:-.6px; text-shadow:0 2px 0 #fff, 0 0 14px #fff; }
+  .brandfront a { pointer-events:auto; font-weight:800; font-size:14px; color:#fff; background:#000; border-radius:999px; padding:6px 14px; text-decoration:none; display:inline-flex; align-items:center; gap:6px; }
+  .brandfront a svg { width:15px; height:15px; fill:#fff; }
+  /* The app's "Tap To Jump" card. */
+  .readycard { position:absolute; left:50%; transform:translateX(-50%); bottom:calc(max(12px, env(safe-area-inset-bottom)) + 13%); width:min(calc(100% - 40px), 360px); background:var(--violet); color:#fff; border-radius:18px; padding:14px 16px; text-align:center; z-index:2; pointer-events:none; box-shadow:0 4px 0 var(--violet-edge); }
+  .readycard .t1 { font-size:24px; font-weight:800; } .readycard .t2 { font-size:18px; font-weight:700; margin-top:4px; } .readycard .t3 { font-size:15px; font-weight:600; margin-top:4px; opacity:.95; }
+  .key { display:inline-block; padding:0 10px; margin:0 2px; border-radius:7px; background:#fff; color:var(--ink); font-size:15px; font-weight:900; letter-spacing:1px; box-shadow:0 2px 0 var(--hair); vertical-align:2px; }
+  /* Tips on a pale plate, power flight on gold. */
+  .hint { position:absolute; left:50%; transform:translateX(-50%); bottom:calc(max(12px, env(safe-area-inset-bottom)) + 15%); background:rgba(255,255,255,.94); border:1px solid var(--hair); border-radius:999px; padding:6px 14px; font-weight:700; font-size:15px; white-space:nowrap; z-index:2; pointer-events:none; transition:opacity .4s; }
+  .goldcard { position:absolute; left:50%; transform:translateX(-50%); bottom:calc(max(12px, env(safe-area-inset-bottom)) + 11%); width:min(calc(100% - 24px), 340px); background:var(--gold); color:var(--ink); border-radius:18px; padding:10px 16px; text-align:center; z-index:2; pointer-events:none; }
+  .goldcard b { display:block; font-size:17px; } .goldcard span { font-size:15px; }
+  .more { position:absolute; left:0; right:0; bottom:max(6px, env(safe-area-inset-bottom)); text-align:center; z-index:2; }
+  .more a { color:#fff; font-weight:800; font-size:14px; opacity:.85; text-decoration:none; }
+  /* Pause and results screens. */
+  .sheet { position:absolute; inset:0; z-index:5; overflow-y:auto; display:flex; justify-content:center; }
+  .sheet.pausebg { background:rgba(42,16,85,.45); align-items:center; }
+  .sheet.results { background:linear-gradient(#fff, #F2ECFF); }
+  .pausecard { width:min(calc(100% - 32px), 340px); background:#fff; border-radius:22px; padding:20px; text-align:center; box-shadow:0 6px 0 var(--violet-edge); }
+  .pausecard h2 { margin:0 0 6px; font-size:28px; color:var(--violet); }
+  .res { width:min(100%, 440px); padding:max(14px, env(safe-area-inset-top)) 18px 24px; display:flex; flex-direction:column; align-items:center; text-align:center; position:relative; }
+  .res .brand { display:flex; align-items:center; gap:10px; align-self:center; margin-bottom:4px; }
+  .res .brand img { width:40px; height:40px; border-radius:10px; box-shadow:0 2px 0 rgba(42,16,85,.2); }
+  .res .brand span { font-size:24px; font-weight:900; color:var(--violet); letter-spacing:-.4px; }
+  .mascot { position:relative; width:220px; height:130px; margin-top:4px; }
+  .title { font-size:40px; font-weight:900; margin:4px 0 0; line-height:1.1; }
+  .title.best { color:var(--green); } .title.normal { color:var(--violet); }
+  .label { margin-top:10px; font-size:15px; font-weight:900; letter-spacing:2px; color:var(--muted); }
+  .bignum { font-size:84px; font-weight:900; color:var(--gold-text); line-height:1; margin:2px 0 6px; }
+  .bestpill { background:var(--gold); color:var(--ink); border-radius:999px; padding:8px 20px; font-weight:900; font-size:19px; }
+  .bestline { font-weight:800; color:var(--muted); font-size:17px; }
+  .btn { display:block; width:100%; border:0; border-radius:20px; padding:15px 12px; margin:12px 0 0; font:inherit; font-weight:900; font-size:22px; color:#fff; cursor:pointer; text-decoration:none; }
+  .btn.again { background:var(--magenta); box-shadow:0 5px 0 var(--magenta-edge); }
+  .btn.violet { background:var(--violet); box-shadow:0 5px 0 var(--violet-edge); font-size:19px; }
+  .btn.outline { background:#fff; color:var(--violet); border:2.5px solid var(--violet); box-shadow:none; font-size:19px; padding:12px; }
+  .btn:active { transform:translateY(3px); box-shadow:none; }
+  .appbox { width:100%; margin-top:18px; background:#fff; border:1px solid var(--hair); border-radius:20px; padding:14px; }
+  .appbox p { margin:0 0 10px; font-weight:900; font-size:17px; }
+  .badges { display:flex; gap:8px; }
   .badge { flex:1; display:flex; align-items:center; justify-content:center; gap:8px; background:#000; color:#fff; border-radius:12px; padding:9px 8px; text-decoration:none; line-height:1.1; text-align:left; }
   .badge svg { width:22px; height:22px; flex:none; fill:#fff; }
   .badge small { display:block; font-size:10px; font-weight:700; opacity:.85; } .badge b { font-size:16px; font-weight:800; }
-  .pitch { margin:12px 0 0; font-weight:900; font-size:17px; color:#2A1055; }
-  .more { position:absolute; left:0; right:0; bottom:max(6px, env(safe-area-inset-bottom)); text-align:center; }
-  .more a { color:#fff; font-weight:800; font-size:14px; opacity:.85; text-decoration:none; }
+  #confetti { position:absolute; inset:0; pointer-events:none; }
+  /* Readable text under the game. */
   .below { padding:24px 16px 40px; }
-  .hud { position:fixed; left:0; right:0; top:max(10px, env(safe-area-inset-top)); display:flex; justify-content:space-between; align-items:center; padding:0 16px; pointer-events:none; }
-  .pill { background:rgba(255,255,255,.92); border-radius:999px; padding:6px 14px; font-weight:900; font-size:20px; box-shadow:0 2px 0 rgba(42,16,85,.15); }
-  .lives { color:var(--magenta); letter-spacing:2px; }
-  .mult { background:var(--gold); }
-  .toast { position:fixed; left:50%; top:22%; transform:translateX(-50%); font-weight:900; font-size:28px; color:#fff; text-shadow:0 2px 0 var(--violet-edge), 0 0 12px rgba(91,52,216,.6); pointer-events:none; opacity:0; transition:opacity .15s; white-space:nowrap; }
-  .overlay { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; padding:16px; }
-  .card { width:min(380px, 100%); background:#fff; border-radius:24px; padding:22px 20px; text-align:center; box-shadow:0 8px 0 var(--violet-edge), 0 18px 40px rgba(42,16,85,.35); }
-  .card h1 { margin:4px 0 2px; font-size:34px; font-weight:900; color:var(--violet); letter-spacing:-.5px; }
-  .card .sub { margin:0 0 14px; font-weight:700; color:#4E3F85; }
-  .card .big { font-size:56px; font-weight:900; line-height:1; margin:6px 0 2px; color:var(--ink); }
-  .card .best { font-weight:800; color:#B87800; margin-bottom:14px; }
-  .btn { display:block; width:100%; border:0; border-radius:18px; padding:15px 12px; margin:10px 0 0; font:inherit; font-weight:900; font-size:20px; color:#fff; cursor:pointer; text-decoration:none; }
-  .btn.app { background:var(--magenta); box-shadow:0 5px 0 var(--magenta-edge); }
-  .btn.play { background:var(--violet); box-shadow:0 5px 0 var(--violet-edge); }
-  .btn.ghost { background:#fff; color:var(--violet); border:2px solid #DCD0FF; box-shadow:none; font-size:17px; padding:11px; }
-  .btn:active { transform:translateY(3px); box-shadow:none; }
-  .stores { display:flex; gap:8px; }
-  .stores .btn { font-size:16px; padding:13px 6px; }
-  .why { margin:12px 0 0; font-size:14px; font-weight:700; color:#4E3F85; }
-  .icon { width:72px; height:72px; border-radius:18px; box-shadow:0 3px 0 rgba(42,16,85,.2); }
-  .hidden { display:none !important; }
-  .overlay.scroll { display:block; overflow-y:auto; -webkit-overflow-scrolling:touch; touch-action:pan-y; padding:max(16px, env(safe-area-inset-top)) 16px 32px; }
-  .overlay.scroll .card { margin:6vh auto 0; }
-  .info { width:min(560px,100%); margin:22px auto 0; background:rgba(255,255,255,.95); border-radius:20px; padding:18px 20px; line-height:1.5; font-weight:600; color:#2A1055; }
-  .info h2 { font-size:20px; margin:14px 0 6px; color:#5B34D8; } .info h2:first-child { margin-top:0; }
+  .info { width:min(560px,100%); margin:0 auto; background:rgba(255,255,255,.95); border-radius:20px; padding:18px 20px; line-height:1.5; font-weight:600; color:var(--ink); user-select:text; -webkit-user-select:text; }
+  .info h2 { font-size:20px; margin:14px 0 6px; color:var(--violet); }
   .info h3 { font-size:16px; margin:12px 0 4px; } .info p, .info li { font-size:15px; margin:4px 0; } .info ul { padding-left:20px; margin:4px 0; }
-  .info a { color:#5B34D8; } .info .small { font-size:13px; color:#4E3F85; margin-top:14px; }
-  .tapnote { position:fixed; left:0; right:0; bottom:max(28px, env(safe-area-inset-bottom)); text-align:center; color:#fff; font-weight:900; font-size:22px; text-shadow:0 2px 0 var(--violet-edge); pointer-events:none; }
+  .info a { color:var(--violet); } .info .small { font-size:13px; color:var(--muted); margin-top:14px; }
 </style>
 </head>
 <body>
 <div id="stage">
-<canvas id="c" aria-label="Flappy Tappy game. Tap or press Space to fly."></canvas>
-<div class="ready" id="ready">
-  <div class="logo">Flappy Tappy</div>
-  <div class="hint" id="hint">Tap anywhere to fly up</div>
-  <div class="howline" id="howline">Each tap lifts the ball. Fly through the gold rings and dodge the spikes.</div>
-</div>
-<div class="hud hidden" id="hud">
-  <div class="pill" id="score">0</div>
-  <div class="pill mult hidden" id="mult">x2</div>
-  <div class="hudright"><div class="pill lives" id="lives">♥♥♥</div><button class="xbtn" id="endBtn" aria-label="End this run">✕</button></div>
-</div>
-<div class="toast" id="toast"></div>
-<div class="tapnote hidden" id="tapnote">Tap to fly up</div>
+<canvas id="c" aria-label="Flappy Tappy game. Tap or press Space to jump."></canvas>
 
-<div class="overlay hidden" id="over">
-  <div class="card">
-    <div class="brand"><img src="/through-the-ring/img/icon-180.png" alt="Flappy Tappy app icon"><span>Flappy Tappy</span></div>
-    <p class="sub" id="overTitle" style="margin:0">Nice flying!</p>
-    <div class="big" id="final">0</div>
-    <div class="best" id="bestLine">Best: 0</div>
-    <button class="btn play" id="again">Play again</button>
-    <p class="pitch">Get the free app: duel real rivals from around the world</p>
-    <div class="badges" id="badges">
-      <a class="badge" id="iosBtn" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.3.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.8-1-2.8-4.3zM13.9 5.2c.7-.8 1.2-2 1-3.2-1 .1-2.2.7-3 1.5-.6.7-1.2 1.9-1 3.1 1.1.1 2.3-.6 3-1.4z"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
-      <a class="badge" id="androidBtn" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 1.8c-.3.3-.4.7-.4 1.2v18c0 .5.1.9.4 1.2l10-10.2-10-10.2zm11 9.2 2.8-2.8L5.3 1.3c-.4-.2-.8-.3-1.1-.2L14.6 11zm0 2-10.4 10c.3.1.7 0 1.1-.2l12.1-6.9-2.8-2.9zm6.7-3-3 1.7-3 1.3 3.1 3.1 2.9-1.6c.8-.5.8-1.6 0-2.1z"/></svg><span><small>Get it on</small><b>Google Play</b></span></a>
-    </div>
-    <button class="btn ghost" id="share">Challenge a friend</button>
+<div class="bar" id="bar">
+  <div class="score" id="score">0</div>
+  <div class="lives" id="lives" aria-label="Lives">♥♥♥</div>
+  <button class="pause" id="pauseBtn" aria-label="Pause"><i></i><i></i></button>
+</div>
+<div class="mult hidden" id="mult">x2</div>
+
+<div class="brandfront" id="brandfront">
+  <a class="row" id="logoLink" href="https://apps.apple.com/app/id1203310957" target="_blank" rel="noopener" style="pointer-events:auto;background:none;padding:0;text-decoration:none" aria-label="Flappy Tappy in the app store"><img src="/through-the-ring/img/icon-180.png" alt="Flappy Tappy app icon" width="46" height="46"><span class="name">Flappy Tappy</span></a>
+  <a id="findUs" href="https://apps.apple.com/app/id1203310957" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.3.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.8-1-2.8-4.3zM13.9 5.2c.7-.8 1.2-2 1-3.2-1 .1-2.2.7-3 1.5-.6.7-1.2 1.9-1 3.1 1.1.1 2.3-.6 3-1.4z"/></svg>Find us on the App Store</a>
+</div>
+
+<div class="readycard" id="readycard">
+  <div class="t1" id="ready1">Tap To Jump</div>
+  <div class="t2">Fly Through The Ring</div>
+  <div class="t3">Earn Points · Open The Gate</div>
+</div>
+<div class="hint hidden" id="hint"></div>
+<div class="goldcard hidden" id="goldcard"><b id="gold1"></b><span id="gold2"></span></div>
+<div class="more" id="more"><a href="#how">How to play ↓</a></div>
+
+<div class="sheet pausebg hidden" id="pause">
+  <div class="pausecard">
+    <h2>Paused</h2>
+    <button class="btn again" id="resumeBtn">Resume</button>
+    <button class="btn outline" id="endBtn">End run</button>
   </div>
 </div>
-<div class="more" id="more"><a href="#how">How to play ↓</a></div>
+
+<div class="sheet results hidden" id="over">
+  <canvas id="confetti"></canvas>
+  <div class="res">
+    <a class="brand" id="endLogo" href="https://apps.apple.com/app/id1203310957" target="_blank" rel="noopener" style="text-decoration:none" aria-label="Flappy Tappy in the app store"><img src="/through-the-ring/img/icon-180.png" alt="Flappy Tappy app icon" width="40" height="40"><span>Flappy Tappy</span></a>
+    <canvas class="mascot" id="mascot" width="440" height="260"></canvas>
+    <div class="title normal" id="overTitle">Nice flying!</div>
+    <div class="label">SCORE</div>
+    <div class="bignum" id="final">0</div>
+    <div class="bestpill hidden" id="bestPill">★ Your best ever</div>
+    <div class="bestline" id="bestLine">Best: 0</div>
+    <button class="btn again" id="again">⟳ Play again</button>
+    <button class="btn outline" id="share">Challenge a friend</button>
+    <div class="appbox">
+      <p>Get the free app: duel real rivals from around the world</p>
+      <div class="badges" id="badges">
+        <a class="badge" id="iosBtn" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.3.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.8-1-2.8-4.3zM13.9 5.2c.7-.8 1.2-2 1-3.2-1 .1-2.2.7-3 1.5-.6.7-1.2 1.9-1 3.1 1.1.1 2.3-.6 3-1.4z"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
+        <a class="badge" id="androidBtn" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 1.8c-.3.3-.4.7-.4 1.2v18c0 .5.1.9.4 1.2l10-10.2-10-10.2zm11 9.2 2.8-2.8L5.3 1.3c-.4-.2-.8-.3-1.1-.2L14.6 11zm0 2-10.4 10c.3.1.7 0 1.1-.2l12.1-6.9-2.8-2.9zm6.7-3-3 1.7-3 1.3 3.1 3.1 2.9-1.6c.8-.5.8-1.6 0-2.1z"/></svg><span><small>Get it on</small><b>Google Play</b></span></a>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 <main class="below" id="how">
   <article class="info">
@@ -187,27 +222,13 @@
     <p>Yes. <b>Flappy Tappy: Fly Solo or Duel</b> is free to download on the <a href="https://apps.apple.com/us/app/id1203310957">App Store</a> for iPhone and iPad and on <a href="https://play.google.com/store/apps/details?id=com.flappytappy&amp;referrer=utm_source%3Dweb_taster%26utm_medium%3Dweb%26utm_campaign%3Dsolo_taster">Google Play</a> for Android. The app adds 30-second duels against rivals from around the world, friend challenges and balls to collect.</p>
     <h3>What games are like Flappy Tappy?</h3>
     <p>Flappy Tappy is a one-tap flying game in the family of classic tap-to-flap arcade games, with a twist: instead of only dodging, you aim for the middle of each golden ring, and streaks multiply your score.</p>
+    <h2>Get the app</h2>
+    <p><a href="https://apps.apple.com/app/id1203310957"><b>Flappy Tappy on the App Store</b></a> (iPhone and iPad) · <a href="https://play.google.com/store/apps/details?id=com.flappytappy&amp;referrer=utm_source%3Dweb_game%26utm_medium%3Dweb%26utm_campaign%3Dflappy_tappy_web"><b>Flappy Tappy on Google Play</b></a> (Android)</p>
     <p class="small"><a href="/through-the-ring/">More about Flappy Tappy</a> · <a href="/through-the-ring/privacy.html">Privacy</a> · This page counts plays without cookies (Google Analytics, nothing personal).</p>
   </article>
 </main>
-
-
 <script>
 'use strict';
-// ---------- Store links ----------
-const IOS_URL = 'https://apps.apple.com/app/id1203310957';
-const ANDROID_URL = 'https://play.google.com/store/apps/details?id=com.flappytappy&referrer=utm_source%3Dweb_taster%26utm_medium%3Dweb%26utm_campaign%3Dsolo_taster';
-const ua = navigator.userAgent || '';
-const isIOS = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-const isAndroid = /Android/.test(ua);
-if (isAndroid) document.getElementById('badges').prepend(document.getElementById('androidBtn'));
-document.getElementById('iosBtn').href = IOS_URL;
-document.getElementById('androidBtn').href = ANDROID_URL;
-for (const [id, store] of [['iosBtn', 'ios'], ['androidBtn', 'android']])
-  document.getElementById(id).addEventListener('click', () => track('taster_store_click', { store, points: lastPoints }));
-const KEYBOARD = !matchMedia('(pointer: coarse)').matches;
-function track(name, params) { try { gtag('event', name, params || {}); } catch (e) {} }
-
 // ---------- Game rules (ported from the app's core: Tuning, Course, Scoring, GameSimulation) ----------
 const T = {
   fieldWidth: 640, sectionWidth: 640, firstSectionX: 240, gameOverDelay: 0.45, restartLock: 0.7,
@@ -385,18 +406,41 @@ class Sim {
 
 // ---------- Pictures ----------
 const IMG = {};
-for (const n of ['game_block', 'game_glow', 'game_wall_top', 'game_wall_bottom', 'ring_back_player', 'ring_front_player', 'ring_back_gold', 'ring_front_gold', 'ring_back_prism', 'ring_front_prism', 'ring_back_angel', 'ring_front_angel']) {
+for (const n of ['game_block', 'game_glow', 'game_wall_top', 'game_wall_bottom', 'ring_back_player', 'ring_front_player', 'ring_back_gold', 'ring_front_gold',
+  'ring_back_prism', 'ring_front_prism', 'ring_back_angel', 'ring_front_angel', 'home_gold_ring_far', 'home_gold_ring_near']) {
   const im = new Image(); im.src = 'img/' + n + '.png'; IMG[n] = im;
 }
 const ringVariant = (reward) => reward === 2 ? 'gold' : reward === 3 ? 'prism' : reward === 10 ? 'angel' : 'player';
 const RING_W = 495 * 0.275 * (509 / 495), RING_HB = 128 * 0.275 * (142 / 128), RING_HF = 129 * 0.275 * (143 / 129);
 const WALL_W = 182 * 0.3, WALL_H = 1891 * 0.3;
 
-const cv = document.getElementById('c'), ctx = cv.getContext('2d');
+// ---------- Store links (every screen leads to the app) ----------
+const IOS_URL = 'https://apps.apple.com/app/id1203310957';
+const ANDROID_URL = 'https://play.google.com/store/apps/details?id=com.flappytappy&referrer=utm_source%3Dweb_game%26utm_medium%3Dweb%26utm_campaign%3Dflappy_tappy_web';
+const ua = navigator.userAgent || '';
+const isIOS = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+const isAndroid = /Android/.test(ua);
+const MY_STORE = isAndroid ? ANDROID_URL : IOS_URL;
+const KEYBOARD = !matchMedia('(pointer: coarse)').matches;
+function track(name, params) { try { gtag('event', name, params || {}); } catch (e) {} }
+const $ = (id) => document.getElementById(id);
+$('iosBtn').href = IOS_URL; $('androidBtn').href = ANDROID_URL;
+if (isAndroid) {
+  $('badges').prepend($('androidBtn'));
+  $('findUs').href = ANDROID_URL;
+  $('findUs').lastChild.textContent = 'Find us on Google Play';
+  $('findUs').querySelector('svg').innerHTML = $('androidBtn').querySelector('svg').innerHTML;
+} else $('findUs').href = IOS_URL;
+for (const [el, where] of [[$('iosBtn'), 'end_ios'], [$('androidBtn'), 'end_android'], [$('findUs'), 'front_logo'], [$('logoLink'), 'front_logo_image'], [$('endLogo'), 'end_logo']])
+  if (el) el.addEventListener('click', (e) => { e.stopPropagation(); track('taster_store_click', { where, store: el.href.includes('apple') ? 'ios' : 'android', points: lastPoints }); });
+$('logoLink').href = MY_STORE; $('endLogo').href = MY_STORE;
+
+// ---------- Canvas ----------
+const cv = $('c'), ctx = cv.getContext('2d');
 let W = 0, H = 0, DPR = 1, scale = 1, ballSX = 0, baseY = 0;
 const VIEW_LOW = -60, VIEW_HIGH = 1196;
 function resize() {
-  DPR = Math.min(window.devicePixelRatio || 1, 2); const st = document.getElementById('stage'); W = st.clientWidth; H = st.clientHeight;
+  DPR = Math.min(window.devicePixelRatio || 1, 2); const st = $('stage'); W = st.clientWidth; H = st.clientHeight;
   cv.width = Math.round(W * DPR); cv.height = Math.round(H * DPR);
   scale = H / (VIEW_HIGH - VIEW_LOW);
   const colW = T.fieldWidth * scale, colLeft = (W - colW) / 2;
@@ -406,7 +450,6 @@ function resize() {
 addEventListener('resize', resize); resize();
 const sx = (wx) => ballSX + (wx - sim.x) * scale;
 const sy = (wy) => baseY - wy * scale;
-
 function drawImg(im, cx, cy, w, h, rot, flipY, alpha) {
   if (!im.complete || !im.naturalWidth) return;
   ctx.save(); ctx.globalAlpha = alpha ?? 1; ctx.translate(sx(cx), sy(cy)); if (rot) ctx.rotate(-rot); if (flipY) ctx.scale(1, -1);
@@ -416,50 +459,99 @@ function aheadAlpha(s) {
   const lead = Math.min(s.origin + s.def.wallX - T.wallHalfWidth, s.origin + s.def.a[0], s.origin + s.def.b[0]);
   return Math.min(1, Math.max(0, (T.fairLookAhead + T.fairFade - (lead - sim.x)) / T.fairFade));
 }
-function drawBall(x, y, alpha) {
-  const r = T.r * scale, cx = sx(x), cy = sy(y);
-  ctx.save(); ctx.globalAlpha = alpha;
-  const squash = Math.max(-1, Math.min(1, sim.vy / 900));
-  ctx.translate(cx, cy); ctx.scale(1 - 0.06 * squash, 1 + 0.08 * squash);
-  const g = ctx.createRadialGradient(-r * 0.35, -r * 0.4, r * 0.1, 0, 0, r);
-  g.addColorStop(0, '#9C7CFF'); g.addColorStop(0.65, '#5B34D8'); g.addColorStop(1, '#3A1F9E');
-  ctx.fillStyle = g; ctx.beginPath(); ctx.arc(0, 0, r, 0, Math.PI * 2); ctx.fill();
-  ctx.fillStyle = 'rgba(255,255,255,.35)'; ctx.beginPath(); ctx.ellipse(-r * 0.3, -r * 0.55, r * 0.35, r * 0.16, -0.4, 0, Math.PI * 2); ctx.fill();
-  const look = Math.max(-0.12, Math.min(0.12, -sim.vy / 5000)) * r;
-  for (const [ex, er] of [[-0.05, 0.3], [0.42, 0.24]]) {
-    ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(ex * r, -0.15 * r, er * r, 0, Math.PI * 2); ctx.fill();
-    ctx.fillStyle = '#2A1055'; ctx.beginPath(); ctx.arc(ex * r + er * r * 0.3, -0.15 * r + look, er * r * 0.5, 0, Math.PI * 2); ctx.fill();
+
+// The app's ball: violet with a cyan glow ring, big googly eyes, a smile and a tongue.
+function ballFace(c, r, vy, panic, t) {
+  const g = c.createRadialGradient(-r * 0.35, -r * 0.4, r * 0.1, 0, 0, r);
+  g.addColorStop(0, '#8F6BFF'); g.addColorStop(0.7, '#5B34D8'); g.addColorStop(1, '#3A1F9E');
+  c.fillStyle = 'rgba(61,220,255,.28)'; c.beginPath(); c.arc(0, 0, r * 1.22, 0, Math.PI * 2); c.fill();
+  c.strokeStyle = 'rgba(61,220,255,.85)'; c.lineWidth = r * 0.1; c.beginPath(); c.arc(0, 0, r * 1.08, 0, Math.PI * 2); c.stroke();
+  c.fillStyle = g; c.beginPath(); c.arc(0, 0, r, 0, Math.PI * 2); c.fill();
+  c.fillStyle = 'rgba(255,255,255,.33)'; c.beginPath(); c.ellipse(-r * 0.32, -r * 0.58, r * 0.34, r * 0.14, -0.45, 0, Math.PI * 2); c.fill();
+  const look = Math.max(-0.1, Math.min(0.1, -vy / 6000)) * r;
+  const eyes = [[-0.08, -0.12, panic ? 0.36 : 0.32], [0.42, -0.16, panic ? 0.3 : 0.26]];
+  for (const [ex, ey, er] of eyes) {
+    c.fillStyle = '#fff'; c.beginPath(); c.arc(ex * r, ey * r, er * r, 0, Math.PI * 2); c.fill();
+    c.strokeStyle = '#2A1055'; c.lineWidth = r * 0.05; c.stroke();
+    c.fillStyle = '#2A1055'; c.beginPath(); c.arc(ex * r + er * r * 0.32, ey * r + look, er * r * (panic ? 0.38 : 0.5), 0, Math.PI * 2); c.fill();
+    c.fillStyle = '#fff'; c.beginPath(); c.arc(ex * r + er * r * 0.45, ey * r + look - er * r * 0.2, er * r * 0.14, 0, Math.PI * 2); c.fill();
   }
-  ctx.strokeStyle = '#2A1055'; ctx.lineWidth = Math.max(1.5, r * 0.09); ctx.lineCap = 'round';
-  ctx.beginPath(); ctx.arc(0.12 * r, 0.22 * r, 0.32 * r, 0.15 * Math.PI, 0.85 * Math.PI); ctx.stroke();
-  ctx.fillStyle = '#FF5FA2'; ctx.beginPath(); ctx.ellipse(0.12 * r, 0.56 * r, 0.12 * r, 0.1 * r, 0, 0, Math.PI * 2); ctx.fill();
+  c.strokeStyle = '#2A1055'; c.lineWidth = r * 0.09; c.lineCap = 'round';
+  if (panic) { c.fillStyle = '#2A1055'; c.beginPath(); c.ellipse(0.16 * r, 0.42 * r, 0.13 * r, 0.16 * r, 0, 0, Math.PI * 2); c.fill(); }
+  else {
+    c.beginPath(); c.arc(0.14 * r, 0.2 * r, 0.3 * r, 0.12 * Math.PI, 0.88 * Math.PI); c.stroke();
+    c.fillStyle = '#FF5FA2'; c.beginPath(); c.ellipse(0.12 * r, 0.52 * r, 0.12 * r, 0.11 * r, 0, 0, Math.PI); c.fill();
+  }
+}
+function drawBall(alpha) {
+  const r = T.r * scale;
+  ctx.save(); ctx.globalAlpha = alpha; ctx.translate(sx(sim.x), sy(sim.y));
+  const squash = Math.max(-1, Math.min(1, sim.vy / 900)); ctx.scale(1 - 0.06 * squash, 1 + 0.08 * squash);
+  const near = sim.sections.some(s => !s.passed && s.origin + s.def.wallX - sim.x < 160 && s.origin + s.def.wallX - sim.x > 0 && Math.max(s.origin + s.def.a[0], s.origin + s.def.b[0]) + 14 < sim.x);
+  ballFace(ctx, r, sim.vy, near, clock);
   ctx.restore();
 }
-const particles = [];
+
+// A smiling planet and faint dots drifting slowly behind everything (the app's living sky).
+function drawSky() {
+  const g = ctx.createLinearGradient(0, 0, 0, H); g.addColorStop(0, '#FFFFFF'); g.addColorStop(1, '#EFE8FF');
+  ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+  const drift = (sim.x * 0.08) % (W + 300);
+  const px = W + 150 - drift, py = sy(930);
+  ctx.save(); ctx.globalAlpha = 0.8; ctx.translate(px, py);
+  const pr = 26 * scale * 1.6;
+  ctx.strokeStyle = '#B9F0FF'; ctx.lineWidth = pr * 0.16; ctx.beginPath(); ctx.ellipse(0, 0, pr * 1.7, pr * 0.5, -0.25, Math.PI * 0.95, Math.PI * 2.05); ctx.stroke();
+  ctx.fillStyle = '#E6DBFF'; ctx.beginPath(); ctx.arc(0, 0, pr, 0, Math.PI * 2); ctx.fill();
+  ctx.fillStyle = '#FFC4E1'; ctx.beginPath(); ctx.ellipse(0, pr * 0.15, pr * 0.95, pr * 0.2, 0, 0, Math.PI * 2); ctx.fill();
+  ctx.strokeStyle = '#7A5BD8'; ctx.lineWidth = pr * 0.1; ctx.lineCap = 'round';
+  for (const ex of [-0.35, 0.35]) { ctx.beginPath(); ctx.arc(ex * pr, -0.15 * pr, pr * 0.14, Math.PI * 1.1, Math.PI * 1.9); ctx.stroke(); }
+  ctx.beginPath(); ctx.arc(0, 0.05 * pr, pr * 0.3, 0.2 * Math.PI, 0.8 * Math.PI); ctx.stroke();
+  ctx.strokeStyle = '#B9F0FF'; ctx.lineWidth = pr * 0.16; ctx.beginPath(); ctx.ellipse(0, 0, pr * 1.7, pr * 0.5, -0.25, 0.05 * Math.PI, 0.95 * Math.PI); ctx.stroke();
+  ctx.restore();
+  ctx.fillStyle = 'rgba(185,165,255,.35)';
+  for (let i = 0; i < 26; i++) {
+    const x = ((i * 137.5 - sim.x * 0.15 * scale) % (W + 40) + W + 40) % (W + 40) - 20, y = ((i * 271) % 1000) / 1000 * H * 0.8 + H * 0.12;
+    ctx.beginPath(); ctx.arc(x, y, 1.6, 0, Math.PI * 2); ctx.fill();
+  }
+}
+
+// Effects: "+2" numbers, a ring wave and sparkles at each pass.
+const pops = [], waves = [], particles = [];
 function burst(x, y, color, n) { for (let i = 0; i < n; i++) { const a = Math.random() * Math.PI * 2, v = 80 + Math.random() * 220; particles.push({ x, y, vx: Math.cos(a) * v, vy: Math.sin(a) * v, life: 0.6, color }); } }
+let clock = 0, shake = 0, flash = 0;
 
 function draw(dt) {
-  const g = ctx.createLinearGradient(0, 0, 0, H); g.addColorStop(0, '#FFFFFF'); g.addColorStop(1, '#EFE8FF');
-  ctx.setTransform(DPR, 0, 0, DPR, 0, 0); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
-  // Back: walls and ring backs.
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  drawSky();
+  if (shake > 0) { shake = Math.max(0, shake - dt); ctx.translate((Math.random() - .5) * 10 * shake / 0.3, (Math.random() - .5) * 10 * shake / 0.3); }
   for (const s of sim.sections) {
     const a = aheadAlpha(s); if (a <= 0) continue;
     const shift = T.wallOpenShift * sim.open(s), wx = s.origin + s.def.wallX;
     drawImg(IMG.game_wall_bottom, wx, s.def.wallBottomY - shift, WALL_W, WALL_H, 0, false, a);
     drawImg(IMG.game_wall_top, wx, s.def.wallTopY + shift, WALL_W, WALL_H, 0, false, a);
     const v = ringVariant(sim.lifeRing(s.id) ? 1 : rewardAt(s.id));
-    drawImg(IMG.game_glow, s.origin + s.def.cx, s.def.cy, 165, 65, s.def.tilt, false, 0.12 * a);
+    drawImg(IMG.game_glow, s.origin + s.def.cx, s.def.cy, 165, 65, s.def.tilt, false, (0.08 + 0.1 * (0.5 - 0.5 * Math.cos(clock * Math.PI / 1.1))) * a);
+    if (rewardAt(s.id) > 1 && !s.passed) drawImg(IMG.game_glow, s.origin + s.def.cx, s.def.cy, 230, 230, 0, false, 0.25 * a);
     drawImg(IMG['ring_back_' + v], s.origin + s.def.ringBack[0], s.def.ringBack[1], RING_W, RING_HB, s.def.tilt, false, a);
   }
-  // Glow when on a streak or power flight.
-  if (sim.chain >= 3 || sim.power) drawImg(IMG.game_glow, sim.x, sim.y, 150, 150, 0, false, 0.45);
+  for (let i = waves.length - 1; i >= 0; i--) {
+    const w = waves[i]; w.t += dt; if (w.t > 0.5) { waves.splice(i, 1); continue; }
+    const k = w.t / 0.5; ctx.strokeStyle = `rgba(155,125,255,${0.55 * (1 - k)})`; ctx.lineWidth = (16 - 10 * k) * scale * 1.4;
+    ctx.beginPath(); ctx.arc(sx(w.x), sy(w.y), (40 + 70 * k) * scale * 1.4, 0, Math.PI * 2); ctx.stroke();
+  }
+  if (sim.chain >= 3 || sim.power) drawImg(IMG.game_glow, sim.x, sim.y, 150, 150, 0, false, 0.42 + 0.1 * Math.sin(clock * 6));
   const blink = sim.inv > 0 ? ((Math.floor((T.invulnerable - sim.inv) / 0.1) % 2 === 0) ? 0.3 : 1) : 1;
-  if (sim.phase !== 'crashed') drawBall(sim.x, sim.y, blink);
-  // Front: ring fronts, then floor and ceiling spikes.
+  if (sim.phase !== 'crashed') drawBall(blink);
   for (const s of sim.sections) {
     const a = aheadAlpha(s); if (a <= 0) continue;
     const v = ringVariant(sim.lifeRing(s.id) ? 1 : rewardAt(s.id));
     drawImg(IMG['ring_front_' + v], s.origin + s.def.ringFront[0], s.def.ringFront[1], RING_W, RING_HF, s.def.tilt, false, a);
+    if (!s.passed && a > 0.5) {
+      const r = sim.lifeRing(s.id) ? 0 : rewardAt(s.id);
+      const label = sim.lifeRing(s.id) ? '+1 ♥' : r === 10 ? 'ANGEL 10×' : r === 3 ? 'PRISM 3×' : r === 2 ? 'GOLD 2×' : '';
+      if (label) { ctx.font = `900 ${Math.round(15 * scale * 1.5)}px Nunito, system-ui, sans-serif`; ctx.textAlign = 'center'; ctx.fillStyle = r === 10 ? '#B87800' : r === 3 ? '#7A4DFF' : sim.lifeRing(s.id) ? '#0B7A55' : '#B87800';
+        ctx.globalAlpha = a; ctx.fillText(label, sx(s.origin + s.def.cx), sy(s.def.cy + 52)); ctx.globalAlpha = 1; }
+    }
   }
   const leftX = sim.x - ballSX / scale, rightX = sim.x + (W - ballSX) / scale;
   const first = Math.floor((leftX - T.firstSectionX) / 640) - 1, last = Math.ceil((rightX - T.firstSectionX) / 640) + 1;
@@ -469,14 +561,25 @@ function draw(dt) {
     drawImg(IMG.game_block, x, 1190, 641, 348, 0, true, 1);
   }
   ctx.fillStyle = '#5B34D8';
-  const floorEdge = sy(-213.5); if (floorEdge < H) ctx.fillRect(0, floorEdge - 1, W, H - floorEdge + 1);
-  const ceilEdge = sy(1364); if (ceilEdge > 0) ctx.fillRect(0, 0, W, ceilEdge + 1);
+  const floorEdge = sy(-213.5); if (floorEdge < H) ctx.fillRect(-20, floorEdge - 1, W + 40, H - floorEdge + 20);
+  const ceilEdge = sy(1364); if (ceilEdge > 0) ctx.fillRect(-20, -20, W + 40, ceilEdge + 21);
   for (let i = particles.length - 1; i >= 0; i--) {
     const p = particles[i]; p.life -= dt; if (p.life <= 0) { particles.splice(i, 1); continue; }
     p.x += p.vx * dt; p.y += p.vy * dt; p.vy -= 400 * dt;
     ctx.globalAlpha = Math.min(1, p.life / 0.4); ctx.fillStyle = p.color;
-    ctx.beginPath(); ctx.arc(sx(p.x), sy(p.y), 5 * scale + 1, 0, Math.PI * 2); ctx.fill(); ctx.globalAlpha = 1;
+    ctx.save(); ctx.translate(sx(p.x), sy(p.y)); ctx.rotate(p.life * 6); const z = 6 * scale + 1.5; ctx.fillRect(-z / 2, -z / 2, z, z); ctx.restore(); ctx.globalAlpha = 1;
   }
+  ctx.textAlign = 'center';
+  for (let i = pops.length - 1; i >= 0; i--) {
+    const p = pops[i]; p.t += dt; if (p.t > 0.9) { pops.splice(i, 1); continue; }
+    const k = p.t / 0.9, y = sy(p.y) - 40 * k * scale * 1.5;
+    ctx.globalAlpha = 1 - Math.max(0, (k - 0.6) / 0.4);
+    if (p.word) { ctx.font = `900 ${Math.round(17 * scale * 1.5)}px Nunito, system-ui, sans-serif`; ctx.fillStyle = p.color; ctx.strokeStyle = '#fff'; ctx.lineWidth = 5; ctx.strokeText(p.word, sx(p.x), y - 34 * scale * 1.4); ctx.fillText(p.word, sx(p.x), y - 34 * scale * 1.4); }
+    ctx.font = `900 ${Math.round(26 * scale * 1.5)}px Nunito, system-ui, sans-serif`; ctx.fillStyle = '#2A1055'; ctx.strokeStyle = '#fff'; ctx.lineWidth = 6;
+    ctx.strokeText('+' + p.gain, sx(p.x) - 30 * scale * 1.4, y); ctx.fillText('+' + p.gain, sx(p.x) - 30 * scale * 1.4, y);
+    ctx.globalAlpha = 1;
+  }
+  if (flash > 0) { flash = Math.max(0, flash - dt); ctx.setTransform(DPR, 0, 0, DPR, 0, 0); ctx.fillStyle = `rgba(255,107,94,${0.22 * flash / 0.35})`; ctx.fillRect(0, 0, W, H); }
 }
 
 // ---------- Sound (tiny, made in the browser) ----------
@@ -490,41 +593,57 @@ function beep(freq, len, type, vol) {
   } catch (e) {}
 }
 
-// ---------- Screens and loop ----------
-const $ = (id) => document.getElementById(id);
-let sim = new Sim(), state = 'play', crashAt = 0, lastPoints = 0, runs = 0, toastTimer = 0;
+// ---------- Screens ----------
+let sim = new Sim(), state = 'play', crashAt = 0, lastPoints = 0, runs = 1, hintTimer = 0;
 let best = 0; try { best = +localStorage.getItem('ft_taster_best') || 0; } catch (e) {}
-function toast(text) { const t = $('toast'); t.textContent = text; t.style.opacity = 1; clearTimeout(toastTimer); toastTimer = setTimeout(() => t.style.opacity = 0, 650); }
+if (KEYBOARD) $('ready1').innerHTML = 'Press <span class="key">SPACE</span> To Jump';
+function showHint(text, ms) { const h = $('hint'); h.textContent = text; h.classList.remove('hidden'); h.style.opacity = 1; clearTimeout(hintTimer); hintTimer = setTimeout(() => { h.style.opacity = 0; setTimeout(() => h.classList.add('hidden'), 400); }, ms || 2000); }
 function hud() {
   $('score').textContent = sim.points.toLocaleString();
-  $('lives').textContent = '♥'.repeat(Math.max(sim.lives, 0)) + '♡'.repeat(Math.max(0, T.lives - sim.lives));
-  const m = multiplierFor(sim.chain); $('mult').textContent = 'x' + m; $('mult').classList.toggle('hidden', m < 2);
+  $('lives').innerHTML = '♥'.repeat(Math.max(sim.lives, 0)) + '<span class="gone">' + '♥'.repeat(Math.max(0, T.lives - sim.lives)) + '</span>';
+  const m = multiplierFor(sim.chain); $('mult').textContent = '×' + m + ' streak'; $('mult').classList.toggle('hidden', m < 2);
+  const g = $('goldcard');
+  if (sim.handoff) { g.classList.remove('hidden'); $('gold1').textContent = 'YOUR TURN'; $('gold2').textContent = KEYBOARD ? 'Press Space to fly · take your time' : 'Tap to fly · take your time'; }
+  else if (sim.power) { g.classList.remove('hidden'); $('gold1').textContent = 'AUTO-PILOT · 3× POINTS'; $('gold2').textContent = sim.powerLeft > 1 ? `Ball flies itself · your turn after ${sim.powerLeft} rings` : sim.powerLeft === 1 ? 'Ball flies itself · your turn after this ring' : 'Clearing the gate · get ready!'; }
+  else g.classList.add('hidden');
 }
+function setFront(on) { for (const id of ['brandfront', 'readycard', 'more']) $(id).classList.toggle('hidden', !on); }
 function start() {
-  sim = new Sim(); state = 'play'; runs += 1;
-  $('over').classList.add('hidden'); $('hud').classList.remove('hidden'); $('ready').classList.remove('hidden'); $('more').classList.remove('hidden');
-  $('tapnote').classList.add('hidden'); hud();
+  sim = new Sim(); state = 'play'; runs += 1; pops.length = waves.length = particles.length = 0;
+  $('over').classList.add('hidden'); $('pause').classList.add('hidden'); setFront(true); hud();
 }
 function gameOver() {
   state = 'over'; lastPoints = sim.points;
-  const newBest = sim.points > best; if (newBest) { best = sim.points; try { localStorage.setItem('ft_taster_best', best); } catch (e) {} }
+  const newBest = sim.points > best && sim.points > 0; if (newBest) { best = sim.points; try { localStorage.setItem('ft_taster_best', best); } catch (e) {} }
   $('final').textContent = sim.points.toLocaleString();
-  $('overTitle').textContent = newBest && sim.points > 0 ? 'New best!' : sim.rings >= 10 ? 'Great flying!' : 'Nice try!';
-  $('bestLine').textContent = 'Best: ' + best.toLocaleString() + '  ·  ' + sim.rings + (sim.rings === 1 ? ' ring' : ' rings');
-  $('hud').classList.add('hidden'); $('tapnote').classList.add('hidden'); $('over').classList.remove('hidden');
+  const t = $('overTitle'); t.textContent = newBest ? '🏆 New best!' : sim.rings >= 10 ? 'Great flying!' : 'Nice try!'; t.className = 'title ' + (newBest ? 'best' : 'normal');
+  $('bestPill').classList.toggle('hidden', !newBest);
+  $('bestLine').textContent = newBest ? `${sim.rings} ${sim.rings === 1 ? 'ring' : 'rings'}` : `Best: ${best.toLocaleString()} · ${sim.rings} ${sim.rings === 1 ? 'ring' : 'rings'}`;
+  $('hint').classList.add('hidden'); $('goldcard').classList.add('hidden'); $('pause').classList.add('hidden');
+  $('over').classList.remove('hidden'); $('over').scrollTop = 0; drawMascot(); if (newBest) confetti();
   track('taster_run_end', { points: sim.points, rings: sim.rings, run: runs, new_best: newBest });
 }
+function pause() { if (state !== 'play' || sim.phase !== 'running') return; state = 'paused'; $('pause').classList.remove('hidden'); track('taster_pause'); }
+function resume() { if (state !== 'paused') return; state = 'play'; $('pause').classList.add('hidden'); lastT = performance.now(); }
+$('pauseBtn').addEventListener('click', (e) => { e.stopPropagation(); if (state === 'paused') resume(); else pause(); });
+$('resumeBtn').addEventListener('click', resume);
+$('endBtn').addEventListener('click', () => { track('taster_end_button', { points: sim.points, rings: sim.rings }); crashAt = 0; gameOver(); });
+document.addEventListener('visibilitychange', () => { if (document.hidden) pause(); });
+
 function press(e) {
   if (state !== 'play') return;
-  if (e && e.target && e.target.closest && e.target.closest('a,button')) return;
   if (e && e.cancelable) e.preventDefault();
   const was = sim.phase; const ev = sim.tap();
-  if (ev.length) { beep(520, 0.08, 'sine', 0.06); $('tapnote').classList.add('hidden'); }
-  if (was === 'waiting' && ev.length) { $('ready').classList.add('hidden'); $('more').classList.add('hidden'); track('taster_start', { run: runs }); }
+  if (ev.length) beep(520, 0.08, 'sine', 0.06);
+  if (was === 'waiting' && ev.length) { setFront(false); track('taster_start', { run: runs }); }
 }
 $('c').addEventListener('pointerdown', press, { passive: false });
-$('endBtn').addEventListener('click', () => { if (state !== 'play') return; track('taster_end_button', { points: sim.points, rings: sim.rings }); crashAt = performance.now() - T.restartLock * 1000; gameOver(); });
-addEventListener('keydown', (e) => { if (e.code === 'Escape' && state === 'play') { $('endBtn').click(); return; } if ((e.code === 'Space' || e.code === 'ArrowUp') && scrollY < innerHeight * 0.5) { e.preventDefault(); if (state === 'play') press(); else if (state === 'over' && performance.now() - crashAt > T.restartLock * 1000) start(); } });
+addEventListener('keydown', (e) => {
+  if (e.code === 'Escape' || e.code === 'KeyP') { if (state === 'play') pause(); else if (state === 'paused') resume(); return; }
+  if (!(e.code === 'Space' || e.code === 'ArrowUp') || scrollY > innerHeight * 0.5) return;
+  e.preventDefault();
+  if (state === 'play') press(); else if (state === 'paused') resume(); else if (state === 'over' && performance.now() - crashAt > T.restartLock * 1000) start();
+});
 $('again').addEventListener('click', () => { if (performance.now() - crashAt > T.restartLock * 1000) start(); });
 $('share').addEventListener('click', async () => {
   const url = 'https://chiragmirani.github.io/flappy-tappy/?from=share';
@@ -534,33 +653,52 @@ $('share').addEventListener('click', async () => {
   try { await navigator.clipboard.writeText(text + ' ' + url); $('share').textContent = 'Link copied!'; setTimeout(() => $('share').textContent = 'Challenge a friend', 1500); } catch (e) {}
 });
 
-let lastT = performance.now();
+// Results: the app's mascot (the winged gold ring and the ball) and confetti for a new best.
+function drawMascot() {
+  const m = $('mascot'), c = m.getContext('2d'); c.clearRect(0, 0, m.width, m.height);
+  const wing = (dir) => { c.save(); c.translate(150 + dir * 52, 120); c.scale(dir, 1); c.fillStyle = '#DDF5FF'; c.strokeStyle = '#8ED8F2'; c.lineWidth = 3;
+    for (let i = 0; i < 3; i++) { c.beginPath(); c.ellipse(28 + i * 8, -10 + i * 14, 40 - i * 6, 13, -0.5 + i * 0.2, 0, Math.PI * 2); c.fill(); c.stroke(); } c.restore(); };
+  wing(-1); wing(1);
+  if (IMG.home_gold_ring_far.complete) c.drawImage(IMG.home_gold_ring_far, 112, 40, 78, 132);
+  c.save(); c.translate(300, 120); ballFace(c, 44, 0, false, 0); c.restore();
+  if (IMG.home_gold_ring_near.complete) c.drawImage(IMG.home_gold_ring_near, 112, 40, 78, 132);
+}
+function confetti() {
+  const cc = $('confetti'), c = cc.getContext('2d'), w = cc.width = $('over').clientWidth, h = cc.height = $('over').clientHeight;
+  const bits = Array.from({ length: 90 }, () => ({ x: Math.random() * w, y: -Math.random() * h * 0.6, v: 80 + Math.random() * 140, r: Math.random() * 6, s: 5 + Math.random() * 5, col: ['#FF2E88', '#3DDCFF', '#FFC62E', '#5B34D8', '#35E0A1'][Math.floor(Math.random() * 5)] }));
+  let t0 = performance.now();
+  (function step(now) { const dt = (now - t0) / 1000; t0 = now; c.clearRect(0, 0, w, h); let alive = false;
+    for (const b of bits) { b.y += b.v * dt; b.r += dt * 5; if (b.y < h) alive = true; c.save(); c.translate(b.x + Math.sin(b.r) * 8, b.y); c.rotate(b.r); c.fillStyle = b.col; c.fillRect(-b.s / 2, -b.s / 4, b.s, b.s / 2); c.restore(); }
+    if (alive && state === 'over') requestAnimationFrame(step); else c.clearRect(0, 0, w, h); })(t0);
+}
+
+// ---------- Loop ----------
+let lastT = performance.now(), learnShown = 0;
 function frame(now) {
   const dt = Math.min(0.05, (now - lastT) / 1000); lastT = now;
   if (state === 'play') {
+    clock += dt;
     for (const e of sim.advance(dt)) {
       if (e.type === 'ring') {
-        const words = { bullseye: 'BULLSEYE!', perfect: 'Perfect!', good: 'Good', edge: '' };
-        const label = (e.reward > 1 ? (e.reward === 10 ? 'Angel ' : e.reward === 3 ? 'Prism ' : 'Gold ') + 'x' + e.reward + '  ' : '') + (words[e.tier] || '');
-        if (label.trim()) toast(label.trim() + '  +' + e.gain);
+        const words = { bullseye: 'BULLSEYE!', perfect: 'PERFECT!', good: '', edge: '' };
+        const rw = e.reward === 10 ? 'ANGEL 10×!' : e.reward === 3 ? 'PRISM 3×!' : e.reward === 2 ? 'GOLD 2×!' : '';
+        pops.push({ x: e.x, y: e.y, gain: e.gain, t: 0, word: rw || words[e.tier], color: e.tier === 'bullseye' || e.reward > 1 ? '#B87800' : '#0A9ABF' });
+        waves.push({ x: e.x, y: e.y, t: 0 });
         burst(e.x, e.y, e.tier === 'bullseye' ? '#FFC62E' : e.tier === 'perfect' ? '#3DDCFF' : '#FF8FC4', e.tier === 'bullseye' ? 22 : 12);
         beep(isPerfect(e.tier) ? 880 + 60 * Math.min(sim.chain, 8) : 660, 0.12, 'triangle', 0.1);
-        if (e.life) toast('+1 life!');
-      } else if (e.type === 'powerStart') { toast('POWER FLIGHT x3!'); beep(990, 0.25, 'square', 0.05); }
-      else if (e.type === 'powerEnd' && sim.handoff) { $('tapnote').innerHTML = KEYBOARD ? 'Press <span class="key">SPACE</span> to fly on' : 'Tap to fly on'; $('tapnote').classList.remove('hidden'); }
-      else if (e.type === 'lifeLost') { burst(sim.x, sim.y, '#FF6B5E', 14); beep(200, 0.2, 'sawtooth', 0.06); toast('Ouch! ' + e.lives + (e.lives === 1 ? ' life left' : ' lives left')); }
-      else if (e.type === 'crash') { burst(sim.x, sim.y, '#FF6B5E', 26); beep(140, 0.35, 'sawtooth', 0.08); crashAt = now; setTimeout(gameOver, T.gameOverDelay * 1000); state = 'crashing'; }
+        if (sim.rings === 1 && learnShown < 1) { learnShown = 1; showHint('Gate opening! Keep tapping to fly.'); }
+        else if (sim.rings === 2 && learnShown < 2) { learnShown = 2; showHint('Aim through the center for more points.'); }
+        if (e.life) showHint('+1 life!', 1500);
+      } else if (e.type === 'powerStart') { beep(990, 0.25, 'square', 0.05); }
+      else if (e.type === 'lifeLost') { burst(sim.x, sim.y, '#FF6B5E', 14); beep(200, 0.2, 'sawtooth', 0.06); shake = 0.3; flash = 0.35; showHint(e.lives === 1 ? 'Ouch! Last life' : `Ouch! ${e.lives} lives left`, 1500); }
+      else if (e.type === 'crash') { burst(sim.x, sim.y, '#FF6B5E', 26); beep(140, 0.35, 'sawtooth', 0.08); shake = 0.3; flash = 0.35; crashAt = now; state = 'crashing'; setTimeout(gameOver, T.gameOverDelay * 1000); }
     }
-    if (state === 'play') hud();
-  }
-  draw(dt);
+    hud();
+  } else if (state === 'crashing') clock += dt;
+  draw(state === 'paused' ? 0 : dt);
   requestAnimationFrame(frame);
 }
-runs = 1; $('hud').classList.remove('hidden'); hud();
-if (KEYBOARD) {
-  $('hint').innerHTML = 'Press <span class="key">SPACE</span> to fly up';
-  $('howline').textContent = 'Each press lifts the ball (a click works too). Fly through the gold rings and dodge the spikes.';
-}
+hud();
 requestAnimationFrame(frame);
 if (new URLSearchParams(location.search).get('from') === 'share') track('taster_from_share');
 </script>
