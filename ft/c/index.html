@@ -39,7 +39,7 @@
     <div class="num" id="num">0</div>
   </div>
   <a class="btn play" id="open" href="#">Play the challenge</a>
-  <a class="btn get" id="get" href="https://apps.apple.com/app/id1203310957">Get Flappy Tappy (free)</a>
+  <a class="btn get" id="get" href="https://apps.apple.com/app/apple-store/id1203310957?pt=118564186&amp;ct=friend-challenge&amp;mt=8">Get Flappy Tappy (free)</a>
   <p class="small" id="small">30-second duels, one tap. No game yet? Get it free, then come back and tap “Play the challenge”.</p>
 </main>
 <script>
@@ -49,6 +49,8 @@
     var q = new URLSearchParams(location.search);
     var d = q.get("d") || "";
     var code = q.get("code") || "";
+    // Aggregate Apple campaign only: no invitation code or recipient is sent to Apple.
+    document.getElementById("get").href = "https://apps.apple.com/app/apple-store/id1203310957?pt=118564186&ct=" + (code && !d ? "friend-invite" : "friend-challenge") + "&mt=8";
     var name = (q.get("n") || "").slice(0, 20);
     var pts = parseInt(q.get("p") || "", 10);
     if (name) document.getElementById("who").textContent = code && !d ? name + " invited you to a duel!" : name + " challenges you!";
