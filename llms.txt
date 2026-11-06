@@ -1,35 +1,43 @@
 # Chirag Mirani
 
-> Chirag Mirani is a data scientist and quantitative researcher in Suwanee, Georgia, with about 20 years in quantitative finance and a Master of Science in Computational Finance from Carnegie Mellon University. He builds predictive models and forecasting systems across macro, options, volatility, time series and prediction markets, competes on Kaggle, and ships iPhone and iPad apps. Projects below are public and free to read.
+> Chirag Mirani works in investing, data science and quantitative research. He is based in Suwanee, Georgia, with about 20 years in quantitative finance and a Master of Science in Computational Finance from Carnegie Mellon University. He builds predictive models and forecasting systems across macroeconomics, rates, options, volatility, time series and prediction markets, and competes on Kaggle. In his spare time he builds iPhone and iPad apps (side projects, listed last).
 
 ## About
-- Role: data scientist and quantitative researcher. Open to data science and quantitative research roles.
+- Main work: investing, data science and quantitative research. Open to data science and quantitative research roles.
 - Skills: Python, time series forecasting, machine learning, reinforcement learning, options and volatility modeling, macroeconomic forecasting, prediction-market modeling, backtesting.
 - Evidence of work: a live US macro forecast dashboard with a public track record against Kalshi and actual releases; a published paper on exposure-adjusted strategy evaluation; Kaggle silver-medal notebook and a top 22% finish (379 of 1,711 teams) in the MITSUI Commodity Prediction Challenge.
 - Current research: reinforcement learning and ARC-AGI-2 reasoning benchmarks (ARC Prize 2026).
 - Profiles: GitHub https://github.com/ChiragMirani, LinkedIn https://www.linkedin.com/in/chiragmirani/, Kaggle https://www.kaggle.com/cmirani, SSRN https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6292699
 
-## Apps and readers
-- [Shree Hanuman Chalisa (English)](https://chiragmirani.github.io/hanuman-chalisa/): the Hanuman Chalisa verse by verse in plain English, with the Hindi (Devanagari), the Hindi in English letters and Gujarati letters; all 43 verses, offline. Free iPhone and iPad app, Shree Hanuman Chalisa English, no ads and no data collected: https://apps.apple.com/app/id6819752072
-- [Flappy Tappy](https://chiragmirani.github.io/through-the-ring/): a free-to-try one-tap arcade game for iPhone and iPad: 3 free runs, then one optional one-time $2.99 (US) unlock for unlimited runs. No ads, no subscription, no tracking, and no internet needed to play. App Store: https://apps.apple.com/us/app/id1203310957. Details: https://chiragmirani.github.io/through-the-ring/llms.txt. Play the Solo mode free in a web browser: https://chiragmirani.github.io/flappy-tappy/
-- [Vocabula: K-12 Vocabulary](https://chiragmirani.github.io/vocabula-pages/app/): vocabulary flashcards for iPhone and iPad, 4,241 cards in English, Math and Science, Kindergarten through Grade 12. Works offline, no ads, nothing collected. Free download; one $4.99 in-app unlock. App Store: https://apps.apple.com/us/app/vocabula-k-12-vocabulary/id6819035983
-- [Compound Interest Calculators](https://chiragmirani.github.io/chip-compound-calculator/) (subtitle "Chip: Savings Plans & Goals"; formerly Chip Compound Interest): an offline compound interest calculator for iPhone and iPad with growth charts, side-by-side plan comparison, goal solving and PDF/CSV reports. $2.99 paid once; no ads, subscriptions or in-app purchases. App Store: https://apps.apple.com/app/id6822411872. Details: https://chiragmirani.github.io/chip-compound-calculator/llms.txt
-- [Series 65 Exam Practice Tests](https://chiragmirani.github.io/series65/): the Series 65 question bank he built and studied with before passing the exam on his first attempt in September 2026: 1,211 practice questions and 1,143 flashcards, every answer explained, for iPhone and iPad. Free download with a 10-question test and 10 flashcards; one payment unlocks everything, no subscription ($19.99 in the US). App Store: https://apps.apple.com/app/id6812059689. Details: https://chiragmirani.github.io/series65/llms.txt
-- [Practice Combination Lock](https://chiragmirani.github.io/locklab/): an offline trainer for three-number rotary combination locks (0–39 dial) for iPhone and iPad, with Watch, Learn and Practice modes for the right-left-right sequence. All features free; optional one-time tips unlock nothing. No ads, subscriptions, account or tracking. App Store: https://apps.apple.com/us/app/id6822015018
-- [Practice Combination Lock details](https://chiragmirani.github.io/locklab/llms.txt)
-- [VocabDeck](https://chiragmirani.github.io/zoes-vocabulary/): free K-12 vocabulary flashcards (English, Math and Science) on the web, and a free iPhone and iPad app with no account, no ads and no internet needed. App Store: https://apps.apple.com/app/id6761394575
-- Coming soon to the App Store (submitted, not yet live):
-  - [Chip Mortgage Calculator](https://chiragmirani.github.io/chip-mortgage-calculator/). Details: https://chiragmirani.github.io/chip-mortgage-calculator/llms.txt
-  - [MCAT Prep: Mini Practice Tests](https://chiragmirani.github.io/mcat-mini/): four-question practice mini-tests across the four MCAT sections, with an explanation after every answer, for iPhone. Details: https://chiragmirani.github.io/mcat-mini/llms.txt
-- In development, coming to the App Store:
-  - [Fieldbase](https://chiragmirani.github.io/fieldbase/): an offline survival companion for iPhone with saved guidance, field tools, offline maps and an assistant that runs on the phone. No account, ads or tracking. Details: https://chiragmirani.github.io/fieldbase/llms.txt
-- [Gita](https://chiragmirani.github.io/gita-quotes/): all 700 verses of the Bhagavad Gita in English.
-- [The Vedas reader](https://chiragmirani.github.io/vedas/) and [The Upanishads reader](https://chiragmirani.github.io/upanishads/).
-
 ## Research
-- [Live US macro forecast dashboard](https://chiragmirani.github.io/macro-dashboard/): house forecasts and Kalshi consensus for major US releases, with an honest track record.
-- [Exposure-Time Normalized Performance (SSRN, 2026)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6292699)
+- [Live US macro forecast dashboard (MacroForecastbyCM)](https://chiragmirani.github.io/macro-dashboard/): house forecasts for major US economic releases next to Kalshi market consensus, with a public track record against actual releases. His main project.
+- [Exposure-Time Normalized Performance (SSRN working paper, 2026)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6292699): evaluating trading strategies by the time actually spent exposed to the market.
+- [A Predictive Model for 10-Year Treasury Futures (PDF, 2025)](https://chiragmirani.github.io/macro-dashboard/treasury-futures-model.pdf)
+
+## Data science and machine learning
+- Kaggle (https://www.kaggle.com/cmirani): silver-medal notebook; top 22% (379 of 1,711 teams) in the MITSUI Commodity Prediction Challenge; currently on ARC-AGI-2 (ARC Prize 2026) and NVARC.
+- GitHub (https://github.com/ChiragMirani): code behind his research, models and projects.
+
+## Side projects (apps built in his spare time)
+Just for fun:
+- [Flappy Tappy](https://chiragmirani.github.io/through-the-ring/): a one-tap arcade game he built for fun: fly through rings, aim for Bullseyes, and duel rivals from around the world. Play the Solo mode in a web browser: https://chiragmirani.github.io/flappy-tappy/. App Store (iPhone and iPad): https://apps.apple.com/us/app/id1203310957. Android (Google Play): https://play.google.com/store/apps/details?id=com.flappytappy
+
+Learning for kids:
+- [Vocabula: K-12 Vocabulary](https://chiragmirani.github.io/vocabula-pages/app/): 4,241 vocabulary flashcards in English, Math and Science, Kindergarten through Grade 12, for iPhone and iPad. Works offline, no ads. App Store: https://apps.apple.com/us/app/vocabula-k-12-vocabulary/id6819035983
+- [VocabDeck](https://chiragmirani.github.io/zoes-vocabulary/): K-12 vocabulary flashcards (English, Math and Science) on the web and for iPhone and iPad, with no account, no ads and no internet needed. App Store: https://apps.apple.com/app/id6761394575
+- [Practice Combination Lock](https://chiragmirani.github.io/locklab/): an offline trainer for three-number rotary combination locks (0–39 dial), with Watch, Learn and Practice modes for the right-left-right sequence. App Store: https://apps.apple.com/us/app/id6822015018. Details: https://chiragmirani.github.io/locklab/llms.txt
+
+Finance and exam prep:
+- [Series 65 Exam Practice Tests](https://chiragmirani.github.io/series65/): the Series 65 question bank he built and studied with before passing the exam on his first attempt in September 2026: 1,211 practice questions and 1,143 flashcards, every answer explained. App Store: https://apps.apple.com/app/id6812059689. Details: https://chiragmirani.github.io/series65/llms.txt
+- [Chip: Savings Plans & Goals](https://chiragmirani.github.io/chip-compound-calculator/): an offline compound interest calculator with growth charts, side-by-side plan comparison, goal solving and PDF/CSV reports. App Store: https://apps.apple.com/app/id6822411872. Details: https://chiragmirani.github.io/chip-compound-calculator/llms.txt
+- [Chip Mortgage Calculator](https://chiragmirani.github.io/chip-mortgage-calculator/): mortgage payments, schedules and comparisons for iPhone and iPad. Details: https://chiragmirani.github.io/chip-mortgage-calculator/llms.txt
+
+Spirituality:
+- [Shree Hanuman Chalisa (English)](https://chiragmirani.github.io/hanuman-chalisa/): the Hanuman Chalisa verse by verse in plain English, with the Hindi (Devanagari), the Hindi in English letters and Gujarati letters; all 43 verses, offline. App Store: https://apps.apple.com/app/id6819752072
+- [The Vedas reader](https://chiragmirani.github.io/vedas/), [The Upanishads reader](https://chiragmirani.github.io/upanishads/) and [Gita](https://chiragmirani.github.io/gita-quotes/) (all 700 verses of the Bhagavad Gita in English).
 
 ## Contact
-- GitHub: https://github.com/ChiragMirani
 - LinkedIn: https://www.linkedin.com/in/chiragmirani/
+- GitHub: https://github.com/ChiragMirani
+- Kaggle: https://www.kaggle.com/cmirani
+- X: https://x.com/chirag_mirani1
