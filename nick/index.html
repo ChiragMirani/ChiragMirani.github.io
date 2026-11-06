@@ -1,0 +1,509 @@
+<title>Nick's Grocery List</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700&family=Public+Sans:wght@400;600&display=swap">
+<style>
+  /* Layout: single column checklist, sticky summary bar at the bottom */
+  :root {
+    --paper: #f7f8f7;
+    --card: #ffffff;
+    --ink: #1c2320;
+    --muted: #62716b;
+    --line: #dde3e0;
+    --accent: #0f6b5c;
+    --accent-soft: #e4f0ed;
+    --font-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    --font-body: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #111613;
+      --card: #1a211e;
+      --ink: #e9efec;
+      --muted: #9aaaa3;
+      --line: #2c3733;
+      --accent: #4bbfa6;
+      --accent-soft: #15302a;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #111613;
+    --card: #1a211e;
+    --ink: #e9efec;
+    --muted: #9aaaa3;
+    --line: #2c3733;
+    --accent: #4bbfa6;
+    --accent-soft: #15302a;
+    color-scheme: dark;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 28px 140px;
+  }
+
+  header h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.6rem, 6vw, 2.1rem);
+    line-height: 1.15;
+    margin: 0 0 6px;
+    text-wrap: balance;
+  }
+  header p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+  .howto {
+    margin-top: 18px;
+    background: var(--accent-soft);
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 0.95rem;
+  }
+  .howto strong { font-weight: 600; }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 30px 0 10px;
+  }
+
+  .group {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--line);
+    min-width: 0;
+  }
+  .row:last-child { border-bottom: 0; }
+  .row.on { background: var(--accent-soft); }
+
+  .row input[type="checkbox"] {
+    flex: none;
+    width: 22px;
+    height: 22px;
+    accent-color: var(--accent);
+    cursor: pointer;
+  }
+  .row label {
+    flex: 1;
+    min-width: 0;
+    cursor: pointer;
+  }
+  .row .name { display: block; }
+  .row .note {
+    display: block;
+    color: var(--muted);
+    font-size: 0.83rem;
+  }
+
+  .qty {
+    flex: none;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+  .qty button {
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--line);
+    background: var(--card);
+    color: var(--ink);
+    border-radius: 7px;
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+    font-family: var(--font-body);
+  }
+  .qty button:hover { border-color: var(--accent); }
+  .qty output {
+    min-width: 26px;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+  }
+
+  .addrow {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .addrow input[type="text"] {
+    flex: 1;
+    min-width: 0;
+    padding: 11px 12px;
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    background: var(--card);
+    color: var(--ink);
+    font: inherit;
+  }
+  .addrow button {
+    flex: none;
+    padding: 0 16px;
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: #fff;
+    border-radius: 9px;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .bar {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    background: var(--card);
+    border-top: 1px solid var(--line);
+    padding-top: 12px;
+    padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    z-index: 20;
+  }
+  .bar-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .count {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1rem;
+    flex: 1;
+    min-width: 0;
+  }
+  .count span { color: var(--muted); font-weight: 500; font-family: var(--font-body); }
+  .bar button.primary {
+    padding: 12px 20px;
+    border: 0;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 10px;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .bar button.ghost {
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--ink);
+    border-radius: 10px;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .sendto {
+    margin-top: 26px;
+    border-top: 1px dashed var(--line);
+    padding-top: 18px;
+    font-size: 0.95rem;
+    color: var(--muted);
+  }
+  .sendto b { color: var(--ink); font-weight: 600; }
+  .phone {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--ink);
+    user-select: all;
+  }
+
+  textarea#out {
+    width: 100%;
+    margin-top: 12px;
+    min-height: 150px;
+    padding: 12px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--card);
+    color: var(--ink);
+    font: inherit;
+    font-size: 0.92rem;
+  }
+
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Nick's Grocery List</h1>
+    <p>1224 Briar Hill Dr &middot; delivered from Walmart Denton</p>
+  </header>
+
+  <div class="howto">
+    <strong>Kelly</strong> — tick anything Nick is out of or running low on, adjust the counts, then tap
+    <strong>Copy list</strong> at the bottom and text it to Chirag. He'll place the order.
+  </div>
+
+  <h2>Bread &amp; Breakfast</h2>
+  <div class="group" data-group></div>
+
+  <h2>Fridge</h2>
+  <div class="group" data-group></div>
+
+  <h2>Frozen Meals</h2>
+  <div class="group" data-group></div>
+
+  <h2>Freezer</h2>
+  <div class="group" data-group></div>
+
+  <h2>Pantry</h2>
+  <div class="group" data-group></div>
+
+  <h2>Household &amp; Personal</h2>
+  <div class="group" data-group></div>
+
+  <h2>Anything else</h2>
+  <div class="group" data-group id="extras"></div>
+  <div class="addrow">
+    <input type="text" id="newitem" placeholder="Add an item Nick needs" aria-label="Add an item">
+    <button type="button" id="addbtn">Add</button>
+  </div>
+
+  <div class="sendto">
+    Text the list to <b>Chirag</b><br>
+    <span class="phone">718-406-4266</span>
+  </div>
+
+  <textarea id="out" readonly aria-label="List to copy"></textarea>
+</div>
+
+<div class="bar">
+  <div class="bar-inner">
+    <div class="count" id="count">Nothing selected <span>— tick what he needs</span></div>
+    <button type="button" class="ghost" id="clear">Clear</button>
+    <button type="button" class="primary" id="copy">Copy list</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  var DATA = [
+    ["Hamburger buns, 8 ct", "Great Value white", 1],
+    ["Wheat sandwich bread", "Great Value, 20 oz", 1],
+    ["Raisin Bran", "Family size", 1],
+
+    ["Almond milk", "Unsweetened, half gallon", 1],
+    ["Greek yogurt cups", "Oikos Triple Zero, 6 ct", 1],
+    ["Turkey lunchmeat", "Hillshire Farm, 9 oz", 1],
+
+    ["Beef &amp; broccoli bowls", "Healthy Choice Steamers", 4],
+    ["Southwest chicken bowl", "Healthy Choice Steamers", 1],
+    ["Chicken marinara bowls", "Healthy Choice Cafe Steamers", 2],
+
+    ["Beef burgers, 12 ct", "Great Value, 3 lb frozen", 1],
+    ["Pepperoni pizza", "Red Baron brick oven", 1],
+    ["Cookie dough ice cream", "Breyers, 48 oz", 1],
+
+    ["Chunk light tuna", "4-pack", 1],
+    ["Fruit cups", "Peaches, mandarin, cherry, 12 ct", 1],
+    ["Tortilla chips", "Bite size, party size", 1],
+    ["Salsa verde", "Medium, 16 oz", 1],
+    ["Pringles snack cups", "Variety, 27 ct", 1],
+
+    ["Depend underwear", "Check size before ordering", 1],
+    ["Mayonnaise", "", 1],
+    ["Laundry detergent", "", 1],
+    ["Dryer sheets", "", 1],
+    ["Toilet paper", "", 1],
+    ["Paper towels", "", 1]
+  ];
+  var SPLIT = [3, 6, 9, 12, 17, 23];
+
+  var groups = document.querySelectorAll("[data-group]");
+  var items = [];
+
+  function makeRow(name, note, qty, removable) {
+    var row = document.createElement("div");
+    row.className = "row";
+
+    var cb = document.createElement("input");
+    cb.type = "checkbox";
+    cb.id = "i" + items.length;
+
+    var label = document.createElement("label");
+    label.htmlFor = cb.id;
+    var n = document.createElement("span");
+    n.className = "name";
+    n.innerHTML = name;
+    label.appendChild(n);
+    if (note) {
+      var nt = document.createElement("span");
+      nt.className = "note";
+      nt.textContent = note;
+      label.appendChild(nt);
+    }
+
+    var q = document.createElement("div");
+    q.className = "qty";
+    var minus = document.createElement("button");
+    minus.type = "button";
+    minus.textContent = "−";
+    minus.setAttribute("aria-label", "Fewer");
+    var out = document.createElement("output");
+    out.textContent = qty;
+    var plus = document.createElement("button");
+    plus.type = "button";
+    plus.textContent = "+";
+    plus.setAttribute("aria-label", "More");
+    q.appendChild(minus); q.appendChild(out); q.appendChild(plus);
+
+    minus.addEventListener("click", function () {
+      var v = Math.max(1, parseInt(out.textContent, 10) - 1);
+      out.textContent = v; refresh();
+    });
+    plus.addEventListener("click", function () {
+      var v = Math.min(99, parseInt(out.textContent, 10) + 1);
+      out.textContent = v; refresh();
+    });
+    cb.addEventListener("change", function () {
+      row.classList.toggle("on", cb.checked);
+      refresh();
+    });
+
+    row.appendChild(cb); row.appendChild(label); row.appendChild(q);
+    items.push({ row: row, cb: cb, out: out, name: n.textContent, extra: !!removable });
+    return row;
+  }
+
+  var gi = 0, start = 0;
+  SPLIT.forEach(function (end) {
+    var g = groups[gi++];
+    for (var i = start; i < end; i++) {
+      g.appendChild(makeRow(DATA[i][0], DATA[i][1], DATA[i][2], false));
+    }
+    start = end;
+  });
+
+  var extras = document.getElementById("extras");
+  document.getElementById("addbtn").addEventListener("click", addItem);
+  document.getElementById("newitem").addEventListener("keydown", function (e) {
+    if (e.key === "Enter") { e.preventDefault(); addItem(); }
+  });
+  function addItem() {
+    var box = document.getElementById("newitem");
+    var v = box.value.trim();
+    if (!v) return;
+    var r = makeRow(v.replace(/[<>&]/g, ""), "", 1, true);
+    var cb = r.querySelector("input");
+    cb.checked = true;
+    r.classList.add("on");
+    extras.appendChild(r);
+    box.value = "";
+    refresh();
+  }
+
+  var out = document.getElementById("out");
+  var count = document.getElementById("count");
+
+  function buildText() {
+    var picked = items.filter(function (it) { return it.cb.checked; });
+    if (!picked.length) return "";
+    var lines = ["Nick needs (1224 Briar Hill):", ""];
+    picked.forEach(function (it) {
+      var q = parseInt(it.out.textContent, 10);
+      lines.push("- " + it.name + (q > 1 ? " x" + q : ""));
+    });
+    return lines.join("\n");
+  }
+
+  function refresh() {
+    var picked = items.filter(function (it) { return it.cb.checked; });
+    count.innerHTML = picked.length
+      ? picked.length + (picked.length === 1 ? " item" : " items") + " <span>selected</span>"
+      : "Nothing selected <span>— tick what he needs</span>";
+    out.value = buildText();
+    save();
+  }
+
+  function save() {
+    try {
+      var state = items.map(function (it) {
+        return { n: it.name, c: it.cb.checked, q: it.out.textContent, x: it.extra };
+      });
+      localStorage.setItem("nickList", JSON.stringify(state));
+    } catch (e) {}
+  }
+
+  function load() {
+    var raw = null;
+    try { raw = localStorage.getItem("nickList"); } catch (e) { return; }
+    if (!raw) return;
+    var state;
+    try { state = JSON.parse(raw); } catch (e) { return; }
+    state.forEach(function (s) {
+      var hit = items.filter(function (it) { return it.name === s.n; })[0];
+      if (!hit && s.x) {
+        var r = makeRow(s.n, "", parseInt(s.q, 10) || 1, true);
+        extras.appendChild(r);
+        hit = items[items.length - 1];
+      }
+      if (!hit) return;
+      hit.cb.checked = !!s.c;
+      hit.row.classList.toggle("on", !!s.c);
+      hit.out.textContent = s.q;
+    });
+  }
+
+  document.getElementById("clear").addEventListener("click", function () {
+    items.forEach(function (it) {
+      it.cb.checked = false;
+      it.row.classList.remove("on");
+    });
+    refresh();
+  });
+
+  var copyBtn = document.getElementById("copy");
+  copyBtn.addEventListener("click", function () {
+    var text = buildText();
+    if (!text) { copyBtn.textContent = "Nothing ticked"; reset(); return; }
+    var done = function () { copyBtn.textContent = "Copied ✓"; reset(); };
+    try {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } catch (e) { fallback(); }
+    function fallback() {
+      out.focus();
+      out.select();
+      copyBtn.textContent = "Select &amp; copy above";
+      copyBtn.textContent = "Copy from the box";
+      reset();
+    }
+    function reset() {
+      setTimeout(function () { copyBtn.textContent = "Copy list"; }, 2200);
+    }
+  });
+
+  load();
+  refresh();
+})();
+</script>
