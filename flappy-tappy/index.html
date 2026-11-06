@@ -106,6 +106,10 @@
   .hint { position:absolute; left:50%; transform:translateX(-50%); bottom:calc(max(12px, env(safe-area-inset-bottom)) + 15%); background:rgba(255,255,255,.94); border:1px solid var(--hair); border-radius:999px; padding:6px 14px; font-weight:700; font-size:15px; white-space:nowrap; z-index:2; pointer-events:none; transition:opacity .4s; }
   .goldcard { position:absolute; left:50%; transform:translateX(-50%); bottom:calc(max(12px, env(safe-area-inset-bottom)) + 11%); width:min(calc(100% - 24px), 340px); background:var(--gold); color:var(--ink); border-radius:18px; padding:10px 16px; text-align:center; z-index:2; pointer-events:none; }
   .goldcard b { display:block; font-size:17px; } .goldcard span { font-size:15px; }
+  .adpill { position:absolute; left:10px; z-index:2; display:flex; align-items:center; gap:7px; background:rgba(255,255,255,.9); border:1px solid #DCD0FF; border-radius:14px; padding:5px 10px 5px 6px; text-decoration:none; color:#2A1055; line-height:1.05; box-shadow:0 2px 0 rgba(42,16,85,.12); }
+  .adpill img { border-radius:7px; }
+  .adpill b { display:block; font-size:14px; font-weight:900; color:#5B34D8; }
+  .adpill small { display:block; font-size:11px; font-weight:800; color:#2A1055; }
   .more { position:absolute; left:0; right:0; bottom:max(6px, env(safe-area-inset-bottom)); text-align:center; z-index:2; }
   .more a { color:#fff; font-weight:800; font-size:14px; opacity:.85; text-decoration:none; }
   /* Pause and results screens. */
@@ -168,6 +172,7 @@
 </div>
 <div class="hint hidden" id="hint"></div>
 <div class="goldcard hidden" id="goldcard"><b id="gold1"></b><span id="gold2"></span></div>
+<a class="adpill" id="adPill" href="https://apps.apple.com/app/id1203310957" target="_blank" rel="noopener"><img src="/through-the-ring/img/icon-180.png" alt="" width="26" height="26"><span><b>Flappy Tappy</b><small id="adLine">Download free on the App Store ›</small></span></a>
 <div class="more" id="more"><a href="#how">How to play ↓</a></div>
 
 <div class="sheet pausebg hidden" id="pause">
@@ -189,7 +194,6 @@
     <div class="bestpill hidden" id="bestPill">★ Your best ever</div>
     <div class="bestline" id="bestLine">Best: 0</div>
     <button class="btn again" id="again">⟳ Play again</button>
-    <button class="btn outline" id="share">Challenge a friend</button>
     <div class="appbox">
       <p>Get the free app: duel real rivals from around the world</p>
       <div class="badges" id="badges">
@@ -436,6 +440,10 @@ for (const [el, where] of [[$('iosBtn'), 'end_ios'], [$('androidBtn'), 'end_andr
 $('logoLink').href = MY_STORE; $('endLogo').href = MY_STORE;
 
 // ---------- Canvas ----------
+$('adPill').href = MY_STORE;
+if (isAndroid) $('adLine').textContent = 'Download free on Google Play ›';
+else if (!isIOS) $('adLine').textContent = 'Free on the App Store and Google Play ›';
+$('adPill').addEventListener('click', () => track('taster_store_click', { where: 'play_ad', store: isAndroid ? 'android' : 'ios', points: sim.points }));
 const cv = $('c'), ctx = cv.getContext('2d');
 let W = 0, H = 0, DPR = 1, scale = 1, ballSX = 0, baseY = 0;
 const VIEW_LOW = -60, VIEW_HIGH = 1196;
@@ -446,6 +454,7 @@ function resize() {
   const colW = T.fieldWidth * scale, colLeft = (W - colW) / 2;
   ballSX = Math.max(colLeft + colW * T.ballScreenFraction, Math.min(W * 0.3, 140));
   baseY = H + VIEW_LOW * scale;
+  const ad = document.getElementById('adPill'); if (ad) ad.style.top = (baseY - 150 * scale - 40) + 'px';
 }
 addEventListener('resize', resize); resize();
 const sx = (wx) => ballSX + (wx - sim.x) * scale;
@@ -645,13 +654,6 @@ addEventListener('keydown', (e) => {
   if (state === 'play') press(); else if (state === 'paused') resume(); else if (state === 'over' && performance.now() - crashAt > T.restartLock * 1000) start();
 });
 $('again').addEventListener('click', () => { if (performance.now() - crashAt > T.restartLock * 1000) start(); });
-$('share').addEventListener('click', async () => {
-  const url = 'https://chiragmirani.github.io/flappy-tappy/?from=share';
-  const text = `I scored ${lastPoints} in Flappy Tappy. Can you beat me? Play free:`;
-  track('taster_share', { points: lastPoints });
-  try { if (navigator.share) { await navigator.share({ title: 'Flappy Tappy', text, url }); return; } } catch (e) { return; }
-  try { await navigator.clipboard.writeText(text + ' ' + url); $('share').textContent = 'Link copied!'; setTimeout(() => $('share').textContent = 'Challenge a friend', 1500); } catch (e) {}
-});
 
 // Results: the app's mascot (the winged gold ring and the ball) and confetti for a new best.
 function drawMascot() {
