@@ -79,8 +79,17 @@
 <style>
   :root { --violet:#5B34D8; --violet-edge:#3A1F9E; --magenta:#FF2E88; --magenta-edge:#A3125A; --ink:#2A1055; --gold:#FFC62E; --mint:#35E0A1; --sky:#EFE8FF; }
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-  html, body { margin:0; height:100%; background:var(--violet); overflow:hidden; font-family: "Nunito", ui-rounded, "SF Pro Rounded", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color:var(--ink); touch-action:manipulation; user-select:none; -webkit-user-select:none; }
-  canvas { position:fixed; inset:0; width:100%; height:100%; display:block; touch-action:none; }
+  html, body { margin:0; background:var(--violet); overflow-x:hidden; font-family: "Nunito", ui-rounded, "SF Pro Rounded", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color:var(--ink); touch-action:manipulation; user-select:none; -webkit-user-select:none; }
+  #stage { position:relative; height:100vh; height:100svh; overflow:hidden; }
+  canvas { position:absolute; inset:0; width:100%; height:100%; display:block; touch-action:none; }
+  #stage .hud, #stage .toast, #stage .tapnote, #stage .overlay { position:absolute; }
+  .ready { position:absolute; left:0; right:0; bottom:24%; text-align:center; pointer-events:none; }
+  .ready .logo { font-size:44px; font-weight:900; color:#5B34D8; letter-spacing:-.5px; text-shadow:0 3px 0 #fff, 0 0 18px #fff; }
+  .ready .hint { display:inline-block; margin-top:10px; background:#fff; color:#2A1055; border-radius:999px; padding:8px 18px; font-weight:900; font-size:19px; box-shadow:0 4px 0 #DCD0FF; animation:pulse 1.2s ease-in-out infinite; }
+  @keyframes pulse { 50% { transform:scale(1.06); } }
+  .more { position:absolute; left:0; right:0; bottom:max(6px, env(safe-area-inset-bottom)); text-align:center; }
+  .more a { color:#fff; font-weight:800; font-size:14px; opacity:.85; text-decoration:none; }
+  .below { padding:24px 16px 40px; }
   .hud { position:fixed; left:0; right:0; top:max(10px, env(safe-area-inset-top)); display:flex; justify-content:space-between; align-items:center; padding:0 16px; pointer-events:none; }
   .pill { background:rgba(255,255,255,.92); border-radius:999px; padding:6px 14px; font-weight:900; font-size:20px; box-shadow:0 2px 0 rgba(42,16,85,.15); }
   .lives { color:var(--magenta); letter-spacing:2px; }
@@ -112,7 +121,9 @@
 </style>
 </head>
 <body>
-<canvas id="c"></canvas>
+<div id="stage">
+<canvas id="c" aria-label="Flappy Tappy game. Tap or press Space to fly."></canvas>
+<div class="ready" id="ready"><div class="logo">Flappy Tappy</div><div class="hint" id="hint">Tap or press Space to start</div></div>
 <div class="hud hidden" id="hud">
   <div class="pill" id="score">0</div>
   <div class="pill mult hidden" id="mult">x2</div>
@@ -121,15 +132,26 @@
 <div class="toast" id="toast"></div>
 <div class="tapnote hidden" id="tapnote">Tap to fly</div>
 
-<main class="overlay scroll" id="start">
+<div class="overlay hidden" id="over">
   <div class="card">
-    <img class="icon" src="../img/icon-180.png" alt="Flappy Tappy app icon: a smiling ball flying through a winged gold ring" width="72" height="72">
-    <h1>Play Flappy Tappy online</h1>
-    <p class="sub">Tap, click or press <b>Space</b> to fly through the rings.<br>Hit the middle for more points.</p>
-    <button class="btn play" id="go">Play Solo free</button>
-    <p class="why">No download, no sign-up, no ads.</p>
+    <p class="sub" id="overTitle" style="margin:0">Nice flying!</p>
+    <div class="big" id="final">0</div>
+    <div class="best" id="bestLine">Best: 0</div>
+    <a class="btn app" id="appBtn" href="#" target="_blank" rel="noopener">Duel real rivals free in the app</a>
+    <div class="stores hidden" id="bothStores">
+      <a class="btn app" id="iosBtn" href="#" target="_blank" rel="noopener">iPhone</a>
+      <a class="btn app" id="androidBtn" href="#" target="_blank" rel="noopener">Android</a>
+    </div>
+    <button class="btn play" id="again">Play again</button>
+    <button class="btn ghost" id="share">Challenge a friend</button>
+    <p class="why">The app adds 30-second duels against rivals from around the world, friend challenges and balls to collect.</p>
   </div>
+</div>
+<div class="more" id="more"><a href="#how">How to play ↓</a></div>
+</div>
+<main class="below" id="how">
   <article class="info">
+    <h1 style="font-size:26px;margin:0 0 8px;color:#5B34D8">Play Flappy Tappy online, free</h1>
     <h2>How to play</h2>
     <p>Tap the screen, click the mouse or press the <b>Space bar</b> (or the up arrow) to make the ball fly up. Let go and it falls. Fly through each golden ring and the wall behind it slides open so you can pass. Touch a wall, the spiky floor or the spiky ceiling and you lose a life. You have three lives, and every ring you pass speeds the game up a little.</p>
     <h2>How scoring works</h2>
@@ -153,21 +175,6 @@
   </article>
 </main>
 
-<div class="overlay hidden" id="over">
-  <div class="card">
-    <p class="sub" id="overTitle" style="margin:0">Nice flying!</p>
-    <div class="big" id="final">0</div>
-    <div class="best" id="bestLine">Best: 0</div>
-    <a class="btn app" id="appBtn" href="#" target="_blank" rel="noopener">Duel real rivals free in the app</a>
-    <div class="stores hidden" id="bothStores">
-      <a class="btn app" id="iosBtn" href="#" target="_blank" rel="noopener">iPhone</a>
-      <a class="btn app" id="androidBtn" href="#" target="_blank" rel="noopener">Android</a>
-    </div>
-    <button class="btn play" id="again">Play again</button>
-    <button class="btn ghost" id="share">Challenge a friend</button>
-    <p class="why">The app adds 30-second duels against rivals from around the world, friend challenges and balls to collect.</p>
-  </div>
-</div>
 
 <script>
 'use strict';
@@ -375,7 +382,7 @@ const cv = document.getElementById('c'), ctx = cv.getContext('2d');
 let W = 0, H = 0, DPR = 1, scale = 1, ballSX = 0, baseY = 0;
 const VIEW_LOW = -60, VIEW_HIGH = 1196;
 function resize() {
-  DPR = Math.min(window.devicePixelRatio || 1, 2); W = innerWidth; H = innerHeight;
+  DPR = Math.min(window.devicePixelRatio || 1, 2); const st = document.getElementById('stage'); W = st.clientWidth; H = st.clientHeight;
   cv.width = Math.round(W * DPR); cv.height = Math.round(H * DPR);
   scale = H / (VIEW_HIGH - VIEW_LOW);
   const colW = T.fieldWidth * scale, colLeft = (W - colW) / 2;
@@ -471,7 +478,7 @@ function beep(freq, len, type, vol) {
 
 // ---------- Screens and loop ----------
 const $ = (id) => document.getElementById(id);
-let sim = new Sim(), state = 'menu', crashAt = 0, lastPoints = 0, runs = 0, toastTimer = 0;
+let sim = new Sim(), state = 'play', crashAt = 0, lastPoints = 0, runs = 0, toastTimer = 0;
 let best = 0; try { best = +localStorage.getItem('ft_taster_best') || 0; } catch (e) {}
 function toast(text) { const t = $('toast'); t.textContent = text; t.style.opacity = 1; clearTimeout(toastTimer); toastTimer = setTimeout(() => t.style.opacity = 0, 650); }
 function hud() {
@@ -481,9 +488,8 @@ function hud() {
 }
 function start() {
   sim = new Sim(); state = 'play'; runs += 1;
-  $('start').classList.add('hidden'); $('over').classList.add('hidden'); $('hud').classList.remove('hidden'); $('tapnote').classList.remove('hidden');
-  $('tapnote').textContent = matchMedia('(pointer: fine)').matches ? 'Click or press Space to fly' : 'Tap to fly'; hud();
-  track('taster_start', { run: runs });
+  $('over').classList.add('hidden'); $('hud').classList.remove('hidden'); $('ready').classList.remove('hidden'); $('more').classList.remove('hidden');
+  $('tapnote').classList.add('hidden'); hud();
 }
 function gameOver() {
   state = 'over'; lastPoints = sim.points;
@@ -500,11 +506,10 @@ function press(e) {
   if (e && e.cancelable) e.preventDefault();
   const was = sim.phase; const ev = sim.tap();
   if (ev.length) { beep(520, 0.08, 'sine', 0.06); $('tapnote').classList.add('hidden'); }
-  if (was === 'waiting' && ev.length) track('taster_first_tap');
+  if (was === 'waiting' && ev.length) { $('ready').classList.add('hidden'); $('more').classList.add('hidden'); track('taster_start', { run: runs }); }
 }
-addEventListener('pointerdown', press, { passive: false });
-addEventListener('keydown', (e) => { if (e.code === 'Space' || e.code === 'ArrowUp') { e.preventDefault(); if (state === 'play') press(); else if (state === 'menu') start(); else if (state === 'over' && performance.now() - crashAt > T.restartLock * 1000) start(); } });
-$('go').addEventListener('click', start);
+$('c').addEventListener('pointerdown', press, { passive: false });
+addEventListener('keydown', (e) => { if ((e.code === 'Space' || e.code === 'ArrowUp') && scrollY < innerHeight * 0.5) { e.preventDefault(); if (state === 'play') press(); else if (state === 'over' && performance.now() - crashAt > T.restartLock * 1000) start(); } });
 $('again').addEventListener('click', () => { if (performance.now() - crashAt > T.restartLock * 1000) start(); });
 $('share').addEventListener('click', async () => {
   const url = 'https://chiragmirani.github.io/through-the-ring/play/?from=share';
@@ -536,6 +541,8 @@ function frame(now) {
   draw(dt);
   requestAnimationFrame(frame);
 }
+runs = 1; $('hud').classList.remove('hidden'); hud();
+if (!matchMedia('(pointer: coarse)').matches) $('hint').textContent = 'Press Space or click to start';
 requestAnimationFrame(frame);
 if (new URLSearchParams(location.search).get('from') === 'share') track('taster_from_share');
 </script>
