@@ -616,7 +616,7 @@ function hud() {
   else if (sim.power) { g.classList.remove('hidden'); $('gold1').textContent = 'AUTO-PILOT · 3× POINTS'; $('gold2').textContent = sim.powerLeft > 1 ? `Ball flies itself · your turn after ${sim.powerLeft} rings` : sim.powerLeft === 1 ? 'Ball flies itself · your turn after this ring' : 'Clearing the gate · get ready!'; }
   else g.classList.add('hidden');
 }
-function setFront(on) { for (const id of ['brandfront', 'readycard', 'more']) $(id).classList.toggle('hidden', !on); }
+function setFront(on) { for (const id of ['brandfront', 'readycard', 'more']) $(id).classList.toggle('hidden', !on); $('adPill').classList.toggle('hidden', on); }
 function start() {
   sim = new Sim(); state = 'play'; runs += 1; pops.length = waves.length = particles.length = 0;
   $('over').classList.add('hidden'); $('pause').classList.add('hidden'); setFront(true); hud();
@@ -700,7 +700,7 @@ function frame(now) {
   draw(state === 'paused' ? 0 : dt);
   requestAnimationFrame(frame);
 }
-hud();
+hud(); setFront(true);
 requestAnimationFrame(frame);
 if (new URLSearchParams(location.search).get('from') === 'share') track('taster_from_share');
 </script>
