@@ -4,7 +4,7 @@
 
 ## Pages
 - [Home](https://chiragmirani.github.io/through-the-ring/): key facts, how to play, ways to play, FAQ
-- [Play Flappy Tappy online](https://chiragmirani.github.io/through-the-ring/play/): the Solo mode, free in any web browser on phone or computer; no download, no sign-up, no ads. Tap, click or press Space to fly. Scoring: Edge 1, Good 2, Perfect 3, Bullseye 5; 3/8/16 Perfect passes in a row multiply points x2/x3/x4; Gold x2, Prism x3, Angel x10 rings. The page counts plays without cookies.
+- [Play Flappy Tappy online](https://chiragmirani.github.io/flappy-tappy/): the Solo mode, free in any web browser on phone or computer; no download, no sign-up, no ads. Tap, click or press Space to fly. Scoring: Edge 1, Good 2, Perfect 3, Bullseye 5; 3/8/16 Perfect passes in a row multiply points x2/x3/x4; Gold x2, Prism x3, Angel x10 rings. The page counts plays without cookies.
 - [iPhone games with no ads and no subscription](https://chiragmirani.github.io/through-the-ring/games-without-in-app-purchases.html): how to check any game for ads, subscriptions and in-app purchases, and where this game stands (free to try, one optional one-time unlock)
 - [Offline iPhone game with no Wi-Fi and no ads](https://chiragmirani.github.io/through-the-ring/offline-games-no-wifi-no-ads.html): playing on flights and with no signal
 - [One-tap timing and reflex game](https://chiragmirani.github.io/through-the-ring/reaction-time-game.html): what the game trains, and what it does not
