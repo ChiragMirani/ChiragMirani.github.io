@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "page_updated_at_utc": "2026-11-07T18:51:30.235548+00:00",
+  "checked_at_utc": "2026-11-07T18:30:09.025187+00:00",
+  "kind": "historical_preview",
+  "issued_at_utc": null,
+  "reference_period_ended": true,
+  "model": "weekly-14-quarterly-tips-2026-11-07-v4",
+  "reading": {
+    "reference_friday": "2026-10-30",
+    "target_end": "2026-11-06",
+    "checklist_score": -2,
+    "prob_yield_down_uncalibrated": 0.5491973117956056,
+    "position": 0,
+    "view": "No tactical view",
+    "votes_add": 5,
+    "votes_reduce": 7,
+    "votes_neutral": 2,
+    "answers": {
+      "us_eq": 1,
+      "em_eq": 1,
+      "oil": -1,
+      "usd": -1,
+      "vix": 1,
+      "slack": 1,
+      "pce": -1,
+      "real": 1,
+      "curve": -1,
+      "de10": -1,
+      "jp10": -1,
+      "uk10": -1,
+      "dec": 0,
+      "tips_30": 0
+    },
+    "freshness_checked": true,
+    "input_dates": {
+      "y10": {
+        "observation": "2026-10-30",
+        "delay_days": 0
+      },
+      "y2": {
+        "observation": "2026-10-30",
+        "delay_days": 0
+      },
+      "us_eq": {
+        "observation": "2026-10-30",
+        "delay_days": 0
+      },
+      "em_eq": {
+        "observation": "2026-10-30",
+        "delay_days": 0
+      },
+      "oil": {
+        "observation": "2026-10-23",
+        "delay_days": 7
+      },
+      "vix": {
+        "observation": "2026-10-30",
+        "delay_days": 0
+      },
+      "DEXUSEU": {
+        "observation": "2026-10-23",
+        "delay_days": 7
+      },
+      "DEXJPUS": {
+        "observation": "2026-10-23",
+        "delay_days": 7
+      },
+      "DEXUSUK": {
+        "observation": "2026-10-23",
+        "delay_days": 7
+      },
+      "DEXCAUS": {
+        "observation": "2026-10-23",
+        "delay_days": 7
+      },
+      "DEXSZUS": {
+        "observation": "2026-10-23",
+        "delay_days": 7
+      },
+      "DEXUSAL": {
+        "observation": "2026-10-23",
+        "delay_days": 7
+      },
+      "unrate": {
+        "vintage": "2026-10-02",
+        "last_observation": "2026-09-01"
+      },
+      "core_pce_yoy": {
+        "vintage": "2026-10-29",
+        "last_observation": "2026-09-01"
+      },
+      "de10_chg": {
+        "vintage": "2026-10-15",
+        "last_observation": "2026-09-01"
+      },
+      "jp10_chg": {
+        "vintage": "2026-10-15",
+        "last_observation": "2026-09-01"
+      },
+      "uk10_chg": {
+        "vintage": "2026-10-15",
+        "last_observation": "2026-09-01"
+      }
+    }
+  },
+  "requested_reference_friday": "2026-11-06",
+  "refresh_note": "y10 is missing or stale; y2 is missing or stale; vix is missing or stale",
+  "last_refresh_attempt_at_utc": "2026-11-07T18:30:09.025187+00:00",
+  "interpretation": "An older reference period is a dated illustration, not a current forecast.",
+  "forecast_horizon": "Friday to Friday; visiting on another day does not change the horizon.",
+  "prospective": {
+    "issued": 0,
+    "completed": 0,
+    "active_completed": 0,
+    "hit_rate": null,
+    "total_gross_yield_score_bp": null,
+    "measurement": "Signed DGS10 yield change, before costs; not an investment return."
+  },
+  "links": {
+    "tool": "https://chiragmirani.github.io/treasury-signal/",
+    "paper": "https://chiragmirani.github.io/treasury-signal/paper/",
+    "history": "https://chiragmirani.github.io/treasury-signal/data/weekly-history.csv"
+  }
+}

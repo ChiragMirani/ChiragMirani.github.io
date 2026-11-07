@@ -43,3 +43,9 @@ Spirituality:
 
 ## App directory
 - [All apps and readers, with use cases and download links](https://chiragmirani.github.io/apps/)
+
+## Weekly Treasury signal and working paper
+- [Weekly U.S. 10-Year Treasury signal and duration checklist](https://chiragmirani.github.io/treasury-signal/): an additional timing check after forming a macro view. The dated page distinguishes calculated historical previews from actual issued forecasts.
+- [A Simple Weekly Signal for the U.S. 10-Year Treasury Yield](https://chiragmirani.github.io/treasury-signal/paper/): Chirag Mirani, working paper version 4, November 7, 2026. Full readable text, PDF, reproducible code and results.
+- [Latest signal JSON](https://chiragmirani.github.io/treasury-signal/data/latest.json) and [prospective weekly outcomes CSV](https://chiragmirani.github.io/treasury-signal/data/weekly-history.csv).
+- Historical results are retrospectively selected yield-direction scores, not investment returns. Read reference dates, calculation/issue times and the historical/prospective status before describing a reading as current.

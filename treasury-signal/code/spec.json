@@ -1,0 +1,43 @@
+{
+  "version": "weekly-14-quarterly-tips-2026-11-07-v4",
+  "frozen_on": "2026-11-07",
+  "live_start": "2026-11-13",
+  "questions_13": [
+    "us_eq",
+    "em_eq",
+    "oil",
+    "usd",
+    "vix",
+    "slack",
+    "pce",
+    "real",
+    "curve",
+    "de10",
+    "jp10",
+    "uk10",
+    "dec"
+  ],
+  "added": [
+    {
+      "key": "tips_30",
+      "sign": 1
+    }
+  ],
+  "clf_c": 0.1,
+  "clf_refit_weeks": 13,
+  "clf_start": "2006-01-06",
+  "start": "2001-05-04",
+  "position_size": "fixed: -1, 0, +1; probability never scales exposure",
+  "issue_window": "Friday 18:00 America/New_York through Saturday; existing records can be read later",
+  "holiday_policy": "withhold when any required Friday observation is absent, including lagged Friday inputs",
+  "source_sha256": {
+    "model.py": "1380d5caf46226f56cea584c2446022f603a59c5758312764ab5451ee545a4ab",
+    "download_data.py": "d19cf2f37b8b80f44f0221c7e1986093215562bc6b1600045cf1ebbc37cf1b2b",
+    "weekly_signal.py": "a1c7594b98a352ba4bae0e4660ab66096a611577be15d87f53879d7c10083a9f",
+    "production_signal.py": "c04ee3eea21271522d44248568e5339fabaa85f501211528abfddf90be4fb0ce",
+    "auction_inputs.py": "ca87925a8897c0af89da6ddbc5c11fc80795693bcf0fbbc8beff945a0890178e"
+  },
+  "change_note": "Adopt the 30-year TIPS auction flag with a +1 duration vote, after reviewing all eight quarterly auction variants. Quarterly refits, expanding history, C=0.1 and fixed positions remain. This is a later-informed research choice; the early-only auction winner remains nominal 30-year +1 in the archived search.",
+  "frozen_at_utc": "2026-11-07T18:28:27.871070+00:00",
+  "selection_note": "Retrospective selection informed by November 2016-October 2026 results, not chosen using only pre-November 2016 data. Prospective record begins no earlier than November 13, 2026."
+}

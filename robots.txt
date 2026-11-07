@@ -22,3 +22,4 @@ Sitemap: https://chiragmirani.github.io/mcat-mini/sitemap.xml
 Sitemap: https://chiragmirani.github.io/fieldbase/sitemap.xml
 Sitemap: https://chiragmirani.github.io/home-sitemap.xml
 Sitemap: https://chiragmirani.github.io/flappy-tappy/sitemap.xml
+Sitemap: https://chiragmirani.github.io/treasury-signal/sitemap.xml

@@ -1,0 +1,373 @@
+{
+  "version": "weekly-14-quarterly-tips-2026-11-07-v4",
+  "selection": "Quarterly refit and 30-year TIPS +1 vote selected after inspecting later outcomes on 2026-11-07.",
+  "measurement": "Signed weekly yield change in basis points, not a portfolio return.",
+  "periods": {
+    "early": {
+      "weeks": 564,
+      "active_weeks": 288,
+      "hit_rate": 0.5208333333333334,
+      "mean_absolute_position": 0.5106382978723404,
+      "gross_bp_year": 16.59574468085107,
+      "net_bp_year": 11.709219858156036,
+      "gross_t": 0.8739824571763718,
+      "net_t": 0.6173949579489947,
+      "gross_sr": 0.2563501161154883,
+      "net_sr": 0.18087602652362827,
+      "turnover_year": 19.54609929078014,
+      "max_drawdown_bp": -166.00000000000006,
+      "gross_t_8": 0.876567173521171,
+      "net_t_8": 0.6201193246062408,
+      "gross_total_bp": 180.00000000000009,
+      "wins": 150,
+      "hit_rate_95": [
+        0.4632435856289919,
+        0.5778746298860035
+      ],
+      "first_signal": "2006-01-06",
+      "last_signal": "2016-10-21",
+      "last_outcome": "2016-10-28",
+      "paired_quarterly_13": {
+        "gross_bp_year": 1.198581560283689,
+        "gross_t": 0.9917325507253476,
+        "net_bp_year": 1.152482269503547,
+        "net_t": 0.929966952454748
+      },
+      "paired_always_reduce": {
+        "gross_bp_year": 39.82978723404256,
+        "gross_t": 1.0652023171930625,
+        "net_bp_year": 34.98936170212766,
+        "net_t": 0.9359397008097535
+      }
+    },
+    "later": {
+      "weeks": 521,
+      "active_weeks": 342,
+      "hit_rate": 0.5292397660818714,
+      "mean_absolute_position": 0.6564299424184261,
+      "gross_bp_year": 32.637236084452965,
+      "net_bp_year": 27.247600767754317,
+      "gross_t": 1.6680857344519902,
+      "net_t": 1.3948279620511463,
+      "gross_sr": 0.49338486398181797,
+      "net_sr": 0.41213957795728773,
+      "turnover_year": 21.558541266794627,
+      "max_drawdown_bp": -104.0,
+      "gross_t_8": 1.7363413069219222,
+      "net_t_8": 1.4518262112597904,
+      "gross_total_bp": 326.99999999999994,
+      "wins": 181,
+      "hit_rate_95": [
+        0.4763079319462551,
+        0.5815220346176129
+      ],
+      "first_signal": "2016-11-04",
+      "last_signal": "2026-10-23",
+      "last_outcome": "2026-10-30",
+      "paired_quarterly_13": {
+        "gross_bp_year": 1.996161228406905,
+        "gross_t": 1.2747662889720544,
+        "net_bp_year": 1.8963531669865592,
+        "net_t": 1.2333376118126074
+      },
+      "paired_always_reduce": {
+        "gross_bp_year": 1.1976967370441431,
+        "gross_t": 0.03658735803356167,
+        "net_bp_year": -4.142034548944335,
+        "net_t": -0.12650571125872637
+      }
+    },
+    "last_52": {
+      "weeks": 52,
+      "active_weeks": 37,
+      "hit_rate": 0.6216216216216216,
+      "mean_absolute_position": 0.7115384615384616,
+      "gross_bp_year": 52.00000000000002,
+      "net_bp_year": 44.50000000000004,
+      "gross_t": 0.9430570839545688,
+      "net_t": 0.8101412297437679,
+      "gross_sr": 0.9129283045519201,
+      "net_sr": 0.781542357763164,
+      "turnover_year": 29.999999999999996,
+      "max_drawdown_bp": -46.000000000000085,
+      "gross_t_8": 0.9122651028127731,
+      "net_t_8": 0.7805930858078933,
+      "gross_total_bp": 52.00000000000003,
+      "wins": 23,
+      "hit_rate_95": [
+        0.46100430439217654,
+        0.7593600082420173
+      ],
+      "first_signal": "2025-10-31",
+      "last_signal": "2026-10-23",
+      "last_outcome": "2026-10-30",
+      "paired_quarterly_13": {
+        "gross_bp_year": 0.0,
+        "gross_t": null,
+        "net_bp_year": 0.0,
+        "net_t": null
+      },
+      "paired_always_reduce": {
+        "gross_bp_year": -30.999999999999957,
+        "gross_t": -0.3646249722235385,
+        "net_bp_year": -37.999999999999964,
+        "net_t": -0.44698081620953484
+      }
+    },
+    "2026": {
+      "weeks": 43,
+      "active_weeks": 32,
+      "hit_rate": 0.625,
+      "mean_absolute_position": 0.7441860465116279,
+      "gross_bp_year": 62.883720930232506,
+      "net_bp_year": 55.627906976744136,
+      "gross_t": 0.9612208007143233,
+      "net_t": 0.8535394027521722,
+      "gross_sr": 1.0392666811022286,
+      "net_sr": 0.9188388380048859,
+      "turnover_year": 29.023255813953487,
+      "max_drawdown_bp": -46.000000000000085,
+      "gross_t_8": 0.9175223239230662,
+      "net_t_8": 0.8122927362554551,
+      "gross_total_bp": 51.99999999999996,
+      "wins": 20,
+      "hit_rate_95": [
+        0.4525440735307745,
+        0.7706611269054578
+      ],
+      "first_signal": "2026-01-02",
+      "last_signal": "2026-10-23",
+      "last_outcome": "2026-10-30",
+      "paired_quarterly_13": {
+        "gross_bp_year": 0.0,
+        "gross_t": null,
+        "net_bp_year": 0.0,
+        "net_t": null
+      },
+      "paired_always_reduce": {
+        "gross_bp_year": -27.813953488372142,
+        "gross_t": -0.2740971432735701,
+        "net_bp_year": -34.46511627906982,
+        "net_t": -0.3396610986758088
+      }
+    }
+  },
+  "brier_later": 0.25050080178444983,
+  "quarterly_13_reference": {
+    "early": {
+      "weeks": 564,
+      "active_weeks": 291,
+      "hit_rate": 0.5189003436426117,
+      "mean_absolute_position": 0.5159574468085106,
+      "gross_bp_year": 15.397163120567383,
+      "net_bp_year": 10.556737588652489,
+      "gross_t": 0.8075662399531415,
+      "net_t": 0.5540575536218502,
+      "gross_sr": 0.23736301479363694,
+      "net_sr": 0.1627237910143981,
+      "turnover_year": 19.361702127659573,
+      "max_drawdown_bp": -162.00000000000009,
+      "gross_t_8": 0.8100089904156501,
+      "net_t_8": 0.5564244721439545,
+      "gross_total_bp": 167.00000000000006,
+      "wins": 151,
+      "hit_rate_95": [
+        0.46162225527076695,
+        0.5756859307760589
+      ]
+    },
+    "later": {
+      "weeks": 521,
+      "active_weeks": 342,
+      "hit_rate": 0.5263157894736842,
+      "mean_absolute_position": 0.6564299424184261,
+      "gross_bp_year": 30.641074856046068,
+      "net_bp_year": 25.35124760076776,
+      "gross_t": 1.566835318929272,
+      "net_t": 1.2980470051607416,
+      "gross_sr": 0.46386433834669283,
+      "net_sr": 0.38401981734584456,
+      "turnover_year": 21.159309021113245,
+      "max_drawdown_bp": -109.0,
+      "gross_t_8": 1.6294730438448055,
+      "net_t_8": 1.349871759176061,
+      "gross_total_bp": 307.0,
+      "wins": 180,
+      "hit_rate_95": [
+        0.4733994775313811,
+        0.5786474923760999
+      ]
+    },
+    "since_20_reintroduction": {
+      "weeks": 337,
+      "active_weeks": 217,
+      "hit_rate": 0.5391705069124424,
+      "mean_absolute_position": 0.6439169139465876,
+      "gross_bp_year": 32.71216617210682,
+      "net_bp_year": 27.234421364985153,
+      "gross_t": 1.3285339666291232,
+      "net_t": 1.106958293091121,
+      "gross_sr": 0.4651103274121986,
+      "net_sr": 0.3873949459011175,
+      "turnover_year": 21.910979228486646,
+      "max_drawdown_bp": -70.00000000000001,
+      "gross_t_8": 1.4498651434716607,
+      "net_t_8": 1.2064784885344462,
+      "gross_total_bp": 211.99999999999994,
+      "wins": 117,
+      "hit_rate_95": [
+        0.4727439108927013,
+        0.6042343887924256
+      ]
+    },
+    "2026": {
+      "weeks": 43,
+      "active_weeks": 32,
+      "hit_rate": 0.625,
+      "mean_absolute_position": 0.7441860465116279,
+      "gross_bp_year": 62.883720930232506,
+      "net_bp_year": 55.627906976744136,
+      "gross_t": 0.9612208007143233,
+      "net_t": 0.8535394027521722,
+      "gross_sr": 1.0392666811022286,
+      "net_sr": 0.9188388380048859,
+      "turnover_year": 29.023255813953487,
+      "max_drawdown_bp": -46.000000000000085,
+      "gross_t_8": 0.9175223239230662,
+      "net_t_8": 0.8122927362554551,
+      "gross_total_bp": 51.99999999999996,
+      "wins": 20,
+      "hit_rate_95": [
+        0.4525440735307745,
+        0.7706611269054578
+      ]
+    },
+    "last_52": {
+      "weeks": 52,
+      "active_weeks": 37,
+      "hit_rate": 0.6216216216216216,
+      "mean_absolute_position": 0.7115384615384616,
+      "gross_bp_year": 52.00000000000002,
+      "net_bp_year": 44.50000000000004,
+      "gross_t": 0.9430570839545688,
+      "net_t": 0.8101412297437679,
+      "gross_sr": 0.9129283045519201,
+      "net_sr": 0.781542357763164,
+      "turnover_year": 29.999999999999996,
+      "max_drawdown_bp": -46.000000000000085,
+      "gross_t_8": 0.9122651028127731,
+      "net_t_8": 0.7805930858078933,
+      "gross_total_bp": 52.00000000000003,
+      "wins": 23,
+      "hit_rate_95": [
+        0.46100430439217654,
+        0.7593600082420173
+      ]
+    }
+  },
+  "by_year": [
+    {
+      "year": 2016,
+      "weeks": 9,
+      "active": 8,
+      "score_bp": -66.0
+    },
+    {
+      "year": 2017,
+      "weeks": 52,
+      "active": 30,
+      "score_bp": -9.0
+    },
+    {
+      "year": 2018,
+      "weeks": 52,
+      "active": 31,
+      "score_bp": -13.0
+    },
+    {
+      "year": 2019,
+      "weeks": 52,
+      "active": 41,
+      "score_bp": 129.0
+    },
+    {
+      "year": 2020,
+      "weeks": 52,
+      "active": 37,
+      "score_bp": 38.0
+    },
+    {
+      "year": 2021,
+      "weeks": 53,
+      "active": 36,
+      "score_bp": 58.0
+    },
+    {
+      "year": 2022,
+      "weeks": 52,
+      "active": 29,
+      "score_bp": -1.0
+    },
+    {
+      "year": 2023,
+      "weeks": 52,
+      "active": 38,
+      "score_bp": 86.0
+    },
+    {
+      "year": 2024,
+      "weeks": 52,
+      "active": 37,
+      "score_bp": 62.0
+    },
+    {
+      "year": 2025,
+      "weeks": 52,
+      "active": 23,
+      "score_bp": -9.0
+    },
+    {
+      "year": 2026,
+      "weeks": 43,
+      "active": 32,
+      "score_bp": 52.0
+    }
+  ],
+  "last_52_by_quarter": [
+    {
+      "quarter": "2025Q4",
+      "weeks": 9,
+      "active": 5,
+      "score_bp": 0.0,
+      "yield_change_bp": 8.0
+    },
+    {
+      "quarter": "2026Q1",
+      "weeks": 13,
+      "active": 11,
+      "score_bp": 2.0,
+      "yield_change_bp": 16.0
+    },
+    {
+      "quarter": "2026Q2",
+      "weeks": 13,
+      "active": 11,
+      "score_bp": 34.0,
+      "yield_change_bp": 14.0
+    },
+    {
+      "quarter": "2026Q3",
+      "weeks": 13,
+      "active": 7,
+      "score_bp": -3.0,
+      "yield_change_bp": 79.0
+    },
+    {
+      "quarter": "2026Q4",
+      "weeks": 4,
+      "active": 3,
+      "score_bp": 19.0,
+      "yield_change_bp": -34.0
+    }
+  ]
+}
