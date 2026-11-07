@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://chiragmirani.github.io/chip-mortgage-calculator/</loc><lastmod>2026-10-22</lastmod></url>
-  <url><loc>https://chiragmirani.github.io/chip-mortgage-calculator/privacy.html</loc><lastmod>2026-10-22</lastmod></url>
-  <url><loc>https://chiragmirani.github.io/chip-mortgage-calculator/support.html</loc><lastmod>2026-10-22</lastmod></url>
+  <url>
+    <loc>https://chiragmirani.github.io/chip-mortgage-calculator/</loc>
+    <lastmod>2026-11-07</lastmod>
+  </url>
+  <url>
+    <loc>https://chiragmirani.github.io/chip-mortgage-calculator/privacy.html</loc>
+    <lastmod>2026-10-22</lastmod>
+  </url>
+  <url>
+    <loc>https://chiragmirani.github.io/chip-mortgage-calculator/support.html</loc>
+    <lastmod>2026-10-22</lastmod>
+  </url>
+  <url>
+    <loc>https://chiragmirani.github.io/chip-mortgage-calculator/total-monthly-housing-cost.html</loc>
+    <lastmod>2026-11-07</lastmod>
+  </url>
 </urlset>

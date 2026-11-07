@@ -1,3 +1,7 @@
+# Search access is already allowed by the wildcard rule below.
+# This includes OAI-SearchBot, Claude-SearchBot, Claude-User and Googlebot.
+# Google-Extended is also allowed under the existing wildcard policy.
+# Training preferences have not been changed by this website update.
 User-agent: *
 Allow: /
 

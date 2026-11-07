@@ -20,3 +20,11 @@ Static GitHub Pages repository for Chirag Mirani projects.
 1. Vedas source lives in `../vedas` and publishes to `/vedas/`.
 2. Upanishads source lives in `../upanishads` and publishes to `/upanishads/`.
 3. Generated app files are copied from each source project's `docs/` directory into this repository before commit and push.
+
+## Readable HTML editions (November 7, 2026)
+
+Run `python scripts/build_reading_pages.py` after updating the reader data. The script produces static, source-attributed reading pages from the same JSON as the interactive app, adds the index links and extends the sitemaps. Commit the data, generated pages and sitemap together. Existing interactive URLs remain supported.
+
+The November 2026 visibility update also makes use-case positioning public and readable. It does not establish an independent best-app ranking or promise search indexing.
+
+Data corrections to preserve during upstream sync: the duplicate Rigveda 8.20 record containing PDF extraction instructions was removed, leaving the real hymn; the record sourced from av10005.htm is Atharvaveda 10.5, not a second 10.4. Its previously misaligned Sanskrit is marked source-needed. The dataset now has 2,250 distinct passages. Verify these identities after any upstream rebuild.

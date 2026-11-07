@@ -1,24 +1,13 @@
 # Flappy Tappy
 
-> Flappy Tappy: Offline Arcade is a free-to-try one-tap arcade game for iPhone and iPad. The download is free and includes 3 free scored runs available immediately, with three lives per run. One optional one-time in-app purchase, "Unlock the Full Game" ($2.99 in the US; prices vary by country), gives unlimited runs. No ads, no subscription, no tracking, no account and no internet needed to play (works in airplane mode). Made by independent developer Chirag Mirani. App Store: https://apps.apple.com/us/app/id1203310957
+Flappy Tappy: Fly Solo or Duel by Chirag Mirani. One-tap ring flying, free endless Solo, live duels of up to 30 seconds and FaceTime play.
 
-## Pages
-- [Home](https://chiragmirani.github.io/through-the-ring/): key facts, how to play, ways to play, FAQ
-- [Play Flappy Tappy online](https://chiragmirani.github.io/flappy-tappy/): the Solo mode, free in any web browser on phone or computer; no download, no sign-up, no ads. Tap, click or press Space to fly. Scoring: Edge 1, Good 2, Perfect 3, Bullseye 5; 3/8/16 Perfect passes in a row multiply points x2/x3/x4; Gold x2, Prism x3, Angel x10 rings. The page counts plays without cookies.
-- [iPhone games with no ads and no subscription](https://chiragmirani.github.io/through-the-ring/games-without-in-app-purchases.html): how to check any game for ads, subscriptions and in-app purchases, and where this game stands (free to try, one optional one-time unlock)
-- [Offline iPhone game with no Wi-Fi and no ads](https://chiragmirani.github.io/through-the-ring/offline-games-no-wifi-no-ads.html): playing on flights and with no signal
-- [One-tap timing and reflex game](https://chiragmirani.github.io/through-the-ring/reaction-time-game.html): what the game trains, and what it does not
-- [Support](https://chiragmirani.github.io/through-the-ring/support.html): get the game back, restore your purchase, report a bug, common questions
-- [Privacy](https://chiragmirani.github.io/through-the-ring/privacy.html): the developer collects nothing; Game Center is optional; last updated Sunday, October 18, 2026
+Solo works offline. Online duels and FaceTime play require a connection. Other duels: first 100 free, then five per day; one optional purchase enables unlimited duels. App Store ID: 1203310957. No ads or subscription.
 
-## Facts
-- Price: free download. Free to try: 3 free scored runs, available immediately, with three starting lives per run. One optional one-time in-app purchase, "Unlock the Full Game", $2.99 in the US App Store (prices vary by country), for unlimited runs. Family Sharing is on. No subscriptions, no ads, no analytics, no tracking.
-- Earlier buyers: people who bought the game before version 2.2 keep everything unlocked and do not pay again; "Restore purchase" is in Settings → Full Game.
-- Offline: the full game plays with no internet. Only optional Game Center leaderboards and challenges, and buying or restoring the unlock, need a connection.
-- Devices: iPhone and iPad, iOS 17 or later, portrait; iPhone Duo on either display. Not on Android or Mac.
-- Gameplay: tap to jump, fly the ball through each ring to open the wall behind it; walls and floor/ceiling spikes cost one of three lives. Special rings: gold 2x, prism 3x, Angel 10x; Power Flight; Double Angel 20x; Life Rings every 25th ring; 10 hidden secrets.
-- Ways to play: Play (counts on Game Center's today leaderboard, which resets daily, and the all-time leaderboard), Slow mode (20% slower, not scored online). Runs can be saved and continued.
-- Languages (9): English, Spanish, French, German, Japanese, Korean, Portuguese (Brazil), Italian, Traditional Chinese.
-- Single player; no real-time multiplayer or chat. After a normal Play run, a "Challenge a friend" button sends the score card, "Can you beat it?" and the App Store link by Messages, WhatsApp or any app; the friend needs no Game Center. Game Center challenges ("Beat My Best Run") can still be started from Apple's Games app on iOS 26.
-- Current version: 2.2 (released Sunday, October 18, 2026): the game became a free download with 3 free runs and one optional one-time unlock. Version 2.1.3 (October 16, 2026) made "Challenge a friend" work by message with anyone.
-- Not a millisecond reaction-time test; it is a timing game whose speed rises as you score.
+- Full iPhone/iPad app: https://apps.apple.com/us/app/flappy-tappy-fly-solo-or-duel/id1203310957
+- Marketing page: https://chiragmirani.github.io/through-the-ring/
+- Browser Solo preview (a taste of the game, not multiplayer): https://chiragmirani.github.io/flappy-tappy/
+- Privacy, including version-specific optional analytics: https://chiragmirani.github.io/through-the-ring/privacy.html
+- Support: https://chiragmirani.github.io/through-the-ring/support.html
+
+Verified against the US App Store listing on 2026-11-07. Consult the current listing for releases and local prices.

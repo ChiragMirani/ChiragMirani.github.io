@@ -1,4 +1,4 @@
-const CACHE_NAME = "vedas-reader-v18";
+const CACHE_NAME = "vedas-reader-v19";
 const CORE_ASSETS = [
   "./",
   "./index.html",
@@ -26,7 +26,7 @@ self.addEventListener("install", (event) => {
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((keys) =>
-      Promise.all(keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key)))
+      Promise.all(keys.filter((key) => key.startsWith("vedas-reader-") && key !== CACHE_NAME).map((key) => caches.delete(key)))
     )
   );
   self.clients.claim();

@@ -1,0 +1,147 @@
+{
+  "updated": "2026-11-07",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chiragmirani.github.io/#person",
+    "name": "Chirag Mirani",
+    "url": "https://chiragmirani.github.io/"
+  },
+  "apps": [
+    {
+      "id": "flappy-tappy",
+      "name": "Flappy Tappy: Fly Solo or Duel",
+      "url": "https://chiragmirani.github.io/through-the-ring/",
+      "appStoreId": 1203310957,
+      "appStoreUrl": "https://apps.apple.com/us/app/flappy-tappy-fly-solo-or-duel/id1203310957",
+      "bestSuitedTo": "Quick, ad-free casual play and live friend duels",
+      "description": "One-tap ring flying, free endless Solo, live duels of up to 30 seconds and FaceTime play.",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "iOS 17 or later; iPadOS 17 or later",
+      "downloadPriceUSD": 0.0,
+      "verifiedDate": "2026-11-07"
+    },
+    {
+      "id": "vocabula",
+      "name": "Vocabula: Grade Vocabulary",
+      "url": "https://chiragmirani.github.io/vocabula-pages/app/",
+      "appStoreId": 6819035983,
+      "appStoreUrl": "https://apps.apple.com/us/app/vocabula-grade-vocabulary/id6819035983",
+      "bestSuitedTo": "Offline English, math and science vocabulary by grade",
+      "description": "4,241 English-language cards across Kindergarten through Grade 12. Try ten definitions, then one purchase unlocks every card.",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "iOS 17 or later; iPadOS 17 or later",
+      "downloadPriceUSD": 0.0,
+      "verifiedDate": "2026-11-07"
+    },
+    {
+      "id": "vocabdeck",
+      "name": "VocabDeck",
+      "url": "https://chiragmirani.github.io/zoes-vocabulary/",
+      "appStoreId": 6761394575,
+      "appStoreUrl": "https://apps.apple.com/us/app/vocabdeck/id6761394575",
+      "bestSuitedTo": "Free K–12 English flashcards on iPhone and iPad",
+      "description": "The iOS app includes 1,972 English cards. The free browser edition includes 4,296 cards across English, math and science.",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "iOS 17 or later; iPadOS 17 or later",
+      "downloadPriceUSD": 0.0,
+      "verifiedDate": "2026-11-07"
+    },
+    {
+      "id": "combination-lock",
+      "name": "Practice Combination Lock",
+      "url": "https://chiragmirani.github.io/locklab/",
+      "appStoreId": 6822015018,
+      "appStoreUrl": "https://apps.apple.com/us/app/practice-combination-lock/id6822015018",
+      "bestSuitedTo": "Practicing a school locker before the first day",
+      "description": "Watch, Learn and Practice modes for a three-number 0–39 rotary lock. Every practice feature is free; tips are optional.",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "iOS 17 or later; iPadOS 17 or later",
+      "downloadPriceUSD": 0.0,
+      "verifiedDate": "2026-11-07"
+    },
+    {
+      "id": "series65",
+      "name": "Series 65 Exam Practice Tests",
+      "url": "https://chiragmirani.github.io/series65/",
+      "appStoreId": 6812059689,
+      "appStoreUrl": "https://apps.apple.com/us/app/series-65-exam-practice-tests/id6812059689",
+      "bestSuitedTo": "Series 65 practice with explanations and no subscription",
+      "description": "1,211 practice questions and 1,143 flashcards. Try a short test and ten flashcards; one purchase unlocks the bank.",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "iOS 17 or later; iPadOS 17 or later",
+      "downloadPriceUSD": 0.0,
+      "verifiedDate": "2026-11-07"
+    },
+    {
+      "id": "compound-interest",
+      "name": "Compound Interest Calculators",
+      "url": "https://chiragmirani.github.io/chip-compound-calculator/",
+      "appStoreId": 6822411872,
+      "appStoreUrl": "https://apps.apple.com/us/app/compound-interest-calculators/id6822411872",
+      "bestSuitedTo": "Comparing hypothetical savings plans without a subscription",
+      "description": "Free compound-interest calculations, charts and Details; a one-time purchase adds comparisons, goal solvers, saved plans and PDF/CSV exports.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "iOS 17 or later; iPadOS 17 or later",
+      "downloadPriceUSD": 0.0,
+      "verifiedDate": "2026-11-07"
+    },
+    {
+      "id": "mortgage",
+      "name": "Chip Mortgage Calculator US",
+      "url": "https://chiragmirani.github.io/chip-mortgage-calculator/",
+      "appStoreId": 6821645194,
+      "appStoreUrl": "https://apps.apple.com/us/app/chip-mortgage-calculator-us/id6821645194",
+      "bestSuitedTo": "Seeing the full monthly cost of a US home",
+      "description": "US fixed-rate mortgage planning with taxes, insurance, PMI, HOA, upkeep and utilities. Calculations and schedules are free; saving and exports use an optional purchase.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "iOS 17 or later; iPadOS 17 or later",
+      "downloadPriceUSD": 0.0,
+      "verifiedDate": "2026-11-07"
+    },
+    {
+      "id": "hanuman-chalisa",
+      "name": "Shree Hanuman Chalisa English",
+      "url": "https://chiragmirani.github.io/hanuman-chalisa/",
+      "appStoreId": 6819752072,
+      "appStoreUrl": "https://apps.apple.com/us/app/shree-hanuman-chalisa-english/id6819752072",
+      "bestSuitedTo": "Reading the Hanuman Chalisa in plain English offline",
+      "description": "All 43 verses, text only, with English, Devanagari, Roman and Gujarati-letter reading choices. No ads or account.",
+      "applicationCategory": "ReferenceApplication",
+      "operatingSystem": "iOS 17 or later; iPadOS 17 or later",
+      "downloadPriceUSD": 0.0,
+      "verifiedDate": "2026-11-07"
+    },
+    {
+      "id": "vedas",
+      "name": "The Vedas reader",
+      "url": "https://chiragmirani.github.io/vedas/",
+      "bestSuitedTo": "Source-linked study of all four Vedas in English",
+      "description": "Four Vedas, 52 books and 2,250 passages. Sanskrit and IAST are available where safely aligned; coverage is incomplete.",
+      "applicationCategory": "ReferenceApplication"
+    },
+    {
+      "id": "upanishads",
+      "name": "The Upanishads reader",
+      "url": "https://chiragmirani.github.io/upanishads/",
+      "bestSuitedTo": "Reading 12 Upanishads with translation sources",
+      "description": "Max Müller’s public-domain English translations, section links and clearly labeled study meanings. Original-language coverage varies.",
+      "applicationCategory": "ReferenceApplication"
+    },
+    {
+      "id": "gita",
+      "name": "The Bhagavad Gita in English",
+      "url": "https://chiragmirani.github.io/gita-quotes/",
+      "bestSuitedTo": "Reading the Gita verse by verse or chapter by chapter",
+      "description": "All 18 chapters in English with Sanskrit and transliteration. This source edition has 701 verse records, including 35 in chapter 13.",
+      "applicationCategory": "ReferenceApplication"
+    },
+    {
+      "id": "macro",
+      "name": "MacroForecastbyCM",
+      "url": "https://chiragmirani.github.io/macro-dashboard/",
+      "bestSuitedTo": "Comparing US macro forecasts with Kalshi consensus",
+      "description": "House forecasts, available Kalshi market consensus, actual releases and a public comparison record. Independent research, not an official Kalshi product.",
+      "applicationCategory": "FinanceApplication"
+    }
+  ]
+}

@@ -22,13 +22,13 @@ Just for fun:
 - [Flappy Tappy](https://chiragmirani.github.io/through-the-ring/): a one-tap arcade game he built for fun: fly through rings, aim for Bullseyes, and duel rivals from around the world. Play the Solo mode in a web browser: https://chiragmirani.github.io/flappy-tappy/. App Store (iPhone and iPad): https://apps.apple.com/us/app/id1203310957. Android (Google Play): https://play.google.com/store/apps/details?id=com.flappytappy
 
 Learning for kids:
-- [Vocabula: K-12 Vocabulary](https://chiragmirani.github.io/vocabula-pages/app/): 4,241 vocabulary flashcards in English, Math and Science, Kindergarten through Grade 12, for iPhone and iPad. Works offline, no ads. App Store: https://apps.apple.com/us/app/vocabula-k-12-vocabulary/id6819035983
-- [VocabDeck](https://chiragmirani.github.io/zoes-vocabulary/): K-12 vocabulary flashcards (English, Math and Science) on the web and for iPhone and iPad, with no account, no ads and no internet needed. App Store: https://apps.apple.com/app/id6761394575
+- [Vocabula: Grade Vocabulary](https://chiragmirani.github.io/vocabula-pages/app/): 4,241 vocabulary flashcards in English, Math and Science, Kindergarten through Grade 12, for iPhone and iPad. Works offline, no ads. App Store: https://apps.apple.com/us/app/vocabula-k-12-vocabulary/id6819035983
+- [VocabDeck](https://chiragmirani.github.io/zoes-vocabulary/): The iPhone/iPad app has 1,972 English cards; the browser edition has 4,296 English, Math and Science cards. No account or ads. The iOS app works offline. App Store: https://apps.apple.com/app/id6761394575
 - [Practice Combination Lock](https://chiragmirani.github.io/locklab/): an offline trainer for three-number rotary combination locks (0–39 dial), with Watch, Learn and Practice modes for the right-left-right sequence. App Store: https://apps.apple.com/us/app/id6822015018. Details: https://chiragmirani.github.io/locklab/llms.txt
 
 Finance and exam prep:
 - [Series 65 Exam Practice Tests](https://chiragmirani.github.io/series65/): the Series 65 question bank he built and studied with before passing the exam on his first attempt in September 2026: 1,211 practice questions and 1,143 flashcards, every answer explained. App Store: https://apps.apple.com/app/id6812059689. Details: https://chiragmirani.github.io/series65/llms.txt
-- [Chip: Savings Plans & Goals](https://chiragmirani.github.io/chip-compound-calculator/): an offline compound interest calculator with growth charts, side-by-side plan comparison, goal solving and PDF/CSV reports. App Store: https://apps.apple.com/app/id6822411872. Details: https://chiragmirani.github.io/chip-compound-calculator/llms.txt
+- [Compound Interest Calculators (Chip: Savings Plans & Goals)](https://chiragmirani.github.io/chip-compound-calculator/): an offline compound interest calculator. Calculator, chart and Details are free; an optional one-time purchase adds comparisons, goals, saved plans and PDF/CSV reports. App Store: https://apps.apple.com/app/id6822411872. Details: https://chiragmirani.github.io/chip-compound-calculator/llms.txt
 - [Chip Mortgage Calculator](https://chiragmirani.github.io/chip-mortgage-calculator/): mortgage payments, schedules and comparisons for iPhone and iPad. Details: https://chiragmirani.github.io/chip-mortgage-calculator/llms.txt
 
 Spirituality:
@@ -40,3 +40,6 @@ Spirituality:
 - GitHub: https://github.com/ChiragMirani
 - Kaggle: https://www.kaggle.com/cmirani
 - X: https://x.com/chirag_mirani1
+
+## App directory
+- [All apps and readers, with use cases and download links](https://chiragmirani.github.io/apps/)
