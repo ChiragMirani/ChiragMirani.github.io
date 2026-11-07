@@ -12,7 +12,6 @@
 ## Research
 - [Live US macro forecast dashboard (MacroForecastbyCM)](https://chiragmirani.github.io/macro-dashboard/): house forecasts for major US economic releases next to Kalshi market consensus, with a public track record against actual releases. His main project.
 - [Exposure-Time Normalized Performance (SSRN working paper, 2026)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6292699): evaluating trading strategies by the time actually spent exposed to the market.
-- [A Predictive Model for 10-Year Treasury Futures (PDF, 2025)](https://chiragmirani.github.io/macro-dashboard/treasury-futures-model.pdf)
 
 ## Data science and machine learning
 - Kaggle (https://www.kaggle.com/cmirani): silver-medal notebook; top 22% (379 of 1,711 teams) in the MITSUI Commodity Prediction Challenge; currently on ARC-AGI-2 (ARC Prize 2026) and NVARC.
