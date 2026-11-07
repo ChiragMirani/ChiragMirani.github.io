@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "page_updated_at_utc": "2026-11-07T18:51:30.235548+00:00",
+  "page_updated_at_utc": "2026-11-07T19:09:54.761633+00:00",
   "checked_at_utc": "2026-11-07T18:30:09.025187+00:00",
   "kind": "historical_preview",
   "issued_at_utc": null,
@@ -121,5 +121,18 @@
     "tool": "https://chiragmirani.github.io/treasury-signal/",
     "paper": "https://chiragmirani.github.io/treasury-signal/paper/",
     "history": "https://chiragmirani.github.io/treasury-signal/data/weekly-history.csv"
+  },
+  "display": {
+    "combined_result": "WAIT",
+    "model_1": {
+      "name": "Checklist",
+      "direction": "Reduce duration",
+      "score": -2
+    },
+    "model_2": {
+      "name": "Logistic regression",
+      "direction": "Add duration",
+      "prob_yield_down_uncalibrated": 0.5491973117956056
+    }
   }
 }

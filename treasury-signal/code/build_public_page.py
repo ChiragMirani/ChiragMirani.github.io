@@ -11,6 +11,7 @@ import json
 from pathlib import Path
 import re
 import shutil
+import pandas as pd
 import model as M
 import production_signal as P
 
@@ -74,6 +75,14 @@ def build(now=None):
     summary=json.loads((M.OUT/'selected_summary.json').read_text());s=summary['periods']['later']
     preview=json.loads((M.OUT/'paper_signal_preview.json').read_text())
     rows,stats=history(now)
+    first=pd.Timestamp(json.loads(P.SPEC_PATH.read_text())['live_start'])
+    by_date={r['signal_date']:r for r in rows}
+    coverage=[]
+    for friday in pd.date_range(first,P.expected_friday(now),freq='W-FRI'):
+        key=str(friday.date());record=by_date.get(key)
+        coverage.append({'signal_date':key,'status':record['outcome_status'] if record else 'no_forecast_recorded',
+                         'issued_at_utc':record['issued_at_utc'] if record else None})
+    missing_weeks=sum(r['status']=='no_forecast_recorded' for r in coverage)
     refresh_error_path=M.OUT/'refresh_error.json'
     refresh_error=json.loads(refresh_error_path.read_text()) if refresh_error_path.exists() else None
     refresh_failed=bool(refresh_error and refresh_error['checked_at_utc']>preview['checked_at_utc'])
@@ -90,7 +99,7 @@ def build(now=None):
             'kind':kind,'issued_at_utc':issue,'reference_period_ended':expired,
             'model':json.loads(P.SPEC_PATH.read_text())['version'],'reading':reading,
             'requested_reference_friday':preview['requested_reference_friday'],
-            'refresh_note':refresh_error['error'] if refresh_failed else preview.get('requested_data_error'),
+            'refresh_note':'Data refresh did not complete; the previous dated reading is retained.' if refresh_failed else preview.get('requested_data_error'),
             'last_refresh_attempt_at_utc':refresh_error['checked_at_utc'] if refresh_failed else preview['checked_at_utc'],
             'interpretation':'An older reference period is a dated illustration, not a current forecast.' if kind=='historical_preview' or expired else 'Published weekly signal; assess against your macro view and risk budget.',
             'forecast_horizon':'Friday to Friday; visiting on another day does not change the horizon.',
@@ -99,6 +108,8 @@ def build(now=None):
     with (SITE/'data/weekly-history.csv').open('w',newline='',encoding='utf-8') as file:
         fields=['signal_date','forecast_end','issued_at_utc','model','position','checklist_score','prob_yield_down_uncalibrated','outcome_status','score_bp']
         writer=csv.DictWriter(file,fields,extrasaction='ignore');writer.writeheader();writer.writerows(rows)
+    with (SITE/'data/coverage.csv').open('w',newline='',encoding='utf-8') as file:
+        writer=csv.DictWriter(file,['signal_date','status','issued_at_utc']);writer.writeheader();writer.writerows(coverage)
     shutil.copy2(M.OUT/'selected_weekly.csv',SITE/'data/historical-weekly.csv')
     historical_label='Historical reconstruction · reference period ended' if expired else 'Calculated research preview'
     status=('Issued forecast · reference period ended' if expired else 'Issued weekly forecast') if kind=='issued_forecast' else historical_label
@@ -108,7 +119,13 @@ def build(now=None):
     action={1:'A bullish macro view has weekly support. Review the planned addition or the next staged entry.',
             -1:'The weekly reading leans against a bullish duration view. Examine the opposing inputs before adding.',
              0:'For a bullish macro view, this reading adds no tactical confirmation. Keep the macro plan and review the disagreement.'}.get(r.get('position'),'The last complete reading will appear here when the required inputs pass their checks.')
-    votes=''.join(f'<tr><th scope="row">{esc(LABELS[k][0])}</th><td>{state_text(k,v)}</td><td><span class="vote v{v}">{ {1:"Add",-1:"Reduce",0:"Neutral"}[int(v)]}</span></td><td>{esc(LABELS[k][1])}</td></tr>' for k,v in r.get('answers',{}).items())
+    votes=''
+    for direction,title in [(1,'Supports adding duration'),(-1,'Supports reducing duration'),(0,'Neutral readings')]:
+        group=[(k,v) for k,v in r.get('answers',{}).items() if v==direction]
+        votes+=f'<tbody class="vote-group group-{direction}"><tr class="group-title"><th colspan="3"><span class="group-dot"></span>{title}<span class="group-count">{len(group)} readings</span></th></tr>'
+        for k,v in group:
+            votes+=f'<tr><th scope="row">{esc(LABELS[k][0])}<span class="rule-note">{esc(LABELS[k][1])}</span></th><td>{state_text(k,v)}</td><td><span class="vote v{v}">{ {1:"Add",-1:"Reduce",0:"Neutral"}[int(v)]}</span></td></tr>'
+        votes+='</tbody>'
     checked=datetime.fromisoformat(preview['checked_at_utc']).astimezone(P.NY).strftime('%b %d, %Y at %I:%M %p %Z')
     if kind=='issued_forecast': checked=datetime.fromisoformat(issue).astimezone(P.NY).strftime('%b %d, %Y at %I:%M %p %Z')
     issue_label='Issued' if kind=='issued_forecast' else 'Calculated'
@@ -132,6 +149,15 @@ def build(now=None):
     history_table=(''.join(f'<tr><td>{r["signal_date"]}</td><td>{r["position"]:+d}</td><td>{r["outcome_status"]}</td><td>{r["score_bp"]:+.1f}</td></tr>' if r['score_bp'] is not None else f'<tr><td>{r["signal_date"]}</td><td>{r["position"]:+d}</td><td>Pending</td><td>—</td></tr>' for r in rows[-16:])
                    or '<tr><td colspan="4">The prospective record starts with eligible signals from November 13, 2026. The first issued forecast will appear here.</td></tr>')
     score_text=f'{score:+d}' if score is not None else '—';prob_text=f'{probability:.1%}' if probability is not None else '—'
+    combined={1:'ADD DURATION',-1:'REDUCE DURATION',0:'WAIT'}.get(r.get('position'),'AWAITING DATA')
+    model1=0 if score is None else (1 if score>0 else -1 if score<0 else 0)
+    model2=0 if probability is None else (1 if probability>.5 else -1 if probability<.5 else 0)
+    directions={1:'Add duration',-1:'Reduce duration',0:'Neutral'}
+    if r.get('position')==0:
+        action='The two models disagree, so the combined signal is WAIT. Keep the existing macro position; this reading adds no new duration tilt.' if model1*model2<0 else 'Neither model supplies a direction. WAIT means no additional weekly duration tilt.'
+    latest['display']={'combined_result':combined,'model_1':{'name':'Checklist','direction':directions[model1],'score':score},
+                       'model_2':{'name':'Logistic regression','direction':directions[model2],'prob_yield_down_uncalibrated':probability}}
+    write_json(SITE/'data/latest.json',latest)
     html=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{headline}</title><meta name="description" content="{description}"><link rel="canonical" href="{BASE}">
 <meta property="og:type" content="website"><meta property="og:title" content="{headline}"><meta property="og:description" content="{description}"><meta property="og:url" content="{BASE}">
@@ -139,19 +165,19 @@ def build(now=None):
 <link rel="stylesheet" href="style.css"><link rel="alternate" type="application/json" href="data/latest.json" title="Latest Treasury signal data">
 <script type="application/ld+json">{json.dumps(ld)}</script></head><body>
 <header><a class="brand" href="https://chiragmirani.github.io/">CHIRAG MIRANI <span>Research</span></a><nav aria-label="Main"><a href="#checklist">Checklist</a><a href="#how">How to use it</a><a href="#record">Results</a><a href="paper/">Paper &amp; code ↗</a></nav></header>
-<main><section class="intro"><p class="eyebrow">U.S. 10-YEAR TREASURY · WEEKLY DURATION TOOL</p><h1>A weekly check before<br>you change duration.</h1><p class="lead">Form your macro view. Then use the checklist to review the timing: <strong>add, wait or build gradually.</strong></p></section>
-<section class="signal" aria-labelledby="signal-title"><div class="signal-top"><span class="eyebrow">LATEST COMPLETE READING</span><span class="status">{status}</span></div>
-<div class="signal-body"><div><p class="dates">Reference: <time datetime="{date}">{date}</time> → <time datetime="{end}">{end}</time></p><h2 id="signal-title">{esc(view)}</h2><p class="interpretation">{esc(action)}</p><p class="timestamp">{issue_label} {checked}. {'This preview was not issued on its reference date.' if kind=='historical_preview' else ''}</p></div>
-<div class="readings"><div><span>Checklist score</span><strong>{score_text}</strong><small>{balance}</small></div><div><span>Regression: lower yields</span><strong>{prob_text}</strong><small>Model probability · uncalibrated</small></div></div></div>
+<main><section class="intro"><p class="eyebrow">U.S. 10-YEAR TREASURY · WEEKLY DURATION TOOL</p><h1>U.S. 10-Year Treasury Signal</h1><p class="lead">One weekly duration view to use after forming your macro view.</p></section>
+<section class="signal" aria-labelledby="signal-title"><div class="signal-top"><span class="eyebrow">COMBINED RESULT</span><span class="status">{status}</span></div>
+<div class="signal-body"><div class="combined"><p class="dates">Reference: <time datetime="{date}">{date}</time> → <time datetime="{end}">{end}</time></p><h2 id="signal-title" class="direction-{r.get('position',0)}">{combined}</h2><p class="interpretation">{esc(action)}</p><p class="timestamp">{issue_label} {checked}. {'This preview was not issued on its reference date.' if kind=='historical_preview' else ''}</p></div>
+<div class="readings"><div><span class="model-label">Model 1 · Checklist</span><strong class="direction-{model1}">{directions[model1]}</strong><p>Score <b>{score_text}</b></p><small>{balance}</small></div><div><span class="model-label">Model 2 · Regression</span><strong class="direction-{model2}">{directions[model2]}</strong><p><b>{prob_text}</b> probability of lower yields</p><small>Uncalibrated model probability</small></div></div></div>
 <div class="signal-bottom"><p>{'This reference period has ended. Keep the dates in view when using the illustration.' if expired else 'Compare the weekly evidence with your existing macro position and risk budget.'}</p><button id="refresh" type="button">Check latest published data ↻</button><span id="refresh-status" role="status"></span></div></section>
-<section class="section" id="checklist"><div class="section-heading"><div><p class="eyebrow">THE BALANCE OF EVIDENCE</p><h2>What is behind the reading?</h2></div><p>Fourteen equal votes, plus a regression using the same inputs. Opposing model views produce no tactical signal.</p></div>
-<div class="table-wrap"><table><thead><tr><th>Reading</th><th>Observed state</th><th>Duration vote</th><th>Rule in plain English</th></tr></thead><tbody>{votes}</tbody></table></div>
+<section class="section" id="checklist"><div class="section-heading"><div><p class="eyebrow">INSIDE MODEL 1</p><h2>The checklist, grouped by direction.</h2></div><p>Readings that favor adding duration come first, followed by reducing duration and neutral readings. These explain Model 1; the combined result above is the single signal.</p></div>
+<div class="table-wrap checklist-table"><table><thead><tr><th>Indicator and rule</th><th>Observed state</th><th>Duration vote</th></tr></thead>{votes}</table></div>
 <p class="note">These are directional hypotheses. Yield minus trailing inflation is a historical gap, not a measure of fair value. The auction input uses announcements available before the reference Friday. <a href="paper/#rules">Full definitions in the paper</a>.</p></section>
 <section class="section" id="how"><p class="eyebrow">MACRO VIEW FIRST, TIMING SECOND</p><h2>Bullish on bonds. How much to add now?</h2><p class="section-intro">Suppose your portfolio has 6 years of duration and your macro view supports a target of 7. Set the target and risk budget first; use the weekly evidence to review the entry.</p>
 <div class="steps"><article><span class="step-number">01 / WAIT</span><h3>The reading leans against you.</h3><p>Hold at 6 years while you examine the opposing inputs. A weekly disagreement can change the entry without overturning the macro thesis.</p></article><article><span class="step-number">02 / ADD</span><h3>The evidence supports your view.</h3><p>Consider moving toward the planned 7-year target if the portfolio conditions still fit. The checklist does not set the amount.</p></article><article><span class="step-number">03 / BUILD</span><h3>You prefer to stage the position.</h3><p>With the same supportive signal, add 0.25 years to reach 6.25, then reassess before the next step.</p></article></div><p class="note">Illustrative decisions, not a tested allocation rule. The model itself uses fixed +1, 0 or -1 positions.</p></section>
 <section class="section results" id="results"><p class="eyebrow">HISTORICAL RESEARCH · NOV 2016–OCT 2026</p><h2>The results, with the comparison in view.</h2><div class="stats"><div><strong>{s['hit_rate']:.1%}</strong><span>Hit rate · {s['active_weeks']} active weeks</span></div><div><strong>{s['gross_bp_year']:+.1f}</strong><span>Yield bp per year · before charge</span></div><div><strong>{s['net_bp_year']:+.1f}</strong><span>After illustrative charge · bp/year</span></div></div>
 <p>Quarterly refits and the 30-year TIPS addition were selected after inspecting the later history. The same period's always-higher-yields benchmark scores +31.4 bp/year before the charge. The selected model's four-lag t-statistic is {s['gross_t']:.2f}; these are descriptive results after selection.</p><p class="note">Scores are signed changes in the 10-year yield, not investment returns. The charge is 0.25 yield bp per position unit changed, including entry and exit. <a href="data/historical-weekly.csv">Every historical week (CSV)</a> · <a href="data/historical-summary.json">Full statistics (JSON)</a></p></section>
-<section class="section" id="record"><div class="section-heading"><div><p class="eyebrow">PROSPECTIVE WEEKLY RECORD</p><h2>Track each call as it happens.</h2></div><p>{stats['issued']} forecasts issued · {stats['completed']} outcomes recorded</p></div><p>Issued forecasts keep their actual timestamps. Outcomes are appended when available; historical reconstructions are kept out of this record.</p>
+<section class="section" id="record"><div class="section-heading"><div><p class="eyebrow">PROSPECTIVE WEEKLY RECORD</p><h2>Track each call as it happens.</h2></div><p>{stats['issued']} forecasts issued · {stats['completed']} outcomes recorded</p></div><p>Issued forecasts keep their actual timestamps. Outcomes are appended when available; historical reconstructions are kept out of this record.</p><p class="note">{missing_weeks} reference weeks without a forecast recorded, including the current week if still awaiting its issue. <a href="data/coverage.csv">Weekly coverage (CSV)</a>.</p>
 <div class="stats"><div><strong>{live_total}</strong><span>Cumulative gross yield score · bp</span></div><div><strong>{live_hit}</strong><span>Hit rate · completed active calls</span></div><div><strong>{stats['active_completed']}</strong><span>Completed active calls</span></div></div>
 <div class="table-wrap"><table><thead><tr><th>Reference Friday</th><th>Position</th><th>Outcome</th><th>Yield score, bp</th></tr></thead><tbody>{history_table}</tbody></table></div><p class="note">+1 favors adding duration; -1 favors reducing; 0 is no tactical view. Unavailable weeks are not zero-score forecasts. <a href="data/weekly-history.csv">Weekly record (CSV)</a> · <a href="data/history.json">JSON</a> · <a href="data/latest.json">Latest reading (JSON)</a></p></section>
 <section class="section"><p class="eyebrow">QUICK ANSWERS</p><h2>Using the Treasury checklist</h2><div class="faq">{faqs}</div></section>
