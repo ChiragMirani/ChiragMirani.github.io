@@ -10,4 +10,4 @@ A macro view tells a bond investor why to add or reduce duration. It still leave
 
 [Latest reading](data/latest.json), [prospective weekly record](data/weekly-history.csv), [historical results](data/historical-weekly.csv). Historical simulations and actual issued forecasts are separate. Reference and calculation dates accompany each reading.
 
-Questions: chiragmirani@gmail.com.
+Questions? [Get in touch on LinkedIn](https://www.linkedin.com/in/chiragmirani/).

@@ -3,7 +3,7 @@ Chirag Mirani | Working paper version 5 | November 7, 2026
 
 Signal tool: https://chiragmirani.github.io/treasury-signal/
 Preprint and downloads: https://chiragmirani.github.io/treasury-signal/paper/
-Questions and comments: chiragmirani@gmail.com
+Questions and comments: get in touch on LinkedIn (https://www.linkedin.com/in/chiragmirani/)
 
 PURPOSE
 Form the macro view and intended duration exposure first. Use the weekly

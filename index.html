@@ -54,6 +54,7 @@
           "@type": "Person",
           "@id": "https://chiragmirani.github.io/#person",
           "name": "Chirag Mirani",
+          "image": "https://avatars.githubusercontent.com/u/6856727?v=4",
           "url": "https://chiragmirani.github.io/",
           "jobTitle": "Data Scientist and Quantitative Researcher",
           "hasOccupation": { "@type": "Occupation", "name": "Quantitative researcher and data scientist", "occupationalCategory": "15-2051.00 Data Scientists" },
@@ -97,6 +98,10 @@
       * { box-sizing: border-box; }
       body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif; max-width: 760px; margin: 0 auto; padding: 64px 24px 72px; color: var(--ink); background: var(--bg); line-height: 1.55; }
       a { color: var(--accent); text-decoration: none; } a:hover { text-decoration: underline; }
+      .profile-heading { display:flex; align-items:center; gap:24px; margin-bottom:20px; }
+      .profile-photo { width:112px; height:112px; flex:0 0 112px; border-radius:50%; object-fit:cover; border:1px solid var(--line); }
+      .profile-heading .role { margin-bottom:0; }
+      @media (max-width:480px) { .profile-heading { gap:16px; align-items:flex-start; } .profile-photo { width:80px; height:80px; flex-basis:80px; } .profile-heading h1 { font-size:1.8em; } .profile-heading .role { font-size:.95em; } }
       header h1 { font-size: 2.2em; margin: 0; letter-spacing: -0.02em; }
       .role { font-size: 1.1em; color: var(--muted); margin: 6px 0 18px; font-weight: 500; }
       .lead { font-size: 1.05em; }
@@ -122,8 +127,11 @@
 </head>
   <body>
     <header>
-      <h1>Chirag Mirani</h1>
-      <p class="role">Investing · Data Science · Quantitative Research</p>
+      <div class="profile-heading">
+        <img class="profile-photo" src="https://avatars.githubusercontent.com/u/6856727?v=4&amp;s=224" alt="Chirag Mirani" width="112" height="112" fetchpriority="high" decoding="async">
+        <div><h1>Chirag Mirani</h1>
+          <p class="role">Investing · Data Science · Quantitative Research</p></div>
+      </div>
       <p class="lead">Data scientist and quantitative researcher with about 20 years in quantitative finance (Master of Science in Computational Finance, Carnegie Mellon University). I build predictive models and forecasting systems across macroeconomics, rates, options, volatility, time series and prediction markets. Based in Suwanee, Georgia.</p>
       <a class="cta" href="https://www.linkedin.com/in/chiragmirani/">Connect on LinkedIn</a>
       <ul class="links">
