@@ -1,9 +1,10 @@
 {
   "schema_version": 1,
-  "page_updated_at_utc": "2026-11-07T19:09:54.761633+00:00",
-  "checked_at_utc": "2026-11-07T18:30:09.025187+00:00",
+  "page_updated_at_utc": "2026-11-07T20:20:30.003619+00:00",
+  "checked_at_utc": "2026-11-07T20:08:33.303803+00:00",
   "kind": "historical_preview",
   "issued_at_utc": null,
+  "signal_generated_as_of_utc": "2026-11-07T20:08:33.303803+00:00",
   "reference_period_ended": true,
   "model": "weekly-14-quarterly-tips-2026-11-07-v4",
   "reading": {
@@ -12,7 +13,7 @@
     "checklist_score": -2,
     "prob_yield_down_uncalibrated": 0.5491973117956056,
     "position": 0,
-    "view": "No tactical view",
+    "view": "Neutral",
     "votes_add": 5,
     "votes_reduce": 7,
     "votes_neutral": 2,
@@ -105,10 +106,11 @@
     }
   },
   "requested_reference_friday": "2026-11-06",
+  "requested_reference_status": "unavailable",
   "refresh_note": "y10 is missing or stale; y2 is missing or stale; vix is missing or stale",
-  "last_refresh_attempt_at_utc": "2026-11-07T18:30:09.025187+00:00",
+  "last_refresh_attempt_at_utc": "2026-11-07T20:08:33.303803+00:00",
   "interpretation": "An older reference period is a dated illustration, not a current forecast.",
-  "forecast_horizon": "Friday to Friday; visiting on another day does not change the horizon.",
+  "forecast_horizon": "Duration view one week ahead, from the reference Friday to the following Friday; visiting on another day does not change the horizon.",
   "prospective": {
     "issued": 0,
     "completed": 0,
@@ -123,15 +125,17 @@
     "history": "https://chiragmirani.github.io/treasury-signal/data/weekly-history.csv"
   },
   "display": {
-    "combined_result": "WAIT",
+    "combined_result": "Neutral",
+    "horizon": "One-week-ahead outlook for the 10-year Treasury yield",
+    "signal_generated_as_of": "November 7, 2026, 03:08:33 PM EST",
     "model_1": {
       "name": "Checklist",
-      "direction": "Reduce duration",
+      "direction": "Bearish Duration",
       "score": -2
     },
     "model_2": {
       "name": "Logistic regression",
-      "direction": "Add duration",
+      "direction": "Bullish Duration",
       "prob_yield_down_uncalibrated": 0.5491973117956056
     }
   }

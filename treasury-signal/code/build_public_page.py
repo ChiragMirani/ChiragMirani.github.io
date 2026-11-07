@@ -18,6 +18,11 @@ import production_signal as P
 ROOT=Path(__file__).resolve().parent
 SITE=ROOT/'public_site'/'treasury-signal'
 BASE='https://chiragmirani.github.io/treasury-signal/'
+DIRECTIONS={1:'Bullish Duration',-1:'Bearish Duration',0:'Neutral'}
+
+def long_date(value):
+    d=pd.Timestamp(value)
+    return f'{d.strftime("%B")} {d.day}, {d.year}'
 LABELS={
  'us_eq':('U.S. equities','Four-week equity move; rising prices vote to reduce duration.'),
  'em_eq':('Emerging-market equities','Four-week equity move; rising prices vote to reduce duration.'),
@@ -59,6 +64,8 @@ def history(now):
         # Explicit whitelist: private snapshots and fitted artifacts are never copied.
         rows.append({k:r.get(k) for k in ['signal_date','forecast_end','issued_at_utc','model','position','view','checklist_score',
                     'prob_yield_down_uncalibrated','answers']} | {'score_bp':o.get('score_bp'),'outcome_status':'completed' if o else 'pending'})
+    for row in rows:
+        if row['position'] in DIRECTIONS:row['view']=DIRECTIONS[row['position']]
     completed=[r for r in rows if r['score_bp'] is not None]
     active=[r for r in completed if r['position']!=0]
     stats={'issued':len(rows),'completed':len(completed),'active_completed':len(active),
@@ -94,15 +101,19 @@ def build(now=None):
                  'prob_yield_down_uncalibrated':r['prob_yield_down_uncalibrated'],'position':r['position'],
                  'answers':answers,'votes_add':sum(v>0 for v in answers.values()),'votes_reduce':sum(v<0 for v in answers.values()),
                  'votes_neutral':sum(v==0 for v in answers.values()),'view':{1:'Favors adding duration',-1:'Favors reducing duration',0:'No tactical view'}[r['position']]}
+    if reading is not None:
+        reading=dict(reading,view=DIRECTIONS[reading['position']])
+    generated_at=issue if kind=='issued_forecast' else preview['checked_at_utc']
     expired=reading is not None and now.astimezone(P.NY).date()>datetime.fromisoformat(reading['target_end']).date()
     latest={'schema_version':1,'page_updated_at_utc':now.isoformat(),'checked_at_utc':preview['checked_at_utc'],
-            'kind':kind,'issued_at_utc':issue,'reference_period_ended':expired,
+            'kind':kind,'issued_at_utc':issue,'signal_generated_as_of_utc':generated_at,'reference_period_ended':expired,
             'model':json.loads(P.SPEC_PATH.read_text())['version'],'reading':reading,
             'requested_reference_friday':preview['requested_reference_friday'],
+            'requested_reference_status':preview['status'],
             'refresh_note':'Data refresh did not complete; the previous dated reading is retained.' if refresh_failed else preview.get('requested_data_error'),
             'last_refresh_attempt_at_utc':refresh_error['checked_at_utc'] if refresh_failed else preview['checked_at_utc'],
             'interpretation':'An older reference period is a dated illustration, not a current forecast.' if kind=='historical_preview' or expired else 'Published weekly signal; assess against your macro view and risk budget.',
-            'forecast_horizon':'Friday to Friday; visiting on another day does not change the horizon.',
+            'forecast_horizon':'Duration view one week ahead, from the reference Friday to the following Friday; visiting on another day does not change the horizon.',
             'prospective':stats,'links':{'tool':BASE,'paper':BASE+'paper/','history':BASE+'data/weekly-history.csv'}}
     write_json(SITE/'data/latest.json',latest);write_json(SITE/'data/history.json',rows);write_json(SITE/'data/historical-summary.json',summary)
     with (SITE/'data/weekly-history.csv').open('w',newline='',encoding='utf-8') as file:
@@ -116,25 +127,27 @@ def build(now=None):
     r=reading or {};view=r.get('view','Awaiting a complete reading')
     date=r.get('reference_friday','—');end=r.get('target_end','—');score=r.get('checklist_score')
     probability=r.get('prob_yield_down_uncalibrated')
-    action={1:'A bullish macro view has weekly support. Review the planned addition or the next staged entry.',
-            -1:'The weekly reading leans against a bullish duration view. Examine the opposing inputs before adding.',
+    action={1:'The combined model is bullish duration: it favors lower 10-year Treasury yields over the stated one-week period. Review the planned addition or the next staged entry.',
+            -1:'The combined model is bearish duration: it favors higher 10-year Treasury yields over the stated one-week period. Review the case for reducing duration or deferring an addition.',
              0:'For a bullish macro view, this reading adds no tactical confirmation. Keep the macro plan and review the disagreement.'}.get(r.get('position'),'The last complete reading will appear here when the required inputs pass their checks.')
     votes=''
-    for direction,title in [(1,'Supports adding duration'),(-1,'Supports reducing duration'),(0,'Neutral readings')]:
+    for direction,title in [(1,'Bullish duration readings'),(-1,'Bearish duration readings'),(0,'Neutral readings')]:
         group=[(k,v) for k,v in r.get('answers',{}).items() if v==direction]
         votes+=f'<tbody class="vote-group group-{direction}"><tr class="group-title"><th colspan="3"><span class="group-dot"></span>{title}<span class="group-count">{len(group)} readings</span></th></tr>'
         for k,v in group:
-            votes+=f'<tr><th scope="row">{esc(LABELS[k][0])}<span class="rule-note">{esc(LABELS[k][1])}</span></th><td>{state_text(k,v)}</td><td><span class="vote v{v}">{ {1:"Add",-1:"Reduce",0:"Neutral"}[int(v)]}</span></td></tr>'
+            votes+=f'<tr><th scope="row">{esc(LABELS[k][0])}<span class="rule-note">{esc(LABELS[k][1])}</span></th><td>{state_text(k,v)}</td><td><span class="vote v{v}">{ {1:"Bullish",-1:"Bearish",0:"Neutral"}[int(v)]}</span></td></tr>'
         votes+='</tbody>'
-    checked=datetime.fromisoformat(preview['checked_at_utc']).astimezone(P.NY).strftime('%b %d, %Y at %I:%M %p %Z')
-    if kind=='issued_forecast': checked=datetime.fromisoformat(issue).astimezone(P.NY).strftime('%b %d, %Y at %I:%M %p %Z')
-    issue_label='Issued' if kind=='issued_forecast' else 'Calculated'
+    generated_ny=datetime.fromisoformat(generated_at).astimezone(P.NY)
+    checked=long_date(generated_ny)+generated_ny.strftime(', %I:%M:%S %p %Z')
+    period_start=long_date(date) if reading else '—'
+    period_end=long_date(end) if reading else '—'
     live_total='—' if stats['total_gross_yield_score_bp'] is None else f"{stats['total_gross_yield_score_bp']:+.1f}"
     live_hit='—' if stats['hit_rate'] is None else f"{stats['hit_rate']:.1%}"
     balance=f'{r.get("votes_add",0)} add / {r.get("votes_reduce",0)} reduce / {r.get("votes_neutral",0)} neutral'
-    headline='US 10-Year Treasury Signal & Duration Checklist | Chirag Mirani'
-    description='A weekly US 10-year Treasury yield signal for reviewing duration timing after forming a macro view. See the dated checklist, model results, practical example, preprint and code.'
-    faq=[('What does the Treasury signal help me decide?','It is an additional timing check after you form a macro view: review whether to add duration now, wait, or build the planned position gradually.'),
+    headline='10-Year Treasury Yield Outlook & Duration Signal | Chirag Mirani'
+    description='A one-week-ahead US 10-year Treasury duration view: Bullish Duration, Bearish Duration or Neutral. See when the signal was generated, its forecast period, checklist, results and paper.'
+    faq=[('What does the Treasury signal help me decide?','It is a duration view one week ahead, used after forming a macro view. Bullish Duration favors lower yields and supports adding duration; Bearish Duration favors higher yields and supports reducing duration. Neutral adds no directional tilt. Position size remains a portfolio decision.'),
+         ('What does Signal generated as of mean?','It is the actual time the displayed reading was generated, shown in New York time. The one-week period is shown separately. A historical reconstruction can be generated after that period ends and is explicitly labelled; its generation time does not make it a current forecast.'),
          ('Is the position scaled by the score?','No. The model outputs +1, 0 or -1. The score shows the balance of votes; the regression probability is uncalibrated. Portfolio size comes from your risk budget and implementation plan.'),
          ('Can I use the page on Monday or another day?','Yes. You can check the latest published data on any day. The tested signal remains Friday to Friday; a Monday visit does not create a Monday-to-Monday forecast.'),
          ('How are results measured?','The score is minus the position times the next weekly change in the 10-year Treasury yield, in basis points. Flat weeks score zero. It is a yield-direction measure, not a bond or ETF return.'),
@@ -143,43 +156,50 @@ def build(now=None):
          ('Where are the paper and reproducible code?','The preprint page links the PDF, readable paper, full code package and historical result tables. The weekly tracker supplies JSON and CSV downloads.')]
     faqs=''.join(f'<details><summary>{esc(q)}</summary><p>{esc(a)}</p></details>' for q,a in faq)
     ld={'@context':'https://schema.org','@graph':[
-        {'@type':'WebApplication','name':'Weekly Treasury Duration Checklist','url':BASE,'applicationCategory':'FinanceApplication','operatingSystem':'Any browser','description':description,'creator':{'@type':'Person','name':'Chirag Mirani','url':'https://chiragmirani.github.io/'}},
+        {'@type':'WebPage','@id':BASE+'#page','url':BASE,'name':headline,'description':description,
+         'inLanguage':'en','dateModified':now.isoformat(),'isAccessibleForFree':True,
+         'author':{'@type':'Person','name':'Chirag Mirani','url':'https://chiragmirani.github.io/'},
+         'citation':BASE+'paper/','mainEntity':{'@id':BASE+'#tool'}},
+        {'@type':'WebApplication','@id':BASE+'#tool','name':'Weekly Treasury Duration Checklist','url':BASE,'applicationCategory':'FinanceApplication','operatingSystem':'Any browser','description':description,'isAccessibleForFree':True,'creator':{'@type':'Person','name':'Chirag Mirani','url':'https://chiragmirani.github.io/'}},
         {'@type':'Dataset','name':'Weekly Treasury Signal: Prospective Forecasts and Outcomes','url':BASE+'#record','description':'Actual issue times and subsequent signed yield-change scores; historical simulations are separate.','creator':{'@type':'Person','name':'Chirag Mirani'},'distribution':{'@type':'DataDownload','contentUrl':BASE+'data/weekly-history.csv','encodingFormat':'text/csv'}},
         {'@type':'FAQPage','mainEntity':[{'@type':'Question','name':q,'acceptedAnswer':{'@type':'Answer','text':a}} for q,a in faq]}]}
     history_table=(''.join(f'<tr><td>{r["signal_date"]}</td><td>{r["position"]:+d}</td><td>{r["outcome_status"]}</td><td>{r["score_bp"]:+.1f}</td></tr>' if r['score_bp'] is not None else f'<tr><td>{r["signal_date"]}</td><td>{r["position"]:+d}</td><td>Pending</td><td>—</td></tr>' for r in rows[-16:])
                    or '<tr><td colspan="4">The prospective record starts with eligible signals from November 13, 2026. The first issued forecast will appear here.</td></tr>')
     score_text=f'{score:+d}' if score is not None else '—';prob_text=f'{probability:.1%}' if probability is not None else '—'
-    combined={1:'ADD DURATION',-1:'REDUCE DURATION',0:'WAIT'}.get(r.get('position'),'AWAITING DATA')
+    combined=DIRECTIONS.get(r.get('position'),'Awaiting data')
     model1=0 if score is None else (1 if score>0 else -1 if score<0 else 0)
     model2=0 if probability is None else (1 if probability>.5 else -1 if probability<.5 else 0)
-    directions={1:'Add duration',-1:'Reduce duration',0:'Neutral'}
+    directions=DIRECTIONS
+    model1_label=directions[model1] if score is not None else 'Unavailable'
+    model2_label=directions[model2] if probability is not None else 'Unavailable'
     if r.get('position')==0:
-        action='The two models disagree, so the combined signal is WAIT. Keep the existing macro position; this reading adds no new duration tilt.' if model1*model2<0 else 'Neither model supplies a direction. WAIT means no additional weekly duration tilt.'
-    latest['display']={'combined_result':combined,'model_1':{'name':'Checklist','direction':directions[model1],'score':score},
-                       'model_2':{'name':'Logistic regression','direction':directions[model2],'prob_yield_down_uncalibrated':probability}}
+        action='The two models disagree. The combined model is neutral for the stated one-week period, adding no duration tilt to the macro position.' if model1*model2<0 else 'The combined model is neutral: neither model supplies a directional tilt for the stated one-week period.'
+    latest['display']={'combined_result':combined,'horizon':'One-week-ahead outlook for the 10-year Treasury yield','signal_generated_as_of':checked,'model_1':{'name':'Checklist','direction':model1_label,'score':score},
+                       'model_2':{'name':'Logistic regression','direction':model2_label,'prob_yield_down_uncalibrated':probability}}
     write_json(SITE/'data/latest.json',latest)
     html=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{headline}</title><meta name="description" content="{description}"><link rel="canonical" href="{BASE}">
 <meta property="og:type" content="website"><meta property="og:title" content="{headline}"><meta property="og:description" content="{description}"><meta property="og:url" content="{BASE}">
-<meta name="twitter:card" content="summary"><meta name="robots" content="index,follow,max-snippet:-1"><meta name="author" content="Chirag Mirani">
+<meta name="twitter:card" content="summary_large_image"><meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"><meta name="author" content="Chirag Mirani">
+<meta property="og:image" content="{BASE}assets/research-cover.png"><meta property="og:image:alt" content="Chirag Mirani: U.S. 10-Year Treasury Yield Outlook. One-week duration signal, working paper and reproducible code."><meta property="og:locale" content="en_US">
 <link rel="stylesheet" href="style.css"><link rel="alternate" type="application/json" href="data/latest.json" title="Latest Treasury signal data">
 <script type="application/ld+json">{json.dumps(ld)}</script></head><body>
 <header><a class="brand" href="https://chiragmirani.github.io/">CHIRAG MIRANI <span>Research</span></a><nav aria-label="Main"><a href="#checklist">Checklist</a><a href="#how">How to use it</a><a href="#record">Results</a><a href="paper/">Paper &amp; code ↗</a></nav></header>
-<main><section class="intro"><p class="eyebrow">U.S. 10-YEAR TREASURY · WEEKLY DURATION TOOL</p><h1>U.S. 10-Year Treasury Signal</h1><p class="lead">One weekly duration view to use after forming your macro view.</p></section>
-<section class="signal" aria-labelledby="signal-title"><div class="signal-top"><span class="eyebrow">COMBINED RESULT</span><span class="status">{status}</span></div>
-<div class="signal-body"><div class="combined"><p class="dates">Reference: <time datetime="{date}">{date}</time> → <time datetime="{end}">{end}</time></p><h2 id="signal-title" class="direction-{r.get('position',0)}">{combined}</h2><p class="interpretation">{esc(action)}</p><p class="timestamp">{issue_label} {checked}. {'This preview was not issued on its reference date.' if kind=='historical_preview' else ''}</p></div>
-<div class="readings"><div><span class="model-label">Model 1 · Checklist</span><strong class="direction-{model1}">{directions[model1]}</strong><p>Score <b>{score_text}</b></p><small>{balance}</small></div><div><span class="model-label">Model 2 · Regression</span><strong class="direction-{model2}">{directions[model2]}</strong><p><b>{prob_text}</b> probability of lower yields</p><small>Uncalibrated model probability</small></div></div></div>
-<div class="signal-bottom"><p>{'This reference period has ended. Keep the dates in view when using the illustration.' if expired else 'Compare the weekly evidence with your existing macro position and risk budget.'}</p><button id="refresh" type="button">Check latest published data ↻</button><span id="refresh-status" role="status"></span></div></section>
+<main><section class="intro"><p class="eyebrow">CHIRAG MIRANI / FIXED INCOME RESEARCH</p><h1>U.S. 10-Year Treasury Yield Outlook</h1><p class="lead">A duration view one week ahead, to use after forming your macro view.</p></section>
+<section class="signal" aria-labelledby="signal-title" data-signal-reference="{date}"><div class="signal-top"><span class="eyebrow">ONE-WEEK-AHEAD OUTLOOK FOR THE 10-YEAR TREASURY YIELD</span><span class="status">{status}</span></div>
+<div class="signal-body"><div class="combined"><h2 id="signal-title" class="direction-{r.get('position',0)}">{combined}</h2><p class="interpretation">{esc(action)}</p><div class="signal-dates"><p class="timestamp"><span>Signal generated as of:</span><time datetime="{generated_at}">{checked} (New York)</time></p><p class="dates"><span>Outlook for the week ending:</span><time datetime="{end}">{period_end}</time> close<br><small>Based on the <time datetime="{date}">{period_start}</time> close.</small></p></div></div>
+<div class="readings"><div><span class="model-label">Model 1 · Checklist</span><strong class="direction-{model1}">{model1_label}</strong><p>Score <b>{score_text}</b></p><small>{balance}</small></div><div><span class="model-label">Model 2 · Regression</span><strong class="direction-{model2}">{model2_label}</strong><p><b>{prob_text}</b> probability of lower yields</p><small>Uncalibrated model probability</small></div></div></div>
+<div class="signal-bottom"><p>{'Historical illustration, generated after the period ended; not issued as a live forecast.' if kind=='historical_preview' and expired else 'Historical illustration; not issued as a live forecast.' if kind=='historical_preview' else 'This issued forecast period has ended.' if expired else 'Compare the one-week view with your macro position and risk budget.'}</p><button id="refresh" type="button">Check latest published data ↻</button><span id="refresh-status" role="status"></span></div></section>
 <section class="section" id="checklist"><div class="section-heading"><div><p class="eyebrow">INSIDE MODEL 1</p><h2>The checklist, grouped by direction.</h2></div><p>Readings that favor adding duration come first, followed by reducing duration and neutral readings. These explain Model 1; the combined result above is the single signal.</p></div>
 <div class="table-wrap checklist-table"><table><thead><tr><th>Indicator and rule</th><th>Observed state</th><th>Duration vote</th></tr></thead>{votes}</table></div>
 <p class="note">These are directional hypotheses. Yield minus trailing inflation is a historical gap, not a measure of fair value. The auction input uses announcements available before the reference Friday. <a href="paper/#rules">Full definitions in the paper</a>.</p></section>
 <section class="section" id="how"><p class="eyebrow">MACRO VIEW FIRST, TIMING SECOND</p><h2>Bullish on bonds. How much to add now?</h2><p class="section-intro">Suppose your portfolio has 6 years of duration and your macro view supports a target of 7. Set the target and risk budget first; use the weekly evidence to review the entry.</p>
-<div class="steps"><article><span class="step-number">01 / WAIT</span><h3>The reading leans against you.</h3><p>Hold at 6 years while you examine the opposing inputs. A weekly disagreement can change the entry without overturning the macro thesis.</p></article><article><span class="step-number">02 / ADD</span><h3>The evidence supports your view.</h3><p>Consider moving toward the planned 7-year target if the portfolio conditions still fit. The checklist does not set the amount.</p></article><article><span class="step-number">03 / BUILD</span><h3>You prefer to stage the position.</h3><p>With the same supportive signal, add 0.25 years to reach 6.25, then reassess before the next step.</p></article></div><p class="note">Illustrative decisions, not a tested allocation rule. The model itself uses fixed +1, 0 or -1 positions.</p></section>
+<div class="steps"><article><span class="step-number">01 / REVIEW THE ENTRY</span><h3>Bearish or neutral.</h3><p>A bearish reading opposes the planned addition; a neutral reading gives no extra directional support. You may keep 6 years while reviewing the entry against your macro plan.</p></article><article><span class="step-number">02 / ADD DURATION</span><h3>Bullish duration.</h3><p>Consider moving toward the planned 7-year target if the portfolio conditions still fit. The checklist does not set the amount.</p></article><article><span class="step-number">03 / BUILD GRADUALLY</span><h3>The same bullish reading.</h3><p>If you prefer a staged entry, add 0.25 years to reach 6.25, then reassess before the next step.</p></article></div><p class="note">Illustrative decisions, not a tested allocation rule. The model itself uses fixed +1, 0 or -1 positions.</p></section>
 <section class="section results" id="results"><p class="eyebrow">HISTORICAL RESEARCH · NOV 2016–OCT 2026</p><h2>The results, with the comparison in view.</h2><div class="stats"><div><strong>{s['hit_rate']:.1%}</strong><span>Hit rate · {s['active_weeks']} active weeks</span></div><div><strong>{s['gross_bp_year']:+.1f}</strong><span>Yield bp per year · before charge</span></div><div><strong>{s['net_bp_year']:+.1f}</strong><span>After illustrative charge · bp/year</span></div></div>
 <p>Quarterly refits and the 30-year TIPS addition were selected after inspecting the later history. The same period's always-higher-yields benchmark scores +31.4 bp/year before the charge. The selected model's four-lag t-statistic is {s['gross_t']:.2f}; these are descriptive results after selection.</p><p class="note">Scores are signed changes in the 10-year yield, not investment returns. The charge is 0.25 yield bp per position unit changed, including entry and exit. <a href="data/historical-weekly.csv">Every historical week (CSV)</a> · <a href="data/historical-summary.json">Full statistics (JSON)</a></p></section>
 <section class="section" id="record"><div class="section-heading"><div><p class="eyebrow">PROSPECTIVE WEEKLY RECORD</p><h2>Track each call as it happens.</h2></div><p>{stats['issued']} forecasts issued · {stats['completed']} outcomes recorded</p></div><p>Issued forecasts keep their actual timestamps. Outcomes are appended when available; historical reconstructions are kept out of this record.</p><p class="note">{missing_weeks} reference weeks without a forecast recorded, including the current week if still awaiting its issue. <a href="data/coverage.csv">Weekly coverage (CSV)</a>.</p>
 <div class="stats"><div><strong>{live_total}</strong><span>Cumulative gross yield score · bp</span></div><div><strong>{live_hit}</strong><span>Hit rate · completed active calls</span></div><div><strong>{stats['active_completed']}</strong><span>Completed active calls</span></div></div>
-<div class="table-wrap"><table><thead><tr><th>Reference Friday</th><th>Position</th><th>Outcome</th><th>Yield score, bp</th></tr></thead><tbody>{history_table}</tbody></table></div><p class="note">+1 favors adding duration; -1 favors reducing; 0 is no tactical view. Unavailable weeks are not zero-score forecasts. <a href="data/weekly-history.csv">Weekly record (CSV)</a> · <a href="data/history.json">JSON</a> · <a href="data/latest.json">Latest reading (JSON)</a></p></section>
+<div class="table-wrap"><table><thead><tr><th>Reference Friday</th><th>Position</th><th>Outcome</th><th>Yield score, bp</th></tr></thead><tbody>{history_table}</tbody></table></div><p class="note">+1 is Bullish Duration; -1 is Bearish Duration; 0 is Neutral. Unavailable weeks are not neutral forecasts. <a href="data/weekly-history.csv">Weekly record (CSV)</a> · <a href="data/history.json">JSON</a> · <a href="data/latest.json">Latest reading (JSON)</a></p></section>
 <section class="section"><p class="eyebrow">QUICK ANSWERS</p><h2>Using the Treasury checklist</h2><div class="faq">{faqs}</div></section>
 <aside class="paper-call"><div><p class="eyebrow">OPEN WORKING PAPER</p><h2>Read it. Check it. Reproduce it.</h2><p>{esc(meta['title'])}<br>Chirag Mirani · November 7, 2026 · Version 4</p></div><a class="button" href="paper/">Read the preprint &amp; get the code ↗</a></aside>
 <details class="operations"><summary>Data refresh details</summary><p>Last model check: {checked}. Requested reference Friday: {preview['requested_reference_friday']}.</p><p>{esc(latest['refresh_note'] or 'The requested inputs passed the checks.')}</p><p>The button checks the most recently published data. It does not run a new model in your browser. The scheduled local refresh downloads inputs, validates them and publishes eligible weekly forecasts.</p></details></main>
@@ -191,10 +211,13 @@ def build(now=None):
     body=body.replace('<h2 class="appendix">Appendix A.','<h2 class="appendix" id="rules">Appendix A.')
     article={'@context':'https://schema.org','@type':'ScholarlyArticle','headline':meta['title'],'author':{'@type':'Person','name':meta['author'],'url':'https://chiragmirani.github.io/'},'datePublished':meta['date'],'version':'4','description':meta['abstract'],'url':BASE+'paper/','encoding':{'@type':'MediaObject','contentUrl':BASE+'paper/treasury-signal-preprint.pdf','encodingFormat':'application/pdf'},'keywords':meta['keywords']}
     ph=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(meta['title'])} | Chirag Mirani</title><meta name="description" content="{esc(description)}"><meta name="author" content="Chirag Mirani"><link rel="canonical" href="{BASE}paper/"><meta name="citation_title" content="{esc(meta['title'])}"><meta name="citation_author" content="Mirani, Chirag"><meta name="citation_publication_date" content="2026/11/07"><meta name="citation_pdf_url" content="{BASE}paper/treasury-signal-preprint.pdf"><meta name="citation_abstract_html_url" content="{BASE}paper/"><meta name="keywords" content="{esc('; '.join(meta['keywords']))}"><meta property="og:type" content="article"><meta property="og:title" content="{esc(meta['title'])}"><meta property="og:url" content="{BASE}paper/"><meta property="og:description" content="{esc(description)}"><link rel="stylesheet" href="../style.css"><script type="application/ld+json">{json.dumps(article)}</script></head><body class="paper-page"><header><a class="brand" href="../">CHIRAG MIRANI <span>Treasury signal</span></a><nav><a href="treasury-signal-preprint.pdf">PDF</a><a href="treasury-signal-code.zip">Code &amp; results</a><a href="../">Signal tool ↗</a></nav></header><main class="paper-content"><p class="paper-downloads"><a href="treasury-signal-preprint.pdf">Download PDF</a> · <a href="treasury-signal-code.zip">Download reproducible code and results</a> · <a href="citation.bib">BibTeX citation</a></p>{body}</main><footer>Questions: <a href="mailto:chiragmirani@gmail.com">chiragmirani@gmail.com</a> · <a href="../">Weekly Treasury signal tool</a></footer></body></html>'''
+    ph=ph.replace('</head>',f'<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"><meta name="twitter:card" content="summary_large_image"><meta property="og:image" content="{BASE}assets/research-cover.png"><meta property="og:image:alt" content="A Simple Weekly Signal for the U.S. 10-Year Treasury Yield, by Chirag Mirani"></head>')
     (SITE/'paper/index.html').write_text(ph,encoding='utf-8')
     shutil.copy2(ROOT/'A_Simple_Weekly_Signal_US_10Y_Treasury_Yield.pdf',SITE/'paper/treasury-signal-preprint.pdf')
     (SITE/'paper/citation.bib').write_text('@techreport{mirani2026treasurysignal,\n  author = {Mirani, Chirag},\n  title = {A Simple Weekly Signal for the U.S. 10-Year Treasury Yield},\n  year = {2026},\n  month = {November},\n  type = {Working paper, version 4},\n  url = {https://chiragmirani.github.io/treasury-signal/paper/}\n}\n',encoding='utf-8')
-    (SITE/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join(f'<url><loc>{BASE}{path}</loc><lastmod>{now.date()}</lastmod></url>' for path in ('','paper/'))+'</urlset>',encoding='utf-8')
+    paper_modified=datetime.fromtimestamp((ROOT/'A_Simple_Weekly_Signal_US_10Y_Treasury_Yield.pdf').stat().st_mtime,timezone.utc).date()
+    sitemap_pages=[('',now.date()),('paper/',paper_modified),('paper/treasury-signal-preprint.pdf',paper_modified)]
+    (SITE/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join(f'<url><loc>{BASE}{path}</loc><lastmod>{modified}</lastmod></url>' for path,modified in sitemap_pages)+'</urlset>',encoding='utf-8')
     (SITE/'README.md').write_text(f'# {meta["title"]}\n\nBy Chirag Mirani. Working paper, version 4, November 7, 2026.\n\n[Weekly signal tool]({BASE}) · [Preprint and PDF]({BASE}paper/) · [Code and result tables]({BASE}paper/treasury-signal-code.zip)\n\n{meta["abstract"]}\n\n## Data\n\n[Latest reading](data/latest.json), [prospective weekly record](data/weekly-history.csv), [historical results](data/historical-weekly.csv). Historical simulations and actual issued forecasts are separate. Reference and calculation dates accompany each reading.\n\nQuestions: chiragmirani@gmail.com.\n',encoding='utf-8')
     print(json.dumps({'site':str(SITE),'reading':date,'view':view,'kind':kind,'issued':stats['issued']}))
 

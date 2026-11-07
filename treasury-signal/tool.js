@@ -9,12 +9,13 @@ button?.addEventListener('click', async () => {
     if (!response.ok) throw new Error('Data request failed');
     const data = await response.json();
     if (data.schema_version !== 1 || !data.reading) throw new Error('No complete reading in the published data');
-    const current = document.querySelector('.dates time')?.getAttribute('datetime');
+    const current = document.querySelector('[data-signal-reference]')?.getAttribute('data-signal-reference');
     if (current !== data.reading.reference_friday) {
       status.textContent = 'A newer reading is available. Loading it…';
       location.reload();
     } else {
-      status.textContent = 'Latest published reference: ' + data.reading.reference_friday + '. This page is showing that reading.';
+      const asOf = new Date(data.reading.reference_friday + 'T12:00:00Z').toLocaleDateString('en-US', {month:'long',day:'numeric',year:'numeric',timeZone:'America/New_York'});
+      status.textContent = 'This is the latest complete published reading, based on the ' + asOf + ' close.';
     }
   } catch (error) {
     status.textContent = 'Could not check for an update. The dated reading above is unchanged.';
