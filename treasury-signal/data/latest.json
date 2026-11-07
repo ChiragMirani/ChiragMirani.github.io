@@ -1,22 +1,18 @@
 {
   "schema_version": 1,
-  "page_updated_at_utc": "2026-11-07T20:20:30.003619+00:00",
-  "checked_at_utc": "2026-11-07T20:08:33.303803+00:00",
-  "kind": "historical_preview",
-  "issued_at_utc": null,
-  "signal_generated_as_of_utc": "2026-11-07T20:08:33.303803+00:00",
-  "reference_period_ended": true,
-  "model": "weekly-14-quarterly-tips-2026-11-07-v4",
+  "page_updated_at_utc": "2026-11-07T20:51:41.451917+00:00",
+  "checked_at_utc": "2026-11-07T20:48:23.678982+00:00",
+  "kind": "issued_forecast",
+  "issued_at_utc": "2026-11-07T20:48:18.309499+00:00",
+  "signal_generated_as_of_utc": "2026-11-07T20:48:18.309499+00:00",
+  "reference_period_ended": false,
+  "model": "weekly-14-quarterly-tips-2026-11-07-v5",
   "reading": {
-    "reference_friday": "2026-10-30",
-    "target_end": "2026-11-06",
+    "reference_friday": "2026-11-06",
+    "target_end": "2026-11-13",
     "checklist_score": -2,
-    "prob_yield_down_uncalibrated": 0.5491973117956056,
+    "prob_yield_down_uncalibrated": 0.5664917860183382,
     "position": 0,
-    "view": "Neutral",
-    "votes_add": 5,
-    "votes_reduce": 7,
-    "votes_neutral": 2,
     "answers": {
       "us_eq": 1,
       "em_eq": 1,
@@ -33,86 +29,78 @@
       "dec": 0,
       "tips_30": 0
     },
-    "freshness_checked": true,
-    "input_dates": {
-      "y10": {
-        "observation": "2026-10-30",
-        "delay_days": 0
-      },
-      "y2": {
-        "observation": "2026-10-30",
-        "delay_days": 0
-      },
-      "us_eq": {
-        "observation": "2026-10-30",
-        "delay_days": 0
-      },
-      "em_eq": {
-        "observation": "2026-10-30",
-        "delay_days": 0
-      },
-      "oil": {
-        "observation": "2026-10-23",
-        "delay_days": 7
-      },
-      "vix": {
-        "observation": "2026-10-30",
-        "delay_days": 0
-      },
-      "DEXUSEU": {
-        "observation": "2026-10-23",
-        "delay_days": 7
-      },
-      "DEXJPUS": {
-        "observation": "2026-10-23",
-        "delay_days": 7
-      },
-      "DEXUSUK": {
-        "observation": "2026-10-23",
-        "delay_days": 7
-      },
-      "DEXCAUS": {
-        "observation": "2026-10-23",
-        "delay_days": 7
-      },
-      "DEXSZUS": {
-        "observation": "2026-10-23",
-        "delay_days": 7
-      },
-      "DEXUSAL": {
-        "observation": "2026-10-23",
-        "delay_days": 7
-      },
-      "unrate": {
-        "vintage": "2026-10-02",
-        "last_observation": "2026-09-01"
-      },
-      "core_pce_yoy": {
-        "vintage": "2026-10-29",
-        "last_observation": "2026-09-01"
-      },
-      "de10_chg": {
-        "vintage": "2026-10-15",
-        "last_observation": "2026-09-01"
-      },
-      "jp10_chg": {
-        "vintage": "2026-10-15",
-        "last_observation": "2026-09-01"
-      },
-      "uk10_chg": {
-        "vintage": "2026-10-15",
-        "last_observation": "2026-09-01"
-      }
-    }
+    "votes_add": 5,
+    "votes_reduce": 7,
+    "votes_neutral": 2,
+    "view": "Neutral"
   },
   "requested_reference_friday": "2026-11-06",
-  "requested_reference_status": "unavailable",
-  "refresh_note": "y10 is missing or stale; y2 is missing or stale; vix is missing or stale",
-  "last_refresh_attempt_at_utc": "2026-11-07T20:08:33.303803+00:00",
-  "interpretation": "An older reference period is a dated illustration, not a current forecast.",
+  "requested_reference_status": "issued",
+  "publisher_sources": [
+    {
+      "series": "DGS10",
+      "observation_date": "2026-11-06",
+      "value": 4.86,
+      "publisher_field": "10 Yr",
+      "overlap_check": {
+        "observations": 20,
+        "first": "2026-10-08",
+        "last": "2026-11-05",
+        "max_absolute_difference": 0.0
+      },
+      "sources": [
+        {
+          "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2026/all?_format=csv&field_tdr_date_value=2026&page=&type=daily_treasury_yield_curve",
+          "retrieved_at_utc": "2026-11-07T20:47:41.394428+00:00",
+          "raw_sha256": "a2c61c27a95c6a45ceac850ce9e5ed00903bed1b9ac43732c027c15d94e657da"
+        }
+      ]
+    },
+    {
+      "series": "DGS2",
+      "observation_date": "2026-11-06",
+      "value": 4.51,
+      "publisher_field": "2 Yr",
+      "overlap_check": {
+        "observations": 20,
+        "first": "2026-10-08",
+        "last": "2026-11-05",
+        "max_absolute_difference": 0.0
+      },
+      "sources": [
+        {
+          "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2026/all?_format=csv&field_tdr_date_value=2026&page=&type=daily_treasury_yield_curve",
+          "retrieved_at_utc": "2026-11-07T20:47:41.394428+00:00",
+          "raw_sha256": "a2c61c27a95c6a45ceac850ce9e5ed00903bed1b9ac43732c027c15d94e657da"
+        }
+      ]
+    },
+    {
+      "series": "VIXCLS",
+      "observation_date": "2026-11-06",
+      "value": 25.64,
+      "publisher_field": "CLOSE",
+      "overlap_check": {
+        "observations": 20,
+        "first": "2026-10-09",
+        "last": "2026-11-05",
+        "max_absolute_difference": 0.0
+      },
+      "sources": [
+        {
+          "url": "https://cdn-api.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv",
+          "retrieved_at_utc": "2026-11-07T20:47:41.765396+00:00",
+          "raw_sha256": "7e647d50a872b4aa64deaef1dfd17b0e1e3b88887cedc4c1fa861d242ecb7383"
+        }
+      ]
+    }
+  ],
+  "refresh_note": null,
+  "last_refresh_attempt_at_utc": "2026-11-07T20:48:23.678982+00:00",
+  "interpretation": "Published weekly signal; assess against your macro view and risk budget.",
   "forecast_horizon": "Duration view one week ahead, from the reference Friday to the following Friday; visiting on another day does not change the horizon.",
   "prospective": {
-    "issued": 0,
+    "issued": 1,
     "completed": 0,
     "active_completed": 0,
     "hit_rate": null,
@@ -127,7 +115,7 @@
   "display": {
     "combined_result": "Neutral",
     "horizon": "One-week-ahead outlook for the 10-year Treasury yield",
-    "signal_generated_as_of": "November 7, 2026, 03:08:33 PM EST",
+    "signal_generated_as_of": "November 7, 2026, 03:48:18 PM EST",
     "model_1": {
       "name": "Checklist",
       "direction": "Bearish Duration",
@@ -136,7 +124,7 @@
     "model_2": {
       "name": "Logistic regression",
       "direction": "Bullish Duration",
-      "prob_yield_down_uncalibrated": 0.5491973117956056
+      "prob_yield_down_uncalibrated": 0.5664917860183382
     }
   }
 }

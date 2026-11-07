@@ -1,6 +1,6 @@
 # A Simple Weekly Signal for the U.S. 10-Year Treasury Yield
 
-By Chirag Mirani. Working paper, version 4, November 7, 2026.
+By Chirag Mirani. Working paper, version 5, November 7, 2026.
 
 [Weekly signal tool](https://chiragmirani.github.io/treasury-signal/) · [Preprint and PDF](https://chiragmirani.github.io/treasury-signal/paper/) · [Code and result tables](https://chiragmirani.github.io/treasury-signal/paper/treasury-signal-code.zip)
 

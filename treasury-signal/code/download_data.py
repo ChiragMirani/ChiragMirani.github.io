@@ -29,6 +29,7 @@ from pathlib import Path
 # pandas reads and writes the tables.
 import pandas as pd
 import auction_inputs as A
+import market_sources as S
 
 # The data folder, next to this file.
 DATA = Path(__file__).resolve().parent / "data"
@@ -129,6 +130,7 @@ def download_snapshot():
     (target / "fomc_dates.csv").write_bytes((DATA / "fomc_dates.csv").read_bytes())
     (target / "acm.xls").write_bytes(fetch(ACM))
     A.download_calendar(target, previous, fetch)
+    S.supplement_snapshot(target, fetch)
     files = {str(p.relative_to(target)).replace('\\', '/'): hashlib.sha256(p.read_bytes()).hexdigest()
              for p in target.rglob('*') if p.is_file()}
     manifest = {"completed_at_utc": datetime.now(timezone.utc).isoformat(), "sha256": files,

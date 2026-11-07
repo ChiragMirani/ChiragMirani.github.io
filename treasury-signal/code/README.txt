@@ -1,5 +1,5 @@
 A Simple Weekly Signal for the U.S. 10-Year Treasury Yield
-Chirag Mirani | Working paper version 4 | November 7, 2026
+Chirag Mirani | Working paper version 5 | November 7, 2026
 
 Signal tool: https://chiragmirani.github.io/treasury-signal/
 Preprint and downloads: https://chiragmirani.github.io/treasury-signal/paper/
@@ -60,7 +60,7 @@ connection. Do not publish raw snapshots, fitted-model caches or private files.
 The local scheduled job needs the computer and Codex app running and connected.
 
 New issued forecasts are permitted Friday after 18:00 New York through Saturday,
-starting with the November 13, 2026 reference. They require a snapshot completed
+starting with the November 6, 2026 reference, generated on November 7. They require a snapshot completed
 within 36 hours, valid source hashes, fresh market and archive observations and
 an up-to-date auction calendar. Missing inputs withhold a new issue, including
 on holidays. Withheld is position=null, not a valid zero-position forecast.
@@ -111,3 +111,9 @@ intervals assume independent weeks and do not adjust for selection. Costs are
 an illustrative 0.25 yield bp per position-unit change including entry and exit.
 No bond return, carry, financing or executable entry price is modelled.
 The annual placebo fractions do not cover the later refit or auction choices.
+
+Version 5 is an operational update: the same 14 rules, quarterly refits and fixed
+positions, with checked direct Treasury/Cboe fallbacks when FRED lags. Twenty
+recent overlapping observations must match. Existing FRED observations are
+never changed; source responses, retrieval times and hashes are archived.
+The first call uses November 6 data for November 13; it is not backdated.

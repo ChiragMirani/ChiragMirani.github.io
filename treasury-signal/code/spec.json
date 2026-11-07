@@ -1,7 +1,7 @@
 {
-  "version": "weekly-14-quarterly-tips-2026-11-07-v4",
+  "version": "weekly-14-quarterly-tips-2026-11-07-v5",
   "frozen_on": "2026-11-07",
-  "live_start": "2026-11-13",
+  "live_start": "2026-11-06",
   "questions_13": [
     "us_eq",
     "em_eq",
@@ -32,12 +32,13 @@
   "holiday_policy": "withhold when any required Friday observation is absent, including lagged Friday inputs",
   "source_sha256": {
     "model.py": "1380d5caf46226f56cea584c2446022f603a59c5758312764ab5451ee545a4ab",
-    "download_data.py": "d19cf2f37b8b80f44f0221c7e1986093215562bc6b1600045cf1ebbc37cf1b2b",
+    "download_data.py": "a6abe478879fc7cac79b99dabaf826958159a6206e5846a4c0e0f23c37217569",
     "weekly_signal.py": "a1c7594b98a352ba4bae0e4660ab66096a611577be15d87f53879d7c10083a9f",
-    "production_signal.py": "c04ee3eea21271522d44248568e5339fabaa85f501211528abfddf90be4fb0ce",
-    "auction_inputs.py": "ca87925a8897c0af89da6ddbc5c11fc80795693bcf0fbbc8beff945a0890178e"
+    "production_signal.py": "bbeab288efa8bf1cb9366748110d38d16abda2c737ef329907ab669c8c9f7815",
+    "auction_inputs.py": "ca87925a8897c0af89da6ddbc5c11fc80795693bcf0fbbc8beff945a0890178e",
+    "market_sources.py": "721152b93e900f4d48c7bff05c6aed64174b2ac01426da3c26f0bcc19e0e209a"
   },
-  "change_note": "Adopt the 30-year TIPS auction flag with a +1 duration vote, after reviewing all eight quarterly auction variants. Quarterly refits, expanding history, C=0.1 and fixed positions remain. This is a later-informed research choice; the early-only auction winner remains nominal 30-year +1 in the archived search.",
-  "frozen_at_utc": "2026-11-07T18:28:27.871070+00:00",
-  "selection_note": "Retrospective selection informed by November 2016-October 2026 results, not chosen using only pre-November 2016 data. Prospective record begins no earlier than November 13, 2026."
+  "change_note": "Operational update only: accept missing recent Treasury par yields and Cboe cash VIX closes directly from the original publishers after 20 overlapping observations match FRED. No change to the 14 rules, C=0.1, quarterly refits or fixed positions. First November 6 reference forecast generated on November 7 for the week ending November 13; actual issue time retained.",
+  "frozen_at_utc": "2026-11-07T20:46:11.371109+00:00",
+  "selection_note": "Retrospective model selection informed by November 2016-October 2026 results. The first prospective forecast is generated on November 7 using November 6 reference data; no Friday issue time is claimed."
 }

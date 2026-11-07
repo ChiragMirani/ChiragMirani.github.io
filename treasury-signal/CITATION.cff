@@ -5,7 +5,7 @@ title: "A Simple Weekly Signal for the U.S. 10-Year Treasury Yield"
 authors:
   - family-names: Mirani
     given-names: Chirag
-version: "4"
+version: "5"
 date-released: 2026-11-07
 url: "https://chiragmirani.github.io/treasury-signal/paper/"
 repository-code: "https://github.com/ChiragMirani/ChiragMirani.github.io/tree/main/treasury-signal"

@@ -49,9 +49,9 @@ def expected_friday(now):
 
 
 def validate_spec(spec):
-    expected_sources = {'model.py', 'download_data.py', 'weekly_signal.py', 'production_signal.py', 'auction_inputs.py'}
+    expected_sources = {'model.py', 'download_data.py', 'weekly_signal.py', 'production_signal.py', 'auction_inputs.py', 'market_sources.py'}
     if set(spec['source_sha256']) != expected_sources:
-        raise ValueError('The approved specification must bind all five source files')
+        raise ValueError('The approved specification must bind all six source files')
     if spec['added'] != [{'key':'tips_30', 'sign':1}] or spec['questions_13'] != [q[0] for q in M.QUESTIONS_13]:
         raise ValueError('Rule list differs from the approved specification')
     expected = {'clf_c': M.CLF_C, 'clf_refit_weeks': APPROVED_REFIT_WEEKS, 'clf_start': M.CLF_START, 'start': M.START}
@@ -188,6 +188,9 @@ def main(now=None):
             snapshot = use_snapshot(now)
             d = M.load(end=str(t.date()))
             provenance = check_inputs(t, d)
+            source_report = snapshot / 'market_source_provenance.json'
+            if source_report.exists():
+                provenance['publisher_supplements'] = json.loads(source_report.read_text())['additions']
             calendar = A.read_calendar(snapshot, t)
             a, f = A.selected_inputs(d, calendar['records'])
             provenance['tips_30'] = {'source':calendar['source'], 'fetched_at_utc':calendar['fetched_at_utc'],

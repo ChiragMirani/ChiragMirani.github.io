@@ -1,1 +1,89 @@
-[]
+[
+  {
+    "signal_date": "2026-11-06",
+    "forecast_end": "2026-11-13",
+    "issued_at_utc": "2026-11-07T20:48:18.309499+00:00",
+    "model": "weekly-14-quarterly-tips-2026-11-07-v5",
+    "position": 0,
+    "view": "Neutral",
+    "checklist_score": -2,
+    "prob_yield_down_uncalibrated": 0.5664917860183382,
+    "answers": {
+      "us_eq": 1,
+      "em_eq": 1,
+      "oil": -1,
+      "usd": -1,
+      "vix": 1,
+      "slack": 1,
+      "pce": -1,
+      "real": 1,
+      "curve": -1,
+      "de10": -1,
+      "jp10": -1,
+      "uk10": -1,
+      "dec": 0,
+      "tips_30": 0
+    },
+    "publisher_sources": [
+      {
+        "series": "DGS10",
+        "observation_date": "2026-11-06",
+        "value": 4.86,
+        "publisher_field": "10 Yr",
+        "overlap_check": {
+          "observations": 20,
+          "first": "2026-10-08",
+          "last": "2026-11-05",
+          "max_absolute_difference": 0.0
+        },
+        "sources": [
+          {
+            "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2026/all?_format=csv&field_tdr_date_value=2026&page=&type=daily_treasury_yield_curve",
+            "retrieved_at_utc": "2026-11-07T20:47:41.394428+00:00",
+            "raw_sha256": "a2c61c27a95c6a45ceac850ce9e5ed00903bed1b9ac43732c027c15d94e657da"
+          }
+        ]
+      },
+      {
+        "series": "DGS2",
+        "observation_date": "2026-11-06",
+        "value": 4.51,
+        "publisher_field": "2 Yr",
+        "overlap_check": {
+          "observations": 20,
+          "first": "2026-10-08",
+          "last": "2026-11-05",
+          "max_absolute_difference": 0.0
+        },
+        "sources": [
+          {
+            "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2026/all?_format=csv&field_tdr_date_value=2026&page=&type=daily_treasury_yield_curve",
+            "retrieved_at_utc": "2026-11-07T20:47:41.394428+00:00",
+            "raw_sha256": "a2c61c27a95c6a45ceac850ce9e5ed00903bed1b9ac43732c027c15d94e657da"
+          }
+        ]
+      },
+      {
+        "series": "VIXCLS",
+        "observation_date": "2026-11-06",
+        "value": 25.64,
+        "publisher_field": "CLOSE",
+        "overlap_check": {
+          "observations": 20,
+          "first": "2026-10-09",
+          "last": "2026-11-05",
+          "max_absolute_difference": 0.0
+        },
+        "sources": [
+          {
+            "url": "https://cdn-api.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv",
+            "retrieved_at_utc": "2026-11-07T20:47:41.765396+00:00",
+            "raw_sha256": "7e647d50a872b4aa64deaef1dfd17b0e1e3b88887cedc4c1fa861d242ecb7383"
+          }
+        ]
+      }
+    ],
+    "score_bp": null,
+    "outcome_status": "pending"
+  }
+]
