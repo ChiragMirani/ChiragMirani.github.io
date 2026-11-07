@@ -39,7 +39,6 @@ Spirituality:
 - LinkedIn: https://www.linkedin.com/in/chiragmirani/
 - GitHub: https://github.com/ChiragMirani
 - Kaggle: https://www.kaggle.com/cmirani
-- X: https://x.com/chirag_mirani1
 
 ## App directory
 - [All apps and readers, with use cases and download links](https://chiragmirani.github.io/apps/)
