@@ -12,19 +12,15 @@ if (location.hostname === "chiragmirani.github.io") {
     document.head.append(tracker);
 }
 
-async function displayVisits(elementId, path) {
+async function displayVisits(elementId, path, startDate) {
     const counter = document.getElementById(elementId);
     if (!counter) return;
 
-    const url = analyticsSite + "/counter/" + encodeURIComponent(path) + ".json";
+    const url = new URL(analyticsSite + "/counter/" + encodeURIComponent(path) + ".json");
+    if (startDate) url.searchParams.set("start", startDate);
     const options = { credentials: "omit", referrerPolicy: "no-referrer" };
     try {
-        let response = await fetch(url, options);
-        if (response.status === 404) {
-            // GoatCounter can cache a new path's initial 404 for four hours.
-            const minute = Math.floor(Date.now() / 60000);
-            response = await fetch(url + "?retry=" + minute, options);
-        }
+        const response = await fetch(url, options);
         if (!response.ok) return;
         const { count } = await response.json();
         if (!/^\d[\d,.\s]*$/.test(String(count))) return;
@@ -36,5 +32,5 @@ async function displayVisits(elementId, path) {
     }
 }
 
-displayVisits("tool-visits", toolPath);
+displayVisits("tool-visits", toolPath, "2026-11-10");
 displayVisits("paper-readership", paperPath);
