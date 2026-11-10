@@ -13,7 +13,7 @@ if (location.hostname === "chiragmirani.github.io") {
 
 async function displayPaperVisits() {
     const counter = document.getElementById("paper-readership");
-    const url = analyticsSite + "/counter/" + encodeURIComponent(paperPath) + ".json?start=2026-11-10";
+    const url = analyticsSite + "/counter/" + encodeURIComponent(paperPath) + ".json";
     try {
         const response = await fetch(url, { credentials: "omit", referrerPolicy: "no-referrer" });
         if (!response.ok) return;
