@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "page_updated_at_utc": "2026-11-08T00:34:09.639617+00:00",
-  "checked_at_utc": "2026-11-08T00:34:05.286401+00:00",
+  "page_updated_at_utc": "2026-11-14T00:34:54.349715+00:00",
+  "checked_at_utc": "2026-11-14T00:28:39.167598+00:00",
   "kind": "issued_forecast",
   "issued_at_utc": "2026-11-07T20:48:18.309499+00:00",
   "signal_generated_as_of_utc": "2026-11-07T20:48:18.309499+00:00",
-  "reference_period_ended": false,
+  "reference_period_ended": true,
   "model": "weekly-14-quarterly-tips-2026-11-07-v5",
   "reading": {
     "reference_friday": "2026-11-06",
@@ -34,8 +34,10 @@
     "votes_neutral": 2,
     "view": "Neutral"
   },
-  "requested_reference_friday": "2026-11-06",
-  "requested_reference_status": "issued",
+  "requested_reference_friday": "2026-11-13",
+  "requested_reference_status": "unavailable",
+  "requested_forecast_end": "2026-11-20",
+  "requested_issued_view": null,
   "publisher_sources": [
     {
       "series": "DGS10",
@@ -95,9 +97,9 @@
       ]
     }
   ],
-  "refresh_note": null,
-  "last_refresh_attempt_at_utc": "2026-11-08T00:34:05.286401+00:00",
-  "interpretation": "Published weekly signal; assess against your macro view and risk budget.",
+  "refresh_note": "Data refresh did not complete; the previous dated reading is retained.",
+  "last_refresh_attempt_at_utc": "2026-11-14T00:28:39.167598+00:00",
+  "interpretation": "No forecast has been issued for the week ending November 20, 2026.",
   "forecast_horizon": "Duration view one week ahead, from the reference Friday to the following Friday; visiting on another day does not change the horizon.",
   "prospective": {
     "issued": 1,
