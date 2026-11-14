@@ -1,24 +1,24 @@
 {
   "schema_version": 1,
-  "page_updated_at_utc": "2026-11-14T00:34:54.349715+00:00",
-  "checked_at_utc": "2026-11-14T00:28:39.167598+00:00",
+  "page_updated_at_utc": "2026-11-14T11:41:32.172092+00:00",
+  "checked_at_utc": "2026-11-14T11:41:26.369683+00:00",
   "kind": "issued_forecast",
-  "issued_at_utc": "2026-11-07T20:48:18.309499+00:00",
-  "signal_generated_as_of_utc": "2026-11-07T20:48:18.309499+00:00",
-  "reference_period_ended": true,
+  "issued_at_utc": "2026-11-14T11:41:20.516630+00:00",
+  "signal_generated_as_of_utc": "2026-11-14T11:41:20.516630+00:00",
+  "reference_period_ended": false,
   "model": "weekly-14-quarterly-tips-2026-11-07-v5",
   "reading": {
-    "reference_friday": "2026-11-06",
-    "target_end": "2026-11-13",
+    "reference_friday": "2026-11-13",
+    "target_end": "2026-11-20",
     "checklist_score": -2,
-    "prob_yield_down_uncalibrated": 0.5664917860183382,
+    "prob_yield_down_uncalibrated": 0.6021614556419053,
     "position": 0,
     "answers": {
       "us_eq": 1,
       "em_eq": 1,
-      "oil": -1,
+      "oil": 1,
       "usd": -1,
-      "vix": 1,
+      "vix": -1,
       "slack": 1,
       "pce": -1,
       "real": 1,
@@ -35,78 +35,78 @@
     "view": "Neutral"
   },
   "requested_reference_friday": "2026-11-13",
-  "requested_reference_status": "unavailable",
+  "requested_reference_status": "issued",
   "requested_forecast_end": "2026-11-20",
-  "requested_issued_view": null,
+  "requested_issued_view": "Neutral",
   "publisher_sources": [
     {
       "series": "DGS10",
-      "observation_date": "2026-11-06",
-      "value": 4.86,
+      "observation_date": "2026-11-13",
+      "value": 5.15,
       "publisher_field": "10 Yr",
       "overlap_check": {
         "observations": 20,
-        "first": "2026-10-08",
-        "last": "2026-11-05",
+        "first": "2026-10-15",
+        "last": "2026-11-12",
         "max_absolute_difference": 0.0
       },
       "sources": [
         {
           "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2026/all?_format=csv&field_tdr_date_value=2026&page=&type=daily_treasury_yield_curve",
-          "retrieved_at_utc": "2026-11-07T20:47:41.394428+00:00",
-          "raw_sha256": "a2c61c27a95c6a45ceac850ce9e5ed00903bed1b9ac43732c027c15d94e657da"
+          "retrieved_at_utc": "2026-11-14T11:41:19.662464+00:00",
+          "raw_sha256": "7940584cb08f8aa016d786b71015d85e3226612c7a3756129c064b32fa9795da"
         }
       ]
     },
     {
       "series": "DGS2",
-      "observation_date": "2026-11-06",
-      "value": 4.51,
+      "observation_date": "2026-11-13",
+      "value": 4.88,
       "publisher_field": "2 Yr",
       "overlap_check": {
         "observations": 20,
-        "first": "2026-10-08",
-        "last": "2026-11-05",
+        "first": "2026-10-15",
+        "last": "2026-11-12",
         "max_absolute_difference": 0.0
       },
       "sources": [
         {
           "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2026/all?_format=csv&field_tdr_date_value=2026&page=&type=daily_treasury_yield_curve",
-          "retrieved_at_utc": "2026-11-07T20:47:41.394428+00:00",
-          "raw_sha256": "a2c61c27a95c6a45ceac850ce9e5ed00903bed1b9ac43732c027c15d94e657da"
+          "retrieved_at_utc": "2026-11-14T11:41:19.662464+00:00",
+          "raw_sha256": "7940584cb08f8aa016d786b71015d85e3226612c7a3756129c064b32fa9795da"
         }
       ]
     },
     {
       "series": "VIXCLS",
-      "observation_date": "2026-11-06",
-      "value": 25.64,
+      "observation_date": "2026-11-13",
+      "value": 19.3,
       "publisher_field": "CLOSE",
       "overlap_check": {
         "observations": 20,
-        "first": "2026-10-09",
-        "last": "2026-11-05",
+        "first": "2026-10-16",
+        "last": "2026-11-12",
         "max_absolute_difference": 0.0
       },
       "sources": [
         {
           "url": "https://cdn-api.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv",
-          "retrieved_at_utc": "2026-11-07T20:47:41.765396+00:00",
-          "raw_sha256": "7e647d50a872b4aa64deaef1dfd17b0e1e3b88887cedc4c1fa861d242ecb7383"
+          "retrieved_at_utc": "2026-11-14T11:41:19.987011+00:00",
+          "raw_sha256": "d4e2b1199951501b7757814b6e1c2356394922a7ea8ef16d85c3a4596e6e2c2d"
         }
       ]
     }
   ],
-  "refresh_note": "Data refresh did not complete; the previous dated reading is retained.",
-  "last_refresh_attempt_at_utc": "2026-11-14T00:28:39.167598+00:00",
-  "interpretation": "No forecast has been issued for the week ending November 20, 2026.",
+  "refresh_note": null,
+  "last_refresh_attempt_at_utc": "2026-11-14T11:41:26.369683+00:00",
+  "interpretation": "Published weekly signal; assess against your macro view and risk budget.",
   "forecast_horizon": "Duration view one week ahead, from the reference Friday to the following Friday; visiting on another day does not change the horizon.",
   "prospective": {
-    "issued": 1,
-    "completed": 0,
+    "issued": 2,
+    "completed": 1,
     "active_completed": 0,
     "hit_rate": null,
-    "total_gross_yield_score_bp": null,
+    "total_gross_yield_score_bp": 0.0,
     "measurement": "Signed DGS10 yield change, before costs; not an investment return."
   },
   "links": {
@@ -117,7 +117,7 @@
   "display": {
     "combined_result": "Neutral",
     "horizon": "One-week-ahead outlook for the 10-year Treasury yield",
-    "signal_generated_as_of": "November 7, 2026, 03:48:18 PM EST",
+    "signal_generated_as_of": "November 14, 2026, 06:41:20 AM EST",
     "model_1": {
       "name": "Checklist",
       "direction": "Bearish Duration",
@@ -126,7 +126,7 @@
     "model_2": {
       "name": "Logistic regression",
       "direction": "Bullish Duration",
-      "prob_yield_down_uncalibrated": 0.5664917860183382
+      "prob_yield_down_uncalibrated": 0.6021614556419053
     }
   }
 }

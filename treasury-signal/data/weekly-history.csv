@@ -1,2 +1,3 @@
 signal_date,forecast_end,issued_at_utc,model,position,checklist_score,prob_yield_down_uncalibrated,outcome_status,score_bp
-2026-11-06,2026-11-13,2026-11-07T20:48:18.309499+00:00,weekly-14-quarterly-tips-2026-11-07-v5,0,-2,0.5664917860183382,pending,
+2026-11-06,2026-11-13,2026-11-07T20:48:18.309499+00:00,weekly-14-quarterly-tips-2026-11-07-v5,0,-2,0.5664917860183382,completed,0.0
+2026-11-13,2026-11-20,2026-11-14T11:41:20.516630+00:00,weekly-14-quarterly-tips-2026-11-07-v5,0,-2,0.6021614556419053,pending,
