@@ -170,6 +170,131 @@
         ]
       }
     ],
+    "score_bp": -0.0,
+    "outcome_status": "completed"
+  },
+  {
+    "signal_date": "2026-11-20",
+    "forecast_end": "2026-11-27",
+    "issued_at_utc": "2026-11-21T00:34:35.384936+00:00",
+    "model": "weekly-14-quarterly-tips-2026-11-07-v5",
+    "position": 1,
+    "view": "Bullish Duration",
+    "checklist_score": 6,
+    "prob_yield_down_uncalibrated": 0.6887684533563486,
+    "answers": {
+      "us_eq": 1,
+      "em_eq": 1,
+      "oil": 1,
+      "usd": 1,
+      "vix": 1,
+      "slack": 1,
+      "pce": -1,
+      "real": 1,
+      "curve": -1,
+      "de10": 1,
+      "jp10": 1,
+      "uk10": -1,
+      "dec": 0,
+      "tips_30": 0
+    },
+    "publisher_sources": [
+      {
+        "series": "DGS10",
+        "observation_date": "2026-11-20",
+        "value": 4.92,
+        "publisher_field": "10 Yr",
+        "overlap_check": {
+          "observations": 20,
+          "first": "2026-10-22",
+          "last": "2026-11-19",
+          "max_absolute_difference": 0.0
+        },
+        "sources": [
+          {
+            "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2026/all?_format=csv&field_tdr_date_value=2026&page=&type=daily_treasury_yield_curve",
+            "retrieved_at_utc": "2026-11-21T00:34:34.195243+00:00",
+            "raw_sha256": "3a48daf1c889672fedc4643d8c2fc0a46b99eadf4af5a8780b11996eaff11df4"
+          }
+        ]
+      },
+      {
+        "series": "DGS2",
+        "observation_date": "2026-11-20",
+        "value": 4.63,
+        "publisher_field": "2 Yr",
+        "overlap_check": {
+          "observations": 20,
+          "first": "2026-10-22",
+          "last": "2026-11-19",
+          "max_absolute_difference": 0.0
+        },
+        "sources": [
+          {
+            "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2026/all?_format=csv&field_tdr_date_value=2026&page=&type=daily_treasury_yield_curve",
+            "retrieved_at_utc": "2026-11-21T00:34:34.195243+00:00",
+            "raw_sha256": "3a48daf1c889672fedc4643d8c2fc0a46b99eadf4af5a8780b11996eaff11df4"
+          }
+        ]
+      },
+      {
+        "series": "VIXCLS",
+        "observation_date": "2026-11-20",
+        "value": 35.89,
+        "publisher_field": "cash VIX daily close",
+        "overlap_check": {
+          "observations": 20,
+          "first": "2026-10-23",
+          "last": "2026-11-19",
+          "max_absolute_difference": 0.0
+        },
+        "sources": [
+          {
+            "url": "https://query1.finance.yahoo.com/v8/finance/chart/%5EVIX?range=3mo&interval=1d",
+            "retrieved_at_utc": "2026-11-21T00:34:16.827836+00:00",
+            "raw_sha256": "83e1aac13a2a557d3053e7a1715dd7bf516e804b5d5b957a201df40d0bc6ca7d"
+          }
+        ]
+      },
+      {
+        "series": "NASDAQCOM",
+        "observation_date": "2026-11-20",
+        "value": 22617.73,
+        "publisher_field": "EOD index value (COMP)",
+        "overlap_check": {
+          "observations": 20,
+          "first": "2026-10-23",
+          "last": "2026-11-19",
+          "max_absolute_difference": 0.0
+        },
+        "sources": [
+          {
+            "url": "https://indexes.nasdaq.com/Index/History/COMP",
+            "retrieved_at_utc": "2026-11-21T00:34:34.607191+00:00",
+            "raw_sha256": "21c356718d22ac3331dbeb68fb5ee3292c505cb4a29d6d2f4400c962bc471948"
+          }
+        ]
+      },
+      {
+        "series": "NASDAQNQEM",
+        "observation_date": "2026-11-20",
+        "value": 1458.0,
+        "publisher_field": "EOD index value (NQEM)",
+        "overlap_check": {
+          "observations": 20,
+          "first": "2026-10-23",
+          "last": "2026-11-19",
+          "max_absolute_difference": 0.0
+        },
+        "sources": [
+          {
+            "url": "https://indexes.nasdaq.com/Index/History/NQEM",
+            "retrieved_at_utc": "2026-11-21T00:34:34.970395+00:00",
+            "raw_sha256": "0c61412499b132bd02186472d3404f0a4e1d04246a8df0f86282d08b7f92dd7c"
+          }
+        ]
+      }
+    ],
     "score_bp": null,
     "outcome_status": "pending"
   }

@@ -1,109 +1,147 @@
 {
   "schema_version": 1,
-  "page_updated_at_utc": "2026-11-15T00:33:18.902610+00:00",
-  "checked_at_utc": "2026-11-15T00:33:15.225281+00:00",
+  "page_updated_at_utc": "2026-11-21T00:34:40.263279+00:00",
+  "checked_at_utc": "2026-11-21T00:34:37.567515+00:00",
   "kind": "issued_forecast",
-  "issued_at_utc": "2026-11-14T11:41:20.516630+00:00",
-  "signal_generated_as_of_utc": "2026-11-14T11:41:20.516630+00:00",
+  "issued_at_utc": "2026-11-21T00:34:35.384936+00:00",
+  "signal_generated_as_of_utc": "2026-11-21T00:34:35.384936+00:00",
   "reference_period_ended": false,
   "model": "weekly-14-quarterly-tips-2026-11-07-v5",
   "reading": {
-    "reference_friday": "2026-11-13",
-    "target_end": "2026-11-20",
-    "checklist_score": -2,
-    "prob_yield_down_uncalibrated": 0.6021614556419053,
-    "position": 0,
+    "reference_friday": "2026-11-20",
+    "target_end": "2026-11-27",
+    "checklist_score": 6,
+    "prob_yield_down_uncalibrated": 0.6887684533563486,
+    "position": 1,
     "answers": {
       "us_eq": 1,
       "em_eq": 1,
       "oil": 1,
-      "usd": -1,
-      "vix": -1,
+      "usd": 1,
+      "vix": 1,
       "slack": 1,
       "pce": -1,
       "real": 1,
       "curve": -1,
-      "de10": -1,
-      "jp10": -1,
+      "de10": 1,
+      "jp10": 1,
       "uk10": -1,
       "dec": 0,
       "tips_30": 0
     },
-    "votes_add": 5,
-    "votes_reduce": 7,
+    "votes_add": 9,
+    "votes_reduce": 3,
     "votes_neutral": 2,
-    "view": "Neutral"
+    "view": "Bullish Duration"
   },
-  "requested_reference_friday": "2026-11-13",
+  "requested_reference_friday": "2026-11-20",
   "requested_reference_status": "issued",
-  "requested_forecast_end": "2026-11-20",
-  "requested_issued_view": "Neutral",
+  "requested_forecast_end": "2026-11-27",
+  "requested_issued_view": "Bullish Duration",
   "publisher_sources": [
     {
       "series": "DGS10",
-      "observation_date": "2026-11-13",
-      "value": 5.15,
+      "observation_date": "2026-11-20",
+      "value": 4.92,
       "publisher_field": "10 Yr",
       "overlap_check": {
         "observations": 20,
-        "first": "2026-10-15",
-        "last": "2026-11-12",
+        "first": "2026-10-22",
+        "last": "2026-11-19",
         "max_absolute_difference": 0.0
       },
       "sources": [
         {
           "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2026/all?_format=csv&field_tdr_date_value=2026&page=&type=daily_treasury_yield_curve",
-          "retrieved_at_utc": "2026-11-14T11:41:19.662464+00:00",
-          "raw_sha256": "7940584cb08f8aa016d786b71015d85e3226612c7a3756129c064b32fa9795da"
+          "retrieved_at_utc": "2026-11-21T00:34:34.195243+00:00",
+          "raw_sha256": "3a48daf1c889672fedc4643d8c2fc0a46b99eadf4af5a8780b11996eaff11df4"
         }
       ]
     },
     {
       "series": "DGS2",
-      "observation_date": "2026-11-13",
-      "value": 4.88,
+      "observation_date": "2026-11-20",
+      "value": 4.63,
       "publisher_field": "2 Yr",
       "overlap_check": {
         "observations": 20,
-        "first": "2026-10-15",
-        "last": "2026-11-12",
+        "first": "2026-10-22",
+        "last": "2026-11-19",
         "max_absolute_difference": 0.0
       },
       "sources": [
         {
           "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2026/all?_format=csv&field_tdr_date_value=2026&page=&type=daily_treasury_yield_curve",
-          "retrieved_at_utc": "2026-11-14T11:41:19.662464+00:00",
-          "raw_sha256": "7940584cb08f8aa016d786b71015d85e3226612c7a3756129c064b32fa9795da"
+          "retrieved_at_utc": "2026-11-21T00:34:34.195243+00:00",
+          "raw_sha256": "3a48daf1c889672fedc4643d8c2fc0a46b99eadf4af5a8780b11996eaff11df4"
         }
       ]
     },
     {
       "series": "VIXCLS",
-      "observation_date": "2026-11-13",
-      "value": 19.3,
-      "publisher_field": "CLOSE",
+      "observation_date": "2026-11-20",
+      "value": 35.89,
+      "publisher_field": "cash VIX daily close",
       "overlap_check": {
         "observations": 20,
-        "first": "2026-10-16",
-        "last": "2026-11-12",
+        "first": "2026-10-23",
+        "last": "2026-11-19",
         "max_absolute_difference": 0.0
       },
       "sources": [
         {
-          "url": "https://cdn-api.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv",
-          "retrieved_at_utc": "2026-11-14T11:41:19.987011+00:00",
-          "raw_sha256": "d4e2b1199951501b7757814b6e1c2356394922a7ea8ef16d85c3a4596e6e2c2d"
+          "url": "https://query1.finance.yahoo.com/v8/finance/chart/%5EVIX?range=3mo&interval=1d",
+          "retrieved_at_utc": "2026-11-21T00:34:16.827836+00:00",
+          "raw_sha256": "83e1aac13a2a557d3053e7a1715dd7bf516e804b5d5b957a201df40d0bc6ca7d"
+        }
+      ]
+    },
+    {
+      "series": "NASDAQCOM",
+      "observation_date": "2026-11-20",
+      "value": 22617.73,
+      "publisher_field": "EOD index value (COMP)",
+      "overlap_check": {
+        "observations": 20,
+        "first": "2026-10-23",
+        "last": "2026-11-19",
+        "max_absolute_difference": 0.0
+      },
+      "sources": [
+        {
+          "url": "https://indexes.nasdaq.com/Index/History/COMP",
+          "retrieved_at_utc": "2026-11-21T00:34:34.607191+00:00",
+          "raw_sha256": "21c356718d22ac3331dbeb68fb5ee3292c505cb4a29d6d2f4400c962bc471948"
+        }
+      ]
+    },
+    {
+      "series": "NASDAQNQEM",
+      "observation_date": "2026-11-20",
+      "value": 1458.0,
+      "publisher_field": "EOD index value (NQEM)",
+      "overlap_check": {
+        "observations": 20,
+        "first": "2026-10-23",
+        "last": "2026-11-19",
+        "max_absolute_difference": 0.0
+      },
+      "sources": [
+        {
+          "url": "https://indexes.nasdaq.com/Index/History/NQEM",
+          "retrieved_at_utc": "2026-11-21T00:34:34.970395+00:00",
+          "raw_sha256": "0c61412499b132bd02186472d3404f0a4e1d04246a8df0f86282d08b7f92dd7c"
         }
       ]
     }
   ],
   "refresh_note": null,
-  "last_refresh_attempt_at_utc": "2026-11-15T00:33:15.225281+00:00",
+  "last_refresh_attempt_at_utc": "2026-11-21T00:34:37.567515+00:00",
   "interpretation": "Published weekly signal; assess against your macro view and risk budget.",
   "forecast_horizon": "Duration view one week ahead, from the reference Friday to the following Friday; visiting on another day does not change the horizon.",
   "prospective": {
-    "issued": 2,
-    "completed": 1,
+    "issued": 3,
+    "completed": 2,
     "active_completed": 0,
     "hit_rate": null,
     "total_gross_yield_score_bp": 0.0,
@@ -115,18 +153,18 @@
     "history": "https://chiragmirani.github.io/treasury-signal/data/weekly-history.csv"
   },
   "display": {
-    "combined_result": "Neutral",
+    "combined_result": "Bullish Duration",
     "horizon": "One-week-ahead outlook for the 10-year Treasury yield",
-    "signal_generated_as_of": "November 14, 2026, 06:41:20 AM EST",
+    "signal_generated_as_of": "November 20, 2026, 07:34:35 PM EST",
     "model_1": {
       "name": "Checklist",
-      "direction": "Bearish Duration",
-      "score": -2
+      "direction": "Bullish Duration",
+      "score": 6
     },
     "model_2": {
       "name": "Logistic regression",
       "direction": "Bullish Duration",
-      "prob_yield_down_uncalibrated": 0.6021614556419053
+      "prob_yield_down_uncalibrated": 0.6887684533563486
     }
   }
 }
