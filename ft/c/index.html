@@ -6,8 +6,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>You're challenged! · Flappy Tappy</title>
 <meta name="description" content="30-second one-tap duels. Beat my score in Flappy Tappy.">
-<meta property="og:title" content="You're challenged in Flappy Tappy!">
-<meta property="og:description" content="30 seconds, one tap. Can you beat my score?">
+<meta property="og:title" content="You're challenged in Flappy Tappy! Beat my score">
+<meta property="og:description" content="30 seconds, one tap. Tap to play my run.">
+<!-- November 21: the link preview Messenger and Facebook show (a static page cannot change it per challenge). -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Flappy Tappy">
+<meta property="og:url" content="https://chiragmirani.github.io/ft/c/">
+<meta property="og:image" content="https://chiragmirani.github.io/ft/c/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Flappy Tappy: beat my score">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://chiragmirani.github.io/ft/c/og.png">
 <meta name="apple-itunes-app" content="app-id=1203310957">
 <meta name="google-play-app" content="app-id=com.flappytappy">
 <style>
@@ -49,6 +59,8 @@
   (function () {
     var q = new URLSearchParams(location.search);
     var d = q.get("d") || "";
+    // November 21: "Beat my score" links carry only the challenge id (?x=); the game loads the rest.
+    var x = /^[A-Za-z0-9]{8}$/.test(q.get("x") || "") ? q.get("x") : "";
     var code = q.get("code") || "";
     // Aggregate Apple campaign only: no invitation code or recipient is sent to Apple.
     document.getElementById("get").href = "https://apps.apple.com/app/apple-store/id1203310957?pt=118564186&ct=" + (code && !d ? "friend-invite" : "friend-challenge") + "&mt=8";
@@ -73,6 +85,11 @@
       document.getElementById("who").textContent = (name || "Your friend") + " is playing on Android. Duels between iPhone and Android are coming soon.";
       document.getElementById("open").hidden = true;
     }
+    // November 21: the iPhone game cannot read id links (?x=) yet: say so instead of opening it for nothing.
+    if (x && !isAndroid && /iPhone|iPad|iPod|Macintosh/i.test(navigator.userAgent)) {
+      document.getElementById("who").textContent = (name || "Your friend") + " plays on Android. iPhone challenges are coming soon.";
+      document.getElementById("open").hidden = true;
+    }
     // Android (package com.flappytappy): an intent:// link opens the game when it is installed and Google Play when it
     // is not, in one tap.
     if (isAndroid) {
@@ -80,13 +97,15 @@
       // installs it and the challenge opens (or the duel joins) on the game's first launch. utm_* tags make friend
       // installs a separate source in Analytics.
       var ref;
-      if (d) ref = "utm_source=challenge&utm_medium=friend&utm_campaign=challenge_link&ch=" + d;
+      if (x) ref = "utm_source=challenge&utm_medium=friend&utm_campaign=beat_link&cx=" + x;
+      else if (d) ref = "utm_source=challenge&utm_medium=friend&utm_campaign=challenge_link&ch=" + d;
       else if (code) ref = "utm_source=friend-invite&utm_medium=friend&utm_campaign=invite_link&code=" + encodeURIComponent(code)
                          + (isNaN(e) ? "" : "&e=" + e) + (name ? "&n=" + encodeURIComponent(name) : "");
       else ref = "utm_source=challenge&utm_medium=friend&utm_campaign=challenge_link";
       var play = "https://play.google.com/store/apps/details?id=com.flappytappy&referrer=" + encodeURIComponent(ref);
       var tail = "package=com.flappytappy;S.browser_fallback_url=" + encodeURIComponent(play) + ";end";
-      if (d) app = "intent://challenge?d=" + encodeURIComponent(d) + "#Intent;scheme=flappytappy;" + tail;
+      if (x) app = "intent://challenge?x=" + x + "#Intent;scheme=flappytappy;" + tail;
+      else if (d) app = "intent://challenge?d=" + encodeURIComponent(d) + "#Intent;scheme=flappytappy;" + tail;
       else if (code) {
         // The live invitation: the game joins the friend's duel straight away (the link keeps its code, end time,
         // name and relay).
@@ -99,6 +118,9 @@
     }
     if (ended) document.getElementById("open").hidden = true;
     document.getElementById("open").href = app;
+    // November 21: a Beat my score link on Android opens the game (or Google Play) by itself, one tap fewer. Browsers
+    // that refuse a jump without a tap simply stay here, with the big button.
+    if (isAndroid && x) { document.getElementById("open").textContent = "Play the challenge"; setTimeout(function () { location.href = app; }, 50); }
   })();
 </script>
 </body>
