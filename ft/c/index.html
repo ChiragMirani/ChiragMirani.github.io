@@ -103,7 +103,9 @@
       // installs it and the challenge opens (or the duel joins) on the game's first launch. utm_* tags make friend
       // installs a separate source in Analytics.
       var ref;
-      if (x) ref = "utm_source=challenge&utm_medium=friend&utm_campaign=beat_link&cx=" + x;
+      // November 22: the sender's app version (v=) rides along as utm_content, so installs count per version.
+      var sv = /^[0-9]{1,4}$/.test(q.get("v") || "") ? "&utm_content=v" + q.get("v") : "";
+      if (x) ref = "utm_source=challenge&utm_medium=friend&utm_campaign=beat_link" + sv + "&cx=" + x;
       else if (d) ref = "utm_source=challenge&utm_medium=friend&utm_campaign=challenge_link&ch=" + d;
       else if (code) ref = "utm_source=friend-invite&utm_medium=friend&utm_campaign=invite_link&code=" + encodeURIComponent(code)
                          + (isNaN(e) ? "" : "&e=" + e) + (name ? "&n=" + encodeURIComponent(name) : "");
