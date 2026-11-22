@@ -6,8 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>You're challenged! · Flappy Tappy</title>
 <meta name="description" content="30-second one-tap duels. Beat my score in Flappy Tappy.">
-<meta property="og:title" content="You're challenged in Flappy Tappy! Beat my score">
-<meta property="og:description" content="30 seconds, one tap. Tap to play my run.">
+<meta property="og:title" content="You've been challenged in Flappy Tappy">
+<meta property="og:description" content="Can you beat my score? 30 seconds, one tap.">
 <!-- November 21: the link preview Messenger and Facebook show (a static page cannot change it per challenge). -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Flappy Tappy">
@@ -38,20 +38,23 @@
   .play { background: var(--magenta); color:#fff; }
   .get { background:#fff; color: var(--violet); border:2px solid var(--violet); }
   .small { color: var(--muted); font-size:14px; margin-top:16px; line-height:1.4; }
+  [hidden] { display:none !important; }
+  h1#title { font-size:32px; }
+  .beat { font-size:26px; font-weight:900; margin:0 0 8px; }
 </style>
 </head>
 <body>
 <main class="card">
-  <span class="tag">YOU'RE CHALLENGED</span>
-  <h1>Flappy Tappy</h1>
-  <p class="who" id="who">A friend challenges you!</p>
+  <span class="tag">FLAPPY TAPPY</span>
+  <h1 id="title">You've been challenged!</h1>
+  <p class="who" id="who">Your friend set a score.</p>
   <div id="scorebox" hidden>
-    <div class="score">SCORE TO BEAT</div>
     <div class="num" id="num">0</div>
+    <div class="beat" id="beat">Can you beat them?</div>
   </div>
-  <a class="btn play" id="open" href="#">Play the challenge</a>
+  <a class="btn play" id="open" href="#">Accept challenge</a>
   <a class="btn get" id="get" href="https://apps.apple.com/app/apple-store/id1203310957?pt=118564186&amp;ct=friend-challenge&amp;mt=8">Get Flappy Tappy (free)</a>
-  <p class="small" id="small">30-second duels, one tap. No game yet? Get it free, then come back and tap “Play the challenge”.</p>
+  <p class="small" id="small">30 seconds. Highest score wins.</p>
 </main>
 <script>
   // The challenge travels in the link itself (?d=...). The page reads only the name and score for display;
@@ -66,7 +69,10 @@
     document.getElementById("get").href = "https://apps.apple.com/app/apple-store/id1203310957?pt=118564186&ct=" + (code && !d ? "friend-invite" : "friend-challenge") + "&mt=8";
     var name = (q.get("n") || "").slice(0, 20);
     var pts = parseInt(q.get("p") || "", 10);
-    if (name) document.getElementById("who").textContent = code && !d ? name + " invited you to a duel!" : name + " challenges you!";
+    // November 22: personal, in the owner's layout: "Chirag scored 24. Can you beat Chirag?"
+    if (name) document.getElementById("who").textContent = code && !d ? name + " invited you to a duel!" : name + " scored";
+    else document.getElementById("who").textContent = "Your friend scored";
+    if (name && !(code && !d)) document.getElementById("beat").textContent = "Can you beat " + name + "?";
     if (code && !d) {
       document.getElementById("open").textContent = name ? "Join " + name + "'s duel" : "Join the duel";
       document.getElementById("small").textContent = "30-second duels, one tap. No game yet? Get it free: on Android the duel joins by itself when the game first opens.";
@@ -112,15 +118,17 @@
         var extra = (isNaN(e) ? "" : "&e=" + e) + (name ? "&n=" + encodeURIComponent(name) : "") + (relay ? "&r=" + encodeURIComponent(relay) : "");
         app = "intent://duel?code=" + encodeURIComponent(code) + extra + "#Intent;scheme=flappytappy;" + tail;
       } else app = "intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;" + tail;
+      // November 22 (owner): one button only. "Accept challenge" already opens the game, or Google Play when it is
+      // not installed (the challenge rides along in the install referrer).
       var get = document.getElementById("get");
       get.href = play;
-      get.textContent = "Get it on Google Play (free)";
+      get.style.display = "none";
     }
     if (ended) document.getElementById("open").hidden = true;
     document.getElementById("open").href = app;
     // November 21: a Beat my score link on Android opens the game (or Google Play) by itself, one tap fewer. Browsers
     // that refuse a jump without a tap simply stay here, with the big button.
-    if (isAndroid && x) { document.getElementById("open").textContent = "Play the challenge"; setTimeout(function () { location.href = app; }, 50); }
+    if (isAndroid && x) { document.getElementById("open").textContent = "Accept challenge"; setTimeout(function () { location.href = app; }, 50); }
   })();
 </script>
 </body>
