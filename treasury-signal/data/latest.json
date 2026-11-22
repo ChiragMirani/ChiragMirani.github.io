@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "page_updated_at_utc": "2026-11-21T00:34:40.263279+00:00",
-  "checked_at_utc": "2026-11-21T00:34:37.567515+00:00",
+  "page_updated_at_utc": "2026-11-22T00:35:34.918415+00:00",
+  "checked_at_utc": "2026-11-22T00:35:32.113424+00:00",
   "kind": "issued_forecast",
   "issued_at_utc": "2026-11-21T00:34:35.384936+00:00",
   "signal_generated_as_of_utc": "2026-11-21T00:34:35.384936+00:00",
@@ -136,7 +136,7 @@
     }
   ],
   "refresh_note": null,
-  "last_refresh_attempt_at_utc": "2026-11-21T00:34:37.567515+00:00",
+  "last_refresh_attempt_at_utc": "2026-11-22T00:35:32.113424+00:00",
   "interpretation": "Published weekly signal; assess against your macro view and risk budget.",
   "forecast_horizon": "Duration view one week ahead, from the reference Friday to the following Friday; visiting on another day does not change the horizon.",
   "prospective": {
