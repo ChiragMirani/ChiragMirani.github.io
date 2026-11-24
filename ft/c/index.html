@@ -130,7 +130,22 @@
     document.getElementById("open").href = app;
     // November 21: a Beat my score link on Android opens the game (or Google Play) by itself, one tap fewer. Browsers
     // that refuse a jump without a tap simply stay here, with the big button.
-    if (isAndroid && x) { document.getElementById("open").textContent = "Accept challenge"; setTimeout(function () { location.href = app; }, 50); }
+    // November 23 (owner: "direct install link if they don't have it, otherwise duel open"): no tap needed anywhere.
+    //  - Inside Messenger, Facebook, Instagram and similar in-app browsers, "open the app" links fail silently, so go
+    //    straight to Google Play (the challenge rides along in the install referrer).
+    //  - Elsewhere (Chrome), open the game at once (Google Play when it is not installed); if the page is still showing
+    //    1.5 seconds later, the jump was blocked, so go to Google Play.
+    if (isAndroid && !ended) {
+      var inApp = /FBAN|FBAV|FB_IAB|FBIOS|Messenger|Instagram|Line\/|Twitter|TikTok|musical_ly|Snapchat|; wv\)/i.test(navigator.userAgent);
+      document.getElementById("open").textContent = x || d ? "Accept challenge" : document.getElementById("open").textContent;
+      if (inApp) {
+        document.getElementById("open").href = play;
+        setTimeout(function () { location.href = play; }, 50);
+      } else {
+        setTimeout(function () { location.href = app; }, 50);
+        setTimeout(function () { if (!document.hidden) location.href = play; }, 1500);
+      }
+    }
   })();
 </script>
 </body>
