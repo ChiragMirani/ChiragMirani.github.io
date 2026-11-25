@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://chiragmirani.github.io/through-the-ring/</loc>
-    <lastmod>2026-11-07</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://chiragmirani.github.io/through-the-ring/games-without-in-app-purchases.html</loc>
@@ -18,10 +18,11 @@
   </url>
   <url>
     <loc>https://chiragmirani.github.io/through-the-ring/support.html</loc>
-    <lastmod>2026-11-07</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://chiragmirani.github.io/through-the-ring/privacy.html</loc>
     <lastmod>2026-10-18</lastmod>
   </url>
+  <url><loc>https://chiragmirani.github.io/through-the-ring/facetime-shareplay-game.html</loc><lastmod>2026-11-25</lastmod></url>
 </urlset>
