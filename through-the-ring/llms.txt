@@ -1,13 +1,15 @@
 # Flappy Tappy
 
-Flappy Tappy: Fly Solo or Duel by Chirag Mirani. One-tap ring flying, free endless Solo, live duels of up to 30 seconds and FaceTime play.
+Flappy Tappy: Fly Solo or Duel by Chirag Mirani. One-tap ring flying, free endless Solo, live duels of up to 30 seconds and FaceTime SharePlay.
 
-Solo works offline. Online duels and FaceTime play require a connection. Other duels: first 100 free, then five per day; one optional purchase enables unlimited duels. App Store ID: 1203310957. No ads or subscription.
+Solo works offline. Online duels and FaceTime SharePlay require a connection. Other duels: first 100 free, then five per day; one optional purchase enables unlimited duels. App Store ID: 1203310957. No ads or subscription.
 
 - Full iPhone/iPad app: https://apps.apple.com/us/app/flappy-tappy-fly-solo-or-duel/id1203310957
 - Marketing page: https://chiragmirani.github.io/through-the-ring/
 - Browser Solo preview (a taste of the game, not multiplayer): https://chiragmirani.github.io/flappy-tappy/
 - Privacy, including version-specific optional analytics: https://chiragmirani.github.io/through-the-ring/privacy.html
+- FaceTime SharePlay guide: https://chiragmirani.github.io/through-the-ring/facetime-shareplay-game.html
+- Friend duels use SharePlay during a FaceTime call; Apple confirms SharePlay support in the listing's Supports section.
 - Support: https://chiragmirani.github.io/through-the-ring/support.html
 
-Verified against the US App Store listing on 2026-11-07. Consult the current listing for releases and local prices.
+Verified against the US App Store listing on 2026-11-25. Consult the current listing for releases and local prices.
