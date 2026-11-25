@@ -2,6 +2,16 @@
 
 Static GitHub Pages repository for Chirag Mirani projects.
 
+## Research papers
+
+- [A Simple Weekly Signal for the U.S. 10-Year Treasury Yield](https://chiragmirani.github.io/treasury-signal/paper/) — Chirag Mirani, November 7, 2026, working paper version 5. [PDF](https://chiragmirani.github.io/treasury-signal/paper/treasury-signal-preprint.pdf), [reproducible code and results](https://chiragmirani.github.io/treasury-signal/paper/treasury-signal-code.zip), and [weekly signal tool](https://chiragmirani.github.io/treasury-signal/). Historical scores measure yield direction, not portfolio returns.
+- [Exposure-Time Normalized Performance: Strategy Evaluation Under Binding Exposure Constraints](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6292699) — research on exposure-time-normalized strategy evaluation.
+- [Research and publications](https://chiragmirani.github.io/research/).
+
+## Flappy Tappy
+
+[Flappy Tappy: Fly Solo or Duel](https://chiragmirani.github.io/through-the-ring/) is an ad-free one-tap iPhone and iPad game with live friend duels and FaceTime SharePlay. [FaceTime setup guide](https://chiragmirani.github.io/through-the-ring/facetime-shareplay-game.html). The [browser teaser](https://chiragmirani.github.io/flappy-tappy/) is Solo only.
+
 ## Live Readers
 
 1. [The Vedas](https://chiragmirani.github.io/vedas/) - public-domain English translations of the four Veda Samhitas with source links, plain meanings, event relevance, and original-language fields where aligned.
