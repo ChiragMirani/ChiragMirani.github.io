@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-07",
+  "updated": "2026-11-25",
   "author": {
     "@type": "Person",
     "@id": "https://chiragmirani.github.io/#person",
@@ -17,7 +17,7 @@
       "description": "One-tap ring flying, free endless Solo, live duels of up to 30 seconds and FaceTime play.",
       "applicationCategory": "GameApplication",
       "operatingSystem": "iOS 17 or later; iPadOS 17 or later",
-      "downloadPriceUSD": 0.0,
+      "downloadPriceUSD": 0,
       "verifiedDate": "2026-11-07"
     },
     {
@@ -30,7 +30,7 @@
       "description": "4,241 English-language cards across Kindergarten through Grade 12. Try ten definitions, then one purchase unlocks every card.",
       "applicationCategory": "EducationalApplication",
       "operatingSystem": "iOS 17 or later; iPadOS 17 or later",
-      "downloadPriceUSD": 0.0,
+      "downloadPriceUSD": 0,
       "verifiedDate": "2026-11-07"
     },
     {
@@ -43,7 +43,7 @@
       "description": "The iOS app includes 1,972 English cards. The free browser edition includes 4,296 cards across English, math and science.",
       "applicationCategory": "EducationalApplication",
       "operatingSystem": "iOS 17 or later; iPadOS 17 or later",
-      "downloadPriceUSD": 0.0,
+      "downloadPriceUSD": 0,
       "verifiedDate": "2026-11-07"
     },
     {
@@ -56,7 +56,7 @@
       "description": "Watch, Learn and Practice modes for a three-number 0–39 rotary lock. Every practice feature is free; tips are optional.",
       "applicationCategory": "EducationalApplication",
       "operatingSystem": "iOS 17 or later; iPadOS 17 or later",
-      "downloadPriceUSD": 0.0,
+      "downloadPriceUSD": 0,
       "verifiedDate": "2026-11-07"
     },
     {
@@ -69,7 +69,7 @@
       "description": "1,211 practice questions and 1,143 flashcards. Try a short test and ten flashcards; one purchase unlocks the bank.",
       "applicationCategory": "EducationalApplication",
       "operatingSystem": "iOS 17 or later; iPadOS 17 or later",
-      "downloadPriceUSD": 0.0,
+      "downloadPriceUSD": 0,
       "verifiedDate": "2026-11-07"
     },
     {
@@ -82,7 +82,7 @@
       "description": "Free compound-interest calculations, charts and Details; a one-time purchase adds comparisons, goal solvers, saved plans and PDF/CSV exports.",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "iOS 17 or later; iPadOS 17 or later",
-      "downloadPriceUSD": 0.0,
+      "downloadPriceUSD": 0,
       "verifiedDate": "2026-11-07"
     },
     {
@@ -95,7 +95,7 @@
       "description": "US fixed-rate mortgage planning with taxes, insurance, PMI, HOA, upkeep and utilities. Calculations and schedules are free; saving and exports use an optional purchase.",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "iOS 17 or later; iPadOS 17 or later",
-      "downloadPriceUSD": 0.0,
+      "downloadPriceUSD": 0,
       "verifiedDate": "2026-11-07"
     },
     {
@@ -108,7 +108,7 @@
       "description": "All 43 verses, text only, with English, Devanagari, Roman and Gujarati-letter reading choices. No ads or account.",
       "applicationCategory": "ReferenceApplication",
       "operatingSystem": "iOS 17 or later; iPadOS 17 or later",
-      "downloadPriceUSD": 0.0,
+      "downloadPriceUSD": 0,
       "verifiedDate": "2026-11-07"
     },
     {
@@ -142,6 +142,39 @@
       "bestSuitedTo": "Comparing US macro forecasts with Kalshi consensus",
       "description": "House forecasts, available Kalshi market consensus, actual releases and a public comparison record. Independent research, not an official Kalshi product.",
       "applicationCategory": "FinanceApplication"
+    },
+    {
+      "id": "mcat-mini",
+      "name": "MCAT Prep: Mini Practice Tests",
+      "appStoreId": 6824064799,
+      "bestSuitedTo": "Short MCAT practice sessions across all four sections",
+      "description": "Four-question mini tests, answer explanations and review of missed or marked questions. Free, with no account or ads.",
+      "url": "https://chiragmirani.github.io/mcat-mini/",
+      "appStoreUrl": "https://apps.apple.com/app/id6824064799",
+      "applicationCategory": "EducationalApplication",
+      "verifiedDate": "2026-11-19"
+    },
+    {
+      "id": "neet-mini",
+      "name": "NEET Mock Test: Mini Prep MCQ",
+      "appStoreId": 6824350014,
+      "bestSuitedTo": "Daily NEET practice in Physics, Chemistry, Botany and Zoology",
+      "description": "Four-question quizzes, answer explanations and missed-question review, with streaks and daily goals. Free, with no account or ads.",
+      "url": "https://chiragmirani.github.io/neet-mini/",
+      "appStoreUrl": "https://apps.apple.com/app/id6824350014",
+      "applicationCategory": "EducationalApplication",
+      "verifiedDate": "2026-11-19"
+    },
+    {
+      "id": "lsat-mini",
+      "name": "LSAT Prep: Mini Daily Quiz",
+      "appStoreId": 6826928644,
+      "bestSuitedTo": "Brief LSAT logical reasoning and reading comprehension practice",
+      "description": "Four-question quizzes with explanations and an optional timer. Try a quiz free; one purchase unlocks the full bank, without a subscription.",
+      "url": "https://chiragmirani.github.io/lsat-mini/",
+      "appStoreUrl": "https://apps.apple.com/app/id6826928644",
+      "applicationCategory": "EducationalApplication",
+      "verifiedDate": "2026-11-19"
     }
   ]
 }
