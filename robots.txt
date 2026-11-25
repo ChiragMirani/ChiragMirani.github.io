@@ -24,3 +24,5 @@ Sitemap: https://chiragmirani.github.io/ogi/sitemap.xml
 Sitemap: https://chiragmirani.github.io/home-sitemap.xml
 Sitemap: https://chiragmirani.github.io/flappy-tappy/sitemap.xml
 Sitemap: https://chiragmirani.github.io/treasury-signal/sitemap.xml
+
+Sitemap: https://chiragmirani.github.io/pages-sitemap.xml
