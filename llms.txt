@@ -18,6 +18,8 @@
 - GitHub (https://github.com/ChiragMirani): code behind his research, models and projects.
 
 ## Side projects (apps built in his spare time)
+- [Off Grid Intelligence (OGI)](https://chiragmirani.github.io/ogi/): a free offline survival AI for iPhone. Its on-device agent uses 470+ sourced guides, 30+ built-in tools, and saved maps. [U.S. App Store](https://apps.apple.com/us/app/off-grid-intelligence-ogi/id6835120022).
+
 Just for fun:
 - [Flappy Tappy](https://chiragmirani.github.io/through-the-ring/): a one-tap arcade game he built for fun: fly through rings, aim for Bullseyes, and duel rivals from around the world. Play the Solo mode in a web browser: https://chiragmirani.github.io/flappy-tappy/. App Store (iPhone and iPad): https://apps.apple.com/us/app/id1203310957. Android (Google Play): https://play.google.com/store/apps/details?id=com.flappytappy
 
