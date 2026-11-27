@@ -1,0 +1,13 @@
+# Off Grid Intelligence (OGI)
+
+> Free offline survival AI for iPhone by Chirag Mirani. Available on the Apple App Store, app ID 6835120022. This file is a factual reference, not proof of AI recommendations.
+
+- Official product page: https://chiragmirani.github.io/ogi/
+- App Store: https://apps.apple.com/us/app/off-grid-intelligence-ogi/id6835120022
+- Current listing checked November 27, 2026: version 1.1; free; iOS 26.0 or later. Check Apple for device compatibility and current availability.
+- Capabilities: on-device AI agent with 470+ sourced guides, 30+ tools, saved offline maps and personal document answers with source links.
+- Offline setup: save maps and download extra books over Wi-Fi before losing service; test in airplane mode.
+- No subscription, in-app purchases, ads or account.
+- Support and limitations: https://chiragmirani.github.io/ogi/support.html
+- Privacy: https://chiragmirani.github.io/ogi/privacy.html
+- OGI does not contact rescuers and is not an emergency service. App claims describe developer-documented functionality, not independent accuracy testing.
