@@ -295,6 +295,155 @@
         ]
       }
     ],
+    "score_bp": -2.0,
+    "outcome_status": "completed"
+  },
+  {
+    "signal_date": "2026-11-27",
+    "forecast_end": "2026-12-04",
+    "issued_at_utc": "2026-11-28T00:36:08.695982+00:00",
+    "model": "weekly-14-quarterly-tips-2026-11-07-v5",
+    "position": 1,
+    "view": "Bullish Duration",
+    "checklist_score": 6,
+    "prob_yield_down_uncalibrated": 0.6959398861897166,
+    "answers": {
+      "us_eq": 1,
+      "em_eq": 1,
+      "oil": 1,
+      "usd": 1,
+      "vix": 1,
+      "slack": 1,
+      "pce": -1,
+      "real": 1,
+      "curve": -1,
+      "de10": 1,
+      "jp10": 1,
+      "uk10": -1,
+      "dec": 0,
+      "tips_30": 0
+    },
+    "publisher_sources": [
+      {
+        "series": "DGS10",
+        "observation_date": "2026-11-27",
+        "value": 4.94,
+        "publisher_field": "10 Yr",
+        "overlap_check": {
+          "observations": 20,
+          "first": "2026-10-28",
+          "last": "2026-11-25",
+          "max_absolute_difference": 0.0
+        },
+        "sources": [
+          {
+            "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2026/all?_format=csv&field_tdr_date_value=2026&page=&type=daily_treasury_yield_curve",
+            "retrieved_at_utc": "2026-11-28T00:36:07.597720+00:00",
+            "raw_sha256": "a37e0a945f074a2246cd17eec5f70494c563d4696d08d6ad47c38150850c7020"
+          }
+        ]
+      },
+      {
+        "series": "DGS2",
+        "observation_date": "2026-11-27",
+        "value": 4.69,
+        "publisher_field": "2 Yr",
+        "overlap_check": {
+          "observations": 20,
+          "first": "2026-10-28",
+          "last": "2026-11-25",
+          "max_absolute_difference": 0.0
+        },
+        "sources": [
+          {
+            "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2026/all?_format=csv&field_tdr_date_value=2026&page=&type=daily_treasury_yield_curve",
+            "retrieved_at_utc": "2026-11-28T00:36:07.597720+00:00",
+            "raw_sha256": "a37e0a945f074a2246cd17eec5f70494c563d4696d08d6ad47c38150850c7020"
+          }
+        ]
+      },
+      {
+        "series": "VIXCLS",
+        "observation_date": "2026-11-27",
+        "value": 23.81,
+        "publisher_field": "cash VIX daily close",
+        "overlap_check": {
+          "observations": 20,
+          "first": "2026-10-30",
+          "last": "2026-11-26",
+          "max_absolute_difference": 0.0
+        },
+        "sources": [
+          {
+            "url": "https://query1.finance.yahoo.com/v8/finance/chart/%5EVIX?range=3mo&interval=1d",
+            "retrieved_at_utc": "2026-11-28T00:35:49.055629+00:00",
+            "raw_sha256": "aacdd5dd1f8520ad345e8f26e9d0daa43f4414bd8cf1b691a2d25a94d360f9a2"
+          },
+          {
+            "url": "https://www.cboe.com/us/options/holidays/csv/",
+            "retrieved_at_utc": "2026-11-28T00:35:49.048518+00:00",
+            "raw_sha256": "c847472740be56fb8436b75b50f392f4966f3290b66185b7113c194c3e6f9273"
+          }
+        ]
+      },
+      {
+        "series": "NASDAQCOM",
+        "observation_date": "2026-11-27",
+        "value": 24129.5,
+        "publisher_field": "EOD index value (COMP)",
+        "overlap_check": {
+          "observations": 20,
+          "first": "2026-10-29",
+          "last": "2026-11-25",
+          "max_absolute_difference": 0.0
+        },
+        "sources": [
+          {
+            "url": "https://indexes.nasdaq.com/Index/History/COMP",
+            "retrieved_at_utc": "2026-11-28T00:36:08.000481+00:00",
+            "raw_sha256": "4e28e601a9a2a7efda63f8254da4eb71c5f9d3b9685225f173e9c9197d6314a8"
+          }
+        ]
+      },
+      {
+        "series": "NASDAQNQEM",
+        "observation_date": "2026-11-26",
+        "value": 1510.99,
+        "publisher_field": "EOD index value (NQEM)",
+        "overlap_check": {
+          "observations": 20,
+          "first": "2026-10-29",
+          "last": "2026-11-25",
+          "max_absolute_difference": 0.0
+        },
+        "sources": [
+          {
+            "url": "https://indexes.nasdaq.com/Index/History/NQEM",
+            "retrieved_at_utc": "2026-11-28T00:36:08.283499+00:00",
+            "raw_sha256": "85529ab9f44fe24a3c7e00744666597d79914b0b82fc707d90517bc181646d93"
+          }
+        ]
+      },
+      {
+        "series": "NASDAQNQEM",
+        "observation_date": "2026-11-27",
+        "value": 1521.81,
+        "publisher_field": "EOD index value (NQEM)",
+        "overlap_check": {
+          "observations": 20,
+          "first": "2026-10-29",
+          "last": "2026-11-25",
+          "max_absolute_difference": 0.0
+        },
+        "sources": [
+          {
+            "url": "https://indexes.nasdaq.com/Index/History/NQEM",
+            "retrieved_at_utc": "2026-11-28T00:36:08.283499+00:00",
+            "raw_sha256": "85529ab9f44fe24a3c7e00744666597d79914b0b82fc707d90517bc181646d93"
+          }
+        ]
+      }
+    ],
     "score_bp": null,
     "outcome_status": "pending"
   }
